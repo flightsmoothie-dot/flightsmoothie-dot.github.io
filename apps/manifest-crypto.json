@@ -1,0 +1,27 @@
+{
+  "name": "CryptoQuiz 3D — NovaCrypto",
+  "short_name": "CryptoQuiz",
+  "description": "Test your crypto IQ with 50+ questions. Win XP, earn badges, learn while you play.",
+  "start_url": "/apps/crypto_quiz_game.html",
+  "display": "standalone",
+  "orientation": "portrait",
+  "background_color": "#07070F",
+  "theme_color": "#F7B731",
+  "icons": [
+    {
+      "src": "data:image/svg+xml,<svg xmlns='http://www.w3.org/2000/svg' viewBox='0 0 192 192'><rect width='192' height='192' fill='%2307070F' rx='32'/><text x='96' y='130' font-size='100' text-anchor='middle'>₿</text></svg>",
+      "sizes": "192x192",
+      "type": "image/svg+xml"
+    },
+    {
+      "src": "data:image/svg+xml,<svg xmlns='http://www.w3.org/2000/svg' viewBox='0 0 512 512'><rect width='512' height='512' fill='%2307070F' rx='80'/><text x='256' y='340' font-size='280' text-anchor='middle'>₿</text></svg>",
+      "sizes": "512x512",
+      "type": "image/svg+xml"
+    }
+  ],
+  "categories": ["education", "finance", "games"],
+  "lang": "en",
+  "screenshots": [],
+  "related_applications": [],
+  "prefer_related_applications": false
+}

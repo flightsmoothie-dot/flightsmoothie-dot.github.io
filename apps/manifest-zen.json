@@ -1,0 +1,27 @@
+{
+  "name": "ZenMind — Mindfulness & Meditation Challenge",
+  "short_name": "ZenMind",
+  "description": "Explore your inner peace. 40 mindfulness questions to awaken your zen.",
+  "start_url": "/apps/zenmind_game.html",
+  "display": "standalone",
+  "orientation": "portrait",
+  "background_color": "#06040F",
+  "theme_color": "#7C3AED",
+  "icons": [
+    {
+      "src": "data:image/svg+xml,<svg xmlns='http://www.w3.org/2000/svg' viewBox='0 0 192 192'><rect width='192' height='192' fill='%2306040F' rx='32'/><text x='96' y='130' font-size='100' text-anchor='middle'>🧘</text></svg>",
+      "sizes": "192x192",
+      "type": "image/svg+xml"
+    },
+    {
+      "src": "data:image/svg+xml,<svg xmlns='http://www.w3.org/2000/svg' viewBox='0 0 512 512'><rect width='512' height='512' fill='%2306040F' rx='80'/><text x='256' y='340' font-size='280' text-anchor='middle'>🧘</text></svg>",
+      "sizes": "512x512",
+      "type": "image/svg+xml"
+    }
+  ],
+  "categories": ["education", "health", "lifestyle"],
+  "lang": "en",
+  "screenshots": [],
+  "related_applications": [],
+  "prefer_related_applications": false
+}

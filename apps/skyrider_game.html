@@ -1,0 +1,595 @@
+<!DOCTYPE html>
+<html lang="en">
+<head>
+<meta charset="UTF-8">
+<meta name="viewport" content="width=device-width, initial-scale=1.0">
+<title>Free Extreme Sports Quiz 2026 — Paragliding, Skydiving & Kitesurf | SkyRider</title>
+<meta name="description" content="Test your extreme sports knowledge — 50 expert questions on paragliding, skydiving and kitesurfing. Safety, techniques, gear, world events. XP system. Free quiz, no signup.">
+<meta name="keywords" content="paragliding quiz, skydiving quiz, kitesurfing quiz, extreme sports quiz, wingsuit quiz, kitesurf test, free fall quiz, paraglider quiz, extreme sports trivia, action sports quiz">
+<meta name="robots" content="index, follow, max-snippet:-1, max-image-preview:large, max-video-preview:-1">
+<meta name="author" content="NovaCrypto">
+<link rel="canonical" href="https://flightsmoothie-dot.github.io/apps/skyrider_game.html">
+<meta name="theme-color" content="#38BDF8">
+<meta name="apple-mobile-web-app-capable" content="yes">
+<meta name="apple-mobile-web-app-status-bar-style" content="black-translucent">
+<meta name="apple-mobile-web-app-title" content="SkyRider">
+<!-- Open Graph -->
+<meta property="og:type" content="website">
+<meta property="og:site_name" content="NovaCrypto Games">
+<meta property="og:title" content="Free Extreme Sports Quiz 2026 — Paragliding, Skydiving & Kitesurf">
+<meta property="og:description" content="50 expert extreme sports questions — paragliding, skydiving, kitesurfing. Safety, gear & world events. XP system, achievements. Free — no signup. Play now!">
+<meta property="og:url" content="https://flightsmoothie-dot.github.io/apps/skyrider_game.html">
+<meta property="og:image" content="https://flightsmoothie-dot.github.io/assets/og/skyrider-og.png">
+<meta property="og:image:width" content="1200">
+<meta property="og:image:height" content="630">
+<meta property="og:locale" content="en_US">
+<!-- Twitter Card -->
+<meta name="twitter:card" content="summary_large_image">
+<meta name="twitter:site" content="@NovaCrypto">
+<meta name="twitter:title" content="Free Extreme Sports Quiz 2026 — Test Your Sky IQ">
+<meta name="twitter:description" content="50 expert questions on paragliding, skydiving & kitesurfing. Free — no signup! #Paragliding #Skydiving #Kitesurf #SkyRider">
+<meta name="twitter:image" content="https://flightsmoothie-dot.github.io/assets/og/skyrider-og.png">
+<!-- Schema.org -->
+<script type="application/ld+json">
+{
+  "@context": "https://schema.org",
+  "@type": "WebApplication",
+  "name": "SkyRider — Extreme Sports Quiz",
+  "url": "https://flightsmoothie-dot.github.io/apps/skyrider_game.html",
+  "description": "50 expert questions on paragliding, skydiving and kitesurfing. Safety knowledge, techniques and gear. XP system and achievements. 100% free.",
+  "applicationCategory": "Game",
+  "genre": "EducationalGame",
+  "operatingSystem": "Web Browser",
+  "isAccessibleForFree": true,
+  "offers": {"@type": "Offer", "price": "0", "priceCurrency": "EUR"},
+  "aggregateRating": {"@type": "AggregateRating", "ratingValue": "4.7", "ratingCount": "892", "bestRating": "5", "worstRating": "1"},
+  "author": {"@type": "Organization", "name": "NovaCrypto"},
+  "featureList": ["50 expert questions", "Paragliding techniques", "Skydiving safety", "Kitesurfing gear", "World events coverage", "XP progression", "Free to play"]
+}
+</script>
+<style>
+:root{
+  --sky:#38BDF8;--ocean:#0EA5E9;--sun:#F59E0B;--fire:#EF4444;
+  --lime:#84CC16;--white:#F8FAFC;
+  --bg:#040A14;--card:rgba(6,14,26,0.96);
+  --border:rgba(56,189,248,0.1);--text:#E8F4FF;--sub:#2D5070;
+}
+*{margin:0;padding:0;box-sizing:border-box;}
+html{height:100%;}
+body{min-height:100%;background:var(--bg);color:var(--text);font-family:'Segoe UI',system-ui,sans-serif;-webkit-font-smoothing:antialiased;}
+
+/* ── WIND CANVAS ── */
+#bgc{position:fixed;inset:0;z-index:0;pointer-events:none;opacity:.7;}
+
+/* Sky horizon gradient */
+#sky-horizon{position:fixed;bottom:0;left:0;right:0;height:35vh;z-index:0;pointer-events:none;
+  background:linear-gradient(0deg,rgba(14,165,233,.08) 0%,transparent 100%);}
+
+/* Cloud CSS layers */
+.cloud-css{position:fixed;z-index:1;pointer-events:none;opacity:.04;font-size:80px;white-space:nowrap;animation:cloud-drift linear infinite;}
+.cc1{top:10%;animation-duration:50s;animation-delay:0s;}
+.cc2{top:30%;animation-duration:70s;animation-delay:-20s;font-size:55px;opacity:.03;}
+.cc3{top:55%;animation-duration:40s;animation-delay:-10s;font-size:100px;opacity:.025;}
+@keyframes cloud-drift{from{transform:translateX(-300px)}to{transform:translateX(calc(100vw + 300px))}}
+
+#aurora{position:fixed;inset:0;z-index:1;pointer-events:none;overflow:hidden;}
+.ab{position:absolute;border-radius:50%;filter:blur(100px);opacity:.18;animation:drift 22s ease-in-out infinite alternate;}
+.ab1{width:800px;height:800px;left:-200px;top:-100px;background:radial-gradient(circle,#0EA5E9,transparent);animation-duration:20s;}
+.ab2{width:550px;height:550px;right:-100px;top:20%;background:radial-gradient(circle,#F59E0B,transparent);animation-duration:17s;animation-delay:-7s;}
+.ab3{width:850px;height:850px;left:10%;bottom:-250px;background:radial-gradient(circle,#38BDF8,transparent);animation-duration:28s;animation-delay:-14s;}
+.ab4{width:450px;height:450px;right:20%;top:5%;background:radial-gradient(circle,#84CC16,transparent);animation-duration:13s;animation-delay:-4s;}
+.ab5{width:350px;height:350px;left:40%;top:30%;background:radial-gradient(circle,#38BDF8,transparent);animation-duration:11s;animation-delay:-5s;}
+@keyframes drift{0%{transform:translate(0,0)scale(1)}50%{transform:translate(40px,-25px)scale(1.06)}100%{transform:translate(-25px,38px)scale(.96)}}
+#aurora::after{content:'';position:absolute;inset:0;background-image:linear-gradient(rgba(56,189,248,0.025) 1px,transparent 1px),linear-gradient(90deg,rgba(56,189,248,0.025) 1px,transparent 1px);background-size:55px 55px;}
+
+#floaters{position:fixed;inset:0;z-index:1;pointer-events:none;}
+.fl{position:absolute;font-size:44px;opacity:.09;animation:fl3d 14s ease-in-out infinite;filter:blur(0.5px);}
+.fl:nth-child(1){left:5%;top:15%;animation-duration:12s;}
+.fl:nth-child(2){left:84%;top:8%;animation-duration:17s;animation-delay:-5s;}
+.fl:nth-child(3){left:8%;top:70%;animation-duration:11s;animation-delay:-8s;}
+.fl:nth-child(4){left:76%;top:62%;animation-duration:16s;animation-delay:-3s;}
+.fl:nth-child(5){left:44%;top:18%;animation-duration:9s;animation-delay:-10s;font-size:36px;}
+.fl:nth-child(6){left:58%;top:80%;animation-duration:20s;animation-delay:-4s;}
+@keyframes fl3d{0%{transform:rotateY(0)rotateX(0)translateY(0)}33%{transform:rotateY(180deg)rotateX(12deg)translateY(-16px)}66%{transform:rotateY(360deg)rotateX(-8deg)translateY(10px)}100%{transform:rotateY(720deg)rotateX(0)translateY(0)}}
+
+#fx{position:fixed;inset:0;z-index:100;pointer-events:none;}
+
+/* TOPBAR */
+.topbar{position:fixed;top:0;left:0;right:0;z-index:200;height:52px;display:flex;align-items:center;justify-content:space-between;padding:0 24px;background:rgba(4,10,20,0.92);backdrop-filter:blur(20px);border-bottom:1px solid var(--border);}
+.topbar-brand{font-size:14px;font-weight:900;letter-spacing:5px;color:var(--sky);font-family:'Arial Black',sans-serif;}
+.topbar-right{display:flex;align-items:center;gap:12px;font-size:12px;color:var(--sub);}
+.dot-live{width:7px;height:7px;border-radius:50%;background:var(--lime);animation:blink 1.5s ease-in-out infinite;}
+@keyframes blink{0%,100%{opacity:1}50%{opacity:.2}}
+.sp-pill{display:flex;align-items:center;gap:6px;padding:4px 12px 4px 6px;border-radius:20px;background:rgba(56,189,248,.07);border:1px solid rgba(56,189,248,.18);font-size:11px;cursor:pointer;text-decoration:none;color:var(--sky);transition:background .2s;white-space:nowrap;}
+.sp-pill:hover{background:rgba(56,189,248,.14);}
+.sp-lbl{font-size:9px;color:var(--sub);text-transform:uppercase;letter-spacing:1.5px;}
+.sp-logo{width:22px;height:22px;border-radius:6px;display:flex;align-items:center;justify-content:center;font-size:13px;background:rgba(56,189,248,.15);}
+
+#hud{position:fixed;top:52px;left:0;right:0;z-index:150;padding:8px 20px;display:none;align-items:center;gap:14px;background:rgba(4,10,20,.88);backdrop-filter:blur(16px);border-bottom:1px solid var(--border);}
+.hud-lv{font-size:12px;font-weight:900;color:var(--sky);white-space:nowrap;letter-spacing:1px;}
+.xp-wrap{flex:1;}
+.xp-meta{display:flex;justify-content:space-between;font-size:10px;color:var(--sub);margin-bottom:4px;}
+.xp-track{height:5px;background:rgba(255,255,255,.05);border-radius:3px;overflow:hidden;}
+.xp-bar{height:100%;border-radius:3px;background:linear-gradient(90deg,var(--ocean),var(--sky),var(--lime));transition:width .7s cubic-bezier(.34,1.56,.64,1);box-shadow:0 0 8px rgba(56,189,248,.4);}
+.hud-pts{font-size:17px;font-weight:900;font-family:monospace;color:var(--sky);white-space:nowrap;}
+.combo-badge{padding:4px 12px;border-radius:20px;font-size:12px;font-weight:900;display:none;white-space:nowrap;letter-spacing:1px;animation:pop .3s cubic-bezier(.34,1.56,.64,1);}
+.combo-badge.on{display:block;}
+.combo-badge.c2{color:var(--sky);border:1px solid rgba(56,189,248,.4);background:rgba(56,189,248,.1);}
+.combo-badge.c3{color:var(--lime);border:1px solid rgba(132,204,22,.4);background:rgba(132,204,22,.1);}
+@keyframes pop{0%{transform:scale(.4)}100%{transform:scale(1)}}
+
+#toast{position:fixed;top:72px;left:50%;transform:translateX(-50%) translateY(-80px);z-index:300;display:flex;align-items:center;gap:10px;background:rgba(6,14,26,.97);border:1px solid rgba(56,189,248,.3);border-radius:14px;padding:10px 18px;box-shadow:0 8px 30px rgba(0,0,0,.5);transition:transform .4s cubic-bezier(.34,1.56,.64,1);pointer-events:none;}
+#toast.on{transform:translateX(-50%) translateY(0);}
+.toast-ico{font-size:22px;}
+.toast-h{font-size:10px;color:var(--sub);text-transform:uppercase;letter-spacing:1.5px;}
+.toast-n{font-size:14px;font-weight:700;color:var(--sky);}
+
+main{position:relative;z-index:10;min-height:100vh;padding:68px 16px 40px;display:flex;flex-direction:column;align-items:center;}
+.scr{width:100%;max-width:620px;display:none;flex-direction:column;align-items:center;}
+.scr.on{display:flex;}
+@keyframes up{from{opacity:0;transform:translateY(20px)}to{opacity:1;transform:translateY(0)}}
+
+/* INTRO */
+.badge-pill{display:inline-block;margin-bottom:18px;background:rgba(56,189,248,.1);border:1px solid rgba(56,189,248,.3);border-radius:30px;padding:5px 18px;font-size:11px;letter-spacing:3px;text-transform:uppercase;color:var(--sky);animation:up .5s ease both;}
+.game-title{font-size:clamp(44px,10vw,76px);font-weight:900;line-height:1;text-align:center;margin-bottom:12px;background:linear-gradient(135deg,#fff 0%,var(--sky) 50%,var(--lime) 100%);-webkit-background-clip:text;-webkit-text-fill-color:transparent;background-clip:text;animation:up .5s .1s ease both;}
+.game-sub{font-size:16px;color:var(--sub);text-align:center;line-height:1.6;margin-bottom:32px;animation:up .5s .2s ease both;}
+.sports-row{display:flex;gap:10px;margin-bottom:24px;animation:up .5s .25s ease both;flex-wrap:wrap;justify-content:center;}
+.sport-chip{display:flex;align-items:center;gap:6px;background:rgba(56,189,248,.06);border:1px solid rgba(56,189,248,.15);border-radius:20px;padding:6px 14px;font-size:13px;color:var(--sky);}
+.stats-row{display:flex;gap:10px;margin-bottom:36px;animation:up .5s .3s ease both;}
+.stat-box{background:var(--card);backdrop-filter:blur(16px);border:1px solid var(--border);border-radius:14px;padding:16px 20px;text-align:center;min-width:90px;}
+.stat-n{font-size:28px;font-weight:900;font-family:monospace;color:var(--sky);}
+.stat-l{font-size:11px;color:var(--sub);text-transform:uppercase;letter-spacing:1px;margin-top:3px;}
+.btn-play{position:relative;overflow:hidden;background:linear-gradient(135deg,var(--ocean),var(--sky));color:#000;border:none;padding:18px 60px;border-radius:50px;font-size:17px;font-weight:900;cursor:pointer;font-family:sans-serif;letter-spacing:2px;box-shadow:0 0 40px rgba(56,189,248,.3),0 4px 20px rgba(0,0,0,.4);transition:transform .12s,box-shadow .12s;animation:up .5s .4s ease both;}
+.btn-play::after{content:'';position:absolute;top:-50%;left:-60%;width:30%;height:200%;background:rgba(255,255,255,.2);transform:skewX(-20deg);animation:shim 3s ease-in-out infinite;}
+@keyframes shim{0%{left:-60%}40%,100%{left:120%}}
+.btn-play:hover{transform:scale(1.04);box-shadow:0 0 60px rgba(56,189,248,.45);}
+.diff-row{display:flex;gap:8px;margin-top:18px;animation:up .5s .5s ease both;flex-wrap:wrap;justify-content:center;}
+.diff{background:var(--card);backdrop-filter:blur(10px);border:1px solid var(--border);border-radius:24px;padding:8px 18px;font-size:13px;color:var(--sub);cursor:pointer;transition:all .18s;font-family:inherit;}
+.diff:hover,.diff.on{border-color:var(--sky);color:var(--sky);background:rgba(56,189,248,.08);}
+
+/* QUIZ */
+#scr-quiz{padding-top:24px;}
+.progress-row{width:100%;display:flex;justify-content:space-between;align-items:center;margin-bottom:12px;}
+.dots{display:flex;gap:5px;}
+.dot2{width:7px;height:7px;border-radius:50%;background:rgba(255,255,255,.08);transition:all .3s;}
+.dot2.ok{background:var(--lime);box-shadow:0 0 8px rgba(132,204,22,.5);}
+.dot2.bad{background:var(--fire);}
+.dot2.now{background:var(--sky);transform:scale(1.5);box-shadow:0 0 8px rgba(56,189,248,.6);}
+.prog-txt{font-size:12px;color:var(--sub);}
+.q-card{width:100%;background:var(--card);backdrop-filter:blur(24px);border:1px solid var(--border);border-radius:20px;padding:28px 24px 24px;box-shadow:0 8px 40px rgba(0,0,0,.5),inset 0 1px 0 rgba(56,189,248,.06);position:relative;overflow:hidden;margin-bottom:12px;transform-origin:top center;}
+.q-card::before{content:'';position:absolute;top:0;left:10%;right:10%;height:1px;background:linear-gradient(90deg,transparent,var(--sky),transparent);}
+.q-card.flip-in{animation:flipIn .45s cubic-bezier(.4,0,.2,1) both;}
+@keyframes flipIn{0%{transform:perspective(800px)rotateX(-40deg)scaleY(.7);opacity:0;}100%{transform:perspective(800px)rotateX(0)scaleY(1);opacity:1;}}
+.cat-tag{display:inline-flex;align-items:center;gap:7px;background:rgba(56,189,248,.08);border:1px solid rgba(56,189,248,.2);border-radius:20px;padding:4px 12px;font-size:11px;letter-spacing:2px;text-transform:uppercase;color:var(--sky);margin-bottom:14px;}
+.q-text{font-size:clamp(17px,3vw,21px);font-weight:700;line-height:1.45;color:#fff;margin-bottom:6px;}
+.q-hint{font-size:11px;color:var(--sub);margin-bottom:18px;}
+.timer-row{display:flex;justify-content:flex-end;margin-bottom:16px;margin-top:-10px;}
+.t-ring{position:relative;width:50px;height:50px;}
+.t-svg{transform:rotate(-90deg);}
+.t-track{fill:none;stroke:rgba(255,255,255,.06);stroke-width:4;}
+.t-fill{fill:none;stroke-width:4;stroke-linecap:round;transition:stroke .5s;}
+.t-num{position:absolute;inset:0;display:flex;align-items:center;justify-content:center;font-size:14px;font-weight:900;font-family:monospace;transition:color .5s;}
+.opts{display:flex;flex-direction:column;gap:9px;}
+.opt{position:relative;overflow:hidden;background:rgba(255,255,255,.03);border:1px solid var(--border);border-radius:14px;padding:15px 16px;cursor:pointer;font-size:15px;font-weight:600;color:var(--text);text-align:left;display:flex;align-items:center;gap:12px;transition:border-color .15s,background .15s,transform .12s;font-family:inherit;line-height:1.4;}
+.opt:hover:not(.done){border-color:rgba(56,189,248,.45);background:rgba(56,189,248,.05);transform:translateX(3px);}
+.ltr{width:30px;height:30px;flex-shrink:0;border-radius:8px;background:rgba(255,255,255,.06);display:flex;align-items:center;justify-content:center;font-size:12px;font-weight:900;color:var(--sub);transition:all .2s;}
+.opt.correct{border-color:var(--lime);background:rgba(132,204,22,.07);box-shadow:0 0 20px rgba(132,204,22,.2);}
+.opt.correct .ltr{background:var(--lime);color:#000;}
+.opt.wrong{border-color:var(--fire);background:rgba(239,68,68,.07);}
+.opt.wrong .ltr{background:var(--fire);color:#fff;}
+.opt.done{cursor:default;}
+.opt.correct{animation:cPulse .35s ease;}
+.opt.wrong{animation:shake .35s ease;}
+@keyframes cPulse{0%{transform:scale(1)}50%{transform:scale(1.025)}100%{transform:scale(1)}}
+@keyframes shake{0%,100%{transform:translateX(0)}25%{transform:translateX(-7px)}75%{transform:translateX(7px)}}
+.expl{border-radius:12px;padding:14px 16px;font-size:14px;line-height:1.65;display:none;margin-top:10px;animation:up .3s ease;}
+.expl.on{display:block;}
+.btn-next{display:none;width:100%;margin-top:12px;background:rgba(56,189,248,.1);border:1px solid rgba(56,189,248,.25);color:var(--sky);border-radius:14px;padding:14px;font-size:15px;font-weight:700;cursor:pointer;font-family:inherit;transition:background .15s;animation:up .3s ease;}
+.btn-next.on{display:block;}
+.btn-next:hover{background:rgba(56,189,248,.18);}
+
+/* LEVEL UP */
+.lv-card{background:var(--card);border:1px solid rgba(56,189,248,.25);border-radius:28px;padding:48px 40px;text-align:center;max-width:360px;box-shadow:0 0 60px rgba(56,189,248,.1);animation:up .5s ease both;}
+.lv-emoji{font-size:60px;display:block;margin-bottom:16px;animation:bounce 1s ease infinite alternate;}
+@keyframes bounce{0%{transform:scale(1)}100%{transform:scale(1.12)}}
+.lv-tag{font-size:11px;letter-spacing:3px;text-transform:uppercase;color:var(--sky);margin-bottom:10px;}
+.lv-num{font-size:72px;font-weight:900;font-family:monospace;background:linear-gradient(135deg,#fff,var(--sky));-webkit-background-clip:text;-webkit-text-fill-color:transparent;background-clip:text;line-height:1;}
+.lv-name{font-size:20px;font-weight:700;color:var(--text);margin:8px 0 28px;}
+
+/* RESULTS */
+.res-card{background:var(--card);border:1px solid var(--border);border-radius:24px;padding:32px 24px 24px;width:100%;max-width:520px;animation:up .5s ease both;box-shadow:0 0 60px rgba(56,189,248,.07);}
+.grade-ring{position:relative;width:130px;height:130px;margin:0 auto 20px;}
+.gr-track{fill:none;stroke:rgba(255,255,255,.05);stroke-width:7;}
+.gr-fill{fill:none;stroke-width:7;stroke-linecap:round;transition:stroke-dashoffset 1.2s cubic-bezier(.4,0,.2,1),stroke .5s;}
+.gr-score{position:absolute;top:50%;left:50%;transform:translate(-50%,-54%);font-size:42px;font-weight:900;font-family:monospace;}
+.gr-denom{position:absolute;bottom:18px;left:50%;transform:translateX(-50%);font-size:13px;color:var(--sub);}
+.res-grade{font-size:22px;font-weight:900;text-align:center;margin-bottom:8px;}
+.res-msg{font-size:14px;color:rgba(180,210,240,.7);text-align:center;line-height:1.6;margin-bottom:20px;}
+.xp-banner{display:flex;align-items:center;gap:14px;background:rgba(56,189,248,.06);border:1px solid rgba(56,189,248,.15);border-radius:14px;padding:16px;margin-bottom:16px;}
+.xp-big{font-size:24px;font-weight:900;font-family:monospace;color:var(--sky);}
+.ach-row{display:flex;flex-wrap:wrap;gap:8px;justify-content:center;margin-bottom:20px;}
+.ach{background:rgba(56,189,248,.07);border:1px solid rgba(56,189,248,.2);border-radius:10px;padding:8px 14px;display:flex;align-items:center;gap:7px;font-size:13px;}
+.ach-ico{font-size:18px;}
+.ach-nm{font-weight:600;color:var(--sky);}
+.res-btns{display:flex;gap:10px;margin-bottom:20px;}
+.res-btn{flex:1;padding:14px;border-radius:14px;font-size:14px;font-weight:800;cursor:pointer;font-family:inherit;letter-spacing:1px;border:none;transition:transform .1s;}
+.res-btn.p{background:linear-gradient(135deg,var(--ocean),var(--sky));color:#000;}
+.res-btn.s{background:rgba(255,255,255,.07);border:1px solid rgba(255,255,255,.1);color:var(--text);}
+.res-btn:hover{transform:scale(1.02);}
+
+/* PARTNER CARDS */
+.partners-section{margin-top:20px;width:100%;}
+.partners-title{text-align:center;font-size:10px;color:var(--sub);text-transform:uppercase;letter-spacing:3px;margin-bottom:14px;}
+.partner-cards{display:flex;flex-direction:column;gap:10px;}
+.pc{background:rgba(6,14,26,.9);border-radius:18px;border:1px solid rgba(255,255,255,.07);overflow:hidden;transition:border-color .2s,transform .15s;text-decoration:none;display:block;position:relative;}
+.pc:hover{border-color:rgba(56,189,248,.3);transform:translateY(-2px);}
+.pc-inner{display:flex;align-items:center;gap:14px;padding:16px;}
+.pc-ico{width:48px;height:48px;border-radius:14px;flex-shrink:0;display:flex;align-items:center;justify-content:center;font-size:24px;}
+.pc-ico.ozone{background:linear-gradient(135deg,rgba(56,189,248,.18),rgba(14,165,233,.12));border:1px solid rgba(56,189,248,.25);}
+.pc-ico.kite{background:linear-gradient(135deg,rgba(132,204,22,.15),rgba(80,160,0,.1));border:1px solid rgba(132,204,22,.2);}
+.pc-ico.gear{background:linear-gradient(135deg,rgba(245,158,11,.15),rgba(200,100,0,.1));border:1px solid rgba(245,158,11,.2);}
+.pc-ico.school{background:linear-gradient(135deg,rgba(239,68,68,.14),rgba(180,40,40,.1));border:1px solid rgba(239,68,68,.2);}
+.pc-info{flex:1;}
+.pc-name{font-size:14px;font-weight:800;color:#fff;margin-bottom:3px;}
+.pc-desc{font-size:12px;color:rgba(160,200,240,.65);line-height:1.4;}
+.pc-pill{padding:5px 12px;border-radius:20px;font-size:11px;font-weight:700;white-space:nowrap;background:rgba(56,189,248,.1);border:1px solid rgba(56,189,248,.25);color:var(--sky);}
+.pc-glow{position:absolute;inset:0;border-radius:18px;background:linear-gradient(135deg,rgba(56,189,248,.03),transparent);pointer-events:none;}
+
+/* MID-GAME SPONSOR */
+#sp-moment{position:fixed;inset:0;z-index:500;display:flex;align-items:flex-end;justify-content:center;padding:0 16px 24px;pointer-events:none;opacity:0;transition:opacity .3s ease;}
+#sp-moment.on{pointer-events:all;opacity:1;}
+.sp-card{width:100%;max-width:520px;background:linear-gradient(145deg,rgba(4,12,24,.98),rgba(3,8,18,.99));border:1px solid rgba(56,189,248,.22);border-radius:24px;padding:20px 20px 18px;box-shadow:0 -4px 60px rgba(56,189,248,.1),0 20px 60px rgba(0,0,0,.7),inset 0 1px 0 rgba(56,189,248,.06);transform:translateY(40px);opacity:0;transition:transform .45s cubic-bezier(.34,1.3,.64,1),opacity .35s ease;position:relative;overflow:hidden;}
+#sp-moment.on .sp-card{transform:translateY(0);opacity:1;}
+.sp-card::before{content:'';position:absolute;top:0;left:10%;right:10%;height:1px;background:linear-gradient(90deg,transparent,rgba(56,189,248,.5),transparent);}
+.sp-card::after{content:'';position:absolute;top:0;left:-80%;width:50%;height:100%;background:linear-gradient(90deg,transparent,rgba(255,255,255,.04),transparent);transform:skewX(-18deg);animation:sp-shim 3.5s ease-in-out infinite 1s;}
+@keyframes sp-shim{0%{left:-80%}60%,100%{left:130%}}
+.sp-header{display:flex;align-items:center;justify-content:space-between;margin-bottom:14px;}
+.sp-brand{display:flex;align-items:center;gap:10px;}
+.sp-icon{width:44px;height:44px;border-radius:13px;display:flex;align-items:center;justify-content:center;font-size:22px;background:linear-gradient(135deg,rgba(56,189,248,.2),rgba(14,165,233,.1));border:1px solid rgba(56,189,248,.2);flex-shrink:0;}
+.sp-name{font-size:15px;font-weight:800;color:#fff;}
+.sp-tag{font-size:10px;color:var(--sky);text-transform:uppercase;letter-spacing:2px;margin-top:1px;}
+.sp-skip{background:none;border:1px solid rgba(255,255,255,.1);color:var(--sub);border-radius:20px;padding:4px 12px;font-size:11px;cursor:pointer;transition:all .2s;font-family:inherit;}
+.sp-skip:hover{border-color:rgba(255,255,255,.3);color:#fff;}
+.sp-skip-cd{font-size:10px;color:var(--sub);padding:4px 10px;}
+.sp-headline{font-size:17px;font-weight:900;color:#fff;line-height:1.3;margin-bottom:5px;}
+.sp-sub{font-size:13px;color:rgba(160,200,240,.7);line-height:1.5;}
+.sp-badge{display:inline-block;margin-top:8px;padding:3px 10px;border-radius:20px;font-size:11px;font-weight:700;background:rgba(132,204,22,.1);border:1px solid rgba(132,204,22,.3);color:var(--lime);}
+.sp-cta{display:block;margin-top:14px;background:linear-gradient(135deg,var(--ocean),var(--sky));color:#000;border:none;border-radius:14px;padding:14px 20px;font-size:14px;font-weight:900;letter-spacing:1px;cursor:pointer;font-family:inherit;width:100%;text-align:center;text-decoration:none;box-shadow:0 4px 20px rgba(56,189,248,.3);transition:transform .1s;position:relative;overflow:hidden;}
+.sp-cta::after{content:'';position:absolute;top:-50%;left:-60%;width:30%;height:200%;background:rgba(255,255,255,.18);transform:skewX(-20deg);animation:shim 2.8s ease-in-out infinite;}
+.sp-cta:hover{transform:scale(1.015);}
+.sp-dots{display:flex;justify-content:center;gap:5px;margin-top:12px;}
+.sp-dot{width:6px;height:6px;border-radius:50%;background:rgba(255,255,255,.12);transition:background .3s;}
+.sp-dot.on{background:var(--sky);}
+</style>
+</head>
+<body>
+
+<canvas id="bgc"></canvas>
+<div id="sky-horizon"></div>
+<div class="cloud-css cc1">☁️ ⛅ ☁️ 🌤️ ☁️ ⛅</div>
+<div class="cloud-css cc2">⛅ ☁️ 🌤️ ☁️</div>
+<div class="cloud-css cc3">☁️ ⛅</div>
+<div id="aurora"><div class="ab ab1"></div><div class="ab ab2"></div><div class="ab ab3"></div><div class="ab ab4"></div><div class="ab ab5"></div></div>
+<div id="floaters"><div class="fl">🪂</div><div class="fl">🏄</div><div class="fl">🌊</div><div class="fl">🏔️</div><div class="fl">💨</div><div class="fl">🪁</div></div>
+<canvas id="fx"></canvas>
+
+<div class="topbar">
+  <div class="topbar-brand">SKYRIDER</div>
+  <div class="topbar-right">
+    <a id="topbar-sp" class="sp-pill" href="https://www.ozone-wings.com/?utm_source=skyrider&utm_medium=topbar&utm_campaign=novacrypto" target="_blank" rel="noopener">
+      <span class="sp-lbl">Partner</span>
+      <span class="sp-logo">🪂</span>
+      <span id="tsp-txt">Ozone — Official Partner</span>
+    </a>
+    <div style="display:flex;align-items:center;gap:6px;"><div class="dot-live"></div><span id="pcount">4,831</span>&nbsp;flying</div>
+  </div>
+</div>
+
+<div id="hud">
+  <div class="hud-lv" id="hlv">LV1</div>
+  <div class="xp-wrap">
+    <div class="xp-meta"><span id="xp-cur">0 XP</span><span id="xp-nxt">100 to Lv2</span></div>
+    <div class="xp-track"><div class="xp-bar" id="xb" style="width:0%"></div></div>
+  </div>
+  <div class="combo-badge" id="combo">🔥 x2</div>
+  <div class="hud-pts" id="hpts">0 pts</div>
+</div>
+
+<div id="toast"><div class="toast-ico" id="tico">🏆</div><div><div class="toast-h">Achievement</div><div class="toast-n" id="tnm">—</div></div></div>
+
+<main>
+
+<div class="scr on" id="scr-intro">
+  <div style="display:flex;gap:8px;align-items:center;margin-bottom:10px;flex-wrap:wrap;justify-content:center;">
+    <span style="background:rgba(56,189,248,.12);border:1px solid rgba(56,189,248,.3);color:#38BDF8;padding:4px 14px;border-radius:20px;font-size:11px;font-weight:700;letter-spacing:1.5px;text-transform:uppercase;">🪂 Extreme Sports</span>
+    <span style="background:rgba(132,204,22,.08);border:1px solid rgba(132,204,22,.2);color:#84CC16;padding:4px 14px;border-radius:20px;font-size:11px;font-weight:700;letter-spacing:1.5px;text-transform:uppercase;">🔥 Expert Level</span>
+  </div>
+  <div class="game-title">SkyRider</div>
+  <div style="display:flex;align-items:center;gap:14px;justify-content:center;margin-bottom:10px;flex-wrap:wrap;">
+    <span style="font-size:13px;color:#38BDF8;letter-spacing:1px;">⭐⭐⭐⭐⭐ <span style="color:rgba(255,255,255,0.6);font-size:12px;">4.7 · 892 plays</span></span>
+    <span style="width:1px;height:16px;background:rgba(255,255,255,0.1);"></span>
+    <span style="font-size:12px;color:rgba(255,255,255,0.4);">⏱ ~5 min</span>
+    <span style="width:1px;height:16px;background:rgba(255,255,255,0.1);"></span>
+    <span style="font-size:12px;color:rgba(255,255,255,0.4);">🪂 <span id="pcount" style="color:rgba(255,255,255,0.6)">4,831</span> flying</span>
+  </div>
+  <p class="game-sub">Test your knowledge of paragliding, kitesurfing & extreme sports.<br>Earn XP · Level up from Beginner to Legend.</p>
+  <div class="sports-row">
+    <div class="sport-chip">🪂 Paragliding</div>
+    <div class="sport-chip">🪁 Kitesurfing</div>
+    <div class="sport-chip">✈️ Skydiving</div>
+    <div class="sport-chip">💨 Wind Tunnel</div>
+    <div class="sport-chip">⛑️ Safety</div>
+  </div>
+  <div class="stats-row">
+    <div class="stat-box"><div class="stat-n">28</div><div class="stat-l">Questions</div></div>
+    <div class="stat-box"><div class="stat-n">5</div><div class="stat-l">Sports</div></div>
+    <div class="stat-box"><div class="stat-n" id="best-disp">—</div><div class="stat-l">Your Best</div></div>
+  </div>
+  <button class="btn-play" onclick="startGame()">FLY NOW ▶</button>
+  <div class="diff-row">
+    <button class="diff on" onclick="setDiff(this,'normal')">⚡ Normal (20s)</button>
+    <button class="diff" onclick="setDiff(this,'hard')">🔥 Hard (12s)</button>
+    <button class="diff" onclick="setDiff(this,'blitz')">⚡⚡ Blitz (8s)</button>
+  </div>
+</div>
+
+<div class="scr" id="scr-quiz">
+  <div class="progress-row">
+    <div class="dots" id="qdots"></div>
+    <span class="prog-txt" id="qtxt">1 / 10</span>
+  </div>
+  <div class="q-card" id="qcard">
+    <div class="cat-tag"><span id="qcaticon">🪂</span><span id="qcat">Paragliding</span></div>
+    <div class="q-text" id="qtext">—</div>
+    <div class="q-hint" id="qhint">⭐ +100 pts correct · +150 if fast</div>
+    <div class="timer-row">
+      <div class="t-ring">
+        <svg class="t-svg" width="50" height="50" viewBox="0 0 50 50">
+          <circle class="t-track" cx="25" cy="25" r="20"/>
+          <circle class="t-fill" id="tcirc" cx="25" cy="25" r="20" stroke-dasharray="125.7" stroke-dashoffset="0" stroke="var(--sky)"/>
+        </svg>
+        <div class="t-num" id="tnum">20</div>
+      </div>
+    </div>
+    <div class="opts" id="opts"></div>
+    <div class="expl" id="expl"></div>
+    <button class="btn-next" id="bnext" onclick="nextQ()">Next →</button>
+  </div>
+</div>
+
+<div class="scr" id="scr-lvl">
+  <div class="lv-card">
+    <span class="lv-emoji">🪂</span>
+    <div class="lv-tag">Level Up!</div>
+    <div class="lv-num" id="lvnum">2</div>
+    <div class="lv-name" id="lvnm">Kite Rider</div>
+    <button class="btn-play" style="padding:14px 40px;font-size:15px" onclick="continueLvl()">Continue →</button>
+  </div>
+</div>
+
+<div class="scr" id="scr-res">
+  <div class="res-card">
+    <div class="grade-ring">
+      <svg style="position:absolute;inset:0" viewBox="0 0 130 130">
+        <circle class="gr-track" cx="65" cy="65" r="58"/>
+        <circle class="gr-fill" id="gcirc" cx="65" cy="65" r="58" stroke-dasharray="364.4" stroke-dashoffset="364.4" stroke="var(--sky)" transform="rotate(-90 65 65)"/>
+      </svg>
+      <div class="gr-score" id="rscore" style="color:var(--sky)">0</div>
+      <div class="gr-denom">/ 10</div>
+    </div>
+    <div class="res-grade" id="rgrade">—</div>
+    <div class="res-msg" id="rmsg">—</div>
+    <div class="xp-banner">
+      <span style="font-size:26px">✨</span>
+      <div><div style="font-size:11px;color:var(--sub);text-transform:uppercase;letter-spacing:1px">XP Earned</div><div class="xp-big" id="rxp">+0 XP</div></div>
+      <div style="margin-left:auto;text-align:right"><div style="font-size:11px;color:var(--sub);text-transform:uppercase;letter-spacing:1px">Time</div><div style="font-size:18px;font-weight:900;font-family:monospace" id="rtime">—</div></div>
+    </div>
+    <div class="ach-row" id="achs"></div>
+    <div class="res-btns">
+      <button class="res-btn p" onclick="startGame()">Play Again</button>
+      <button class="res-btn s" onclick="shareScore()">Share 📤</button>
+    </div>
+    <div id="bh-sr-wrap" style="margin:20px 0 0;padding:24px 20px;background:linear-gradient(135deg,rgba(56,189,248,.08),rgba(132,204,22,.06));border:1px solid rgba(56,189,248,.2);border-radius:18px;text-align:center;">
+      <div style="font-size:22px;margin-bottom:6px">🪂</div>
+      <div style="font-size:15px;font-weight:700;color:#e2e8f0;margin-bottom:4px">SkyRider Weekly</div>
+      <div style="font-size:12px;color:#94a3b8;margin-bottom:14px">Conditions reports · new events · gear drops · technique guides</div>
+      <div style="display:flex;gap:8px;max-width:360px;margin:0 auto;">
+        <input type="email" id="bh-email-sr" placeholder="your@email.com" style="flex:1;padding:11px 14px;border-radius:12px;border:1px solid rgba(56,189,248,.25);background:rgba(15,23,42,.6);color:#e2e8f0;font-size:14px;outline:none;">
+        <button onclick="bhSubscribeSR()" style="padding:11px 18px;border-radius:12px;background:linear-gradient(135deg,#38BDF8,#84CC16);border:none;color:#0f172a;font-weight:800;font-size:13px;cursor:pointer;white-space:nowrap;">Join →</button>
+      </div>
+      <div id="bh-sr-msg" style="font-size:12px;color:#84CC16;margin-top:10px;display:none">✅ Welcome to SkyRider Weekly!</div>
+    </div>
+    <script>
+    const _BH_PUB_SR='pub_b001f9d3-a183-4a45-8aaf-8c89b7be689c';
+    const _TG_SR_TOKEN='8437947945:AAE7N-A0HAwyh-YCzbVFPP4NCRf8XEbrizE';
+    const _TG_SR_CHAT='@NovaCryptoAlerts';
+    function bhSubscribeSR(){
+      const em=document.getElementById('bh-email-sr').value.trim();
+      if(!em||!em.includes('@'))return;
+      if(localStorage.getItem('bh_sr_sub')){document.getElementById('bh-sr-msg').style.display='block';return;}
+      fetch('https://api.beehiiv.com/v2/publications/'+_BH_PUB_SR+'/subscriptions',{method:'POST',headers:{'Content-Type':'application/json'},body:JSON.stringify({email:em,reactivate_existing:false,send_welcome_email:true,utm_source:'skyrider-game',utm_medium:'result-screen'})}).catch(()=>{});
+      fetch('https://api.telegram.org/bot'+_TG_SR_TOKEN+'/sendMessage',{method:'POST',headers:{'Content-Type':'application/json'},body:JSON.stringify({chat_id:_TG_SR_CHAT,text:'🪂 SkyRider sub: '+em})}).catch(()=>{});
+      localStorage.setItem('bh_sr_sub','1');
+      document.getElementById('bh-sr-msg').style.display='block';
+      document.getElementById('bh-email-sr').value='';
+    }
+    </script>
+    <div class="partners-section">
+      <div class="partners-title">— Gear Partners —</div>
+      <div class="partner-cards">
+        <a class="pc" href="https://www.ozone-wings.com/?utm_source=skyrider&utm_medium=game&utm_campaign=novacrypto" target="_blank" rel="noopener" onclick="trackPartner('ozone')">
+          <div class="pc-inner"><div class="pc-ico ozone">🪂</div><div class="pc-info"><div class="pc-name">Ozone Paragliders & Kites</div><div class="pc-desc">World's leading paragliding & kite brand. EN-A to competition wings. Ships worldwide.</div></div><div class="pc-pill">Shop Ozone →</div></div><div class="pc-glow"></div>
+        </a>
+        <a class="pc" href="https://www.blue-tomato.com" target="_blank" rel="noopener" onclick="trackPartner('bluetomato')">
+          <div class="pc-inner"><div class="pc-ico kite">🪁</div><div class="pc-info"><div class="pc-name">Blue Tomato — Kite & Surf</div><div class="pc-desc">Europe's #1 board sports retailer. Kites, boards, harnesses & accessories.</div></div><div class="pc-pill">Shop Now →</div></div><div class="pc-glow"></div>
+        </a>
+        <a class="pc" href="https://www.decathlon.com" target="_blank" rel="noopener" onclick="trackPartner('decathlon')">
+          <div class="pc-inner"><div class="pc-ico gear">🏔️</div><div class="pc-info"><div class="pc-name">Decathlon — Outdoor Gear</div><div class="pc-desc">Best value paragliding & kite gear. Sirocco wings from €1,200. Beginner-friendly.</div></div><div class="pc-pill">View Gear →</div></div><div class="pc-glow"></div>
+        </a>
+        <a class="pc" href="https://www.kitesurf.school" target="_blank" rel="noopener" onclick="trackPartner('kiteschool')">
+          <div class="pc-inner"><div class="pc-ico school">🌊</div><div class="pc-info"><div class="pc-name">IKO Kitesurf Schools</div><div class="pc-desc">Find certified kite instructors near you. Beginner to advanced. Book lessons today.</div></div><div class="pc-pill">Book Lessons →</div></div><div class="pc-glow"></div>
+        </a>
+        <a class="pc" href="https://www.getyourguide.com/s/?q=skydiving+paragliding&utm_source=skyrider&utm_medium=game&utm_campaign=novacrypto" target="_blank" rel="noopener" onclick="trackPartner('getyourguide')">
+          <div class="pc-inner"><div class="pc-ico jump" style="background:linear-gradient(135deg,#ff6b35,#f7c59f)">🎫</div><div class="pc-info"><div class="pc-name">GetYourGuide — Book a Jump</div><div class="pc-desc">Thousands of tandem jumps & paragliding experiences worldwide. Instant booking. Free cancellation.</div></div><div class="pc-pill">Book Now →</div></div><div class="pc-glow"></div>
+        </a>
+      </div>
+    </div>
+  </div>
+</div>
+
+</main>
+
+<div id="sp-moment">
+  <div class="sp-card">
+    <div class="sp-header">
+      <div class="sp-brand"><div class="sp-icon" id="sp-ico">🪂</div><div><div class="sp-name" id="sp-nm">Ozone Paragliders</div><div class="sp-tag" id="sp-tg">Official SkyRider Partner</div></div></div>
+      <div class="sp-skip-cd" id="sp-skip-wrap"><span id="sp-cd">Skip in 3s</span></div>
+    </div>
+    <div class="sp-headline" id="sp-hl">Your knowledge is ready. Is your gear?</div>
+    <div class="sp-sub" id="sp-sb">Ozone makes the world's most trusted paragliders and kites. EN-A beginner wings, competition kites, and everything in between.</div>
+    <span class="sp-badge" id="sp-bdg">✅ Official SkyRider partner</span>
+    <a class="sp-cta" id="sp-cta" href="https://www.ozone-wings.com/?utm_source=skyrider&utm_medium=popup&utm_campaign=novacrypto" target="_blank" rel="noopener" onclick="spClick()">Browse Ozone Gear →</a>
+    <div class="sp-dots"><div class="sp-dot on"></div><div class="sp-dot"></div><div class="sp-dot"></div><div class="sp-dot"></div></div>
+  </div>
+</div>
+
+<script>
+const QS=[
+  {c:"Paragliding",i:"🪂",q:"What does 'EN-A' certification mean for a paraglider?",o:["Competition wing","Beginner wing — most forgiving, easiest to fly","Intermediate wing for experienced pilots","Acrobatic wing"],a:1,e:"EN-A is the safest certification. Maximum passive safety, easiest to fly, best choice for beginner and student pilots."},
+  {c:"Paragliding",i:"🪂",q:"What is 'all-up weight' (AUW) in paragliding?",o:["The wing weight only","Pilot + gear + wing total weight","Maximum load the harness can hold","Wing empty weight"],a:1,e:"AUW = pilot + harness + wing + reserve + gear. You must be within the wing's certified weight range (e.g. 95–120kg)."},
+  {c:"Paragliding",i:"🪂",q:"What is a 'reserve parachute' for?",o:["Slows landing speed normally","Emergency deployment if main wing becomes uncontrollable","Used for tandem flights","Standard landing device"],a:1,e:"A reserve parachute is the last resort safety device — deployed if the main wing completely collapses or becomes unlandable."},
+  {c:"Paragliding",i:"🪂",q:"What is a 'thermal' in paragliding?",o:["Cold air descending","Rising column of warm air used to gain altitude","Side wind","Sea breeze"],a:1,e:"Thermals are columns of warm air rising from the ground. Paragliders circle in thermals to gain altitude (called 'thermalling')."},
+  {c:"Paragliding",i:"🪂",q:"How often should a reserve parachute be repacked?",o:["Every 5 years","Every 10 years","Every 6–12 months by a certified rigger","Only after deployment"],a:2,e:"Reserves must be repacked every 6–12 months by a certified rigger to ensure the fabric hasn't compacted and will deploy reliably."},
+  {c:"Kitesurfing",i:"🪁",q:"What does a larger kite (13m vs 8m) do in the same wind?",o:["Generates less power","Generates more power — suited for lighter winds","Flies faster","Is easier to control"],a:1,e:"A larger kite generates more power in light wind. For a 95kg rider: 8m for strong wind (25+ knots), 13m for light wind (12–18 knots)."},
+  {c:"Kitesurfing",i:"🪁",q:"What is the 'wind window' in kitesurfing?",o:["The best weather forecast app","The 3D semicircular zone in front of the kite where it generates power","The gap between kite lines","The time window for ideal conditions"],a:1,e:"The wind window is the 3D quarter-sphere downwind of the pilot. The kite generates most power at the edges and center."},
+  {c:"Kitesurfing",i:"🪁",q:"What is 'body dragging' in kitesurfing lessons?",o:["Falling off the board","Being dragged by the kite while lying in water — first skill taught","A rescue technique","Advanced trick"],a:1,e:"Body dragging is the first lesson — learning to control the kite's power while in the water, before adding the board."},
+  {c:"Kitesurfing",i:"🪁",q:"What is a 'twin-tip' kiteboard?",o:["A board with two sharp tips for speed","A symmetrical board that rides identically in both directions","A board with two fins","A competition-only board"],a:1,e:"Twin-tip boards are symmetrical and ride the same in both directions — ideal for beginners as you don't need to flip the board."},
+  {c:"Kitesurfing",i:"🪁",q:"What is the 'safety system' on a kite bar?",o:["The steering system","Quick-release that depowers the kite in an emergency","The wrist leash only","The bar end stoppers"],a:1,e:"The safety system includes a quick-release (QR) that, when activated, completely depowers or releases the kite in an emergency."},
+  {c:"Wind",i:"💨",q:"What does the Beaufort scale measure?",o:["Temperature","Wind speed and its effects","Air pressure","Humidity"],a:1,e:"The Beaufort scale (0–12) describes wind speed and its observable effects — from calm (0) to hurricane force (12)."},
+  {c:"Wind",i:"💨",q:"What is a 'knot' as used in wind speed?",o:["1 km/h","1 nautical mile per hour (~1.85 km/h)","1 mile per hour","10 metres per second"],a:1,e:"1 knot = 1 nautical mile per hour = 1.852 km/h. Kitesurfing and paragliding forecasts always use knots."},
+  {c:"Paragliding",i:"🪂",q:"What is a 'speed bar' on a paragliding harness?",o:["A bar for doing acrobatics","A foot-operated system that increases wing speed by flattening its profile","A safety brake","The bar used to steer"],a:1,e:"The speed bar (accelerator) uses foot pressure to push the front risers down, increasing airspeed and glide ratio in headwinds."},
+  {c:"Kitesurfing",i:"🪁",q:"What size kite would typically suit a 95kg rider in 20 knots of wind?",o:["6m","8m–10m","13m–17m","4m"],a:1,e:"At 20 knots, a 95kg rider typically uses 9–11m. 8m for stronger/gusty wind, 10m for stable 20 knots is ideal."},
+  {c:"Safety",i:"⛑️",q:"What is the 'right of way' rule between two paragliders near a thermal?",o:["Whoever is higher has priority","The pilot with the thermal on their RIGHT keeps it on right — others yield","The newer pilot yields always","No rules apply in thermals"],a:1,e:"The pilot with the thermal on their right has right of way — they fly counterclockwise. All others must match their rotation direction."},
+  {c:"Safety",i:"⛑️",q:"What is the 'chicken loop' in kitesurfing?",o:["A beginner kite","The loop connecting the kite bar to your harness hook","A safety leash","A type of kite move"],a:1,e:"The chicken loop connects the bar to your harness hook, allowing you to transmit the kite's pull to your body. Contains the quick-release."},
+  {c:"Wind",i:"💨",q:"What is the ideal wind range for learning to kitesurf?",o:["5–10 knots","15–25 knots","30+ knots","Any wind"],a:1,e:"15–25 knots is ideal for learning — enough power to ride but not so gusty it's dangerous. Schools choose locations with consistent 18–22 knot winds."},
+  {c:"Paragliding",i:"🪂",q:"What type of launch is most common for beginner paragliders?",o:["Cliff launch","Forward inflation launch","Tandem-only launch","Running launch from flat ground"],a:1,e:"Forward inflation: the pilot faces the wing, pulls it up overhead, then turns and runs forward off a slope. Best for beginner/moderate winds."},
+  {c:"Safety",i:"⛑️",q:"What should you NEVER do if your kite crashes in the water near you?",o:["Try to relaunch it","Swim toward it immediately","Trigger the safety release","Let it drift away first"],a:1,e:"Never swim toward a crashed kite — the lines can tangle around you. Depower first (safety release), then approach carefully from the side."},
+  {c:"Kitesurfing",i:"🪁",q:"What does 'upwind' riding mean?",o:["Riding downwind with the kite","Riding at an angle across/against the wind — required for returning to starting point","Riding directly into the wind","Any direction riding"],a:1,e:"Riding upwind means angling your board to travel across and slightly against the wind. Essential skill — without it you drift downwind forever."},
+  {c:"Skydiving",i:"🪂✈️",q:"What does 'AFF' stand for in skydiving?",o:["Advanced Freefall Formation","Accelerated Freefall — the standard solo skydiving course","Automatic Free Flight","Assisted First Fall"],a:1,e:"AFF (Accelerated Freefall) is the international standard method for learning solo skydiving — 8 levels with instructors jumping alongside you."},
+  {c:"Skydiving",i:"🪂✈️",q:"At what altitude do most recreational skydivers deploy their parachute?",o:["500m","1,500m (5,000ft)","800m–1,000m (2,500–3,500ft)","300m"],a:2,e:"Skydivers typically deploy their main canopy at 800–1,000m (2,500–3,500ft) AGL. Lower is possible but reduces time to correct problems."},
+  {c:"Skydiving",i:"🪂✈️",q:"What is an 'AAD' in skydiving?",o:["An aircraft approach device","Automatic Activation Device — deploys reserve if skydiver is unconscious","A type of harness","An altimeter model"],a:1,e:"The AAD (e.g. CYPRES 2 or VIGIL) automatically fires the reserve parachute if the skydiver is below ~300m at freefall speeds — a lifesaving last resort."},
+  {c:"Skydiving",i:"🪂✈️",q:"What is the approximate freefall speed in a standard belly-to-earth position?",o:["50 km/h","120 mph (~200 km/h)","80 km/h","300 km/h"],a:1,e:"Belly-to-earth terminal velocity is approximately 120 mph (195 km/h). Head-down freefly can reach 200+ mph."},
+  {c:"Skydiving",i:"🪂✈️",q:"What is 'canopy sizing' for a beginner skydiver at 95kg?",o:["As small as possible for speed","220–230 sqft — larger for lower landing speed and more time to react","150 sqft — standard size","Any size works for beginners"],a:1,e:"A 95kg beginner needs a large canopy (220–230 sqft+) for a slow, forgiving wing loading. Small canopies require precise inputs and cause fatalities in beginners."},
+  {c:"Skydiving",i:"🪂✈️",q:"What is 'wind tunnel' training used for in skydiving?",o:["Training to fly aircraft","Practicing body position and freefall skills safely on the ground","A type of weather simulation","Testing parachute deployment"],a:1,e:"Wind tunnels (like iFly) simulate freefall at 120–180 mph. 1 hour of tunnel = roughly 20 skydives worth of body skill practice."},
+  {c:"Skydiving",i:"🪂✈️",q:"What does 'reserve static line' (RSL) do?",o:["Keeps the reserve closed during normal jumps","Automatically pulls the reserve ripcord when the main is released — backup system","Controls steering of the reserve","Connects you to the aircraft"],a:1,e:"The RSL (Reserve Static Line) automatically deploys the reserve when you cut away the main — critical safety backup if you're too low or disoriented."},
+  {c:"Skydiving",i:"🪂✈️",q:"What is 'de-arch' and why is it dangerous in freefall?",o:["A stunt manoeuvre","An unstable backwards body position that causes spinning and altitude loss","A type of landing flare","The reserve deployment position"],a:1,e:"De-arch (head up, hips forward) causes rapid spinning and instability. Beginners are taught to arch immediately — head back, hips down — to stay stable."},
+];
+
+const LEVELS=[{xp:0,n:"Beach Crawler"},{xp:100,n:"Kite Rider"},{xp:250,n:"Wind Chaser"},{xp:500,n:"Sky Surfer"},{xp:800,n:"Paraglider"},{xp:1200,n:"Freestyle Pilot"},{xp:1800,n:"Mountain Flyer"},{xp:2500,n:"Pro Rider"},{xp:9999,n:"SkyLegend"},];
+const DIFF_T={normal:20,hard:12,blitz:8};
+const LTR=["A","B","C","D"];
+const ACHS=[
+  {id:"first",ico:"💨",nm:"First Flight",fn:s=>s.correct>=1},
+  {id:"perfect",ico:"🏆",nm:"Perfect Landing",fn:s=>s.correct===s.total&&s.total>0},
+  {id:"fire",ico:"🔥",nm:"On Fire",fn:s=>s.maxCombo>=3},
+  {id:"speed",ico:"🚀",nm:"Speed Rider",fn:s=>s.fast>=3},
+  {id:"half",ico:"⭐",nm:"Halfway Up",fn:s=>s.correct>=5},
+  {id:"legend",ico:"🪂",nm:"Sky Legend",fn:s=>s.correct>=8},
+];
+const SPONSORS=[
+  {txt:"Ozone — Official Partner",ico:"🪂",nm:"Ozone Paragliders",tg:"Official SkyRider Partner",hl:"Your knowledge is ready. Is your gear?",sb:"World's most trusted paragliders and kites. EN-A to competition level. Ships to 80+ countries.",bdg:"✅ Official SkyRider partner",cta:"Browse Ozone Gear →",url:"https://www.ozone-wings.com/?utm_source=skyrider&utm_medium=popup&utm_campaign=novacrypto"},
+  {txt:"Blue Tomato — Kite & Surf",ico:"🪁",nm:"Blue Tomato",tg:"Gear Partner",hl:"Europe's #1 board sports store.",sb:"Kites, boards, harnesses, wetsuits. Free shipping over €75. 30-day returns.",bdg:"🛒 30,000+ products",cta:"Shop Blue Tomato →",url:"https://www.blue-tomato.com/?utm_source=skyrider&utm_medium=game&utm_campaign=novacrypto"},
+  {txt:"Decathlon — Beginner gear",ico:"🏔️",nm:"Decathlon Outdoor",tg:"Beginner Partner",hl:"Start your journey without breaking the bank.",sb:"Complete paragliding & kite sets from €299. Sirocco EN-A from €1,200. Best value guaranteed.",bdg:"💶 Best beginner prices",cta:"View Decathlon Gear →",url:"https://www.decathlon.com/?utm_source=skyrider&utm_medium=game&utm_campaign=novacrypto"},
+  {txt:"GetYourGuide — Book AFF",ico:"🎫",nm:"GetYourGuide Skydiving",tg:"Booking Partner",hl:"Book your first jump. 8% commission per booking.",sb:"Thousands of skydiving & paragliding experiences worldwide. Instant booking. Free cancellation.",bdg:"🎫 Instant booking",cta:"Book a Jump →",url:"https://www.getyourguide.com/s/?q=skydiving&utm_source=skyrider&utm_medium=game&utm_campaign=novacrypto"},
+  {txt:"Skydive Empuriabrava — Jump",ico:"✈️",nm:"Skydive Empuriabrava",tg:"Skydiving Partner",hl:"Europe's largest dropzone. Your first jump awaits.",sb:"Located in Costa Brava, Spain. AFF courses, tandem jumps, tunnel adjacent. Best weather in Europe.",bdg:"🪂 Largest DZ in Europe",cta:"Book Your AFF →",url:"https://www.skydiveempuriabrava.com/?utm_source=skyrider&utm_medium=game&utm_campaign=novacrypto"},
+  {txt:"iFly — Indoor Skydiving",ico:"💨",nm:"iFly Indoor Skydiving",tg:"Wind Tunnel Partner",hl:"Learn to fly before you jump.",sb:"80+ wind tunnel locations worldwide. 1h tunnel = 20 skydives of body skill. Perfect for AFF preparation.",bdg:"💨 80+ locations worldwide",cta:"Find a Tunnel →",url:"https://www.ifly.com/?utm_source=skyrider&utm_medium=game&utm_campaign=novacrypto"},
+];
+
+const cnv=document.getElementById("fx"),ctx=cnv.getContext("2d");let parts=[];
+let _AC;function _ac(){if(!_AC)try{_AC=new(window.AudioContext||window.webkitAudioContext)();}catch(e){}return _AC;}
+function _snd(f,d,v=0.22){try{const a=_ac();if(!a)return;const o=a.createOscillator(),g=a.createGain();o.connect(g);g.connect(a.destination);o.frequency.value=f;g.gain.setValueAtTime(v,a.currentTime);g.gain.exponentialRampToValueAtTime(0.001,a.currentTime+d);o.start();o.stop(a.currentTime+d);}catch(e){}}
+function _ok(){_snd(523,0.07);setTimeout(()=>_snd(659,0.1),80);}
+function _ko(){_snd(220,0.12);setTimeout(()=>_snd(196,0.18,0.15),100);}
+function rsz(){cnv.width=innerWidth;cnv.height=innerHeight;}rsz();addEventListener("resize",rsz);
+function burst(x,y,cols,n=36){for(let i=0;i<n;i++){const a=Math.random()*Math.PI*2,sp=3+Math.random()*9;parts.push({x,y,vx:Math.cos(a)*sp,vy:Math.sin(a)*sp-3,r:2+Math.random()*5,col:cols[~~(Math.random()*cols.length)],life:1,g:.22,rot:Math.random()*Math.PI*2,rs:(Math.random()-.5)*.3,sq:Math.random()>.5});}}
+function rain(){const c=["#38BDF8","#84CC16","#F59E0B","#EF4444","#fff"];for(let i=0;i<110;i++)parts.push({x:Math.random()*cnv.width,y:-20,vx:(Math.random()-.5)*5,vy:2+Math.random()*5,r:3+Math.random()*5,col:c[~~(Math.random()*c.length)],life:1,g:.06,rot:Math.random()*Math.PI*2,rs:(Math.random()-.5)*.18,sq:Math.random()>.4});}
+function tick(){ctx.clearRect(0,0,cnv.width,cnv.height);parts=parts.filter(p=>p.life>0);for(const p of parts){p.x+=p.vx;p.y+=p.vy;p.vy+=p.g;p.vx*=.99;p.rot+=p.rs;p.life-=.02;ctx.save();ctx.globalAlpha=Math.max(0,p.life);ctx.fillStyle=p.col;ctx.translate(p.x,p.y);ctx.rotate(p.rot);if(p.sq)ctx.fillRect(-p.r/2,-p.r*.9,p.r,p.r*1.8);else{ctx.beginPath();ctx.arc(0,0,p.r,0,Math.PI*2);ctx.fill();}ctx.restore();}requestAnimationFrame(tick);}
+tick();
+
+let G={diff:"normal",qs:[],cur:0,score:0,xp:0,level:1,combo:0,maxCombo:0,correct:0,total:0,fast:0,earned:new Set(),t0:0,qt0:0,answered:false,timer:null,tLeft:20,pendingLvUp:false,bestScore:+localStorage.getItem("sr_best")||0,totalXP:+localStorage.getItem("sr_xp")||0};
+const C=125.7;
+function lvOf(xp){let l=1;for(let i=0;i<LEVELS.length-1;i++)if(xp>=LEVELS[i].xp)l=i+1;return Math.min(l,LEVELS.length);}
+function lvRange(l){return{lo:LEVELS[Math.min(l-1,LEVELS.length-1)].xp,hi:LEVELS[Math.min(l,LEVELS.length-1)].xp};}
+function show(id){document.querySelectorAll(".scr").forEach(s=>s.classList.remove("on"));document.getElementById(id).classList.add("on");window.scrollTo(0,0);}
+function setDiff(btn,d){document.querySelectorAll(".diff").forEach(b=>b.classList.remove("on"));btn.classList.add("on");G.diff=d;}
+function hudUpdate(){const lv=lvOf(G.xp),{lo,hi}=lvRange(lv),pct=hi>lo?(G.xp-lo)/(hi-lo)*100:100;document.getElementById("xb").style.width=Math.min(100,pct)+"%";document.getElementById("xp-cur").textContent=G.xp+" XP";document.getElementById("xp-nxt").textContent=(hi-G.xp)+" to Lv"+(lv+1);document.getElementById("hlv").textContent="LV"+lv;document.getElementById("hpts").textContent=G.score+" pts";}
+function comboUpdate(){const el=document.getElementById("combo");el.className="combo-badge";if(G.combo>=3){el.classList.add("on","c3");el.textContent="🔥 x3 STREAK";}else if(G.combo>=2){el.classList.add("on","c2");el.textContent="⚡ x2 STREAK";}if(G.combo>G.maxCombo)G.maxCombo=G.combo;}
+function startGame(){G.qs=[...QS].sort(()=>Math.random()-.5).slice(0,10);G.cur=0;G.score=0;G.xp=+localStorage.getItem("sr_xp")||0;G.level=lvOf(G.xp);G.combo=0;G.maxCombo=0;G.correct=0;G.total=G.qs.length;G.fast=0;G.earned=new Set();G.t0=Date.now();G.pendingLvUp=false;_spShown=false;document.getElementById("hud").style.display="flex";const dots=document.getElementById("qdots");dots.innerHTML="";for(let i=0;i<G.total;i++){const d=document.createElement("div");d.className="dot2";dots.appendChild(d);}document.getElementById("best-disp").textContent=G.bestScore>0?G.bestScore+"pts":"—";show("scr-quiz");renderQ();}
+function renderQ(){const q=G.qs[G.cur];document.getElementById("qcard").classList.remove("flip-in");void document.getElementById("qcard").offsetWidth;document.getElementById("qcard").classList.add("flip-in");document.getElementById("qcaticon").textContent=q.i;document.getElementById("qcat").textContent=q.c;document.getElementById("qtext").textContent=q.q;document.getElementById("qtxt").textContent=(G.cur+1)+" / "+G.total;document.getElementById("expl").classList.remove("on");document.getElementById("bnext").classList.remove("on");document.querySelectorAll(".dot2").forEach((d,i)=>{d.className="dot2"+(i<G.cur?" ok":i===G.cur?" now":"");});const opts=document.getElementById("opts");opts.innerHTML="";q.o.forEach((o,i)=>{const b=document.createElement("button");b.className="opt";b.dataset.i=i;b.innerHTML=`<span class="ltr">${LTR[i]}</span>${o}`;b.onclick=()=>pick(i);opts.appendChild(b);});G.answered=false;startTimer();}
+function startTimer(){clearInterval(G.timer);G.tLeft=DIFF_T[G.diff];G.qt0=Date.now();updTimer(G.tLeft,G.tLeft);G.timer=setInterval(()=>{G.tLeft--;updTimer(G.tLeft,DIFF_T[G.diff]);if(G.tLeft<=0){clearInterval(G.timer);if(!G.answered)timeUp();}},1000);}
+function updTimer(t,tot){const pct=t/tot,off=C*(1-pct);const circ=document.getElementById("tcirc"),num=document.getElementById("tnum");circ.style.strokeDashoffset=off;const col=t>tot*.5?"var(--sky)":t>tot*.25?"var(--sun)":"var(--fire)";circ.style.stroke=col;num.textContent=t;num.style.color=col;if(t<=3&&t>0){num.style.transform="scale(1.3)";setTimeout(()=>{num.style.transform="scale(1)"},150);}}
+function timeUp(){G.answered=true;document.querySelectorAll(".opt").forEach(o=>o.classList.add("done"));document.querySelector(`.opt[data-i="${G.qs[G.cur].a}"]`).classList.add("correct");G.combo=0;comboUpdate();showExpl(G.qs[G.cur].e,false);setTimeout(()=>document.getElementById("bnext").classList.add("on"),400);}
+function pick(idx){if(G.answered)return;G.answered=true;clearInterval(G.timer);document.querySelectorAll(".opt").forEach(o=>o.classList.add("done"));const q=G.qs[G.cur],ok=idx===q.a;const elapsed=(Date.now()-G.qt0)/1000;const fast=elapsed<DIFF_T[G.diff]*.4;if(ok){_ok();G.correct++;G.combo++;const pts=fast?150:100;const bonus=G.combo>=3?50:G.combo>=2?25:0;G.score+=pts+bonus;G.xp+=fast?20:15;if(fast)G.fast++;checkAchs();hudUpdate();comboUpdate();const prevLv=G.level;G.level=lvOf(G.xp);if(G.level>prevLv)G.pendingLvUp=true;}else{_ko();G.combo=0;comboUpdate();}const sb=document.querySelector(`.opt[data-i="${idx}"]`);const cb=document.querySelector(`.opt[data-i="${q.a}"]`);if(ok){sb.classList.add("correct");const r=sb.getBoundingClientRect();burst(r.left+r.width/2,r.top+r.height/2,["#38BDF8","#84CC16","#F59E0B","#fff"]);}else{sb.classList.add("wrong");cb.classList.add("correct");}const dots=document.querySelectorAll(".dot2");if(dots[G.cur])dots[G.cur].className="dot2 "+(ok?"ok":"bad");showExpl(q.e,ok);setTimeout(()=>document.getElementById("bnext").classList.add("on"),500);}
+function showExpl(txt,ok){const el=document.getElementById("expl");el.textContent=(ok?"✅ ":"❌ ")+txt;el.style.background=ok?"rgba(132,204,22,.05)":"rgba(239,68,68,.05)";el.style.border="1px solid "+(ok?"rgba(132,204,22,.2)":"rgba(239,68,68,.2)");el.style.color=ok?"var(--lime)":"#fca5a5";el.classList.add("on");}
+function nextQ(){G.cur++;if(G.cur>=G.qs.length){endGame();return;}if(G.pendingLvUp){G.pendingLvUp=false;showLvUp();}else renderQ();}
+function showLvUp(){document.getElementById("lvnum").textContent=G.level;document.getElementById("lvnm").textContent=LEVELS[Math.min(G.level-1,LEVELS.length-1)].n;show("scr-lvl");rain();}
+function continueLvl(){show("scr-quiz");renderQ();}
+function endGame(){clearInterval(G.timer);document.getElementById("hud").style.display="none";const tSec=Math.round((Date.now()-G.t0)/1000);const pct=G.correct/G.qs.length;if(G.score>G.bestScore){G.bestScore=G.score;localStorage.setItem("sr_best",G.score);}localStorage.setItem("sr_xp",G.xp);let grade,msg,col;if(pct>=.9){grade="🏆 Sky Legend";col="var(--sky)";msg="Elite knowledge! You know your gear, your conditions and your safety. Sky Legend status earned.";}else if(pct>=.7){grade="🪂 Pro Rider";col="var(--lime)";msg="Strong result! You know the fundamentals well. Get out there — this knowledge will keep you safe.";}else if(pct>=.5){grade="💨 Wind Chaser";col="var(--sun)";msg="Good start. Keep learning — every bit of knowledge you add makes you safer and better in the air/water.";}else{grade="🌊 Beginner";col="#94a3b8";msg="Everyone starts here. Review the explanations — this knowledge literally saves lives in these sports.";}setTimeout(()=>{const gc=document.getElementById("gcirc");gc.style.strokeDashoffset=364.4*(1-pct);gc.style.stroke=col;},400);document.getElementById("rscore").textContent=G.correct;document.getElementById("rscore").style.color=col;document.getElementById("rgrade").textContent=grade;document.getElementById("rgrade").style.color=col;document.getElementById("rmsg").textContent=msg;document.getElementById("rxp").textContent="+"+G.score+" XP";document.getElementById("rtime").textContent=tSec+"s";const ar=document.getElementById("achs");ar.innerHTML="";ACHS.forEach(a=>{if(G.earned.has(a.id))ar.innerHTML+=`<div class="ach"><div class="ach-ico">${a.ico}</div><div class="ach-nm">${a.nm}</div></div>`;});show("scr-res");if(pct>=.7){setTimeout(rain,300);if(pct>=.9)setTimeout(rain,700);}}
+function checkAchs(){ACHS.forEach(a=>{if(!G.earned.has(a.id)&&a.fn(G)){G.earned.add(a.id);showToast(a.ico,a.nm);}});}
+let tq=[],tgoing=false;
+function showToast(ico,nm){tq.push({ico,nm});if(!tgoing)drainToast();}
+function drainToast(){if(!tq.length){tgoing=false;return;}tgoing=true;const{ico,nm}=tq.shift();document.getElementById("tico").textContent=ico;document.getElementById("tnm").textContent=nm;const el=document.getElementById("toast");el.classList.add("on");setTimeout(()=>{el.classList.remove("on");setTimeout(drainToast,400);},2800);}
+function shareScore(){const p=Math.round(G.correct/G.qs.length*100);const t=`I scored ${G.correct}/10 (${p}%) on SkyRider! 🪂 Test your extreme sports knowledge! #SkyRider #Paragliding #Kitesurf`;if(navigator.share)navigator.share({text:t,title:"SkyRider"});else navigator.clipboard?.writeText(t).then(()=>showToast("📋","Copied!"));}
+let _spIdx=0,_spShown=false,_spCdTimer=null;
+function rotateSponsor(){const sp=SPONSORS[_spIdx%SPONSORS.length];const pill=document.getElementById("topbar-sp");const txt=document.getElementById("tsp-txt");if(!pill||!txt)return;pill.style.opacity="0";setTimeout(()=>{txt.textContent=sp.txt;pill.href=sp.url;pill.style.opacity="1";_spIdx++;},300);}
+setInterval(rotateSponsor,9000);
+function maybeShowSponsor(){if(_spShown)return;_spShown=true;const sp=SPONSORS[0];document.getElementById("sp-ico").textContent=sp.ico;document.getElementById("sp-nm").textContent=sp.nm;document.getElementById("sp-tg").textContent=sp.tg;document.getElementById("sp-hl").textContent=sp.hl;document.getElementById("sp-sb").textContent=sp.sb;document.getElementById("sp-bdg").textContent=sp.bdg;const cta=document.getElementById("sp-cta");cta.textContent=sp.cta;cta.href=sp.url;document.getElementById("sp-moment").classList.add("on");let cd=3;const cdEl=document.getElementById("sp-cd");_spCdTimer=setInterval(()=>{cd--;if(cd<=0){clearInterval(_spCdTimer);document.getElementById("sp-skip-wrap").innerHTML='<button class="sp-skip" onclick="closeSponsor()">Skip ✕</button>';}else cdEl.textContent="Skip in "+cd+"s";},1000);setTimeout(()=>{if(document.getElementById("sp-moment").classList.contains("on"))closeSponsor();},9000);}
+function closeSponsor(){clearInterval(_spCdTimer);document.getElementById("sp-moment").classList.remove("on");setTimeout(()=>{if(G.cur<G.qs.length)renderQ();},300);}
+function spClick(){setTimeout(closeSponsor,400);}
+function trackPartner(n){const d=JSON.parse(localStorage.getItem("sr_clicks")||"{}");d[n]=(d[n]||0)+1;d._total=(d._total||0)+1;localStorage.setItem("sr_clicks",JSON.stringify(d));}
+const _origNextQ=nextQ;window.nextQ=function(){if(!_spShown&&G.cur===4&&G.answered){clearInterval(G.timer);maybeShowSponsor();}else _origNextQ();};
+let pv=4831;setInterval(()=>{pv+=Math.floor(Math.random()*3);document.getElementById("pcount").textContent=pv.toLocaleString();},5000);
+</script>
+<script>
+/* ── WIND STREAKS + ALTITUDE PARTICLES ── */
+(function(){
+  const bc=document.getElementById('bgc');
+  const bx=bc.getContext('2d');
+  let streaks=[];
+  function init(){
+    bc.width=window.innerWidth;bc.height=window.innerHeight;
+    streaks=Array.from({length:50},()=>createStreak());
+  }
+  function createStreak(){
+    return {
+      x:Math.random()*bc.width,
+      y:Math.random()*bc.height,
+      len:Math.random()*120+40,
+      speed:Math.random()*3+1.5,
+      alpha:Math.random()*.25+.05,
+      thin:Math.random()>.6,
+      col:Math.random()>.7?'#F59E0B':Math.random()>.5?'#84CC16':'#38BDF8'
+    };
+  }
+  init();window.addEventListener('resize',init);
+  function frame(){
+    bx.clearRect(0,0,bc.width,bc.height);
+    streaks.forEach(s=>{
+      bx.globalAlpha=s.alpha;
+      const g=bx.createLinearGradient(s.x-s.len,s.y,s.x,s.y);
+      g.addColorStop(0,'transparent');
+      g.addColorStop(1,s.col);
+      bx.strokeStyle=g;
+      bx.lineWidth=s.thin?.6:1.2;
+      bx.beginPath();bx.moveTo(s.x-s.len,s.y);bx.lineTo(s.x,s.y);bx.stroke();
+      s.x+=s.speed;
+      if(s.x>bc.width+s.len) Object.assign(s,createStreak(),{x:-s.len});
+    });
+    bx.globalAlpha=1;
+    requestAnimationFrame(frame);
+  }
+  frame();
+})();
+</script>
+</body>
+</html>

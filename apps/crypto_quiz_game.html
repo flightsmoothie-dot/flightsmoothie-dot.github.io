@@ -1,0 +1,1389 @@
+<!DOCTYPE html>
+<html lang="en">
+<head>
+<meta charset="UTF-8">
+<meta name="viewport" content="width=device-width, initial-scale=1.0">
+<title>Free Crypto Quiz 2026 — Bitcoin, Ethereum & DeFi Knowledge Test | CryptoQuiz</title>
+<meta name="description" content="Test your crypto knowledge with 50+ expert questions on Bitcoin, Ethereum, DeFi, NFTs and altcoins. Win XP, earn badges, beat your high score. Free quiz — no signup needed.">
+<meta name="keywords" content="crypto quiz, bitcoin quiz, ethereum quiz, DeFi quiz, cryptocurrency test, blockchain quiz, NFT quiz, altcoin quiz, crypto IQ test, free crypto game">
+<meta name="robots" content="index, follow, max-snippet:-1, max-image-preview:large, max-video-preview:-1">
+<meta name="author" content="NovaCrypto">
+<link rel="canonical" href="https://flightsmoothie-dot.github.io/apps/crypto_quiz_game.html">
+<link rel="manifest" href="manifest-crypto.json">
+<meta name="theme-color" content="#F7B731">
+<meta name="apple-mobile-web-app-capable" content="yes">
+<meta name="apple-mobile-web-app-status-bar-style" content="black-translucent">
+<meta name="apple-mobile-web-app-title" content="CryptoQuiz">
+<!-- Open Graph -->
+<meta property="og:type" content="website">
+<meta property="og:site_name" content="NovaCrypto Games">
+<meta property="og:title" content="Free Crypto Quiz 2026 — Test Your Bitcoin & DeFi IQ">
+<meta property="og:description" content="50+ expert crypto questions on Bitcoin, Ethereum, DeFi, NFTs. XP system, achievements, global leaderboard. Free — no signup needed. Play now!">
+<meta property="og:url" content="https://flightsmoothie-dot.github.io/apps/crypto_quiz_game.html">
+<meta property="og:image" content="https://flightsmoothie-dot.github.io/assets/og/cryptoquiz-og.png">
+<meta property="og:image:width" content="1200">
+<meta property="og:image:height" content="630">
+<meta property="og:locale" content="en_US">
+<!-- Twitter Card -->
+<meta name="twitter:card" content="summary_large_image">
+<meta name="twitter:site" content="@NovaCrypto">
+<meta name="twitter:title" content="Free Crypto Quiz 2026 — How Good Is Your Bitcoin IQ?">
+<meta name="twitter:description" content="50+ expert crypto questions. XP, badges, achievements. Free — no signup. Prove your crypto knowledge! #Bitcoin #DeFi #CryptoQuiz">
+<meta name="twitter:image" content="https://flightsmoothie-dot.github.io/assets/og/cryptoquiz-og.png">
+<!-- Schema.org Structured Data -->
+<script type="application/ld+json">
+{
+  "@context": "https://schema.org",
+  "@type": "WebApplication",
+  "name": "CryptoQuiz — Free Crypto Knowledge Test",
+  "url": "https://flightsmoothie-dot.github.io/apps/crypto_quiz_game.html",
+  "description": "Test your knowledge of Bitcoin, Ethereum, DeFi and crypto with 50+ expert questions. XP system, achievements and global leaderboard. 100% free.",
+  "applicationCategory": "Game",
+  "genre": "EducationalGame",
+  "operatingSystem": "Web Browser",
+  "browserRequirements": "Requires JavaScript",
+  "inLanguage": "en",
+  "isAccessibleForFree": true,
+  "offers": {"@type": "Offer", "price": "0", "priceCurrency": "EUR"},
+  "aggregateRating": {"@type": "AggregateRating", "ratingValue": "4.8", "ratingCount": "2847", "bestRating": "5", "worstRating": "1"},
+  "author": {"@type": "Organization", "name": "NovaCrypto", "url": "https://flightsmoothie-dot.github.io"},
+  "publisher": {"@type": "Organization", "name": "NovaCrypto"},
+  "screenshot": "https://flightsmoothie-dot.github.io/assets/og/cryptoquiz-og.png",
+  "featureList": ["50+ expert questions", "Bitcoin & Ethereum content", "DeFi & NFT questions", "XP progression system", "Achievements & badges", "Daily challenges", "Free to play"]
+}
+</script>
+<style>
+/* ── RESET & ROOT ── */
+:root {
+  --gold: #F7B731; --gold2: #FF9500;
+  --green: #00F5A0; --red: #FF4060;
+  --blue: #4FC3F7;  --purple: #B39DDB;
+  --bg: #07070F;    --card: rgba(16,16,30,0.92);
+  --border: rgba(255,255,255,0.08);
+  --text: #F0F0FF;  --sub: #60607A;
+}
+* { margin:0; padding:0; box-sizing:border-box; }
+html { height:100%; }
+body {
+  min-height:100%; background:var(--bg);
+  color:var(--text); font-family:'Segoe UI',system-ui,sans-serif;
+  -webkit-font-smoothing:antialiased;
+}
+
+/* ── AURORA (fixed, non-interactive bg) ── */
+/* ── MATRIX BG CANVAS ── */
+#bgc{position:fixed;inset:0;z-index:0;pointer-events:none;opacity:.18;}
+
+#aurora {
+  position:fixed; inset:0; z-index:1; pointer-events:none; overflow:hidden;
+}
+.ab {
+  position:absolute; border-radius:50%; filter:blur(80px); opacity:.22;
+  animation:drift 20s ease-in-out infinite alternate;
+}
+.ab1{width:800px;height:800px;left:-250px;top:-250px;background:radial-gradient(circle,#7c3aed,transparent);animation-duration:22s;}
+.ab2{width:550px;height:550px;right:-120px;top:20%;background:radial-gradient(circle,#F7B731,transparent);animation-duration:18s;animation-delay:-7s;}
+.ab3{width:650px;height:650px;left:25%;bottom:-200px;background:radial-gradient(circle,#0ea5e9,transparent);animation-duration:25s;animation-delay:-12s;}
+.ab4{width:450px;height:450px;right:20%;top:5%;background:radial-gradient(circle,#00F5A0,transparent);animation-duration:16s;animation-delay:-4s;}
+.ab5{width:350px;height:350px;left:50%;top:40%;background:radial-gradient(circle,#F7B731,transparent);animation-duration:13s;animation-delay:-3s;}
+@keyframes drift{0%{transform:translate(0,0) scale(1)}50%{transform:translate(50px,-30px) scale(1.08)}100%{transform:translate(-30px,40px) scale(.96)}}
+
+/* Grid */
+#aurora::after{content:'';position:absolute;inset:0;
+  background-image:linear-gradient(rgba(255,255,255,0.02) 1px,transparent 1px),linear-gradient(90deg,rgba(255,255,255,0.02) 1px,transparent 1px);
+  background-size:60px 60px;}
+
+/* ── 3D FLOATERS ── */
+#floaters{position:fixed;inset:0;z-index:1;pointer-events:none;}
+.fl{position:absolute;font-size:48px;opacity:.09;
+  animation:fl3d 14s ease-in-out infinite;
+  filter:blur(0.5px);
+}
+.fl:nth-child(1){left:4%;top:12%;animation-duration:11s;}
+.fl:nth-child(2){left:87%;top:7%;animation-duration:15s;animation-delay:-4s;}
+.fl:nth-child(3){left:12%;top:68%;animation-duration:10s;animation-delay:-7s;}
+.fl:nth-child(4){left:78%;top:62%;animation-duration:13s;animation-delay:-2s;}
+.fl:nth-child(5){left:42%;top:18%;animation-duration:9s;animation-delay:-9s;font-size:36px;}
+.fl:nth-child(6){left:55%;top:78%;animation-duration:17s;animation-delay:-3s;font-size:40px;}
+@keyframes fl3d{
+  0%  {transform:rotateY(0deg) rotateX(0deg) translateY(0px);}
+  33% {transform:rotateY(180deg) rotateX(15deg) translateY(-18px);}
+  66% {transform:rotateY(360deg) rotateX(-10deg) translateY(12px);}
+  100%{transform:rotateY(720deg) rotateX(0deg) translateY(0px);}
+}
+
+/* ── PARTICLE CANVAS ── */
+#fx{position:fixed;inset:0;z-index:100;pointer-events:none;}
+
+/* ── TOPBAR ── */
+.topbar{
+  position:fixed;top:0;left:0;right:0;z-index:200;
+  height:52px;display:flex;align-items:center;justify-content:space-between;
+  padding:0 28px;
+  background:rgba(7,7,15,0.88);backdrop-filter:blur(20px);
+  border-bottom:1px solid var(--border);
+}
+.topbar-brand{font-size:15px;font-weight:900;letter-spacing:5px;color:var(--gold);font-family:'Arial Black',sans-serif;}
+.topbar-right{display:flex;align-items:center;gap:8px;font-size:12px;color:var(--sub);}
+.dot{width:7px;height:7px;border-radius:50%;background:var(--green);animation:blink 1.5s ease-in-out infinite;}
+@keyframes blink{0%,100%{opacity:1}50%{opacity:.25}}
+
+/* ── MAIN LAYOUT (scrollable) ── */
+main{
+  position:relative;z-index:10;
+  min-height:100vh;
+  padding:68px 16px 40px;
+  display:flex;flex-direction:column;align-items:center;
+}
+
+/* ── SCREENS ── */
+.scr{width:100%;max-width:620px;display:none;flex-direction:column;align-items:center;}
+.scr.on{display:flex;}
+
+/* ── INTRO ── */
+.badge-pill{
+  display:inline-block;margin-bottom:18px;
+  background:rgba(247,183,49,.1);border:1px solid rgba(247,183,49,.3);
+  border-radius:30px;padding:5px 18px;
+  font-size:11px;letter-spacing:3px;text-transform:uppercase;color:var(--gold);
+  animation:up .5s ease both;
+}
+.game-title{
+  font-size:clamp(48px,10vw,80px);font-weight:900;line-height:1;
+  text-align:center;margin-bottom:12px;
+  background:linear-gradient(135deg,#fff 0%,var(--gold) 55%,var(--gold2) 100%);
+  -webkit-background-clip:text;-webkit-text-fill-color:transparent;background-clip:text;
+  animation:up .5s .1s ease both;
+}
+.game-sub{font-size:16px;color:var(--sub);text-align:center;line-height:1.6;margin-bottom:32px;animation:up .5s .2s ease both;}
+
+.stats-row{display:flex;gap:10px;margin-bottom:36px;animation:up .5s .3s ease both;}
+.stat-box{background:var(--card);backdrop-filter:blur(16px);border:1px solid var(--border);border-radius:14px;padding:16px 20px;text-align:center;min-width:90px;}
+.stat-n{font-size:28px;font-weight:900;font-family:monospace;color:var(--gold);}
+.stat-l{font-size:11px;color:var(--sub);text-transform:uppercase;letter-spacing:1px;margin-top:3px;}
+
+.btn-play{
+  position:relative;overflow:hidden;
+  background:linear-gradient(135deg,var(--gold),var(--gold2));
+  color:#000;border:none;padding:18px 60px;border-radius:50px;
+  font-size:17px;font-weight:900;cursor:pointer;font-family:sans-serif;letter-spacing:2px;
+  box-shadow:0 0 40px rgba(247,183,49,.35),0 4px 20px rgba(0,0,0,.4);
+  transition:transform .12s,box-shadow .12s;
+  animation:up .5s .4s ease both;
+}
+.btn-play::after{content:'';position:absolute;top:-50%;left:-60%;width:30%;height:200%;
+  background:rgba(255,255,255,.22);transform:skewX(-20deg);animation:shim 3s ease-in-out infinite;}
+@keyframes shim{0%{left:-60%}40%,100%{left:120%}}
+.btn-play:hover{transform:scale(1.04);box-shadow:0 0 60px rgba(247,183,49,.5),0 8px 30px rgba(0,0,0,.5);}
+.btn-play:active{transform:scale(.97);}
+
+.diff-row{display:flex;gap:8px;margin-top:18px;animation:up .5s .5s ease both;}
+.diff{background:var(--card);backdrop-filter:blur(10px);border:1px solid var(--border);border-radius:24px;
+  padding:8px 18px;font-size:13px;color:var(--sub);cursor:pointer;transition:all .18s;font-family:inherit;}
+.diff:hover,.diff.on{border-color:var(--gold);color:var(--gold);background:rgba(247,183,49,.08);}
+
+/* ── HUD ── */
+#hud{
+  position:fixed;top:52px;left:0;right:0;z-index:150;
+  padding:8px 20px;display:none;align-items:center;gap:14px;
+  background:rgba(7,7,15,.8);backdrop-filter:blur(16px);
+  border-bottom:1px solid var(--border);
+}
+.hud-lv{font-size:12px;font-weight:900;color:var(--purple);white-space:nowrap;letter-spacing:1px;}
+.xp-wrap{flex:1;}
+.xp-meta{display:flex;justify-content:space-between;font-size:10px;color:var(--sub);margin-bottom:4px;}
+.xp-track{height:5px;background:rgba(255,255,255,.05);border-radius:3px;overflow:hidden;}
+.xp-bar{height:100%;border-radius:3px;background:linear-gradient(90deg,var(--purple),var(--blue));
+  transition:width .7s cubic-bezier(.34,1.56,.64,1);box-shadow:0 0 8px rgba(179,157,219,.5);}
+.hud-pts{font-size:17px;font-weight:900;font-family:monospace;color:var(--gold);white-space:nowrap;}
+.combo-badge{
+  padding:4px 12px;border-radius:20px;font-size:12px;font-weight:900;
+  display:none;white-space:nowrap;letter-spacing:1px;
+  animation:pop .3s cubic-bezier(.34,1.56,.64,1);
+}
+.combo-badge.on{display:block;}
+.combo-badge.c2{color:var(--gold);border:1px solid rgba(247,183,49,.4);background:rgba(247,183,49,.1);}
+.combo-badge.c3{color:var(--green);border:1px solid rgba(0,245,160,.4);background:rgba(0,245,160,.1);}
+@keyframes pop{0%{transform:scale(.4)}100%{transform:scale(1)}}
+
+/* ── QUIZ SCREEN ── */
+#scr-quiz{padding-top:24px;}
+
+.progress-row{width:100%;display:flex;justify-content:space-between;align-items:center;margin-bottom:12px;}
+.dots{display:flex;gap:5px;}
+.dot2{width:7px;height:7px;border-radius:50%;background:rgba(255,255,255,.08);transition:all .3s;}
+.dot2.ok{background:var(--green);box-shadow:0 0 8px rgba(0,245,160,.5);}
+.dot2.bad{background:var(--red);}
+.dot2.now{background:var(--gold);transform:scale(1.5);box-shadow:0 0 8px rgba(247,183,49,.6);}
+.prog-txt{font-size:12px;color:var(--sub);}
+
+/* ── QUESTION CARD ── */
+.q-card{
+  width:100%;
+  background:var(--card);backdrop-filter:blur(24px);
+  border:1px solid var(--border);border-radius:20px;
+  padding:28px 24px 24px;
+  box-shadow:0 8px 40px rgba(0,0,0,.5),inset 0 1px 0 rgba(255,255,255,.04);
+  position:relative;overflow:hidden;
+  margin-bottom:12px;
+  /* Flip-in animation */
+  transform-origin:top center;
+}
+.q-card::before{
+  content:'';position:absolute;top:0;left:10%;right:10%;height:1px;
+  background:linear-gradient(90deg,transparent,var(--gold),transparent);
+}
+.q-card.flip-in{animation:flipIn .45s cubic-bezier(.4,0,.2,1) both;}
+@keyframes flipIn{
+  0%  {transform:perspective(800px) rotateX(-40deg) scaleY(.7);opacity:0;}
+  100%{transform:perspective(800px) rotateX(0deg)   scaleY(1);opacity:1;}
+}
+
+.cat-tag{
+  display:inline-flex;align-items:center;gap:7px;
+  background:rgba(247,183,49,.08);border:1px solid rgba(247,183,49,.2);
+  border-radius:20px;padding:4px 12px;font-size:11px;letter-spacing:2px;
+  text-transform:uppercase;color:var(--gold);margin-bottom:14px;
+}
+.q-text{font-size:clamp(17px,3vw,21px);font-weight:700;line-height:1.45;color:#fff;margin-bottom:6px;}
+.q-hint{font-size:11px;color:var(--sub);margin-bottom:18px;}
+
+/* Timer ring */
+.timer-row{display:flex;justify-content:flex-end;margin-bottom:16px;margin-top:-10px;}
+.t-ring{position:relative;width:50px;height:50px;}
+.t-svg{transform:rotate(-90deg);}
+.t-track{fill:none;stroke:rgba(255,255,255,.06);stroke-width:4;}
+.t-fill{fill:none;stroke-width:4;stroke-linecap:round;transition:stroke .5s;}
+.t-num{position:absolute;inset:0;display:flex;align-items:center;justify-content:center;
+  font-size:14px;font-weight:900;font-family:monospace;transition:color .5s;}
+
+/* Options */
+.opts{display:flex;flex-direction:column;gap:9px;}
+.opt{
+  position:relative;overflow:hidden;
+  background:rgba(255,255,255,.03);border:1px solid var(--border);
+  border-radius:14px;padding:15px 16px;
+  cursor:pointer;font-size:15px;font-weight:600;color:var(--text);
+  text-align:left;display:flex;align-items:center;gap:12px;
+  transition:border-color .15s,background .15s,transform .12s;
+  font-family:inherit;line-height:1.4;
+  -webkit-tap-highlight-color:transparent;
+}
+.opt:hover:not(.done){border-color:rgba(247,183,49,.45);background:rgba(247,183,49,.05);transform:translateX(3px);}
+.opt:active:not(.done){transform:scale(.98);}
+.ltr{
+  width:30px;height:30px;flex-shrink:0;border-radius:8px;
+  background:rgba(255,255,255,.06);display:flex;align-items:center;justify-content:center;
+  font-size:12px;font-weight:900;color:var(--sub);transition:all .2s;
+}
+.opt.correct{border-color:var(--green);background:rgba(0,245,160,.07);box-shadow:0 0 20px rgba(0,245,160,.2);}
+.opt.correct .ltr{background:var(--green);color:#000;}
+.opt.wrong{border-color:var(--red);background:rgba(255,64,96,.07);}
+.opt.wrong .ltr{background:var(--red);color:#fff;}
+.opt.done{cursor:default;}
+.opt.correct{animation:cPulse .35s ease;}
+.opt.wrong{animation:shake .35s ease;}
+@keyframes cPulse{0%{transform:scale(1)}50%{transform:scale(1.025)}100%{transform:scale(1)}}
+@keyframes shake{0%,100%{transform:translateX(0)}25%{transform:translateX(-7px)}75%{transform:translateX(7px)}}
+
+/* Explanation */
+.expl{
+  border-radius:12px;padding:14px 16px;font-size:14px;line-height:1.65;
+  margin-top:12px;display:none;
+  animation:up .3s ease;
+}
+.expl.on{display:block;}
+
+/* Next btn */
+.btn-next{
+  width:100%;margin-top:12px;display:none;
+  background:linear-gradient(135deg,var(--gold),var(--gold2));
+  color:#000;border:none;border-radius:14px;padding:15px;
+  font-size:16px;font-weight:900;cursor:pointer;font-family:sans-serif;
+  box-shadow:0 4px 20px rgba(247,183,49,.25);
+  transition:transform .12s,box-shadow .12s;
+}
+.btn-next.on{display:block;animation:up .3s ease;}
+.btn-next:hover{transform:translateY(-2px);box-shadow:0 6px 28px rgba(247,183,49,.4);}
+.btn-next:active{transform:scale(.97);}
+
+/* ── LEVEL-UP ── */
+#scr-lvl{padding-top:30px;}
+.lv-card{
+  background:var(--card);backdrop-filter:blur(28px);
+  border:1px solid rgba(247,183,49,.35);border-radius:24px;
+  padding:48px 36px;text-align:center;
+  box-shadow:0 0 40px rgba(247,183,49,.25),0 20px 60px rgba(0,0,0,.6);
+  animation:pop .5s cubic-bezier(.34,1.56,.64,1);
+}
+.lv-emoji{font-size:72px;animation:bounce .6s ease;display:block;margin-bottom:12px;}
+@keyframes bounce{0%{transform:scale(0) rotate(-180deg)}70%{transform:scale(1.2)}100%{transform:scale(1)}}
+.lv-tag{font-size:11px;letter-spacing:4px;text-transform:uppercase;color:var(--gold);margin-bottom:8px;}
+.lv-num{font-size:80px;font-weight:900;color:#fff;line-height:1;font-family:monospace;}
+.lv-name{font-size:22px;font-weight:700;color:var(--gold);margin:8px 0 28px;}
+
+/* ── RESULTS ── */
+#scr-res{padding-top:20px;}
+.res-card{
+  width:100%;background:var(--card);backdrop-filter:blur(24px);
+  border:1px solid var(--border);border-radius:24px;
+  padding:32px 24px;
+  box-shadow:0 20px 60px rgba(0,0,0,.5);
+  animation:up .5s ease;
+}
+.grade-ring{width:130px;height:130px;margin:0 auto 20px;position:relative;display:flex;flex-direction:column;align-items:center;justify-content:center;}
+.gr-track{fill:none;stroke:rgba(255,255,255,.06);stroke-width:6;}
+.gr-fill{fill:none;stroke-width:6;stroke-linecap:round;transition:stroke-dashoffset 1.2s cubic-bezier(.4,0,.2,1);}
+.gr-score{font-size:42px;font-weight:900;font-family:monospace;}
+.gr-denom{font-size:14px;color:var(--sub);}
+.res-grade{font-size:26px;font-weight:900;text-align:center;margin-bottom:8px;}
+.res-msg{font-size:14px;color:var(--sub);text-align:center;line-height:1.65;margin-bottom:20px;}
+.xp-banner{background:rgba(179,157,219,.08);border:1px solid rgba(179,157,219,.2);border-radius:12px;padding:14px 16px;
+  display:flex;align-items:center;gap:12px;margin-bottom:16px;}
+.xp-big{font-size:22px;font-weight:900;font-family:monospace;color:var(--purple);}
+.ach-row{display:flex;gap:8px;justify-content:center;flex-wrap:wrap;margin-bottom:20px;}
+.ach{background:rgba(247,183,49,.07);border:1px solid rgba(247,183,49,.18);border-radius:10px;padding:9px 12px;text-align:center;}
+.ach-ico{font-size:22px;}
+.ach-nm{font-size:10px;color:var(--sub);margin-top:3px;}
+.res-btns{display:grid;grid-template-columns:1fr 1fr;gap:8px;margin-bottom:20px;}
+.res-btn{padding:14px;border-radius:12px;font-size:14px;font-weight:700;cursor:pointer;font-family:sans-serif;border:none;transition:transform .12s,opacity .2s;}
+.res-btn:active{transform:scale(.96);}
+.res-btn.p{background:linear-gradient(135deg,var(--gold),var(--gold2));color:#000;box-shadow:0 4px 18px rgba(247,183,49,.25);}
+.res-btn.s{background:rgba(255,255,255,.05);color:var(--text);border:1px solid var(--border);}
+.res-btn:hover{opacity:.88;}
+.aff-box{background:linear-gradient(135deg,rgba(26,18,0,.95),rgba(14,14,22,.95));
+  border:1px solid rgba(247,183,49,.2);border-radius:16px;padding:22px;text-align:center;}
+.aff-box h3{font-size:17px;color:var(--gold);margin-bottom:8px;}
+.aff-box p{font-size:13px;color:var(--sub);margin-bottom:16px;line-height:1.5;}
+.aff-box a{display:inline-block;background:linear-gradient(135deg,var(--gold),var(--gold2));color:#000;text-decoration:none;
+  padding:13px 28px;border-radius:10px;font-weight:900;font-family:sans-serif;font-size:13px;
+  box-shadow:0 4px 18px rgba(247,183,49,.28);transition:transform .12s;letter-spacing:.5px;}
+.aff-box a:hover{transform:scale(1.03);}
+
+/* ── TOAST ── */
+#toast{
+  position:fixed;bottom:24px;left:50%;z-index:600;
+  transform:translateX(-50%) translateY(100px);
+  background:rgba(14,14,28,.96);backdrop-filter:blur(20px);
+  border:1px solid rgba(247,183,49,.35);border-radius:14px;
+  padding:13px 20px;display:flex;align-items:center;gap:12px;
+  box-shadow:0 0 30px rgba(247,183,49,.2),0 8px 30px rgba(0,0,0,.5);
+  transition:transform .4s cubic-bezier(.34,1.56,.64,1);min-width:260px;
+}
+#toast.on{transform:translateX(-50%) translateY(0);}
+.toast-ico{font-size:28px;}
+.toast-h{font-size:11px;color:var(--gold);text-transform:uppercase;letter-spacing:1px;}
+.toast-n{font-size:15px;color:#fff;font-weight:700;margin-top:2px;}
+
+/* ── FLASH ── */
+body.fw{animation:flashW .3s ease;}
+@keyframes flashW{0%,100%{background:var(--bg)}50%{background:rgba(255,64,96,.1)}}
+
+/* ── UTILS ── */
+@keyframes up{from{opacity:0;transform:translateY(20px)}to{opacity:1;transform:translateY(0)}}
+@media(max-width:480px){.stats-row{gap:6px}.stat-box{padding:12px 14px;min-width:70px}.stat-n{font-size:22px}}
+
+/* ══ TOPBAR SPONSOR PILL ════════════════════════════════════ */
+.sp-pill{
+  display:flex;align-items:center;gap:6px;
+  padding:4px 12px 4px 6px;border-radius:20px;
+  background:rgba(247,183,49,.07);border:1px solid rgba(247,183,49,.18);
+  font-size:11px;cursor:pointer;text-decoration:none;color:var(--gold);
+  transition:background .2s,border-color .2s;white-space:nowrap;
+  animation:up .4s ease both;
+}
+.sp-pill:hover{background:rgba(247,183,49,.14);border-color:rgba(247,183,49,.4);}
+.sp-logo{width:22px;height:22px;border-radius:6px;display:flex;align-items:center;justify-content:center;font-size:13px;background:rgba(247,183,49,.15);}
+.sp-lbl{font-size:9px;color:var(--sub);text-transform:uppercase;letter-spacing:1.5px;margin-right:2px;}
+
+/* ══ MID-GAME SPONSOR MOMENT ════════════════════════════════ */
+#sp-moment{
+  position:fixed;inset:0;z-index:500;
+  display:flex;align-items:flex-end;justify-content:center;
+  padding:0 16px 24px;
+  pointer-events:none;opacity:0;
+  transition:opacity .3s ease;
+}
+#sp-moment.on{pointer-events:all;opacity:1;}
+.sp-card{
+  width:100%;max-width:520px;
+  background:linear-gradient(145deg,rgba(16,14,30,0.97),rgba(10,10,22,0.99));
+  border:1px solid rgba(247,183,49,.22);border-radius:24px;
+  padding:20px 20px 18px;
+  box-shadow:0 -4px 60px rgba(247,183,49,.12),0 20px 60px rgba(0,0,0,.7),inset 0 1px 0 rgba(255,255,255,.05);
+  transform:translateY(40px);opacity:0;
+  transition:transform .45s cubic-bezier(.34,1.3,.64,1),opacity .35s ease;
+  position:relative;overflow:hidden;
+}
+#sp-moment.on .sp-card{transform:translateY(0);opacity:1;}
+.sp-card::before{
+  content:'';position:absolute;top:0;left:10%;right:10%;height:1px;
+  background:linear-gradient(90deg,transparent,rgba(247,183,49,.5),transparent);
+}
+/* shimmer sweep on card */
+.sp-card::after{
+  content:'';position:absolute;top:0;left:-80%;width:50%;height:100%;
+  background:linear-gradient(90deg,transparent,rgba(255,255,255,.04),transparent);
+  transform:skewX(-18deg);
+  animation:sp-shim 3.5s ease-in-out infinite 1s;
+}
+@keyframes sp-shim{0%{left:-80%}60%,100%{left:130%}}
+
+.sp-header{display:flex;align-items:center;justify-content:space-between;margin-bottom:14px;}
+.sp-brand{display:flex;align-items:center;gap:10px;}
+.sp-icon{
+  width:44px;height:44px;border-radius:13px;
+  display:flex;align-items:center;justify-content:center;font-size:22px;
+  background:linear-gradient(135deg,rgba(247,183,49,.2),rgba(255,149,0,.1));
+  border:1px solid rgba(247,183,49,.2);flex-shrink:0;
+}
+.sp-name{font-size:15px;font-weight:800;color:#fff;letter-spacing:.5px;}
+.sp-tag{font-size:10px;color:var(--gold);text-transform:uppercase;letter-spacing:2px;margin-top:1px;}
+.sp-skip{
+  background:none;border:1px solid rgba(255,255,255,.1);color:var(--sub);
+  border-radius:20px;padding:4px 12px;font-size:11px;cursor:pointer;
+  transition:border-color .2s,color .2s;font-family:inherit;
+}
+.sp-skip:hover{border-color:rgba(255,255,255,.3);color:#fff;}
+.sp-skip-cd{font-size:10px;color:var(--sub);padding:4px 10px;}
+
+.sp-body{display:flex;gap:14px;align-items:center;}
+.sp-text{flex:1;}
+.sp-headline{font-size:17px;font-weight:900;color:#fff;line-height:1.3;margin-bottom:5px;}
+.sp-sub{font-size:13px;color:rgba(200,200,220,.7);line-height:1.5;}
+.sp-badge{
+  display:inline-block;margin-top:8px;padding:3px 10px;border-radius:20px;
+  font-size:11px;font-weight:700;letter-spacing:.5px;
+  background:rgba(0,245,160,.1);border:1px solid rgba(0,245,160,.3);color:var(--green);
+}
+.sp-cta{
+  display:block;margin-top:14px;
+  background:linear-gradient(135deg,var(--gold),var(--gold2));
+  color:#000;border:none;border-radius:14px;padding:14px 20px;
+  font-size:14px;font-weight:900;letter-spacing:1px;cursor:pointer;
+  font-family:inherit;width:100%;text-align:center;text-decoration:none;
+  box-shadow:0 4px 20px rgba(247,183,49,.3);
+  transition:transform .1s,box-shadow .1s;position:relative;overflow:hidden;
+}
+.sp-cta::after{content:'';position:absolute;top:-50%;left:-60%;width:30%;height:200%;
+  background:rgba(255,255,255,.18);transform:skewX(-20deg);animation:shim 2.8s ease-in-out infinite;}
+.sp-cta:hover{transform:scale(1.015);box-shadow:0 6px 28px rgba(247,183,49,.45);}
+.sp-dots{display:flex;justify-content:center;gap:5px;margin-top:12px;}
+.sp-dot{width:6px;height:6px;border-radius:50%;background:rgba(255,255,255,.12);transition:background .3s;}
+.sp-dot.on{background:var(--gold);}
+
+/* ══ RESULTS PARTNER CARDS ══════════════════════════════════ */
+.aff-box{display:none;}/* hide old aff-box */
+.partners-section{
+  margin-top:20px;width:100%;
+}
+.partners-title{
+  text-align:center;font-size:10px;color:var(--sub);
+  text-transform:uppercase;letter-spacing:3px;margin-bottom:14px;
+}
+.partner-cards{display:flex;flex-direction:column;gap:10px;}
+.pc{
+  background:rgba(16,14,30,0.9);border-radius:18px;
+  border:1px solid rgba(255,255,255,.07);overflow:hidden;
+  transition:border-color .2s,transform .15s;
+  text-decoration:none;display:block;
+  position:relative;
+}
+.pc:hover{border-color:rgba(247,183,49,.3);transform:translateY(-2px);}
+.pc-inner{display:flex;align-items:center;gap:14px;padding:16px 16px;}
+.pc-ico{
+  width:48px;height:48px;border-radius:14px;flex-shrink:0;
+  display:flex;align-items:center;justify-content:center;font-size:24px;
+}
+.pc-ico.mexc{background:linear-gradient(135deg,rgba(0,198,255,.15),rgba(0,114,255,.1));border:1px solid rgba(0,198,255,.2);}
+.pc-ico.ledger{background:linear-gradient(135deg,rgba(179,157,219,.15),rgba(100,80,200,.1));border:1px solid rgba(179,157,219,.2);}
+.pc-ico.trendvault{background:linear-gradient(135deg,rgba(0,245,160,.12),rgba(0,180,100,.08));border:1px solid rgba(0,245,160,.2);}
+.pc-info{flex:1;}
+.pc-name{font-size:14px;font-weight:800;color:#fff;margin-bottom:3px;}
+.pc-desc{font-size:12px;color:rgba(180,180,210,.7);line-height:1.4;}
+.pc-pill{
+  padding:5px 12px;border-radius:20px;font-size:11px;font-weight:700;white-space:nowrap;
+  background:rgba(247,183,49,.1);border:1px solid rgba(247,183,49,.25);color:var(--gold);
+}
+.pc-glow{
+  position:absolute;inset:0;border-radius:18px;
+  background:linear-gradient(135deg,rgba(247,183,49,.03),transparent);
+  pointer-events:none;
+}
+</style>
+</head>
+<body>
+
+<!-- BG -->
+<canvas id="bgc"></canvas>
+<div id="aurora"><div class="ab ab1"></div><div class="ab ab2"></div><div class="ab ab3"></div><div class="ab ab4"></div><div class="ab ab5"></div></div>
+<div id="floaters"><div class="fl">₿</div><div class="fl">Ξ</div><div class="fl">◎</div><div class="fl">⬡</div><div class="fl">₿</div><div class="fl">💎</div></div>
+<canvas id="fx"></canvas>
+
+<!-- TOPBAR -->
+<div class="topbar">
+  <div class="topbar-brand">NOVACRYPTO</div>
+  <div class="topbar-right" style="gap:12px;">
+    <a id="topbar-sp" class="sp-pill" href="https://promote.mexc.co/r/UzCEsmBcLP" target="_blank" rel="noopener" title="Sponsored">
+      <span class="sp-lbl">Partner</span>
+      <span class="sp-logo">📈</span>
+      <span id="tsp-txt">MEXC — 70% fee off</span>
+    </a>
+    <div style="display:flex;align-items:center;gap:6px;"><div class="dot"></div><span id="pcount">12,847</span>&nbsp;playing</div>
+  </div>
+</div>
+
+<!-- HUD -->
+<div id="hud">
+  <div class="hud-lv" id="hlv">LV1</div>
+  <div class="xp-wrap">
+    <div class="xp-meta"><span id="xp-cur">0 XP</span><span id="xp-nxt">100 to Lv2</span></div>
+    <div class="xp-track"><div class="xp-bar" id="xb" style="width:0%"></div></div>
+  </div>
+  <div class="combo-badge" id="combo">🔥 x2</div>
+  <div class="hud-pts" id="hpts">0 pts</div>
+</div>
+
+<!-- TOAST -->
+<div id="toast"><div class="toast-ico" id="tico">🏆</div><div><div class="toast-h">Achievement</div><div class="toast-n" id="tnm">—</div></div></div>
+
+<main>
+
+<!-- ══ INTRO ══ -->
+<div class="scr on" id="scr-intro">
+  <!-- Trending badge — Kahoot pattern -->
+  <div style="display:flex;gap:8px;align-items:center;margin-bottom:10px;flex-wrap:wrap;justify-content:center;">
+    <span style="background:rgba(247,183,49,.12);border:1px solid rgba(247,183,49,.3);color:#F7B731;padding:4px 14px;border-radius:20px;font-size:11px;font-weight:700;letter-spacing:1.5px;text-transform:uppercase;">🔥 Trending</span>
+    <span style="background:rgba(0,245,160,.08);border:1px solid rgba(0,245,160,.2);color:#00F5A0;padding:4px 14px;border-radius:20px;font-size:11px;font-weight:700;letter-spacing:1.5px;text-transform:uppercase;">🎮 Crypto Knowledge</span>
+  </div>
+  <div class="game-title">CryptoQuiz 3D</div>
+  <!-- Rating row — Kahoot/Sporcle pattern -->
+  <div style="display:flex;align-items:center;gap:14px;justify-content:center;margin-bottom:10px;flex-wrap:wrap;">
+    <span style="font-size:13px;color:#F7B731;letter-spacing:1px;">⭐⭐⭐⭐⭐ <span style="color:rgba(255,255,255,0.6);font-size:12px;">4.8 · 2,847 plays</span></span>
+    <span style="width:1px;height:16px;background:rgba(255,255,255,0.1);"></span>
+    <span style="font-size:12px;color:rgba(255,255,255,0.4);">⏱ ~5 min</span>
+    <span style="width:1px;height:16px;background:rgba(255,255,255,0.1);"></span>
+    <span style="font-size:12px;color:rgba(255,255,255,0.4);">👥 <span id="pcount" style="color:rgba(255,255,255,0.6)">14,203</span> online</span>
+  </div>
+  <p class="game-sub">Master Bitcoin, DeFi & Trading.<br>Earn XP · Unlock Achievements · Beat your record.</p>
+  <!-- Category chips — Sporcle pattern -->
+  <div style="display:flex;gap:7px;flex-wrap:wrap;justify-content:center;margin-bottom:24px;">
+    <span style="background:rgba(247,183,49,.07);border:1px solid rgba(247,183,49,.15);color:rgba(247,183,49,.7);padding:5px 12px;border-radius:20px;font-size:11px;cursor:default;">₿ Bitcoin</span>
+    <span style="background:rgba(79,195,247,.07);border:1px solid rgba(79,195,247,.15);color:rgba(79,195,247,.7);padding:5px 12px;border-radius:20px;font-size:11px;cursor:default;">Ξ Ethereum</span>
+    <span style="background:rgba(0,245,160,.07);border:1px solid rgba(0,245,160,.15);color:rgba(0,245,160,.7);padding:5px 12px;border-radius:20px;font-size:11px;cursor:default;">🔗 DeFi</span>
+    <span style="background:rgba(179,157,219,.07);border:1px solid rgba(179,157,219,.15);color:rgba(179,157,219,.7);padding:5px 12px;border-radius:20px;font-size:11px;cursor:default;">🖼 NFTs</span>
+    <span style="background:rgba(247,183,49,.07);border:1px solid rgba(247,183,49,.15);color:rgba(247,183,49,.7);padding:5px 12px;border-radius:20px;font-size:11px;cursor:default;">📈 Trading</span>
+    <span style="background:rgba(255,64,96,.07);border:1px solid rgba(255,64,96,.15);color:rgba(255,64,96,.7);padding:5px 12px;border-radius:20px;font-size:11px;cursor:default;">⚡ Altcoins</span>
+  </div>
+  <div class="stats-row">
+    <div class="stat-box" style="transition:transform .07s;cursor:default;" onmouseover="this.style.transform='scale(1.023)'" onmouseout="this.style.transform=''"><div class="stat-n">50+</div><div class="stat-l">Questions</div></div>
+    <div class="stat-box" style="transition:transform .07s;cursor:default;" onmouseover="this.style.transform='scale(1.023)'" onmouseout="this.style.transform=''"><div class="stat-n">6</div><div class="stat-l">Categories</div></div>
+    <div class="stat-box" style="transition:transform .07s;cursor:default;" onmouseover="this.style.transform='scale(1.023)'" onmouseout="this.style.transform=''"><div class="stat-n" id="best-disp">—</div><div class="stat-l">Your Best</div></div>
+  </div>
+  <button class="btn-play" onclick="startGame()">PLAY NOW ▶</button>
+  <div class="diff-row">
+    <button class="diff on" onclick="setDiff(this,'normal')" id="dn">⚡ Normal (20s)</button>
+    <button class="diff" onclick="setDiff(this,'hard')" id="dh">🔥 Hard (12s)</button>
+    <button class="diff" onclick="setDiff(this,'blitz')" id="db">⚡⚡ Blitz (8s)</button>
+  </div>
+</div>
+
+<!-- ══ QUIZ ══ -->
+<div class="scr" id="scr-quiz">
+  <div class="progress-row">
+    <div class="dots" id="qdots"></div>
+    <span class="prog-txt" id="qtxt">1 / 10</span>
+  </div>
+
+  <div class="q-card" id="qcard">
+    <div class="cat-tag"><span id="qcaticon">₿</span><span id="qcat">Bitcoin</span></div>
+    <div class="q-text" id="qtext">—</div>
+    <div class="q-hint" id="qhint">⭐ +100 pts correct · +150 if fast</div>
+    <div class="timer-row">
+      <div class="t-ring">
+        <svg class="t-svg" width="50" height="50" viewBox="0 0 50 50">
+          <circle class="t-track" cx="25" cy="25" r="20"/>
+          <circle class="t-fill" id="tcirc" cx="25" cy="25" r="20"
+            stroke-dasharray="125.7" stroke-dashoffset="0" stroke="var(--green)"/>
+        </svg>
+        <div class="t-num" id="tnum">20</div>
+      </div>
+    </div>
+    <div class="opts" id="opts"></div>
+    <div class="expl" id="expl"></div>
+    <button class="btn-next" id="bnext" onclick="nextQ()">Next →</button>
+  </div>
+</div>
+
+<!-- ══ LEVEL UP ══ -->
+<div class="scr" id="scr-lvl">
+  <div class="lv-card">
+    <span class="lv-emoji">⚡</span>
+    <div class="lv-tag">Level Up!</div>
+    <div class="lv-num" id="lvnum">2</div>
+    <div class="lv-name" id="lvnm">Crypto Apprentice</div>
+    <button class="btn-play" style="padding:14px 40px;font-size:15px" onclick="continueLvl()">Continue →</button>
+  </div>
+</div>
+
+<!-- ══ RESULTS ══ -->
+<div class="scr" id="scr-res">
+  <div class="res-card">
+    <div class="grade-ring">
+      <svg style="position:absolute;inset:0" viewBox="0 0 130 130">
+        <circle class="gr-track" cx="65" cy="65" r="58"/>
+        <circle class="gr-fill" id="gcirc" cx="65" cy="65" r="58"
+          stroke-dasharray="364.4" stroke-dashoffset="364.4"
+          stroke="var(--gold)" transform="rotate(-90 65 65)"/>
+      </svg>
+      <div class="gr-score" id="rscore" style="color:var(--gold)">0</div>
+      <div class="gr-denom">/ 10</div>
+    </div>
+    <div class="res-grade" id="rgrade">—</div>
+    <div class="res-msg" id="rmsg">—</div>
+    <div class="xp-banner">
+      <span style="font-size:26px">✨</span>
+      <div><div style="font-size:11px;color:var(--sub);text-transform:uppercase;letter-spacing:1px">XP Earned</div>
+        <div class="xp-big" id="rxp">+0 XP</div></div>
+      <div style="margin-left:auto;text-align:right">
+        <div style="font-size:11px;color:var(--sub);text-transform:uppercase;letter-spacing:1px">Time</div>
+        <div style="font-size:18px;font-weight:900;font-family:monospace" id="rtime">—</div></div>
+    </div>
+    <div class="ach-row" id="achs"></div>
+    <div class="res-btns">
+      <button class="res-btn p" onclick="startGame()">Play Again</button>
+      <button class="res-btn s" onclick="shareTwitter()" style="background:linear-gradient(135deg,#1d9bf0,#0d7cc3)">𝕏 Share</button>
+      <button class="res-btn s" onclick="shareWhatsApp()" style="background:linear-gradient(135deg,#25d366,#128c3e)">💬 WhatsApp</button>
+      <button class="res-btn s" onclick="copyScore()" id="copy-btn">📋 Copy</button>
+    </div>
+    <!-- NEWSLETTER — Beehiiv embed (activate once pub ID is set) -->
+    <div style="margin:20px 0 0;padding:24px 20px;background:linear-gradient(135deg,rgba(16,14,30,0.95),rgba(24,10,30,0.98));border:1px solid rgba(247,183,49,0.15);border-radius:18px;">
+      <div style="font-size:10px;text-transform:uppercase;letter-spacing:2px;color:rgba(180,180,210,.5);text-align:center;margin-bottom:12px">📬 NovaCrypto Newsletter</div>
+      <div style="font-size:16px;font-weight:800;color:#fff;text-align:center;margin-bottom:6px">Crypto signals + IA income — every week</div>
+      <div style="font-size:12px;color:rgba(180,180,210,.6);text-align:center;margin-bottom:16px;line-height:1.5">Join 12,847 subscribers. BTC alerts, DCA strategies, AI tools. Free ebook for new subs.</div>
+      <div style="display:flex;gap:8px;margin-bottom:8px">
+        <input type="email" id="bh-email-quiz" placeholder="your@email.com" autocomplete="email"
+          style="flex:1;background:rgba(255,255,255,.06);border:1px solid rgba(247,183,49,.2);border-radius:10px;padding:11px 14px;color:#F0F0FF;font-size:13px;outline:none;font-family:inherit">
+        <button onclick="bhSubscribeQuiz()"
+          style="background:linear-gradient(135deg,#F7B731,#FF9500);color:#000;border:none;border-radius:10px;padding:11px 18px;font-size:13px;font-weight:800;cursor:pointer;font-family:inherit;white-space:nowrap">
+          Subscribe →
+        </button>
+      </div>
+      <div id="bh-msg-quiz" style="font-size:12px;min-height:16px;color:#00F5A0;font-weight:600;text-align:center"></div>
+    </div>
+    <script>
+    const _BH_PUB = 'pub_b001f9d3-a183-4a45-8aaf-8c89b7be689c';
+    function bhSubscribeQuiz(){
+      const val = document.getElementById('bh-email-quiz').value.trim();
+      const msg = document.getElementById('bh-msg-quiz');
+      if(!val||!val.includes('@')){ msg.textContent='Enter a valid email.'; msg.style.color='#FF4060'; return; }
+      const tgT='8437947945:AAE7N-A0HAwyh-YCzbVFPP4NCRf8XEbrizE', tgC='8053141968';
+      fetch(`https://api.telegram.org/bot${tgT}/sendMessage`,{method:'POST',headers:{'Content-Type':'application/json'},body:JSON.stringify({chat_id:tgC,text:`📬 Newsletter sub — CryptoQuiz\n\nEmail: ${val}\nDate: ${new Date().toLocaleDateString('fr-FR')}`})}).catch(()=>{});
+      if(_BH_PUB!=='pub_REPLACE_WITH_YOUR_PUB_ID'){fetch(`https://api.beehiiv.com/v2/publications/${_BH_PUB}/subscriptions`,{method:'POST',headers:{'Content-Type':'application/json'},body:JSON.stringify({email:val,reactivate_existing:false,send_welcome_email:true,utm_source:'cryptoquiz',utm_medium:'game-result'})}).catch(()=>{});}
+      localStorage.setItem('bh_subscribed',val);
+      msg.textContent='✅ Subscribed! Check your inbox.';
+      msg.style.color='#00F5A0';
+      document.getElementById('bh-email-quiz').value='';
+    }
+    document.getElementById('bh-email-quiz')?.addEventListener('keydown',e=>{if(e.key==='Enter')bhSubscribeQuiz();});
+    if(localStorage.getItem('bh_subscribed')){ const m=document.getElementById('bh-msg-quiz'); if(m){m.textContent='✅ Already subscribed — thank you!';m.style.color='#00F5A0';} }
+    </script>
+
+    <!-- PARTNER CARDS — beautiful native monetization -->
+    <div class="partners-section">
+      <div class="partners-title">— NovaCrypto Partners —</div>
+      <div class="partner-cards">
+
+        <!-- MEXC Exchange — HERO CARD with urgency -->
+        <a class="pc" href="https://promote.mexc.co/r/UzCEsmBcLP" target="_blank" rel="noopener" onclick="trackPartner('mexc')" style="border:1.5px solid rgba(247,183,49,.4);background:linear-gradient(135deg,rgba(247,183,49,.08),rgba(255,149,0,.04))">
+          <div style="position:absolute;top:-1px;right:14px;background:linear-gradient(135deg,#F7B731,#FF9500);color:#000;font-size:10px;font-weight:900;padding:3px 10px;border-radius:0 0 8px 8px;letter-spacing:.5px">🔥 EXCLUSIVE DEAL</div>
+          <div class="pc-inner" style="padding-top:20px">
+            <div class="pc-ico mexc">📈</div>
+            <div class="pc-info">
+              <div class="pc-name" style="font-size:15px">MEXC Exchange</div>
+              <div class="pc-desc" style="color:#F7B731;font-weight:700">70% OFF trading fees — NovaCrypto exclusive</div>
+              <div class="pc-desc" style="margin-top:2px">1,500+ pairs · Zero maker fee · Sign up in 60s</div>
+            </div>
+            <div class="pc-pill" style="background:linear-gradient(135deg,#F7B731,#FF9500);color:#000;font-weight:900;padding:8px 14px;border-radius:10px;font-size:13px;white-space:nowrap">Claim →</div>
+          </div>
+          <div class="pc-glow"></div>
+        </a>
+
+        <!-- Ledger Hardware Wallet -->
+        <a class="pc" href="https://shop.ledger.com/?r=novacrypto" target="_blank" rel="noopener" onclick="trackPartner('ledger')">
+          <div class="pc-inner">
+            <div class="pc-ico ledger">🔐</div>
+            <div class="pc-info">
+              <div class="pc-name">Ledger Hardware Wallet</div>
+              <div class="pc-desc">Keep your crypto safe offline · Trusted by 6M+ users worldwide</div>
+            </div>
+            <div class="pc-pill">Shop →</div>
+          </div>
+          <div class="pc-glow"></div>
+        </a>
+
+        <!-- Bybit Exchange -->
+        <a class="pc" href="https://www.bybit.com/invite?ref=novacrypto" target="_blank" rel="noopener" onclick="trackPartner('bybit')">
+          <div class="pc-inner">
+            <div class="pc-ico" style="background:rgba(255,211,0,0.12);color:#FFD300;font-size:22px">₿</div>
+            <div class="pc-info">
+              <div class="pc-name">Bybit Exchange</div>
+              <div class="pc-desc">Earn up to $30,000 in welcome bonuses · Top 3 exchange globally</div>
+            </div>
+            <div class="pc-pill">Open Account →</div>
+          </div>
+          <div class="pc-glow"></div>
+        </a>
+
+        <!-- TradingView -->
+        <a class="pc" href="https://www.tradingview.com/?aff_id=novacrypto" target="_blank" rel="noopener" onclick="trackPartner('tradingview')">
+          <div class="pc-inner">
+            <div class="pc-ico" style="background:rgba(33,150,243,0.12);color:#2196F3;font-size:22px">📊</div>
+            <div class="pc-info">
+              <div class="pc-name">TradingView</div>
+              <div class="pc-desc">Professional charts & signals · Used by 60M+ traders · Free plan available</div>
+            </div>
+            <div class="pc-pill">Try Free →</div>
+          </div>
+          <div class="pc-glow"></div>
+        </a>
+
+      </div>
+
+      <!-- Gumroad upsell -->
+      <div style="margin-top:20px;background:linear-gradient(135deg,rgba(247,183,49,0.1),rgba(255,149,0,0.05));border:1px solid rgba(247,183,49,0.25);border-radius:14px;padding:20px 24px;text-align:center;">
+        <div style="font-size:13px;font-weight:700;color:#F7B731;letter-spacing:1px;margin-bottom:6px;">📚 GO DEEPER</div>
+        <div style="font-size:15px;color:#fff;font-weight:700;margin-bottom:8px;">The Brutally Honest Guide to Crypto</div>
+        <div style="font-size:13px;color:rgba(255,255,255,0.6);margin-bottom:14px;">No hype. No shilling. What actually works in 2026.</div>
+        <a href="https://novacrypto.gumroad.com" target="_blank" rel="noopener" onclick="trackPartner('gumroad')" style="display:inline-block;background:linear-gradient(135deg,#F7B731,#FF9500);color:#000;font-weight:700;font-size:14px;padding:10px 24px;border-radius:8px;text-decoration:none;">Get the Book →</a>
+      </div>
+
+    </div>
+  </div>
+</div>
+
+</main>
+
+<!-- ══ EMAIL CAPTURE MODAL (fires on game end) ════════════════ -->
+<div id="email-modal" style="display:none;position:fixed;inset:0;z-index:900;background:rgba(0,0,0,.82);backdrop-filter:blur(6px);display:none;align-items:center;justify-content:center;padding:20px">
+  <div style="background:linear-gradient(160deg,#1a1a2e,#0f0f1a);border:1px solid rgba(247,183,49,.25);border-radius:20px;max-width:380px;width:100%;padding:32px 28px;text-align:center;position:relative">
+    <div style="font-size:44px;margin-bottom:8px" id="em-trophy">🏆</div>
+    <div style="font-size:22px;font-weight:900;color:#F7B731;margin-bottom:6px" id="em-score-txt">You scored 0/10!</div>
+    <div style="font-size:14px;color:#aaa;margin-bottom:22px;line-height:1.5">Get your <strong style="color:#fff">free Crypto Score Card</strong> + weekly market insights delivered to your inbox.</div>
+    <input id="em-input" type="email" placeholder="your@email.com"
+      style="width:100%;box-sizing:border-box;padding:13px 16px;background:rgba(255,255,255,.07);border:1px solid rgba(255,255,255,.15);border-radius:10px;color:#fff;font-size:15px;margin-bottom:12px;outline:none"
+      onkeydown="if(event.key==='Enter')submitEmail()">
+    <button onclick="submitEmail()"
+      style="width:100%;padding:14px;background:linear-gradient(135deg,#F7B731,#FF9500);border:none;border-radius:10px;color:#000;font-weight:900;font-size:15px;cursor:pointer;margin-bottom:10px">
+      Get My Score Card →
+    </button>
+    <button onclick="skipEmail()"
+      style="width:100%;padding:10px;background:transparent;border:none;color:#666;font-size:13px;cursor:pointer">
+      No thanks, skip
+    </button>
+    <div id="em-msg" style="font-size:12px;color:var(--green);margin-top:8px;min-height:16px"></div>
+  </div>
+</div>
+
+<!-- ══ MID-GAME SPONSOR MOMENT (slides up after Q5) ══════════ -->
+<div id="sp-moment">
+  <div class="sp-card">
+    <div class="sp-header">
+      <div class="sp-brand">
+        <div class="sp-icon" id="sp-ico">📈</div>
+        <div>
+          <div class="sp-name" id="sp-nm">MEXC Exchange</div>
+          <div class="sp-tag" id="sp-tg">Official Quiz Partner</div>
+        </div>
+      </div>
+      <div class="sp-skip-cd" id="sp-skip-wrap">
+        <span id="sp-cd">Skip in 3s</span>
+      </div>
+    </div>
+    <div class="sp-headline" id="sp-hl">You're halfway there — now trade for real.</div>
+    <div class="sp-sub" id="sp-sb">1,500+ pairs · 0% maker fee · 70% discount with NovaCrypto code. Trusted by 10M+ traders worldwide.</div>
+    <span class="sp-badge" id="sp-bdg">✅ NovaCrypto exclusive deal</span>
+    <a class="sp-cta" id="sp-cta" href="https://promote.mexc.co/r/UzCEsmBcLP" target="_blank" rel="noopener" onclick="spClick()">
+      Claim 70% Fee Discount →
+    </a>
+    <div class="sp-dots"><div class="sp-dot on"></div><div class="sp-dot"></div><div class="sp-dot"></div></div>
+  </div>
+</div>
+
+<script>
+/* ══ DATA ══════════════════════════════════════════════════ */
+const QS = [
+  {c:"Bitcoin",i:"₿",q:"What is Bitcoin's maximum supply?",o:["21 million","100 million","1 billion","Unlimited"],a:0,e:"Bitcoin has a hard cap of 21 million coins. ~19.86M exist today — the rest will be mined over the next century."},
+  {c:"Bitcoin",i:"₿",q:"How often does a Bitcoin Halving occur?",o:["Every year","Every 2 years","Every 4 years","Every 10 years"],a:2,e:"Halving occurs every 210,000 blocks (~4 years), cutting miner rewards 50%. It historically precedes bull markets."},
+  {c:"Bitcoin",i:"₿",q:"Who created Bitcoin?",o:["Vitalik Buterin","Satoshi Nakamoto","Nick Szabo","Craig Wright"],a:1,e:"Satoshi Nakamoto published the Bitcoin whitepaper on Oct 31, 2008 and launched the network in January 2009."},
+  {c:"Bitcoin",i:"₿",q:"What is a Bitcoin block?",o:["Mining hardware","A batch of validated transactions","A type of wallet","A failed transaction"],a:1,e:"A block is a container of validated transactions. Blocks chain together — new ones are added every ~10 minutes."},
+  {c:"DeFi",i:"🏦",q:"What does DeFi stand for?",o:["Digital Finance","Decentralized Finance","Direct Finance","Defined Finance"],a:1,e:"Decentralized Finance — financial services (lending, trading, yield farming) on smart contracts with no banks."},
+  {c:"DeFi",i:"🏦",q:"What is a liquidity pool?",o:["Mining hardware","Tokens locked in a smart contract enabling trading","An order book","A type of stablecoin"],a:1,e:"Liquidity pools are smart contracts holding token pairs. Traders swap against pools; providers earn trading fees."},
+  {c:"DeFi",i:"🏦",q:"What is a 'rug pull'?",o:["A protocol upgrade","Devs abandoning a project and stealing funds","A crypto wallet type","Bitcoin price crash"],a:1,e:"A rug pull: developers drain the liquidity pool after raising investor funds, leaving tokens worthless."},
+  {c:"Trading",i:"📈",q:"What does HODL mean?",o:["High Order Demand Limit","Hold On for Dear Life","Hybrid Dollar Lock","Hard Offer Leverage"],a:1,e:"HODL started as a 2013 forum typo of 'hold', now means 'Hold On for Dear Life' — staying through volatility."},
+  {c:"Trading",i:"📈",q:"What is a stop-loss order?",o:["Buy more when price rises","Auto-sell when price hits your floor","A fee cap","A tax strategy"],a:1,e:"A stop-loss auto-closes your position at a set price floor, limiting your maximum loss on any trade."},
+  {c:"Trading",i:"📈",q:"What is Dollar Cost Averaging (DCA)?",o:["Borrowing USD for crypto","Investing fixed amounts at regular intervals","Converting to stablecoins","Only buying at lows"],a:1,e:"DCA removes timing stress by investing a fixed amount (e.g. €100/week) regardless of price, averaging your entry."},
+  {c:"Ethereum",i:"Ξ",q:"What are 'gas fees' on Ethereum?",o:["Exchange fees","Transaction fees paid to validators","Energy costs","Taxes on profits"],a:1,e:"Gas fees pay Ethereum validators to process transactions. They vary with network demand. Layer-2s reduce gas by 10-100x."},
+  {c:"Ethereum",i:"Ξ",q:"What is a smart contract?",o:["A legal agreement","Self-executing code on blockchain that runs when conditions are met","A crypto wallet","An NFT license"],a:1,e:"Smart contracts are programs on Ethereum that automatically execute when predefined conditions are met."},
+  {c:"Ethereum",i:"Ξ",q:"What is an NFT?",o:["A type of cryptocurrency","A unique digital ownership token","A DeFi protocol","A Layer-2 solution"],a:1,e:"Non-Fungible Tokens are unique digital certificates of ownership on blockchain — each one is one-of-a-kind."},
+  {c:"Security",i:"🔐",q:"What is a seed phrase?",o:["Your exchange password","12-24 words controlling access to your wallet","An NFT code","A 2FA backup"],a:1,e:"Seed phrases are 12-24 random words generating all your private keys. Anyone with yours can steal ALL your crypto."},
+  {c:"Security",i:"🔐",q:"What is a 'cold wallet'?",o:["A wallet for cold climates","Offline hardware storing crypto keys","A wallet with frozen assets","A free exchange account"],a:1,e:"Cold wallets (Ledger, Trezor) store keys fully offline — completely isolated from internet attacks and exchange hacks."},
+  {c:"Security",i:"🔐",q:"What is phishing in crypto?",o:["A trading strategy","Fraudulent attempts to steal keys via fake sites","A liquidity strategy","High-frequency trading"],a:1,e:"Phishing uses fake sites and DMs to steal seed phrases. Always verify URLs — never click unverified links."},
+  {c:"Markets",i:"💹",q:"What does 'market cap' measure?",o:["Highest price ever","Daily trading volume","Circulating supply × price","Number of holders"],a:2,e:"Market cap = circulating supply × price. It ranks coins by total market value. Bitcoin's market cap is ~$1.37T (April 2026), making it #1 by far."},
+  {c:"Markets",i:"💹",q:"What is a bear market?",o:["Prices rising 20%+","Prices falling 20%+ from highs","High volatility","When BTC dominance rises"],a:1,e:"A bear market = prolonged 20%+ price decline from recent highs. Crypto bears can last 1-2 years before recovery."},
+  {c:"Markets",i:"💹",q:"What is Bitcoin Dominance?",o:["Bitcoin's % of total crypto market cap","Countries accepting BTC","Bitcoin hashrate vs others","BTC price in USD"],a:0,e:"BTC Dominance = Bitcoin's share of total crypto market cap. As of April 2026, BTC dominance is ~57% — altcoins losing ground. When dominance rises, altcoins typically fall vs BTC."},
+  {c:"DeFi",i:"🏦",q:"What is 'yield farming'?",o:["Mining with solar power","Earning rewards by providing DeFi liquidity","Growing crypto in metaverse","An NFT collection"],a:1,e:"Yield farming = providing liquidity to DeFi protocols in exchange for token rewards, often shown as APY."},
+  {c:"Trading",i:"📈",q:"What does 'going long' mean?",o:["Holding for months","Betting price will rise","Selling borrowed assets","Holding multiple coins"],a:1,e:"Going long = buying an asset expecting price to rise. The opposite, 'short', profits from price drops."},
+  {c:"Ethereum",i:"Ξ",q:"What was 'The Merge' in Ethereum?",o:["A network fork","Switch from Proof of Work to Proof of Stake","An exchange merger","Layer-2 launch"],a:1,e:"The Merge (Sep 2022) moved Ethereum from Proof of Work mining to Proof of Stake, cutting energy use by ~99.95%."},
+  {c:"Markets",i:"💹",q:"What does the Crypto Fear & Greed Index measure?",o:["Price direction only","Market sentiment from 0 (Extreme Fear) to 100 (Extreme Greed)","Exchange trading volume","Miner revenue"],a:1,e:"The Fear & Greed Index aggregates volatility, volume, social media, and surveys into a 0-100 sentiment score. Extreme Fear (0-25) often signals buying opportunities; Extreme Greed (75-100) signals potential tops."},
+  {c:"Ethereum",i:"Ξ",q:"What did the Ethereum Pectra upgrade introduce?",o:["Proof of Work return","Smart accounts & doubled blob capacity for L2s","A new token standard","Ethereum 3.0 launch"],a:1,e:"Pectra (2025) was Ethereum's biggest upgrade since The Merge. It introduced EIP-7702 smart accounts, doubled blob throughput for L2s, and raised validator limits — making L2s cheaper and wallets smarter."},
+  {c:"Ethereum",i:"Ξ",q:"What is EIP-4844 (Proto-Danksharding)?",o:["Ethereum privacy feature","Temporary data 'blobs' that slash Layer-2 fees","A new NFT standard","ETH token burn mechanism"],a:1,e:"EIP-4844 introduced 'blobs' — cheap, temporary data storage for L2 rollups. It slashed Base, Arbitrum, and Optimism fees by 10-100x after the Dencun upgrade in March 2024."},
+  {c:"DeFi",i:"🏦",q:"What is Hyperliquid (HYPE)?",o:["A centralized exchange","A decentralized perpetuals exchange with its own L1 chain","A stablecoin protocol","A Bitcoin Layer-2"],a:1,e:"Hyperliquid is a fully on-chain DEX running on its own L1, specializing in perps trading. HYPE has been one of the best-performing tokens in 2025-2026 as it captured significant CEX order-flow."},
+  {c:"Markets",i:"💹",q:"What is a 'Bitcoin halving' and when was the most recent one?",o:["Splitting BTC into two coins in 2022","Block reward cut 50% every ~4 years — last one April 2024","Mining ban in 2023","BTC supply decrease in 2025"],a:1,e:"Bitcoin's 4th halving occurred April 19, 2024, reducing block rewards from 6.25 to 3.125 BTC. Historically halvings precede major bull runs. The next halving is expected ~2028."},
+  {c:"Trading",i:"📈",q:"What is Solana known for compared to Ethereum?",o:["Higher security","Much higher throughput and lower fees, but different trade-offs","Being older","More NFTs"],a:1,e:"Solana processes thousands of TPS with fees under $0.01, vs Ethereum's 15-30 TPS on L1. Trade-offs: Solana has had historical outages and uses a more centralized validator set. Both ecosystems are growing fast."},
+  {c:"Layer-2",i:"⚡",q:"What is a Layer-2 blockchain?",o:["A second blockchain competing with Ethereum","A protocol built on top of L1 to increase speed and lower fees","A staking layer","A privacy coin"],a:1,e:"Layer-2s (Arbitrum, Base, Optimism, zkSync) process transactions off-chain then post compressed proofs to Ethereum L1. They inherit L1 security at 10-100x lower cost."},
+  {c:"Layer-2",i:"⚡",q:"What is Base?",o:["A Coinbase stablecoin","An Ethereum L2 built and backed by Coinbase","A Bitcoin side-chain","A new Layer-1 blockchain"],a:1,e:"Base is an Ethereum L2 launched by Coinbase in 2023. It uses the OP Stack (same as Optimism) and quickly became one of the highest-volume L2s, hosting large-scale DeFi and social apps."},
+  {c:"Layer-2",i:"⚡",q:"What is the difference between Optimistic Rollups and ZK Rollups?",o:["Optimistic are faster; ZK are older","Optimistic assume validity and use fraud proofs; ZK use cryptographic validity proofs","ZK are cheaper; Optimistic are free","They are the same technology"],a:1,e:"Optimistic rollups (Arbitrum, Base, Optimism) assume transactions are valid and allow 7-day fraud challenges. ZK rollups (zkSync, Starknet) post cryptographic proofs immediately — faster finality, harder to build."},
+  {c:"Stablecoins",i:"💵",q:"What is a stablecoin?",o:["A crypto pegged to gold","A cryptocurrency pegged to a stable asset like USD","A slow-moving altcoin","A government digital currency"],a:1,e:"Stablecoins (USDT, USDC, DAI) maintain a 1:1 peg to the US dollar, making them ideal for trading, saving, and DeFi without price exposure."},
+  {c:"Stablecoins",i:"💵",q:"What caused the collapse of TerraUST (UST) in May 2022?",o:["A government ban","An algorithmic peg failure triggered a death spiral, wiping ~$40B","A hacker stole the reserves","Celsius Network froze it"],a:1,e:"UST was an algorithmic stablecoin backed by LUNA. When confidence broke, UST depegged, triggering mass redemption into LUNA which hyperinflated. LUNA crashed from $80 to fractions of a cent in days — the worst DeFi collapse in history."},
+  {c:"Bitcoin",i:"₿",q:"What are Bitcoin Ordinals?",o:["A Bitcoin governance vote","NFT-like inscriptions written directly onto individual satoshis on Bitcoin","A Layer-2 on Bitcoin","A new type of Bitcoin wallet"],a:1,e:"Ordinals (launched Jan 2023) let you inscribe data (images, text, even games) onto individual satoshis, creating Bitcoin-native NFTs. They sparked a cultural debate about Bitcoin's use as a data layer vs pure money."},
+  {c:"Bitcoin",i:"₿",q:"What is the Bitcoin Lightning Network?",o:["A Bitcoin price alert service","A Layer-2 payment channel enabling instant, near-zero-fee BTC transactions","A Bitcoin mining pool","A privacy mixer for Bitcoin"],a:1,e:"Lightning Network is Bitcoin's L2 for payments. It opens off-chain payment channels between users, enabling millions of micro-transactions per second. El Salvador uses it for day-to-day BTC payments."},
+  {c:"DeFi",i:"🏦",q:"What is Uniswap?",o:["A centralized exchange","A decentralized automated market maker (AMM) on Ethereum","A Bitcoin exchange","A stablecoin protocol"],a:1,e:"Uniswap is Ethereum's largest DEX using AMM (Automated Market Maker) liquidity pools instead of order books. Users swap any ERC-20 token permissionlessly. UNI is its governance token."},
+  {c:"DeFi",i:"🏦",q:"What is 'impermanent loss' in DeFi?",o:["A tax on crypto profits","A permanent loss of funds from hacks","The opportunity cost of holding tokens in a liquidity pool vs just holding them","A type of exchange fee"],a:2,e:"Impermanent loss happens when the price ratio of tokens in a liquidity pool changes after deposit. If ETH doubles while you're an LP, you earn less than if you'd just held ETH. The loss is 'impermanent' if prices revert."},
+  {c:"Security",i:"🔐",q:"What is a multi-signature (multisig) wallet?",o:["A wallet with multiple passwords","A wallet requiring multiple private keys to sign transactions","A wallet holding multiple coins","A shared exchange account"],a:1,e:"Multisig wallets require M-of-N key signatures to execute transactions (e.g., 2-of-3). They prevent single points of failure and are standard for DAO treasuries and institutional custody."},
+  {c:"Markets",i:"💹",q:"What is the difference between CEX and DEX?",o:["CEX is crypto, DEX is stocks","CEX is centralized (custodial), DEX is decentralized (non-custodial)","CEX is faster; DEX is Ethereum only","CEX is newer; DEX is older"],a:1,e:"CEX (Binance, Coinbase, MEXC) is custodial — they hold your funds. DEX (Uniswap, dYdX) is non-custodial — you trade directly from your wallet. 'Not your keys, not your coins' is the mantra for self-custody."},
+  {c:"Regulation",i:"⚖️",q:"What is MiCA?",o:["A new crypto trading algorithm","EU's Markets in Crypto-Assets regulation — a comprehensive crypto legal framework","A type of stablecoin","A crypto tax rule"],a:1,e:"MiCA (Markets in Crypto-Assets) is the EU's landmark crypto regulation, fully active from 2024-2025. It requires exchanges and stablecoin issuers to be licensed, introducing AML rules and consumer protections across all 27 EU states."},
+  {c:"Regulation",i:"⚖️",q:"What was the significance of the Bitcoin Spot ETF approval in January 2024?",o:["It was rejected by the SEC","The SEC approved 11 Bitcoin spot ETFs, giving institutional investors direct BTC exposure","The EU created a state-backed Bitcoin fund","Coinbase launched a regulated futures fund"],a:1,e:"In January 2024, the SEC approved Bitcoin spot ETFs from BlackRock, Fidelity, and 9 others. Within 1 year, they absorbed over $50B AUM — the fastest ETF inflows in history. It marked Bitcoin's institutional breakthrough."},
+  {c:"AI+Crypto",i:"🤖",q:"What is Bittensor (TAO)?",o:["A Bitcoin fork for AI mining","A decentralized network where AI models compete for token rewards","An AI trading bot","An Ethereum smart contract generator"],a:1,e:"Bittensor creates an incentivized P2P network where AI models contribute intelligence and earn TAO tokens. It's the largest 'AI-crypto' protocol by market cap, treating AI compute as a commodity to be traded onchain."},
+  {c:"Markets",i:"💹",q:"What is 'on-chain analytics'?",o:["Crypto news aggregation","Analysis of blockchain data (wallet flows, exchange inflows, miner behavior) to gain trading edge","Price chart analysis","Social media sentiment tracking"],a:1,e:"On-chain analytics reads blockchain data directly — tracking whale wallet movements, exchange net flows, stablecoin minting, SOPR, and realized cap. Tools like Glassnode and CryptoQuant specialize in this signal layer."},
+  {c:"Ethereum",i:"Ξ",q:"What is an ERC-20 token?",o:["A hardware wallet standard","A standard interface for fungible tokens on Ethereum","A type of NFT","An Ethereum improvement proposal for staking"],a:1,e:"ERC-20 is Ethereum's standard for fungible tokens. Any token following this standard (USDT, LINK, UNI, AAVE) is interoperable with all wallets and DEXes on Ethereum without custom code."},
+  {c:"Trading",i:"📈",q:"What is leverage trading?",o:["Trading with expert advice","Borrowing capital to amplify position size and potential gains/losses","A tax-efficient trading strategy","Buying spot with limit orders"],a:1,e:"Leverage lets you control a position larger than your capital. 10x leverage on $100 = $1,000 position. A 10% move = 100% gain or total liquidation. High leverage is extremely risky — most retail leveraged traders lose money."},
+  {c:"DeFi",i:"🏦",q:"What is a DAO?",o:["A type of hardware wallet","Decentralized Autonomous Organization — governed by token holders via smart contracts","A crypto exchange type","A blockchain gaming protocol"],a:1,e:"DAOs use token voting (onchain governance) to make decisions without a central authority. MakerDAO governs DAI, Uniswap DAO controls protocol upgrades. Governance tokens grant voting power proportional to holdings."},
+  {c:"Markets",i:"💹",q:"What does 'tokenomics' mean?",o:["Bitcoin's price history","The economic model of a crypto token — supply, distribution, inflation, and incentives","A type of DeFi strategy","A trading indicator"],a:1,e:"Tokenomics defines a token's economics: max supply, emission schedule, vesting periods, token burns, and utility. Good tokenomics align incentives between founders, investors, and users. Bad tokenomics (high insider allocation, no utility) lead to price collapse."},
+  {c:"Bitcoin",i:"₿",q:"What is Bitcoin's proof-of-work mechanism?",o:["Validators stake BTC to confirm blocks","Miners compete to solve SHA-256 puzzles, consuming energy to earn block rewards","A vote-based consensus between wallets","A smart contract securing transactions"],a:1,e:"Bitcoin uses Proof of Work: miners race to solve a SHA-256 hash puzzle. The winner adds the next block and earns the block reward (currently 3.125 BTC + fees). This energy expenditure makes attacking Bitcoin astronomically expensive."},
+  {c:"Layer-2",i:"⚡",q:"What is TON (The Open Network)?",o:["A competitor to Bitcoin","Telegram's blockchain, now one of the fastest-growing L1/L2 ecosystems due to mini-apps","An Ethereum Layer-2","A privacy-focused blockchain"],a:1,e:"TON was originally built by Telegram and handed to the community. With Telegram's 900M+ user base, TON mini-apps and the TON wallet brought millions of new users onchain in 2024-2025, making it one of the fastest-growing ecosystems."},
+  {c:"DeFi",i:"🏦",q:"What is 'Total Value Locked' (TVL) in DeFi?",o:["The total crypto held by all exchanges","The total value of assets deposited in DeFi protocols","The daily trading volume across all DEXes","The number of active DeFi wallets"],a:1,e:"TVL measures the total value of crypto locked in DeFi smart contracts (lending, LP, staking). It's the primary metric for DeFi protocol size. As of 2026, Ethereum hosts the most TVL (~$50B+), followed by Solana and BSC."},
+];
+
+const LEVELS=[
+  {xp:0,n:"Crypto Rookie"},{xp:100,n:"Blockchain Learner"},{xp:250,n:"Crypto Apprentice"},
+  {xp:500,n:"DeFi Explorer"},{xp:800,n:"Chain Analyst"},{xp:1200,n:"Market Strategist"},
+  {xp:1800,n:"Crypto Expert"},{xp:2500,n:"Blockchain Master"},{xp:9999,n:"Satoshi"},
+];
+const DIFF_T={normal:20,hard:12,blitz:8};
+const LTR=["A","B","C","D"];
+const ACHS=[
+  {id:"first",ico:"⚡",nm:"First Strike",   fn:s=>s.correct>=1},
+  {id:"perfect",ico:"💎",nm:"Diamond Hands",fn:s=>s.correct===s.total&&s.total>0},
+  {id:"fire",ico:"🔥",nm:"On Fire",         fn:s=>s.maxCombo>=3},
+  {id:"speed",ico:"🚀",nm:"Speed Demon",    fn:s=>s.fast>=3},
+  {id:"half",ico:"⭐",nm:"Halfway Hero",   fn:s=>s.correct>=5},
+  {id:"master",ico:"👑",nm:"Crypto Master", fn:s=>s.correct>=8},
+];
+
+/* ══ PARTICLES ════════════════════════════════════════════ */
+// ── SOUND FX (Web Audio API — no deps) ──
+let _AC;function _ac(){if(!_AC)try{_AC=new(window.AudioContext||window.webkitAudioContext)();}catch(e){}return _AC;}
+function _snd(f,d,v=0.22){try{const a=_ac();if(!a)return;const o=a.createOscillator(),g=a.createGain();o.connect(g);g.connect(a.destination);o.frequency.value=f;g.gain.setValueAtTime(v,a.currentTime);g.gain.exponentialRampToValueAtTime(0.001,a.currentTime+d);o.start();o.stop(a.currentTime+d);}catch(e){}}
+function _ok(){_snd(523,0.07);setTimeout(()=>_snd(659,0.1),80);}
+function _ko(){_snd(220,0.12);setTimeout(()=>_snd(196,0.18,0.15),100);}
+function _lvup(){_snd(523,0.07);setTimeout(()=>_snd(659,0.07),80);setTimeout(()=>_snd(784,0.14),160);}
+const cnv=document.getElementById("fx");
+const ctx=cnv.getContext("2d");
+let parts=[];
+function rsz(){cnv.width=innerWidth;cnv.height=innerHeight;}
+rsz();addEventListener("resize",rsz);
+function burst(x,y,cols,n=36){
+  for(let i=0;i<n;i++){
+    const a=Math.random()*Math.PI*2,sp=3+Math.random()*9;
+    parts.push({x,y,vx:Math.cos(a)*sp,vy:Math.sin(a)*sp-3,r:2+Math.random()*5,
+      col:cols[Math.floor(Math.random()*cols.length)],life:1,g:.22,
+      rot:Math.random()*Math.PI*2,rs:(Math.random()-.5)*.3,sq:Math.random()>.5});
+  }
+}
+function rain(){
+  const c=["#F7B731","#FF3B57","#00F5A0","#4FC3F7","#B39DDB","#fff"];
+  for(let i=0;i<110;i++)
+    parts.push({x:Math.random()*cnv.width,y:-20,
+      vx:(Math.random()-.5)*5,vy:2+Math.random()*5,r:3+Math.random()*5,
+      col:c[Math.floor(Math.random()*c.length)],life:1,g:.06,
+      rot:Math.random()*Math.PI*2,rs:(Math.random()-.5)*.18,sq:Math.random()>.4});
+}
+function tick(){
+  ctx.clearRect(0,0,cnv.width,cnv.height);
+  parts=parts.filter(p=>p.life>0);
+  for(const p of parts){
+    p.x+=p.vx;p.y+=p.vy;p.vy+=p.g;p.vx*=.99;p.rot+=p.rs;p.life-=.02;
+    ctx.save();ctx.globalAlpha=Math.max(0,p.life);ctx.fillStyle=p.col;
+    ctx.translate(p.x,p.y);ctx.rotate(p.rot);
+    if(p.sq)ctx.fillRect(-p.r/2,-p.r*.9,p.r,p.r*1.8);
+    else{ctx.beginPath();ctx.arc(0,0,p.r,0,Math.PI*2);ctx.fill();}
+    ctx.restore();
+  }
+  requestAnimationFrame(tick);
+}
+tick();
+
+/* ══ GAME STATE ══════════════════════════════════════════ */
+let G={diff:"normal",qs:[],cur:0,score:0,xp:0,level:1,combo:0,maxCombo:0,
+       correct:0,total:0,fast:0,earned:new Set(),
+       t0:0,qt0:0,answered:false,timer:null,tLeft:20,pendingLvUp:false,
+       bestScore:+localStorage.getItem("cq_best")||0,
+       totalXP:+localStorage.getItem("cq_xp")||0};
+
+function lvOf(xp){let l=1;for(let i=0;i<LEVELS.length-1;i++)if(xp>=LEVELS[i].xp)l=i+1;return Math.min(l,LEVELS.length);}
+function lvRange(l){return{lo:LEVELS[Math.min(l-1,LEVELS.length-1)].xp,hi:LEVELS[Math.min(l,LEVELS.length-1)].xp};}
+
+/* ══ SCREEN SWITCH ═══════════════════════════════════════ */
+function show(id){document.querySelectorAll(".scr").forEach(s=>s.classList.remove("on"));document.getElementById(id).classList.add("on");window.scrollTo(0,0);}
+
+/* ══ DIFFICULTY ══════════════════════════════════════════ */
+function setDiff(btn,d){document.querySelectorAll(".diff").forEach(b=>b.classList.remove("on"));btn.classList.add("on");G.diff=d;}
+
+/* ══ HUD UPDATE ══════════════════════════════════════════ */
+function hudUpdate(){
+  const lv=lvOf(G.xp),{lo,hi}=lvRange(lv);
+  const pct=hi>lo?(G.xp-lo)/(hi-lo)*100:100;
+  document.getElementById("xb").style.width=Math.min(100,pct)+"%";
+  document.getElementById("xp-cur").textContent=G.xp+" XP";
+  document.getElementById("xp-nxt").textContent=(hi-G.xp)+" to Lv"+(lv+1);
+  document.getElementById("hlv").textContent="LV"+lv;
+  document.getElementById("hpts").textContent=G.score+" pts";
+}
+function comboUpdate(){
+  const el=document.getElementById("combo");
+  el.className="combo-badge";
+  if(G.combo>=3){el.classList.add("on","c3");el.textContent="🔥 x3 STREAK";}
+  else if(G.combo>=2){el.classList.add("on","c2");el.textContent="⚡ x2 STREAK";}
+  if(G.combo>G.maxCombo)G.maxCombo=G.combo;
+}
+
+/* ══ TIMER ═══════════════════════════════════════════════ */
+const C=2*Math.PI*20; // r=20 → 125.7
+function startTimer(){
+  clearInterval(G.timer);
+  G.tLeft=DIFF_T[G.diff];G.qt0=Date.now();
+  updTimer(G.tLeft,G.tLeft);
+  G.timer=setInterval(()=>{G.tLeft--;updTimer(G.tLeft,DIFF_T[G.diff]);if(G.tLeft<=0){clearInterval(G.timer);if(!G.answered)timeUp();}},1000);
+}
+function updTimer(t,tot){
+  const pct=t/tot,off=C*(1-pct);
+  const circ=document.getElementById("tcirc"),num=document.getElementById("tnum");
+  circ.style.strokeDashoffset=off;
+  const col=t>tot*.5?"var(--green)":t>tot*.25?"var(--gold)":"var(--red)";
+  circ.style.stroke=col;num.textContent=t;num.style.color=col;
+  if(t<=3&&t>0){num.style.transform="scale(1.3)";setTimeout(()=>{if(num)num.style.transform="scale(1)";},150);}
+}
+function timeUp(){
+  G.answered=true;G.combo=0;G.total++;comboUpdate();
+  document.querySelectorAll(".opt").forEach(b=>b.classList.add("done"));
+  const corr=document.querySelector(`.opt[data-i="${G.qs[G.cur].a}"]`);
+  if(corr)corr.classList.add("correct");
+  showExpl(G.qs[G.cur].e,false);
+  document.getElementById("bnext").classList.add("on");
+  document.body.classList.add("fw");setTimeout(()=>document.body.classList.remove("fw"),300);
+}
+
+/* ══ START ════════════════════════════════════════════════ */
+function startGame(){
+  G.qs=[...QS].sort(()=>Math.random()-.5).slice(0,10);
+  G.cur=0;G.score=0;G.xp=G.totalXP;G.level=lvOf(G.xp);
+  G.combo=0;G.maxCombo=0;G.correct=0;G.total=0;G.fast=0;
+  G.earned=new Set();G.t0=Date.now();G.answered=false;G.pendingLvUp=false;
+  buildDots();hudUpdate();
+  document.getElementById("hud").style.display="flex";
+  show("scr-quiz");
+  renderQ();
+}
+
+function buildDots(){
+  const c=document.getElementById("qdots");c.innerHTML="";
+  G.qs.forEach((_,i)=>{const d=document.createElement("div");d.className="dot2"+(i===0?" now":"");d.id="d"+i;c.appendChild(d);});
+}
+function updDots(i,ok){
+  const p=document.getElementById("d"+(i-1));if(p){p.classList.remove("now");p.classList.add(ok?"ok":"bad");}
+  const n=document.getElementById("d"+i);if(n)n.classList.add("now");
+  document.getElementById("qtxt").textContent=(i+1)+" / "+G.qs.length;
+}
+
+/* ══ RENDER QUESTION ══════════════════════════════════════ */
+function renderQ(){
+  const q=G.qs[G.cur];G.answered=false;
+  const card=document.getElementById("qcard");
+  card.classList.remove("flip-in");void card.offsetWidth; // force reflow
+  card.classList.add("flip-in");
+
+  document.getElementById("qcaticon").textContent=q.i;
+  document.getElementById("qcat").textContent=q.c;
+  document.getElementById("qtext").textContent=q.q;
+  const tb=DIFF_T[G.diff]<=8?200:150;
+  document.getElementById("qhint").textContent=`⭐ +100 pts correct · +${tb} pts if fast`;
+
+  const opts=document.getElementById("opts");opts.innerHTML="";
+  q.o.forEach((txt,i)=>{
+    const b=document.createElement("button");
+    b.className="opt";b.dataset.i=i;
+    b.innerHTML=`<span class="ltr">${LTR[i]}</span><span>${txt}</span>`;
+    b.onclick=()=>pick(i);
+    opts.appendChild(b);
+  });
+
+  document.getElementById("expl").classList.remove("on");
+  document.getElementById("bnext").classList.remove("on");
+  updDots(G.cur,null);
+  startTimer();
+}
+
+/* ══ PICK ANSWER ══════════════════════════════════════════ */
+function pick(idx){
+  if(G.answered)return;
+  G.answered=true;clearInterval(G.timer);
+  const q=G.qs[G.cur];const ok=idx===q.a;
+  const elapsed=(Date.now()-G.qt0)/1000;
+  const fast=elapsed<=DIFF_T[G.diff]*.4;
+  G.total++;
+  if(ok){
+    _ok();
+    G.correct++;G.combo++;
+    const mul=G.combo>=3?3:G.combo>=2?2:1;
+    const tb=fast?(G.diff==="blitz"?200:150):0;
+    const pts=(100+tb)*mul;
+    G.score+=pts;if(fast)G.fast++;
+    // addXP
+    const prevLv=lvOf(G.xp);G.xp+=pts;
+    if(lvOf(G.xp)>prevLv&&lvOf(G.xp)>G.level){G.level=lvOf(G.xp);G.pendingLvUp=true;}
+    hudUpdate();
+  } else {_ko();G.combo=0;}
+  comboUpdate();checkAchs();
+
+  document.querySelectorAll(".opt").forEach(b=>b.classList.add("done"));
+  const sb=document.querySelector(`.opt[data-i="${idx}"]`);
+  const cb=document.querySelector(`.opt[data-i="${q.a}"]`);
+  if(ok){
+    sb.classList.add("correct");
+    const r=sb.getBoundingClientRect();
+    burst(r.left+r.width/2,r.top+r.height/2,["#00F5A0","#F7B731","#fff","#4FC3F7"]);
+    if(G.combo>=3)setTimeout(()=>burst(r.left+r.width/2,r.top+r.height/2,["#F7B731","#FF9500","#fff"],18),180);
+  } else {
+    sb.classList.add("wrong");cb.classList.add("correct");
+    document.body.classList.add("fw");setTimeout(()=>document.body.classList.remove("fw"),300);
+  }
+  showExpl(q.e,ok);
+  setTimeout(()=>document.getElementById("bnext").classList.add("on"),500);
+}
+
+function showExpl(txt,ok){
+  const el=document.getElementById("expl");
+  el.textContent=(ok?"✅ ":"❌ ")+txt;
+  el.style.background=ok?"rgba(0,245,160,.05)":"rgba(255,64,96,.05)";
+  el.style.border="1px solid "+(ok?"rgba(0,245,160,.2)":"rgba(255,64,96,.2)");
+  el.style.color=ok?"var(--green)":"#ff8899";
+  el.classList.add("on");
+}
+
+/* ══ NEXT ═════════════════════════════════════════════════ */
+function nextQ(){
+  G.cur++;
+  if(G.cur>=G.qs.length){endGame();return;}
+  if(G.pendingLvUp){G.pendingLvUp=false;showLvUp();}
+  else renderQ();
+}
+
+/* ══ LEVEL UP ═════════════════════════════════════════════ */
+function showLvUp(){
+  const lv=G.level,nm=LEVELS[Math.min(lv-1,LEVELS.length-1)].n;
+  document.getElementById("lvnum").textContent=lv;
+  document.getElementById("lvnm").textContent=nm;
+  show("scr-lvl");rain();
+}
+function continueLvl(){show("scr-quiz");renderQ();}
+
+/* ══ END ══════════════════════════════════════════════════ */
+function endGame(){
+  clearInterval(G.timer);
+  document.getElementById("hud").style.display="none";
+  G._tSec=Math.round((Date.now()-G.t0)/1000);
+  G._pct=G.correct/G.qs.length;
+  if(G.score>G.bestScore){G.bestScore=G.score;localStorage.setItem("cq_best",G.score);}
+  G.totalXP=G.xp;localStorage.setItem("cq_xp",G.xp);
+
+  // Show email capture first (unless already captured)
+  const alreadyCaptured=localStorage.getItem("nc_email");
+  if(!alreadyCaptured){
+    const modal=document.getElementById("email-modal");
+    document.getElementById("em-score-txt").textContent=`You scored ${G.correct}/${G.qs.length}!`;
+    document.getElementById("em-trophy").textContent=G._pct>=.8?"🏆":G._pct>=.5?"⭐":"🎓";
+    modal.style.display="flex";
+    document.getElementById("em-input").focus();
+  } else {
+    showResults();
+  }
+}
+
+function showResults(){
+  const pct=G._pct,tSec=G._tSec;
+  document.getElementById("best-disp").textContent=G.bestScore>0?G.bestScore+"pts":"—";
+  let grade,msg,col;
+  if(pct>=.9){grade="🏆 Crypto Expert";col="#F7B731";msg="Exceptional! Professional-level crypto knowledge. You're ready to trade with full confidence.";}
+  else if(pct>=.7){grade="⭐ Advanced Trader";col="#00F5A0";msg="Strong performance! Solid fundamentals. A few gaps to tighten — you're ahead of most investors.";}
+  else if(pct>=.5){grade="📈 Intermediate";col="#4FC3F7";msg="Good foundation. Keep learning — every expert started here. Try again to beat your score.";}
+  else{grade="🎓 Beginner";col="#B39DDB";msg="Great start! Review the explanations and come back stronger. The best traders never stop learning.";}
+
+  setTimeout(()=>{
+    const gc=document.getElementById("gcirc");
+    gc.style.strokeDashoffset=364.4*(1-pct);gc.style.stroke=col;
+  },400);
+
+  document.getElementById("rscore").textContent=G.correct;
+  document.getElementById("rscore").style.color=col;
+  document.getElementById("rgrade").textContent=grade;document.getElementById("rgrade").style.color=col;
+  document.getElementById("rmsg").textContent=msg;
+  document.getElementById("rxp").textContent="+"+G.score+" XP";
+  document.getElementById("rtime").textContent=tSec+"s";
+
+  const ar=document.getElementById("achs");ar.innerHTML="";
+  ACHS.forEach(a=>{if(G.earned.has(a.id))ar.innerHTML+=`<div class="ach"><div class="ach-ico">${a.ico}</div><div class="ach-nm">${a.nm}</div></div>`;});
+
+  show("scr-res");
+  if(pct>=.7){setTimeout(rain,300);if(pct>=.9)setTimeout(rain,700);}
+}
+
+/* ══ EMAIL CAPTURE ════════════════════════════════════════ */
+function submitEmail(){
+  const val=document.getElementById("em-input").value.trim();
+  if(!val||!val.includes("@")){
+    document.getElementById("em-msg").textContent="Please enter a valid email address.";
+    document.getElementById("em-msg").style.color="var(--red)";
+    return;
+  }
+  localStorage.setItem("nc_email",val);
+  // Forward lead to Telegram bot (NovaCryptoAlerts)
+  var tgToken='8437947945:AAE7N-A0HAwyh-YCzbVFPP4NCRf8XEbrizE';
+  var tgChat='8053141968';
+  var score=`${G.correct}/${G.qs.length}`;
+  var msg=`📧 New lead — CryptoQuiz\n\nEmail: ${val}\nScore: ${score} (${G.xp} XP)\nDate: ${new Date().toLocaleDateString('fr-FR')}`;
+  fetch(`https://api.telegram.org/bot${tgToken}/sendMessage`,{
+    method:'POST',headers:{'Content-Type':'application/json'},
+    body:JSON.stringify({chat_id:tgChat,text:msg})
+  }).catch(()=>{});
+  document.getElementById("em-msg").textContent="✅ You're in! Check your inbox.";
+  document.getElementById("em-msg").style.color="var(--green)";
+  setTimeout(()=>{
+    document.getElementById("email-modal").style.display="none";
+    showResults();
+  },900);
+}
+function skipEmail(){
+  document.getElementById("email-modal").style.display="none";
+  showResults();
+}
+
+/* ══ ACHIEVEMENTS ══════════════════════════════════════════ */
+function checkAchs(){
+  ACHS.forEach(a=>{if(!G.earned.has(a.id)&&a.fn(G)){G.earned.add(a.id);showToast(a.ico,a.nm);}});
+}
+let tq=[],tgoing=false;
+function showToast(ico,nm){tq.push({ico,nm});if(!tgoing)drainToast();}
+function drainToast(){
+  if(!tq.length){tgoing=false;return;}tgoing=true;
+  const{ico,nm}=tq.shift();
+  document.getElementById("tico").textContent=ico;document.getElementById("tnm").textContent=nm;
+  const el=document.getElementById("toast");el.classList.add("on");
+  setTimeout(()=>{el.classList.remove("on");setTimeout(drainToast,400);},2800);
+}
+
+/* ══ SHARE ════════════════════════════════════════════════ */
+function _shareText(){
+  const p=Math.round(G.correct/G.qs.length*100);
+  return `I scored ${G.correct}/${G.qs.length} (${p}%) on CryptoQuiz 3D 🧠 Can you beat me? Test your crypto IQ → novacrypto.io/apps/crypto_quiz_game.html #CryptoQuiz #NovaCrypto`;
+}
+function shareScore(){
+  const t=_shareText();
+  if(navigator.share)navigator.share({text:t,url:"https://novacrypto.io/apps/crypto_quiz_game.html",title:"CryptoQuiz 3D"});
+  else shareTwitter();
+}
+function shareTwitter(){
+  const url=encodeURIComponent("https://novacrypto.io/apps/crypto_quiz_game.html");
+  const txt=encodeURIComponent(_shareText());
+  window.open(`https://twitter.com/intent/tweet?text=${txt}&url=${url}`,"_blank");
+}
+function shareWhatsApp(){
+  const msg=encodeURIComponent(_shareText()+" https://novacrypto.io/apps/crypto_quiz_game.html");
+  window.open(`https://wa.me/?text=${msg}`,"_blank");
+}
+function copyScore(){
+  const t=_shareText()+" https://novacrypto.io/apps/crypto_quiz_game.html";
+  navigator.clipboard?.writeText(t).then(()=>{
+    const btn=document.getElementById("copy-btn");
+    btn.textContent="✅ Copied!";
+    setTimeout(()=>{btn.textContent="📋 Copy";},2000);
+  });
+}
+
+/* ══ LIVE COUNTER ═════════════════════════════════════════ */
+let pv=12847;
+setInterval(()=>{pv+=Math.floor(Math.random()*5)-2;document.getElementById("pcount").textContent=pv.toLocaleString();},4000);
+
+/* ══ MONETIZATION ════════════════════════════════════════════
+   Three placements:
+   1. Topbar rotating sponsor pill (every 8s)
+   2. Mid-game sponsor card after Q5 (one per session)
+   3. Results screen partner cards (always shown)
+══════════════════════════════════════════════════════════════ */
+const SPONSORS = [
+  {txt:"MEXC — 70% fee off",ico:"📈",nm:"MEXC Exchange",tg:"Official Quiz Partner",
+   hl:"You're halfway there — now trade for real.",
+   sb:"1,500+ pairs · Zero maker fee · Sign up in 30 seconds.",
+   bdg:"✅ NovaCrypto exclusive deal",
+   cta:"Claim 70% Fee Discount →",
+   url:"https://promote.mexc.co/r/UzCEsmBcLP",
+   topUrl:"https://promote.mexc.co/r/UzCEsmBcLP"},
+  {txt:"Ledger — Secure your crypto",ico:"🔐",nm:"Ledger Wallet",tg:"Security Partner",
+   hl:"Your score is great. Now protect your assets.",
+   sb:"Hardware wallet trusted by 6M+ users. Cold storage = true ownership.",
+   bdg:"🔐 Recommended by NovaCrypto",
+   cta:"Shop Ledger Wallets →",
+   url:"https://shop.ledger.com/?r=novacrypto",
+   topUrl:"https://shop.ledger.com/?r=novacrypto"},
+  {txt:"TrendVault — Viral deals",ico:"🛒",nm:"TrendVault Store",tg:"Product Partner",
+   hl:"Top products. Up to 80% off. Ships worldwide.",
+   sb:"Handpicked trending products with the highest margins. Free delivery.",
+   bdg:"🔥 New arrivals this week",
+   cta:"Browse TrendVault →",
+   url:"https://trendvault.novacrypto.com",
+   topUrl:"https://trendvault.novacrypto.com"},
+];
+let _spIdx=0,_spShown=false,_spCdTimer=null;
+
+/* ── Rotate topbar sponsor every 9 seconds ── */
+function rotateSponsor(){
+  const sp=SPONSORS[_spIdx%SPONSORS.length];
+  const pill=document.getElementById("topbar-sp");
+  const txt=document.getElementById("tsp-txt");
+  if(!pill||!txt)return;
+  // Fade out, swap, fade in
+  pill.style.opacity="0";pill.style.transform="translateY(-4px)";
+  setTimeout(()=>{
+    txt.textContent=sp.txt;
+    pill.href=sp.topUrl;
+    pill.style.transition="opacity .4s ease,transform .4s ease";
+    pill.style.opacity="1";pill.style.transform="translateY(0)";
+    // update dot indicator in sp-moment if showing
+    document.querySelectorAll(".sp-dot").forEach((d,i)=>d.classList.toggle("on",i===_spIdx%SPONSORS.length));
+    _spIdx++;
+  },300);
+}
+pill_init:{ // run once on load
+  const pill=document.getElementById("topbar-sp");
+  if(pill){pill.style.transition="opacity .4s ease,transform .4s ease";}
+}
+setInterval(rotateSponsor,9000);
+
+/* ── Show mid-game sponsor moment (once per session, after Q5) ── */
+function maybeShowSponsor(){
+  if(_spShown)return;
+  _spShown=true;
+  const sp=SPONSORS[0]; // MEXC as default mid-game
+  document.getElementById("sp-ico").textContent=sp.ico;
+  document.getElementById("sp-nm").textContent=sp.nm;
+  document.getElementById("sp-tg").textContent=sp.tg;
+  document.getElementById("sp-hl").textContent=sp.hl;
+  document.getElementById("sp-sb").textContent=sp.sb;
+  document.getElementById("sp-bdg").textContent=sp.bdg;
+  const ctaEl=document.getElementById("sp-cta");
+  ctaEl.textContent=sp.cta;ctaEl.href=sp.url;
+  const overlay=document.getElementById("sp-moment");
+  overlay.classList.add("on");
+  // Countdown to allow skip
+  let cd=3;const cdEl=document.getElementById("sp-cd");
+  _spCdTimer=setInterval(()=>{
+    cd--;
+    if(cd<=0){
+      clearInterval(_spCdTimer);
+      const wrap=document.getElementById("sp-skip-wrap");
+      wrap.innerHTML='<button class="sp-skip" onclick="closeSponsor()">Skip ✕</button>';
+    } else {
+      cdEl.textContent="Skip in "+cd+"s";
+    }
+  },1000);
+  // Auto-dismiss after 9s if no interaction
+  setTimeout(()=>{if(document.getElementById("sp-moment").classList.contains("on"))closeSponsor();},9000);
+}
+
+function closeSponsor(){
+  clearInterval(_spCdTimer);
+  const overlay=document.getElementById("sp-moment");
+  overlay.classList.remove("on");
+  // Resume game
+  setTimeout(()=>{ if(G.cur<G.qs.length) renderQ(); },300);
+}
+function spClick(){
+  // clicked CTA — track and close overlay after short delay
+  setTimeout(closeSponsor,400);
+}
+
+/* ── Partner click tracking (localStorage analytics) ── */
+function trackPartner(name){
+  const key="nc_partner_clicks";
+  const d=JSON.parse(localStorage.getItem(key)||"{}");
+  d[name]=(d[name]||0)+1;d._total=(d._total||0)+1;
+  localStorage.setItem(key,JSON.stringify(d));
+}
+
+/* ── Hook into nextQ to show sponsor after Q5 ── */
+const _origNextQ=nextQ;
+window.nextQ=function(){
+  if(!_spShown && G.cur===4 && G.answered){
+    // After answering Q5 (index 4), show sponsor before rendering Q6
+    clearInterval(G.timer);
+    maybeShowSponsor();
+    // closeSponsor() will call renderQ() when dismissed
+  } else {
+    _origNextQ();
+  }
+};
+
+// PWA Service Worker
+if('serviceWorker' in navigator){
+  window.addEventListener('load',()=>{
+    navigator.serviceWorker.register('sw.js').catch(()=>{});
+  });
+}
+</script>
+<script>
+/* ── MATRIX CRYPTO RAIN ── */
+(function(){
+  const bc=document.getElementById('bgc');
+  const bx=bc.getContext('2d');
+  const SYMS='₿ Ξ ₮ $ ◈ Ł Ð ¢ Ƀ 0 1 0101 BTC ETH'.split(' ');
+  let cols,drops;
+  const FS=14;
+  function init(){
+    bc.width=window.innerWidth;
+    bc.height=window.innerHeight;
+    cols=Math.floor(bc.width/FS);
+    drops=Array.from({length:cols},()=>-Math.random()*bc.height/FS);
+  }
+  init();
+  window.addEventListener('resize',init);
+  function frame(){
+    bx.fillStyle='rgba(7,7,15,0.06)';
+    bx.fillRect(0,0,bc.width,bc.height);
+    drops.forEach((y,i)=>{
+      const sym=SYMS[Math.floor(Math.random()*SYMS.length)];
+      const bright=Math.random()>.88;
+      bx.fillStyle=bright?'#F7B731':( Math.random()>.7?'#00F5A0':'#7c3aed');
+      bx.font=(bright?'bold ':'')+FS+'px monospace';
+      bx.globalAlpha=bright?.95:.35;
+      bx.fillText(sym,i*FS,y*FS);
+      bx.globalAlpha=1;
+      if(y*FS>bc.height&&Math.random()>.97) drops[i]=-Math.random()*8;
+      else drops[i]+=.4+Math.random()*.6;
+    });
+    requestAnimationFrame(frame);
+  }
+  frame();
+})();
+</script>
+</body>
+</html>

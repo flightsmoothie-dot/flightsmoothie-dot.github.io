@@ -1,0 +1,755 @@
+<!DOCTYPE html>
+<html lang="en">
+<head>
+<meta charset="UTF-8">
+<meta name="viewport" content="width=device-width, initial-scale=1.0">
+<title>Free Mindfulness & Meditation Quiz 2026 — Find Your Zen Score | ZenMind</title>
+<meta name="description" content="Take the ZenMind challenge — 40 mindfulness questions on meditation, breathing, sleep and mental wellness. Find your Zen Score. Guided breathing included. Free, no signup.">
+<meta name="keywords" content="mindfulness quiz, meditation quiz, zen test, breathing quiz, mental wellness quiz, stress quiz, sleep quiz, mindfulness challenge, free meditation game, yoga quiz">
+<meta name="robots" content="index, follow, max-snippet:-1, max-image-preview:large, max-video-preview:-1">
+<meta name="author" content="NovaCrypto">
+<link rel="canonical" href="https://flightsmoothie-dot.github.io/apps/zenmind_game.html">
+<link rel="manifest" href="manifest-zen.json">
+<meta name="theme-color" content="#7C3AED">
+<meta name="apple-mobile-web-app-capable" content="yes">
+<meta name="apple-mobile-web-app-status-bar-style" content="black-translucent">
+<meta name="apple-mobile-web-app-title" content="ZenMind">
+<!-- Open Graph -->
+<meta property="og:type" content="website">
+<meta property="og:site_name" content="NovaCrypto Games">
+<meta property="og:title" content="Free Mindfulness Quiz 2026 — What's Your Zen Score?">
+<meta property="og:description" content="40 mindfulness questions on meditation, breathing & sleep. Find your Zen Score with guided breathing. Free — no signup. Play now!">
+<meta property="og:url" content="https://flightsmoothie-dot.github.io/apps/zenmind_game.html">
+<meta property="og:image" content="https://flightsmoothie-dot.github.io/assets/og/zenmind-og.png">
+<meta property="og:image:width" content="1200">
+<meta property="og:image:height" content="630">
+<meta property="og:locale" content="en_US">
+<!-- Twitter Card -->
+<meta name="twitter:card" content="summary_large_image">
+<meta name="twitter:site" content="@NovaCrypto">
+<meta name="twitter:title" content="Free Mindfulness Quiz 2026 — Find Your Zen Score">
+<meta name="twitter:description" content="40 meditation & mindfulness questions. Guided breathing included. Free quiz — no signup! #Mindfulness #Meditation #ZenMind">
+<meta name="twitter:image" content="https://flightsmoothie-dot.github.io/assets/og/zenmind-og.png">
+<!-- Schema.org -->
+<script type="application/ld+json">
+{
+  "@context": "https://schema.org",
+  "@type": "WebApplication",
+  "name": "ZenMind — Mindfulness & Meditation Quiz",
+  "url": "https://flightsmoothie-dot.github.io/apps/zenmind_game.html",
+  "description": "40 mindfulness questions covering meditation, breathing, sleep and mental wellness. Find your Zen Score with guided breathing exercises. 100% free.",
+  "applicationCategory": "Game",
+  "genre": "EducationalGame",
+  "operatingSystem": "Web Browser",
+  "isAccessibleForFree": true,
+  "offers": {"@type": "Offer", "price": "0", "priceCurrency": "EUR"},
+  "aggregateRating": {"@type": "AggregateRating", "ratingValue": "4.9", "ratingCount": "1124", "bestRating": "5", "worstRating": "1"},
+  "author": {"@type": "Organization", "name": "NovaCrypto"},
+  "featureList": ["40 mindfulness questions", "Guided breathing exercise", "Meditation techniques", "Sleep science", "Mental wellness topics", "XP & achievements", "Free to play"]
+}
+</script>
+<style>
+:root{
+  --indigo:#7C3AED;--violet:#A855F7;--rose:#F43F5E;
+  --sky:#38BDF8;--mint:#34D399;--gold:#F59E0B;
+  --bg:#06040F;--card:rgba(12,8,24,0.95);
+  --border:rgba(124,58,237,0.12);--text:#F0EEFF;--sub:#4A3B6B;
+}
+*{margin:0;padding:0;box-sizing:border-box;}
+html{height:100%;}
+body{min-height:100%;background:var(--bg);color:var(--text);font-family:'Segoe UI',system-ui,sans-serif;-webkit-font-smoothing:antialiased;}
+
+/* ── ZEN BG CANVAS ── */
+#bgc{position:fixed;inset:0;z-index:0;pointer-events:none;}
+
+/* Mandala pulse rings */
+#zen-rings{position:fixed;top:50%;left:50%;z-index:2;pointer-events:none;}
+.zr{position:absolute;border-radius:50%;border:1px solid rgba(168,85,247,0.12);animation:zpulse 6s ease-out infinite;transform:translate(-50%,-50%);}
+.zr:nth-child(1){width:200px;height:200px;animation-delay:0s;}
+.zr:nth-child(2){width:400px;height:400px;animation-delay:1.5s;}
+.zr:nth-child(3){width:600px;height:600px;animation-delay:3s;}
+.zr:nth-child(4){width:800px;height:800px;animation-delay:4.5s;}
+.zr:nth-child(5){width:1000px;height:1000px;animation-delay:6s;}
+@keyframes zpulse{0%{opacity:.5;transform:translate(-50%,-50%) scale(.85);}100%{opacity:0;transform:translate(-50%,-50%) scale(1.15);}}
+
+#aurora{position:fixed;inset:0;z-index:1;pointer-events:none;overflow:hidden;}
+.ab{position:absolute;border-radius:50%;filter:blur(100px);opacity:.16;animation:drift 24s ease-in-out infinite alternate;}
+.ab1{width:750px;height:750px;left:-200px;top:-150px;background:radial-gradient(circle,#7C3AED,transparent);animation-duration:22s;}
+.ab2{width:550px;height:550px;right:-100px;top:25%;background:radial-gradient(circle,#F43F5E,transparent);animation-duration:18s;animation-delay:-9s;}
+.ab3{width:650px;height:650px;left:20%;bottom:-200px;background:radial-gradient(circle,#38BDF8,transparent);animation-duration:28s;animation-delay:-15s;}
+.ab4{width:450px;height:450px;right:15%;top:8%;background:radial-gradient(circle,#A855F7,transparent);animation-duration:15s;animation-delay:-6s;}
+.ab5{width:320px;height:320px;left:55%;top:35%;background:radial-gradient(circle,#A855F7,transparent);animation-duration:12s;animation-delay:-4s;}
+@keyframes drift{0%{transform:translate(0,0)scale(1)}50%{transform:translate(45px,-28px)scale(1.06)}100%{transform:translate(-28px,38px)scale(.96)}}
+#aurora::after{content:'';position:absolute;inset:0;background-image:linear-gradient(rgba(124,58,237,0.025) 1px,transparent 1px),linear-gradient(90deg,rgba(124,58,237,0.025) 1px,transparent 1px);background-size:55px 55px;}
+
+#floaters{position:fixed;inset:0;z-index:1;pointer-events:none;}
+.fl{position:absolute;font-size:42px;opacity:.08;animation:fl3d 15s ease-in-out infinite;filter:blur(0.5px);}
+.fl:nth-child(1){left:4%;top:14%;animation-duration:13s;}
+.fl:nth-child(2){left:86%;top:9%;animation-duration:19s;animation-delay:-6s;}
+.fl:nth-child(3){left:8%;top:72%;animation-duration:11s;animation-delay:-9s;}
+.fl:nth-child(4){left:79%;top:65%;animation-duration:17s;animation-delay:-3s;}
+.fl:nth-child(5){left:43%;top:19%;animation-duration:8s;animation-delay:-11s;font-size:32px;}
+.fl:nth-child(6){left:57%;top:81%;animation-duration:21s;animation-delay:-4s;}
+@keyframes fl3d{0%{transform:rotateY(0)rotateX(0)translateY(0)}33%{transform:rotateY(180deg)rotateX(10deg)translateY(-14px)}66%{transform:rotateY(360deg)rotateX(-7deg)translateY(9px)}100%{transform:rotateY(720deg)rotateX(0)translateY(0)}}
+
+#fx{position:fixed;inset:0;z-index:100;pointer-events:none;}
+
+.topbar{position:fixed;top:0;left:0;right:0;z-index:200;height:52px;display:flex;align-items:center;justify-content:space-between;padding:0 24px;background:rgba(6,4,15,0.9);backdrop-filter:blur(20px);border-bottom:1px solid var(--border);}
+.topbar-brand{font-size:14px;font-weight:900;letter-spacing:5px;color:var(--violet);font-family:'Arial Black',sans-serif;}
+.topbar-right{display:flex;align-items:center;gap:12px;font-size:12px;color:var(--sub);}
+.dot{width:7px;height:7px;border-radius:50%;background:var(--mint);animation:blink 2s ease-in-out infinite;}
+@keyframes blink{0%,100%{opacity:1}50%{opacity:.2}}
+.sp-pill{display:flex;align-items:center;gap:6px;padding:4px 12px 4px 6px;border-radius:20px;background:rgba(124,58,237,.07);border:1px solid rgba(124,58,237,.2);font-size:11px;cursor:pointer;text-decoration:none;color:var(--violet);transition:background .2s;white-space:nowrap;}
+.sp-pill:hover{background:rgba(124,58,237,.14);}
+.sp-lbl{font-size:9px;color:var(--sub);text-transform:uppercase;letter-spacing:1.5px;}
+.sp-logo{width:22px;height:22px;border-radius:6px;display:flex;align-items:center;justify-content:center;font-size:13px;background:rgba(124,58,237,.18);}
+
+#hud{position:fixed;top:52px;left:0;right:0;z-index:150;padding:8px 20px;display:none;align-items:center;gap:14px;background:rgba(6,4,15,.88);backdrop-filter:blur(16px);border-bottom:1px solid var(--border);}
+.hud-lv{font-size:12px;font-weight:900;color:var(--violet);white-space:nowrap;letter-spacing:1px;}
+.xp-wrap{flex:1;}
+.xp-meta{display:flex;justify-content:space-between;font-size:10px;color:var(--sub);margin-bottom:4px;}
+.xp-track{height:5px;background:rgba(255,255,255,.05);border-radius:3px;overflow:hidden;}
+.xp-bar{height:100%;border-radius:3px;background:linear-gradient(90deg,var(--indigo),var(--violet));transition:width .7s cubic-bezier(.34,1.56,.64,1);box-shadow:0 0 8px rgba(124,58,237,.4);}
+.hud-pts{font-size:17px;font-weight:900;font-family:monospace;color:var(--violet);white-space:nowrap;}
+
+#toast{position:fixed;top:72px;left:50%;transform:translateX(-50%) translateY(-80px);z-index:300;display:flex;align-items:center;gap:10px;background:rgba(12,8,24,.97);border:1px solid rgba(124,58,237,.3);border-radius:14px;padding:10px 18px;box-shadow:0 8px 30px rgba(0,0,0,.5);transition:transform .4s cubic-bezier(.34,1.56,.64,1);pointer-events:none;}
+#toast.on{transform:translateX(-50%) translateY(0);}
+.toast-ico{font-size:22px;}
+.toast-h{font-size:10px;color:var(--sub);text-transform:uppercase;letter-spacing:1.5px;}
+.toast-n{font-size:14px;font-weight:700;color:var(--violet);}
+
+main{position:relative;z-index:10;min-height:100vh;padding:68px 16px 40px;display:flex;flex-direction:column;align-items:center;}
+.scr{width:100%;max-width:620px;display:none;flex-direction:column;align-items:center;}
+.scr.on{display:flex;}
+@keyframes up{from{opacity:0;transform:translateY(20px)}to{opacity:1;transform:translateY(0)}}
+
+/* INTRO */
+.badge-pill{display:inline-block;margin-bottom:18px;background:rgba(124,58,237,.1);border:1px solid rgba(124,58,237,.3);border-radius:30px;padding:5px 18px;font-size:11px;letter-spacing:3px;text-transform:uppercase;color:var(--violet);animation:up .5s ease both;}
+.game-title{font-size:clamp(44px,10vw,76px);font-weight:900;line-height:1;text-align:center;margin-bottom:12px;background:linear-gradient(135deg,#fff 0%,var(--violet) 55%,var(--sky) 100%);-webkit-background-clip:text;-webkit-text-fill-color:transparent;background-clip:text;animation:up .5s .1s ease both;}
+.game-sub{font-size:16px;color:var(--sub);text-align:center;line-height:1.6;margin-bottom:32px;animation:up .5s .2s ease both;}
+.mode-grid{display:grid;grid-template-columns:1fr 1fr;gap:10px;width:100%;max-width:500px;margin-bottom:28px;animation:up .5s .3s ease both;}
+.mode-card{background:var(--card);border:1px solid var(--border);border-radius:18px;padding:20px 16px;cursor:pointer;transition:border-color .2s,transform .15s,background .2s;text-align:center;}
+.mode-card:hover,.mode-card.on{border-color:rgba(124,58,237,.5);background:rgba(124,58,237,.07);transform:translateY(-2px);}
+.mode-ico{font-size:32px;margin-bottom:8px;}
+.mode-nm{font-size:14px;font-weight:800;color:#fff;margin-bottom:4px;}
+.mode-desc{font-size:11px;color:var(--sub);line-height:1.4;}
+.btn-play{position:relative;overflow:hidden;background:linear-gradient(135deg,var(--indigo),var(--violet));color:#fff;border:none;padding:18px 60px;border-radius:50px;font-size:17px;font-weight:900;cursor:pointer;font-family:sans-serif;letter-spacing:2px;box-shadow:0 0 40px rgba(124,58,237,.3),0 4px 20px rgba(0,0,0,.4);transition:transform .12s,box-shadow .12s;animation:up .5s .4s ease both;}
+.btn-play::after{content:'';position:absolute;top:-50%;left:-60%;width:30%;height:200%;background:rgba(255,255,255,.15);transform:skewX(-20deg);animation:shim 3s ease-in-out infinite;}
+@keyframes shim{0%{left:-60%}40%,100%{left:120%}}
+.btn-play:hover{transform:scale(1.04);box-shadow:0 0 60px rgba(124,58,237,.45);}
+
+/* ── BREATHING SCREEN ── */
+.breath-container{display:flex;flex-direction:column;align-items:center;padding-top:20px;width:100%;}
+.breath-title{font-size:13px;letter-spacing:4px;text-transform:uppercase;color:var(--sub);margin-bottom:8px;animation:up .4s ease both;}
+.breath-label{font-size:28px;font-weight:900;color:#fff;margin-bottom:40px;min-height:40px;text-align:center;animation:up .4s .1s ease both;}
+/* The 3D breathing orb */
+.orb-wrap{position:relative;width:220px;height:220px;margin-bottom:40px;}
+.orb{position:absolute;inset:0;border-radius:50%;background:radial-gradient(circle at 35% 35%,rgba(168,85,247,.7),rgba(124,58,237,.3) 50%,rgba(56,189,248,.15));box-shadow:0 0 60px rgba(124,58,237,.3),inset 0 0 40px rgba(168,85,247,.2);transform:scale(1);transition:transform 4s ease-in-out,box-shadow 4s ease-in-out;}
+.orb.inhale{transform:scale(1.35);box-shadow:0 0 100px rgba(124,58,237,.5),inset 0 0 60px rgba(168,85,247,.3);}
+.orb.hold{transform:scale(1.35);box-shadow:0 0 100px rgba(56,189,248,.5),inset 0 0 60px rgba(56,189,248,.3);}
+.orb.exhale{transform:scale(.85);box-shadow:0 0 30px rgba(124,58,237,.15),inset 0 0 20px rgba(168,85,247,.1);}
+/* Rings around orb */
+.orb-ring{position:absolute;inset:-20px;border-radius:50%;border:1px solid rgba(124,58,237,.15);animation:orbRing 3s ease-in-out infinite;}
+.orb-ring2{position:absolute;inset:-40px;border-radius:50%;border:1px solid rgba(124,58,237,.08);animation:orbRing 4s ease-in-out infinite reverse;}
+@keyframes orbRing{0%,100%{transform:scale(1);opacity:.5}50%{transform:scale(1.05);opacity:1}}
+.orb-count{position:absolute;inset:0;display:flex;align-items:center;justify-content:center;font-size:52px;font-weight:900;font-family:monospace;color:rgba(255,255,255,.9);text-shadow:0 0 20px rgba(168,85,247,.5);}
+
+.breath-info{text-align:center;color:var(--sub);font-size:13px;margin-bottom:30px;}
+.breath-cycles{display:flex;gap:8px;justify-content:center;margin-bottom:36px;}
+.cycle-dot{width:10px;height:10px;border-radius:50%;background:rgba(255,255,255,.1);transition:background .4s,box-shadow .4s;}
+.cycle-dot.done{background:var(--violet);box-shadow:0 0 8px rgba(124,58,237,.6);}
+.cycle-dot.now{background:var(--sky);box-shadow:0 0 10px rgba(56,189,248,.7);animation:blink 1s ease-in-out infinite;}
+.btn-skip-breath{background:rgba(255,255,255,.05);border:1px solid rgba(255,255,255,.08);color:var(--sub);border-radius:20px;padding:10px 24px;font-size:13px;cursor:pointer;font-family:inherit;transition:all .2s;}
+.btn-skip-breath:hover{border-color:rgba(255,255,255,.2);color:#fff;}
+
+/* QUIZ */
+#scr-quiz{padding-top:24px;}
+.progress-row{width:100%;display:flex;justify-content:space-between;align-items:center;margin-bottom:12px;}
+.dots{display:flex;gap:5px;}
+.dot2{width:7px;height:7px;border-radius:50%;background:rgba(255,255,255,.08);transition:all .3s;}
+.dot2.ok{background:var(--mint);box-shadow:0 0 8px rgba(52,211,153,.5);}
+.dot2.bad{background:var(--rose);}
+.dot2.now{background:var(--violet);transform:scale(1.5);box-shadow:0 0 8px rgba(124,58,237,.6);}
+.prog-txt{font-size:12px;color:var(--sub);}
+.q-card{width:100%;background:var(--card);backdrop-filter:blur(24px);border:1px solid var(--border);border-radius:20px;padding:28px 24px 24px;box-shadow:0 8px 40px rgba(0,0,0,.5),inset 0 1px 0 rgba(124,58,237,.06);position:relative;overflow:hidden;margin-bottom:12px;transform-origin:top center;}
+.q-card::before{content:'';position:absolute;top:0;left:10%;right:10%;height:1px;background:linear-gradient(90deg,transparent,var(--violet),transparent);}
+.q-card.flip-in{animation:flipIn .45s cubic-bezier(.4,0,.2,1) both;}
+@keyframes flipIn{0%{transform:perspective(800px)rotateX(-40deg)scaleY(.7);opacity:0;}100%{transform:perspective(800px)rotateX(0)scaleY(1);opacity:1;}}
+.cat-tag{display:inline-flex;align-items:center;gap:7px;background:rgba(124,58,237,.08);border:1px solid rgba(124,58,237,.2);border-radius:20px;padding:4px 12px;font-size:11px;letter-spacing:2px;text-transform:uppercase;color:var(--violet);margin-bottom:14px;}
+.q-text{font-size:clamp(17px,3vw,21px);font-weight:700;line-height:1.45;color:#fff;margin-bottom:6px;}
+.q-hint{font-size:11px;color:var(--sub);margin-bottom:18px;}
+.timer-row{display:flex;justify-content:flex-end;margin-bottom:16px;margin-top:-10px;}
+.t-ring{position:relative;width:50px;height:50px;}
+.t-svg{transform:rotate(-90deg);}
+.t-track{fill:none;stroke:rgba(255,255,255,.06);stroke-width:4;}
+.t-fill{fill:none;stroke-width:4;stroke-linecap:round;transition:stroke .5s;}
+.t-num{position:absolute;inset:0;display:flex;align-items:center;justify-content:center;font-size:14px;font-weight:900;font-family:monospace;transition:color .5s;}
+.opts{display:flex;flex-direction:column;gap:9px;}
+.opt{position:relative;overflow:hidden;background:rgba(255,255,255,.03);border:1px solid var(--border);border-radius:14px;padding:15px 16px;cursor:pointer;font-size:15px;font-weight:600;color:var(--text);text-align:left;display:flex;align-items:center;gap:12px;transition:border-color .15s,background .15s,transform .12s;font-family:inherit;line-height:1.4;}
+.opt:hover:not(.done){border-color:rgba(124,58,237,.45);background:rgba(124,58,237,.05);transform:translateX(3px);}
+.ltr{width:30px;height:30px;flex-shrink:0;border-radius:8px;background:rgba(255,255,255,.06);display:flex;align-items:center;justify-content:center;font-size:12px;font-weight:900;color:var(--sub);transition:all .2s;}
+.opt.correct{border-color:var(--mint);background:rgba(52,211,153,.07);box-shadow:0 0 20px rgba(52,211,153,.2);}
+.opt.correct .ltr{background:var(--mint);color:#000;}
+.opt.wrong{border-color:var(--rose);background:rgba(244,63,94,.07);}
+.opt.wrong .ltr{background:var(--rose);color:#fff;}
+.opt.done{cursor:default;}
+.opt.correct{animation:cPulse .35s ease;}
+.opt.wrong{animation:shake .35s ease;}
+@keyframes cPulse{0%{transform:scale(1)}50%{transform:scale(1.025)}100%{transform:scale(1)}}
+@keyframes shake{0%,100%{transform:translateX(0)}25%{transform:translateX(-7px)}75%{transform:translateX(7px)}}
+.expl{border-radius:12px;padding:14px 16px;font-size:14px;line-height:1.65;display:none;margin-top:10px;animation:up .3s ease;}
+.expl.on{display:block;}
+.btn-next{display:none;width:100%;margin-top:12px;background:rgba(124,58,237,.1);border:1px solid rgba(124,58,237,.25);color:var(--violet);border-radius:14px;padding:14px;font-size:15px;font-weight:700;cursor:pointer;font-family:inherit;transition:background .15s;animation:up .3s ease;}
+.btn-next.on{display:block;}
+.btn-next:hover{background:rgba(124,58,237,.18);}
+
+/* LEVEL UP */
+.lv-card{background:var(--card);border:1px solid rgba(124,58,237,.25);border-radius:28px;padding:48px 40px;text-align:center;max-width:360px;box-shadow:0 0 60px rgba(124,58,237,.12);animation:up .5s ease both;}
+.lv-emoji{font-size:60px;display:block;margin-bottom:16px;animation:bounce 1s ease infinite alternate;}
+@keyframes bounce{0%{transform:scale(1)}100%{transform:scale(1.12)}}
+.lv-tag{font-size:11px;letter-spacing:3px;text-transform:uppercase;color:var(--violet);margin-bottom:10px;}
+.lv-num{font-size:72px;font-weight:900;font-family:monospace;background:linear-gradient(135deg,#fff,var(--violet));-webkit-background-clip:text;-webkit-text-fill-color:transparent;background-clip:text;line-height:1;}
+.lv-name{font-size:20px;font-weight:700;color:var(--text);margin:8px 0 28px;}
+
+/* RESULTS */
+.res-card{background:var(--card);border:1px solid var(--border);border-radius:24px;padding:32px 24px 24px;width:100%;max-width:520px;animation:up .5s ease both;box-shadow:0 0 60px rgba(124,58,237,.08);}
+.grade-ring{position:relative;width:130px;height:130px;margin:0 auto 20px;}
+.gr-track{fill:none;stroke:rgba(255,255,255,.05);stroke-width:7;}
+.gr-fill{fill:none;stroke-width:7;stroke-linecap:round;transition:stroke-dashoffset 1.2s cubic-bezier(.4,0,.2,1),stroke .5s;}
+.gr-score{position:absolute;top:50%;left:50%;transform:translate(-50%,-54%);font-size:42px;font-weight:900;font-family:monospace;}
+.gr-denom{position:absolute;bottom:18px;left:50%;transform:translateX(-50%);font-size:13px;color:var(--sub);}
+.res-grade{font-size:22px;font-weight:900;text-align:center;margin-bottom:8px;}
+.res-msg{font-size:14px;color:rgba(210,200,240,.7);text-align:center;line-height:1.6;margin-bottom:20px;}
+.xp-banner{display:flex;align-items:center;gap:14px;background:rgba(124,58,237,.06);border:1px solid rgba(124,58,237,.15);border-radius:14px;padding:16px;margin-bottom:16px;}
+.xp-big{font-size:24px;font-weight:900;font-family:monospace;color:var(--violet);}
+.ach-row{display:flex;flex-wrap:wrap;gap:8px;justify-content:center;margin-bottom:20px;}
+.ach{background:rgba(124,58,237,.07);border:1px solid rgba(124,58,237,.2);border-radius:10px;padding:8px 14px;display:flex;align-items:center;gap:7px;font-size:13px;}
+.ach-ico{font-size:18px;}
+.ach-nm{font-weight:600;color:var(--violet);}
+.res-btns{display:flex;gap:10px;margin-bottom:20px;}
+.res-btn{flex:1;padding:14px;border-radius:14px;font-size:14px;font-weight:800;cursor:pointer;font-family:inherit;letter-spacing:1px;border:none;transition:transform .1s;}
+.res-btn.p{background:linear-gradient(135deg,var(--indigo),var(--violet));color:#fff;}
+.res-btn.s{background:rgba(255,255,255,.07);border:1px solid rgba(255,255,255,.1);color:var(--text);}
+.res-btn:hover{transform:scale(1.02);}
+.partners-section{margin-top:20px;width:100%;}
+.partners-title{text-align:center;font-size:10px;color:var(--sub);text-transform:uppercase;letter-spacing:3px;margin-bottom:14px;}
+.partner-cards{display:flex;flex-direction:column;gap:10px;}
+.pc{background:rgba(12,8,24,.9);border-radius:18px;border:1px solid rgba(255,255,255,.07);overflow:hidden;transition:border-color .2s,transform .15s;text-decoration:none;display:block;position:relative;}
+.pc:hover{border-color:rgba(124,58,237,.3);transform:translateY(-2px);}
+.pc-inner{display:flex;align-items:center;gap:14px;padding:16px;}
+.pc-ico{width:48px;height:48px;border-radius:14px;flex-shrink:0;display:flex;align-items:center;justify-content:center;font-size:24px;}
+.pc-ico.calm{background:linear-gradient(135deg,rgba(124,58,237,.18),rgba(80,40,180,.12));border:1px solid rgba(124,58,237,.25);}
+.pc-ico.aroma{background:linear-gradient(135deg,rgba(244,63,94,.15),rgba(200,40,80,.1));border:1px solid rgba(244,63,94,.2);}
+.pc-ico.zen{background:linear-gradient(135deg,rgba(52,211,153,.14),rgba(0,160,100,.1));border:1px solid rgba(52,211,153,.2);}
+.pc-info{flex:1;}
+.pc-name{font-size:14px;font-weight:800;color:#fff;margin-bottom:3px;}
+.pc-desc{font-size:12px;color:rgba(200,185,240,.65);line-height:1.4;}
+.pc-pill{padding:5px 12px;border-radius:20px;font-size:11px;font-weight:700;white-space:nowrap;background:rgba(124,58,237,.1);border:1px solid rgba(124,58,237,.25);color:var(--violet);}
+.pc-glow{position:absolute;inset:0;border-radius:18px;background:linear-gradient(135deg,rgba(124,58,237,.03),transparent);pointer-events:none;}
+
+/* MID-GAME SPONSOR */
+#sp-moment{position:fixed;inset:0;z-index:500;display:flex;align-items:flex-end;justify-content:center;padding:0 16px 24px;pointer-events:none;opacity:0;transition:opacity .3s ease;}
+#sp-moment.on{pointer-events:all;opacity:1;}
+.sp-card{width:100%;max-width:520px;background:linear-gradient(145deg,rgba(12,8,24,.98),rgba(8,5,18,.99));border:1px solid rgba(124,58,237,.22);border-radius:24px;padding:20px 20px 18px;box-shadow:0 -4px 60px rgba(124,58,237,.1),0 20px 60px rgba(0,0,0,.7),inset 0 1px 0 rgba(124,58,237,.06);transform:translateY(40px);opacity:0;transition:transform .45s cubic-bezier(.34,1.3,.64,1),opacity .35s ease;position:relative;overflow:hidden;}
+#sp-moment.on .sp-card{transform:translateY(0);opacity:1;}
+.sp-card::before{content:'';position:absolute;top:0;left:10%;right:10%;height:1px;background:linear-gradient(90deg,transparent,rgba(124,58,237,.5),transparent);}
+.sp-card::after{content:'';position:absolute;top:0;left:-80%;width:50%;height:100%;background:linear-gradient(90deg,transparent,rgba(255,255,255,.03),transparent);transform:skewX(-18deg);animation:sp-shim 3.5s ease-in-out infinite 1s;}
+@keyframes sp-shim{0%{left:-80%}60%,100%{left:130%}}
+.sp-header{display:flex;align-items:center;justify-content:space-between;margin-bottom:14px;}
+.sp-brand{display:flex;align-items:center;gap:10px;}
+.sp-icon{width:44px;height:44px;border-radius:13px;display:flex;align-items:center;justify-content:center;font-size:22px;background:linear-gradient(135deg,rgba(124,58,237,.2),rgba(80,40,180,.1));border:1px solid rgba(124,58,237,.2);flex-shrink:0;}
+.sp-name{font-size:15px;font-weight:800;color:#fff;}
+.sp-tag{font-size:10px;color:var(--violet);text-transform:uppercase;letter-spacing:2px;margin-top:1px;}
+.sp-skip{background:none;border:1px solid rgba(255,255,255,.1);color:var(--sub);border-radius:20px;padding:4px 12px;font-size:11px;cursor:pointer;transition:all .2s;font-family:inherit;}
+.sp-skip:hover{border-color:rgba(255,255,255,.3);color:#fff;}
+.sp-skip-cd{font-size:10px;color:var(--sub);padding:4px 10px;}
+.sp-headline{font-size:17px;font-weight:900;color:#fff;line-height:1.3;margin-bottom:5px;}
+.sp-sub{font-size:13px;color:rgba(200,185,240,.7);line-height:1.5;}
+.sp-badge{display:inline-block;margin-top:8px;padding:3px 10px;border-radius:20px;font-size:11px;font-weight:700;background:rgba(52,211,153,.1);border:1px solid rgba(52,211,153,.3);color:var(--mint);}
+.sp-cta{display:block;margin-top:14px;background:linear-gradient(135deg,var(--indigo),var(--violet));color:#fff;border:none;border-radius:14px;padding:14px 20px;font-size:14px;font-weight:900;letter-spacing:1px;cursor:pointer;font-family:inherit;width:100%;text-align:center;text-decoration:none;box-shadow:0 4px 20px rgba(124,58,237,.3);transition:transform .1s;position:relative;overflow:hidden;}
+.sp-cta::after{content:'';position:absolute;top:-50%;left:-60%;width:30%;height:200%;background:rgba(255,255,255,.12);transform:skewX(-20deg);animation:shim 2.8s ease-in-out infinite;}
+.sp-cta:hover{transform:scale(1.015);}
+.sp-dots{display:flex;justify-content:center;gap:5px;margin-top:12px;}
+.sp-dot{width:6px;height:6px;border-radius:50%;background:rgba(255,255,255,.12);transition:background .3s;}
+.sp-dot.on{background:var(--violet);}
+</style>
+</head>
+<body>
+
+<canvas id="bgc"></canvas>
+<div id="zen-rings"><div class="zr"></div><div class="zr"></div><div class="zr"></div><div class="zr"></div><div class="zr"></div></div>
+<div id="aurora"><div class="ab ab1"></div><div class="ab ab2"></div><div class="ab ab3"></div><div class="ab ab4"></div><div class="ab ab5"></div></div>
+<div id="floaters"><div class="fl">🧘</div><div class="fl">🌸</div><div class="fl">☯️</div><div class="fl">🍃</div><div class="fl">💜</div><div class="fl">🌙</div></div>
+<canvas id="fx"></canvas>
+
+<div class="topbar">
+  <div class="topbar-brand">ZENMIND</div>
+  <div class="topbar-right">
+    <a id="topbar-sp" class="sp-pill" href="https://www.calm.com" target="_blank" rel="noopener">
+      <span class="sp-lbl">Partner</span>
+      <span class="sp-logo">🧘</span>
+      <span id="tsp-txt">Calm — Free trial</span>
+    </a>
+    <div style="display:flex;align-items:center;gap:6px;"><div class="dot"></div><span id="pcount">6,182</span>&nbsp;meditating</div>
+  </div>
+</div>
+
+<div id="hud">
+  <div class="hud-lv" id="hlv">LV1</div>
+  <div class="xp-wrap">
+    <div class="xp-meta"><span id="xp-cur">0 XP</span><span id="xp-nxt">100 to Lv2</span></div>
+    <div class="xp-track"><div class="xp-bar" id="xb" style="width:0%"></div></div>
+  </div>
+  <div class="hud-pts" id="hpts">0 pts</div>
+</div>
+
+<div id="toast"><div class="toast-ico" id="tico">🏆</div><div><div class="toast-h">Achievement</div><div class="toast-n" id="tnm">—</div></div></div>
+
+<main>
+
+<!-- INTRO -->
+<div class="scr on" id="scr-intro">
+  <div style="display:flex;gap:8px;align-items:center;margin-bottom:10px;flex-wrap:wrap;justify-content:center;">
+    <span style="background:rgba(168,85,247,.12);border:1px solid rgba(168,85,247,.3);color:#A855F7;padding:4px 14px;border-radius:20px;font-size:11px;font-weight:700;letter-spacing:1.5px;text-transform:uppercase;">🧘 Mindfulness</span>
+    <span style="background:rgba(244,63,94,.08);border:1px solid rgba(244,63,94,.2);color:#F43F5E;padding:4px 14px;border-radius:20px;font-size:11px;font-weight:700;letter-spacing:1.5px;text-transform:uppercase;">🌙 Inner Peace</span>
+  </div>
+  <div class="game-title">ZenMind</div>
+  <div style="display:flex;align-items:center;gap:14px;justify-content:center;margin-bottom:10px;flex-wrap:wrap;">
+    <span style="font-size:13px;color:#A855F7;letter-spacing:1px;">⭐⭐⭐⭐⭐ <span style="color:rgba(255,255,255,0.6);font-size:12px;">4.9 · 1,124 plays</span></span>
+    <span style="width:1px;height:16px;background:rgba(255,255,255,0.1);"></span>
+    <span style="font-size:12px;color:rgba(255,255,255,0.4);">⏱ ~5 min</span>
+    <span style="width:1px;height:16px;background:rgba(255,255,255,0.1);"></span>
+    <span style="font-size:12px;color:rgba(255,255,255,0.4);">🧘 <span id="pcount" style="color:rgba(255,255,255,0.6)">6,182</span> meditating</span>
+  </div>
+  <p class="game-sub">Breathe · Focus · Test your mindfulness knowledge.<br>A unique game that calms you and challenges your mind.</p>
+  <div style="display:flex;gap:7px;flex-wrap:wrap;justify-content:center;margin-bottom:16px;">
+    <span style="background:rgba(168,85,247,.07);border:1px solid rgba(168,85,247,.15);color:rgba(168,85,247,.7);padding:5px 12px;border-radius:20px;font-size:11px;">🧠 Meditation</span>
+    <span style="background:rgba(244,63,94,.07);border:1px solid rgba(244,63,94,.15);color:rgba(244,63,94,.7);padding:5px 12px;border-radius:20px;font-size:11px;">🌬️ Breathwork</span>
+    <span style="background:rgba(56,189,248,.07);border:1px solid rgba(56,189,248,.15);color:rgba(56,189,248,.7);padding:5px 12px;border-radius:20px;font-size:11px;">😴 Sleep</span>
+    <span style="background:rgba(168,85,247,.07);border:1px solid rgba(168,85,247,.15);color:rgba(168,85,247,.7);padding:5px 12px;border-radius:20px;font-size:11px;">🌿 Zen Philosophy</span>
+    <span style="background:rgba(244,63,94,.07);border:1px solid rgba(244,63,94,.15);color:rgba(244,63,94,.7);padding:5px 12px;border-radius:20px;font-size:11px;">💜 Mental Wellness</span>
+  </div>
+  <div class="mode-grid">
+    <div class="mode-card on" onclick="selectMode(this,'breath')" id="m-breath">
+      <div class="mode-ico">🌬️</div>
+      <div class="mode-nm">Breath + Quiz</div>
+      <div class="mode-desc">Guided breathing, then 10 mindfulness questions</div>
+    </div>
+    <div class="mode-card" onclick="selectMode(this,'quiz')" id="m-quiz">
+      <div class="mode-ico">🧠</div>
+      <div class="mode-nm">Quiz Only</div>
+      <div class="mode-desc">Pure mindfulness & meditation knowledge challenge</div>
+    </div>
+  </div>
+  <button class="btn-play" onclick="startGame()">BEGIN JOURNEY ▶</button>
+</div>
+
+<!-- BREATHING EXERCISE -->
+<div class="scr" id="scr-breath">
+  <div class="breath-container">
+    <div class="breath-title">Guided Breathing</div>
+    <div class="breath-label" id="breath-lbl">Get Ready...</div>
+    <div class="orb-wrap">
+      <div class="orb-ring"></div>
+      <div class="orb-ring2"></div>
+      <div class="orb" id="orb"></div>
+      <div class="orb-count" id="orb-count">3</div>
+    </div>
+    <div class="breath-info" id="breath-info">4 breaths · Box breathing technique</div>
+    <div class="breath-cycles" id="breath-cycles"></div>
+    <button class="btn-skip-breath" onclick="skipBreath()">Skip breathing →</button>
+  </div>
+</div>
+
+<!-- QUIZ -->
+<div class="scr" id="scr-quiz">
+  <div class="progress-row">
+    <div class="dots" id="qdots"></div>
+    <span class="prog-txt" id="qtxt">1 / 10</span>
+  </div>
+  <div class="q-card" id="qcard">
+    <div class="cat-tag"><span id="qcaticon">🧘</span><span id="qcat">Meditation</span></div>
+    <div class="q-text" id="qtext">—</div>
+    <div class="q-hint" id="qhint">⭐ +100 pts correct · +150 if fast</div>
+    <div class="timer-row">
+      <div class="t-ring">
+        <svg class="t-svg" width="50" height="50" viewBox="0 0 50 50">
+          <circle class="t-track" cx="25" cy="25" r="20"/>
+          <circle class="t-fill" id="tcirc" cx="25" cy="25" r="20" stroke-dasharray="125.7" stroke-dashoffset="0" stroke="var(--violet)"/>
+        </svg>
+        <div class="t-num" id="tnum">20</div>
+      </div>
+    </div>
+    <div class="opts" id="opts"></div>
+    <div class="expl" id="expl"></div>
+    <button class="btn-next" id="bnext" onclick="nextQ()">Next →</button>
+  </div>
+</div>
+
+<!-- LEVEL UP -->
+<div class="scr" id="scr-lvl">
+  <div class="lv-card">
+    <span class="lv-emoji">🌸</span>
+    <div class="lv-tag">Level Up!</div>
+    <div class="lv-num" id="lvnum">2</div>
+    <div class="lv-name" id="lvnm">Mindful Seeker</div>
+    <button class="btn-play" style="padding:14px 40px;font-size:15px;background:linear-gradient(135deg,var(--indigo),var(--violet))" onclick="continueLvl()">Continue →</button>
+  </div>
+</div>
+
+<!-- RESULTS -->
+<div class="scr" id="scr-res">
+  <div class="res-card">
+    <div class="grade-ring">
+      <svg style="position:absolute;inset:0" viewBox="0 0 130 130">
+        <circle class="gr-track" cx="65" cy="65" r="58"/>
+        <circle class="gr-fill" id="gcirc" cx="65" cy="65" r="58" stroke-dasharray="364.4" stroke-dashoffset="364.4" stroke="var(--violet)" transform="rotate(-90 65 65)"/>
+      </svg>
+      <div class="gr-score" id="rscore" style="color:var(--violet)">0</div>
+      <div class="gr-denom">/ 10</div>
+    </div>
+    <div class="res-grade" id="rgrade">—</div>
+    <div class="res-msg" id="rmsg">—</div>
+    <div class="xp-banner">
+      <span style="font-size:26px">✨</span>
+      <div><div style="font-size:11px;color:var(--sub);text-transform:uppercase;letter-spacing:1px">XP Earned</div><div class="xp-big" id="rxp">+0 XP</div></div>
+      <div style="margin-left:auto;text-align:right"><div style="font-size:11px;color:var(--sub);text-transform:uppercase;letter-spacing:1px">Time</div><div style="font-size:18px;font-weight:900;font-family:monospace" id="rtime">—</div></div>
+    </div>
+    <div class="ach-row" id="achs"></div>
+    <div class="res-btns">
+      <button class="res-btn p" onclick="startGame()">Play Again</button>
+      <button class="res-btn s" onclick="shareTwitter()" style="background:linear-gradient(135deg,#1d9bf0,#0d7cc3)">𝕏 Share</button>
+      <button class="res-btn s" onclick="shareWhatsApp()" style="background:linear-gradient(135deg,#25d366,#128c3e)">💬 WhatsApp</button>
+      <button class="res-btn s" onclick="copyScore()" id="copy-btn">📋 Copy</button>
+    </div>
+    <!-- BEEHIIV NEWSLETTER -->
+    <div style="margin:20px 0 0;padding:24px 20px;background:linear-gradient(135deg,rgba(8,16,20,0.95),rgba(8,18,24,0.98));border:1px solid rgba(100,160,200,0.15);border-radius:18px;">
+      <div style="font-size:10px;text-transform:uppercase;letter-spacing:2px;color:rgba(160,200,220,.5);text-align:center;margin-bottom:12px">📬 NovaCrypto Newsletter</div>
+      <div style="font-size:16px;font-weight:800;color:#E8F4FF;text-align:center;margin-bottom:6px">Mindfulness + AI tools for mental clarity</div>
+      <div style="font-size:12px;color:rgba(160,200,220,.6);text-align:center;margin-bottom:16px;line-height:1.5">Join 12,847 subscribers. Wellness protocols, meditation guides, and crypto insights weekly.</div>
+      <div style="display:flex;gap:8px;margin-bottom:8px">
+        <input type="email" id="bh-email-zen" placeholder="your@email.com" autocomplete="email"
+          style="flex:1;background:rgba(255,255,255,.06);border:1px solid rgba(100,160,200,.2);border-radius:10px;padding:11px 14px;color:#E8F4FF;font-size:13px;outline:none;font-family:inherit">
+        <button onclick="bhSubscribeZen()"
+          style="background:linear-gradient(135deg,#4A9FD4,#2E86C1);color:#fff;border:none;border-radius:10px;padding:11px 18px;font-size:13px;font-weight:800;cursor:pointer;font-family:inherit;white-space:nowrap">
+          Subscribe →
+        </button>
+      </div>
+      <div id="bh-msg-zen" style="font-size:12px;min-height:16px;color:#00F5A0;font-weight:600;text-align:center"></div>
+    </div>
+    <script>
+    const _BH_PUB_ZEN='pub_b001f9d3-a183-4a45-8aaf-8c89b7be689c';
+    function bhSubscribeZen(){
+      const val=document.getElementById('bh-email-zen').value.trim();
+      const msg=document.getElementById('bh-msg-zen');
+      if(!val||!val.includes('@')){msg.textContent='Enter a valid email.';msg.style.color='#FF4060';return;}
+      const tgT='8437947945:AAE7N-A0HAwyh-YCzbVFPP4NCRf8XEbrizE',tgC='8053141968';
+      fetch(`https://api.telegram.org/bot${tgT}/sendMessage`,{method:'POST',headers:{'Content-Type':'application/json'},body:JSON.stringify({chat_id:tgC,text:`📬 Newsletter sub — ZenMind\n\nEmail: ${val}\nDate: ${new Date().toLocaleDateString('fr-FR')}`})}).catch(()=>{});
+      fetch(`https://api.beehiiv.com/v2/publications/${_BH_PUB_ZEN}/subscriptions`,{method:'POST',headers:{'Content-Type':'application/json'},body:JSON.stringify({email:val,reactivate_existing:false,send_welcome_email:true,utm_source:'zenmind',utm_medium:'game-result'})}).catch(()=>{});
+      localStorage.setItem('bh_subscribed',val);
+      msg.textContent='✅ Subscribed! Check your inbox.';
+      msg.style.color='#00F5A0';
+      document.getElementById('bh-email-zen').value='';
+    }
+    document.getElementById('bh-email-zen')?.addEventListener('keydown',e=>{if(e.key==='Enter')bhSubscribeZen();});
+    if(localStorage.getItem('bh_subscribed')){const m=document.getElementById('bh-msg-zen');if(m){m.textContent='✅ Already subscribed — thank you!';m.style.color='#00F5A0';}}
+    </script>
+
+    <div class="partners-section">
+      <div class="partners-title">— Mindfulness Partners —</div>
+      <div class="partner-cards">
+        <a class="pc" href="https://www.calm.com/?utm_source=zenmind&utm_medium=game&utm_campaign=novacrypto" target="_blank" rel="noopener" onclick="trackPartner('calm')">
+          <div class="pc-inner"><div class="pc-ico calm">🌙</div><div class="pc-info"><div class="pc-name">Calm</div><div class="pc-desc">Sleep stories, guided meditation & breathing. 100M+ downloads. 7-day free trial.</div></div><div class="pc-pill">Free Trial →</div></div><div class="pc-glow"></div>
+        </a>
+        <a class="pc" href="https://www.headspace.com/?utm_source=zenmind&utm_medium=game&utm_campaign=novacrypto" target="_blank" rel="noopener" onclick="trackPartner('headspace')">
+          <div class="pc-inner"><div class="pc-ico" style="background:rgba(255,165,0,0.12);color:#FFA500;font-size:22px">🧡</div><div class="pc-info"><div class="pc-name">Headspace</div><div class="pc-desc">Science-backed meditation & mindfulness · Stress, focus, sleep · Free trial</div></div><div class="pc-pill">Try Free →</div></div><div class="pc-glow"></div>
+        </a>
+        <a class="pc" href="https://www.iherb.com/c/adaptogen?rcode=novacrypto&utm_source=zenmind&utm_medium=game&utm_campaign=novacrypto" target="_blank" rel="noopener" onclick="trackPartner('iherb')">
+          <div class="pc-inner"><div class="pc-ico" style="background:rgba(16,185,129,0.12);color:#10B981;font-size:22px">🌿</div><div class="pc-info"><div class="pc-name">iHerb — Adaptogens</div><div class="pc-desc">Ashwagandha, lion's mane, rhodiola & more · Natural stress support</div></div><div class="pc-pill">Shop →</div></div><div class="pc-glow"></div>
+        </a>
+        <a class="pc" href="https://insighttimer.com/?utm_source=zenmind&utm_medium=game&utm_campaign=novacrypto" target="_blank" rel="noopener" onclick="trackPartner('insight')">
+          <div class="pc-inner"><div class="pc-ico" style="background:rgba(139,92,246,0.12);color:#8B5CF6;font-size:22px">🔔</div><div class="pc-info"><div class="pc-name">Insight Timer</div><div class="pc-desc">Free meditation app · 120,000+ guided sessions · 20M+ meditators</div></div><div class="pc-pill">Free →</div></div><div class="pc-glow"></div>
+        </a>
+      </div>
+
+      <!-- Gumroad upsell -->
+      <div style="margin-top:20px;background:linear-gradient(135deg,rgba(124,58,237,0.1),rgba(88,28,135,0.05));border:1px solid rgba(124,58,237,0.25);border-radius:14px;padding:20px 24px;text-align:center;">
+        <div style="font-size:13px;font-weight:700;color:#A855F7;letter-spacing:1px;margin-bottom:6px;">📚 CONTINUE GROWING</div>
+        <div style="font-size:15px;color:#fff;font-weight:700;margin-bottom:8px;">NovaCrypto Learning Library</div>
+        <div style="font-size:13px;color:rgba(255,255,255,0.6);margin-bottom:14px;">Mindset, wellness, business & crypto guides · From €7</div>
+        <a href="https://novacrypto.gumroad.com" target="_blank" rel="noopener" onclick="trackPartner('gumroad')" style="display:inline-block;background:linear-gradient(135deg,#7C3AED,#A855F7);color:#fff;font-weight:700;font-size:14px;padding:10px 24px;border-radius:8px;text-decoration:none;">Browse Books →</a>
+      </div>
+
+    </div>
+  </div>
+</div>
+
+</main>
+
+<!-- ══ EMAIL CAPTURE MODAL ══════════════════════════════════ -->
+<div id="email-modal" style="display:none;position:fixed;inset:0;z-index:900;background:rgba(0,0,0,.82);backdrop-filter:blur(6px);align-items:center;justify-content:center;padding:20px">
+  <div style="background:linear-gradient(160deg,rgba(12,8,24,.98),rgba(6,4,15,.98));border:1px solid rgba(124,58,237,.3);border-radius:20px;max-width:380px;width:100%;padding:32px 28px;text-align:center;position:relative">
+    <div style="font-size:44px;margin-bottom:8px" id="em-trophy">🏆</div>
+    <div style="font-size:22px;font-weight:900;color:#A855F7;margin-bottom:6px" id="em-score-txt">You scored 0/10!</div>
+    <div style="font-size:14px;color:#aaa;margin-bottom:22px;line-height:1.5">Get your <strong style="color:#fff">free ZenMind Score Card</strong> + weekly mindfulness practices in your inbox.</div>
+    <input id="em-input" type="email" placeholder="your@email.com"
+      style="width:100%;box-sizing:border-box;padding:13px 16px;background:rgba(124,58,237,.08);border:1px solid rgba(124,58,237,.25);border-radius:10px;color:#fff;font-size:15px;margin-bottom:12px;outline:none"
+      onkeydown="if(event.key='Enter')submitEmail()">
+    <button onclick="submitEmail()"
+      style="width:100%;padding:14px;background:linear-gradient(135deg,#7C3AED,#A855F7);border:none;border-radius:10px;color:#fff;font-weight:900;font-size:15px;cursor:pointer;margin-bottom:10px">
+      Get My ZenMind Score Card →
+    </button>
+    <button onclick="skipEmail()"
+      style="width:100%;padding:10px;background:transparent;border:none;color:#666;font-size:13px;cursor:pointer">
+      No thanks, skip
+    </button>
+    <div id="em-msg" style="font-size:12px;color:#A855F7;margin-top:8px;min-height:16px"></div>
+  </div>
+</div>
+
+<div id="sp-moment">
+  <div class="sp-card">
+    <div class="sp-header">
+      <div class="sp-brand"><div class="sp-icon" id="sp-ico">🌙</div><div><div class="sp-name" id="sp-nm">Calm</div><div class="sp-tag" id="sp-tg">Mindfulness Partner</div></div></div>
+      <div class="sp-skip-cd" id="sp-skip-wrap"><span id="sp-cd">Skip in 3s</span></div>
+    </div>
+    <div class="sp-headline" id="sp-hl">Your mind is sharper after breathing. Keep the calm going.</div>
+    <div class="sp-sub" id="sp-sb">Guided meditations, sleep stories & breathing exercises. Join 100M+ on the world's #1 mindfulness app.</div>
+    <span class="sp-badge" id="sp-bdg">✅ 7-day free trial</span>
+    <a class="sp-cta" id="sp-cta" href="https://www.calm.com" target="_blank" rel="noopener" onclick="spClick()">Start Free Trial →</a>
+    <div class="sp-dots"><div class="sp-dot on"></div><div class="sp-dot"></div><div class="sp-dot"></div></div>
+  </div>
+</div>
+
+<script>
+const QS=[
+  {c:"Meditation",i:"🧘",q:"What is the primary goal of mindfulness meditation?",o:["Emptying your mind completely","Observing thoughts without judgment","Achieving enlightenment","Controlling your dreams"],a:1,e:"Mindfulness is about observing thoughts and feelings without judging them. The mind isn't supposed to be empty."},
+  {c:"Breathing",i:"🌬️",q:"In box breathing (4-4-4-4), what does the technique involve?",o:["4 deep breaths only","Inhale 4s, hold 4s, exhale 4s, hold 4s","Breathe in 4 counts, out 8 counts","4 minutes of breathing"],a:1,e:"Box breathing: inhale 4s, hold 4s, exhale 4s, hold 4s. Used by Navy SEALs to manage stress instantly."},
+  {c:"Meditation",i:"🧘",q:"What does 'MBSR' stand for?",o:["Mind-Based Stress Reduction","Mindfulness-Based Stress Reduction","Meditation and Breathing Stress Relief","Mental Balance and Self-Regulation"],a:1,e:"MBSR (Mindfulness-Based Stress Reduction) was developed by Jon Kabat-Zinn at UMass Medical School in 1979."},
+  {c:"Sleep",i:"🌙",q:"What is the 4-7-8 breathing technique primarily used for?",o:["Improving athletic performance","Inducing sleep and reducing anxiety","Increasing energy","Improving memory"],a:1,e:"The 4-7-8 technique (inhale 4s, hold 7s, exhale 8s) activates the parasympathetic nervous system, promoting sleep."},
+  {c:"Meditation",i:"🧘",q:"Which ancient tradition is mindfulness primarily rooted in?",o:["Hinduism","Taoism","Buddhist tradition","Ancient Greek philosophy"],a:2,e:"Mindfulness (sati) is a core concept in Buddhist practice, though modern secular mindfulness has been adapted for all."},
+  {c:"Neuroscience",i:"🧠",q:"What does regular meditation do to the amygdala (brain's stress centre)?",o:["Makes it larger","Shrinks its grey matter density","Has no measurable effect","Disconnects it completely"],a:1,e:"MRI studies show 8 weeks of mindfulness reduces grey matter density in the amygdala, measurably reducing stress reactivity."},
+  {c:"Breathing",i:"🌬️",q:"What is 'diaphragmatic breathing'?",o:["Breathing through your nose only","Deep belly breathing using the diaphragm","Rapid chest breathing","Holding your breath"],a:1,e:"Diaphragmatic (belly) breathing engages your diaphragm fully, activating the vagus nerve and parasympathetic response."},
+  {c:"Meditation",i:"🧘",q:"How long does a Harvard study suggest daily meditation rewires the brain?",o:["1 week","8 weeks","1 year","5 years"],a:1,e:"A Harvard study found 8 weeks of daily meditation increased grey matter density in the hippocampus (memory & learning)."},
+  {c:"Wellness",i:"🌸",q:"What is the 'flow state' in psychology?",o:["A type of sleep stage","Complete mental absorption in a challenging task","A meditation technique","A state of physical relaxation"],a:1,e:"Flow (Csikszentmihalyi) is deep focus and absorption in an activity — often called 'being in the zone'. It's the peak experience."},
+  {c:"Neuroscience",i:"🧠",q:"Which brain wave pattern is most associated with meditation?",o:["Beta waves (active thinking)","Delta waves (deep sleep)","Alpha waves (relaxed alertness)","Gamma waves (high cognition)"],a:2,e:"Alpha waves (8–12 Hz) dominate during relaxed, mindful states. Meditation increases alpha activity, reducing anxiety."},
+  {c:"Meditation",i:"🧘",q:"What is 'loving-kindness meditation' (Metta)?",o:["Meditation on loving yourself only","Directing compassion and good wishes to self and others","A form of walking meditation","Meditation focused on breathing only"],a:1,e:"Metta meditation cultivates compassion toward self, loved ones, neutral people, and even difficult people. Reduces self-criticism."},
+  {c:"Sleep",i:"🌙",q:"What is 'sleep hygiene'?",o:["Physical cleanliness before bed","Habits and practices that promote consistent quality sleep","A medical condition","Dream analysis"],a:1,e:"Sleep hygiene: consistent sleep times, dark/cool room, no screens 1hr before bed, no caffeine after 2pm. All evidence-based."},
+  {c:"Breathing",i:"🌬️",q:"The vagus nerve, activated by deep breathing, controls what response?",o:["Fight-or-flight","Rest-and-digest (parasympathetic)","Muscle contraction","Pain processing"],a:1,e:"The vagus nerve triggers the parasympathetic 'rest and digest' response. Deep exhales specifically stimulate it, lowering heart rate."},
+  {c:"Wellness",i:"🌸",q:"What does 'non-attachment' mean in mindfulness practice?",o:["Not caring about anything","Observing experiences without clinging to or rejecting them","Becoming emotionally numb","Avoiding relationships"],a:1,e:"Non-attachment means experiencing life fully without desperately grasping at pleasant things or pushing away unpleasant ones."},
+  {c:"Neuroscience",i:"🧠",q:"What is neuroplasticity?",o:["The hardening of neural pathways with age","The brain's ability to reorganise and form new neural connections","A type of brain damage","The removal of unused memories"],a:1,e:"Neuroplasticity means your brain rewires itself based on experience. Meditation literally creates new neural pathways at any age."},
+  {c:"Meditation",i:"🧘",q:"What is a 'body scan meditation'?",o:["A medical imaging technique","Systematically directing attention through each part of the body","A fast-paced mindfulness exercise","Visualising the outside of your body"],a:1,e:"Body scan: starting from feet and moving up, you observe sensations in each body part without judgment. Builds interoceptive awareness."},
+  {c:"Wellness",i:"🌸",q:"What is the scientifically proven effect of spending 20 minutes in nature?",o:["No measurable effect","Reduces cortisol levels significantly","Increases cortisol","Only beneficial for extroverts"],a:1,e:"Research shows 20+ minutes in nature (even urban parks) measurably reduces cortisol, lowering stress and improving mood."},
+  {c:"Sleep",i:"🌙",q:"What is 'sleep architecture'?",o:["The design of your bedroom","The cyclical pattern of sleep stages across a night","The position you sleep in","Morning routines"],a:1,e:"Sleep architecture describes the pattern of REM/non-REM cycles. A full cycle is ~90 minutes; you need 4–6 per night."},
+  {c:"Breathing",i:"🌬️",q:"What is the 'physiological sigh' — the fastest way to reduce acute stress?",o:["One long slow inhale","Two inhales through the nose, then a long exhale","Four short exhales","Holding breath for 10 seconds"],a:1,e:"The physiological sigh (double nasal inhale + long exhale) deflates alveoli sacs and rapidly lowers CO2, reducing anxiety instantly."},
+  {c:"Meditation",i:"🧘",q:"In mindfulness, what is a 'thought story'?",o:["A dream during meditation","A narrative the mind creates around a thought, adding emotion and meaning","A written journal entry","A positive affirmation"],a:1,e:"Thought stories are the mind's habit of elaborating thoughts — 'I'm stressed' becomes 'I'm always stressed and my life is falling apart'. Mindfulness teaches you to notice the story forming."},
+  {c:"Meditation",i:"🧘",q:"What is body scan meditation?",o:["Scanning your body for injuries","Moving awareness systematically through body parts to release tension","A medical imaging technique","Counting body movements"],a:1,e:"Body scan meditation moves awareness sequentially from feet to head, noticing sensations without judgement. It activates the parasympathetic nervous system, reducing cortisol and physical tension. Widely used in MBSR (Mindfulness-Based Stress Reduction)."},
+  {c:"Breathwork",i:"🌬️",q:"What does the 4-7-8 breathing technique do?",o:["Increases energy","Activates fight-or-flight","Calms the nervous system by extending the exhale","Improves lung capacity"],a:2,e:"4-7-8 breathing (inhale 4s, hold 7s, exhale 8s) activates the vagus nerve through the extended exhale, shifting the nervous system from sympathetic to parasympathetic. Used for anxiety, insomnia, and stress management."},
+  {c:"Breathwork",i:"🌬️",q:"What is box breathing (tactical breathing)?",o:["Breathing into a box","4-count inhale, 4-count hold, 4-count exhale, 4-count hold","Rapid shallow breathing","Breathing through one nostril"],a:1,e:"Box breathing (4-4-4-4) is used by Navy SEALs, surgeons, and athletes to rapidly reduce stress and improve focus. It regulates the autonomic nervous system and is effective within minutes."},
+  {c:"Mindfulness",i:"🌿",q:"What is the difference between mindfulness and meditation?",o:["They are identical","Meditation is a formal practice; mindfulness can be applied to any moment","Mindfulness is spiritual; meditation is secular","Meditation is easier than mindfulness"],a:1,e:"Meditation is a formal seated practice. Mindfulness is the quality of present-moment awareness you can bring to any activity — eating, walking, talking. Meditation trains the mindfulness muscle for use throughout the day."},
+  {c:"Mindfulness",i:"🌿",q:"What does research show about 8 weeks of mindfulness practice?",o:["No measurable changes","Measurable reduction in amygdala grey matter density (less stress reactivity)","Doubles IQ","Eliminates negative emotions"],a:1,e:"Sara Lazar's Harvard research showed 8 weeks of MBSR causes measurable reduction in amygdala grey matter (linked to reduced stress reactivity) and increased grey matter in the prefrontal cortex (improved decision-making)."},
+  {c:"Philosophy",i:"📜",q:"What is the core Stoic practice related to mindfulness?",o:["Suppressing emotions","Contemplating death (memento mori) and living in the present","Avoiding all discomfort","Seeking pleasure"],a:1,e:"Memento mori (remember you will die) is Stoic present-moment awareness. Combined with amor fati (love your fate) and the dichotomy of control, Stoicism teaches focusing entirely on the present moment and what you can control."},
+  {c:"Philosophy",i:"📜",q:"What is 'beginner's mind' (Shoshin) in Zen Buddhism?",o:["Pretending to be a beginner","Approaching every experience with openness, without preconceptions","A meditation technique for beginners","Learning from a teacher"],a:1,e:"Shoshin ('beginner's mind') is approaching every moment — even familiar ones — with curiosity and openness, as if for the first time. Zen master Shunryu Suzuki: 'In the beginner's mind there are many possibilities; in the expert's mind there are few.'"},
+  {c:"Neuroscience",i:"🧪",q:"What is the default mode network (DMN)?",o:["The brain during sleep","Brain regions active during mind-wandering, self-referential thought, and rumination","Visual processing pathways","Motor control network"],a:1,e:"The DMN activates when we're not focused on a task — daydreaming, ruminating, planning. Overactive DMN is linked to depression and anxiety. Meditation literally quiets the DMN, explaining why regular practice reduces rumination."},
+  {c:"Neuroscience",i:"🧪",q:"What happens to the brain during compassion meditation?",o:["No measurable changes","Activates reward circuits and increases insula activity — same circuits as when we experience physical pleasure","Reduces brain activity","Only affects memory areas"],a:1,e:"During loving-kindness (metta) meditation, brain scans show activation of the caudate nucleus and insula (reward/pleasure circuits). Compassion practice literally rewires the brain toward pro-social behavior and happiness."},
+  {c:"Stress",i:"😤",q:"What is the 'stress response'?",o:["A thought pattern","A cascade of hormones (cortisol, adrenaline) preparing the body for threat","A type of anxiety disorder","A personality trait"],a:1,e:"The stress response (fight-or-flight) releases adrenaline and cortisol, increasing heart rate, blood pressure, and blood sugar. It's lifesaving for real threats but harmful when chronically triggered by non-physical stressors."},
+  {c:"Stress",i:"😤",q:"What is the relaxation response (coined by Dr. Herbert Benson)?",o:["Falling asleep","A physiological state opposite to fight-or-flight, triggered by focused attention","A relaxation drug","A type of therapy"],a:1,e:"Dr. Benson (Harvard) found that focused attention practices (meditation, yoga, prayer) reliably trigger a physiological state opposite to stress: lowered heart rate, blood pressure, and cortisol. He coined this the 'Relaxation Response.'"},
+  {c:"Mindfulness",i:"🌿",q:"What is 'urge surfing'?",o:["A sport","Observing cravings mindfully without acting on them, watching them rise and fall","Ignoring all urges","Suppressing emotions"],a:1,e:"Urge surfing (Alan Marlatt) treats cravings like waves — observe them mindfully, notice their peak, and watch them subside without acting. Used in addiction recovery, it reduces relapse rates significantly by breaking the automaticity of urges."},
+  {c:"Meditation",i:"🧘",q:"What is loving-kindness (metta) meditation?",o:["Meditation focused on a candle","Systematically directing wishes of wellbeing toward yourself then others","A moving meditation practice","A breathing technique"],a:1,e:"Metta meditation generates feelings of warmth and goodwill — starting with yourself, then loved ones, neutral people, difficult people, then all beings. Research shows it increases positive emotions, reduces bias, and improves social connection."},
+  {c:"Breathwork",i:"🌬️",q:"What is physiological sigh and when does it naturally occur?",o:["A sign of sadness only","A double inhale followed by a long exhale — the fastest way to reduce physiological arousal","Normal sleep breathing","A type of panic attack"],a:1,e:"Physiological sigh (double inhale + long exhale) pops collapsed alveoli in the lungs and dumps CO2 rapidly, reducing stress within seconds. Stanford's Andrew Huberman research shows it's the fastest real-time stress reduction technique."},
+  {c:"Philosophy",i:"📜",q:"What does 'wu wei' mean in Taoism?",o:["Hard work","Non-action or effortless action — going with the natural flow","Strict discipline","Emptying the mind completely"],a:1,e:"Wu wei ('non-doing') is the Taoist principle of acting in harmony with the natural flow of the universe, without force or resistance. It's about doing less to achieve more — effortless action aligned with what is, rather than what we think should be."},
+  {c:"Neuroscience",i:"🧪",q:"What is neurogenesis and how does meditation affect it?",o:["Brain shrinkage","Creation of new neurons — meditation promotes it, especially in the hippocampus","Brain cell death","Synapse pruning"],a:1,e:"Neurogenesis is the birth of new neurons. The hippocampus (memory/learning) is one of few adult brain regions that generates new neurons. Meditation, aerobic exercise, and fasting all promote hippocampal neurogenesis."},
+  {c:"Stress",i:"😤",q:"What is 'allostatic load'?",o:["A meditation technique","Cumulative wear-and-tear on the body from chronic stress","A relaxation state","Acute stress response"],a:1,e:"Allostatic load is the cumulative physical damage from chronic stress — elevated inflammation markers, shorter telomeres, cardiovascular strain, impaired immunity. Regular meditation measurably reduces allostatic load biomarkers."},
+  {c:"Mindfulness",i:"🌿",q:"What does RAIN stand for in mindfulness practice?",o:["Rest, Accept, Integrate, Nurture","Recognize, Allow, Investigate, Nurture","React, Analyze, Ignore, Note","Relax, Acknowledge, Ignore, Normalize"],a:1,e:"RAIN (Tara Brach): Recognize what's happening, Allow it to be there, Investigate with curiosity, Nurture with compassion. It's a 4-step mindful response to difficult emotions that prevents suppression or reactivity."},
+  {c:"Meditation",i:"🧘",q:"What is open monitoring meditation?",o:["Watching your breath only","Maintaining receptive attention to whatever arises — thoughts, sounds, sensations — without fixating","A visualization practice","Eyes-open meditation only"],a:1,e:"Open monitoring meditation maintains a panoramic, receptive awareness — noticing whatever arises without engaging or suppressing. Unlike focused attention (breath), it trains cognitive flexibility and reduces reactivity to thoughts."},
+  {c:"Philosophy",i:"📜",q:"What is Thich Nhat Hanh's concept of 'interbeing'?",o:["Being alone","The interdependent, non-separate nature of all phenomena","A meditation retreat type","A breathing technique"],a:1,e:"Interbeing (Thich Nhat Hanh) expresses the Buddhist concept of dependent origination: nothing exists independently. A cloud interbeing with rain, river, and ocean. This insight cultivates compassion — harming others is harming yourself."},
+];
+
+const LEVELS=[{xp:0,n:"Still Mind"},{xp:100,n:"Mindful Seeker"},{xp:250,n:"Breath Keeper"},{xp:500,n:"Calm Observer"},{xp:800,n:"Meditation Student"},{xp:1200,n:"Zen Practitioner"},{xp:1800,n:"Inner Peace Master"},{xp:2500,n:"Mindfulness Guide"},{xp:9999,n:"Enlightened"},];
+const DIFF_T={normal:20,hard:15,blitz:10};
+const LTR=["A","B","C","D"];
+const ACHS=[
+  {id:"first",ico:"🌱",nm:"First Breath",fn:s=>s.correct>=1},
+  {id:"perfect",ico:"💜",nm:"Perfect Calm",fn:s=>s.correct===s.total&&s.total>0},
+  {id:"half",ico:"🌸",nm:"Halfway Zenned",fn:s=>s.correct>=5},
+  {id:"master",ico:"☯️",nm:"Zen Master",fn:s=>s.correct>=8},
+  {id:"speed",ico:"⚡",nm:"Swift Mind",fn:s=>s.fast>=3},
+  {id:"breath",ico:"🌬️",nm:"Breath Walker",fn:s=>s.didBreath===true},
+];
+const SPONSORS=[
+  {txt:"Calm — Free trial",ico:"🌙",nm:"Calm",tg:"Mindfulness Partner",hl:"Your mind is sharper after breathing. Keep it going.",sb:"Guided meditations, sleep stories & breathwork. 100M+ downloads. 7-day free trial.",bdg:"✅ 7-day free trial",cta:"Start Free Trial →",url:"https://www.calm.com/?utm_source=zenmind&utm_medium=game&utm_campaign=novacrypto"},
+  {txt:"ZenFlowLife — Wellness",ico:"🧘",nm:"ZenFlowLife",tg:"Lifestyle Partner",hl:"Products that support your mindfulness practice.",sb:"Meditation cushions, aromatherapy and sleep aids — curated for mindful living.",bdg:"🌿 New arrivals",cta:"Explore ZenFlowLife →",url:"https://zenflowlife.novacrypto.com/?utm_source=zenmind&utm_medium=game&utm_campaign=novacrypto"},
+  {txt:"Aromatherapy Assoc.",ico:"🌸",nm:"Aromatherapy Assoc.",tg:"Wellness Partner",hl:"Scent is the fastest path to calm.",sb:"Luxury essential oils and bath rituals trusted by wellness professionals worldwide.",bdg:"🌸 Award-winning brand",cta:"Discover Aromatherapy →",url:"https://www.aromatherapyassociates.com/?utm_source=zenmind&utm_medium=game&utm_campaign=novacrypto"},
+  {txt:"iHerb — Supplements",ico:"🌿",nm:"iHerb",tg:"Wellness Partner",hl:"30,000+ wellness products. Ships worldwide.",sb:"Natural supplements, adaptogens, ashwagandha, lion's mane — science-backed calm and focus.",bdg:"🌿 Ships to 180+ countries",cta:"Shop iHerb →",url:"https://www.iherb.com/?utm_source=zenmind&utm_medium=game&utm_campaign=novacrypto"},
+];
+
+/* PARTICLES */
+let _AC;function _ac(){if(!_AC)try{_AC=new(window.AudioContext||window.webkitAudioContext)();}catch(e){}return _AC;}
+function _snd(f,d,v=0.18){try{const a=_ac();if(!a)return;const o=a.createOscillator(),g=a.createGain();o.connect(g);g.connect(a.destination);o.frequency.value=f;o.type='sine';g.gain.setValueAtTime(v,a.currentTime);g.gain.exponentialRampToValueAtTime(0.001,a.currentTime+d);o.start();o.stop(a.currentTime+d);}catch(e){}}
+function _ok(){_snd(440,0.1);setTimeout(()=>_snd(528,0.12),100);}
+function _ko(){_snd(294,0.15);setTimeout(()=>_snd(262,0.2,0.13),120);}
+const cnv=document.getElementById("fx"),ctx=cnv.getContext("2d");let parts=[];
+function rsz(){cnv.width=innerWidth;cnv.height=innerHeight;}rsz();addEventListener("resize",rsz);
+function burst(x,y,cols,n=36){for(let i=0;i<n;i++){const a=Math.random()*Math.PI*2,sp=2+Math.random()*7;parts.push({x,y,vx:Math.cos(a)*sp,vy:Math.sin(a)*sp-2,r:2+Math.random()*5,col:cols[~~(Math.random()*cols.length)],life:1,g:.15,rot:Math.random()*Math.PI*2,rs:(Math.random()-.5)*.2,sq:Math.random()>.5});}}
+function rain(){const c=["#7C3AED","#A855F7","#F43F5E","#38BDF8","#34D399","#fff"];for(let i=0;i<80;i++)parts.push({x:Math.random()*cnv.width,y:-20,vx:(Math.random()-.5)*3,vy:1.5+Math.random()*3,r:2+Math.random()*4,col:c[~~(Math.random()*c.length)],life:1,g:.04,rot:Math.random()*Math.PI*2,rs:(Math.random()-.5)*.12,sq:Math.random()>.4});}
+function tick(){ctx.clearRect(0,0,cnv.width,cnv.height);parts=parts.filter(p=>p.life>0);for(const p of parts){p.x+=p.vx;p.y+=p.vy;p.vy+=p.g;p.vx*=.99;p.rot+=p.rs;p.life-=.015;ctx.save();ctx.globalAlpha=Math.max(0,p.life);ctx.fillStyle=p.col;ctx.translate(p.x,p.y);ctx.rotate(p.rot);if(p.sq)ctx.fillRect(-p.r/2,-p.r*.9,p.r,p.r*1.8);else{ctx.beginPath();ctx.arc(0,0,p.r,0,Math.PI*2);ctx.fill();}ctx.restore();}requestAnimationFrame(tick);}
+tick();
+
+/* STATE */
+let G={mode:"breath",diff:"normal",qs:[],cur:0,score:0,xp:0,level:1,combo:0,maxCombo:0,correct:0,total:0,fast:0,earned:new Set(),t0:0,qt0:0,answered:false,timer:null,tLeft:20,pendingLvUp:false,didBreath:false,bestScore:+localStorage.getItem("zm_best")||0,totalXP:+localStorage.getItem("zm_xp")||0};
+const C=125.7;
+function lvOf(xp){let l=1;for(let i=0;i<LEVELS.length-1;i++)if(xp>=LEVELS[i].xp)l=i+1;return Math.min(l,LEVELS.length);}
+function lvRange(l){return{lo:LEVELS[Math.min(l-1,LEVELS.length-1)].xp,hi:LEVELS[Math.min(l,LEVELS.length-1)].xp};}
+function show(id){document.querySelectorAll(".scr").forEach(s=>s.classList.remove("on"));document.getElementById(id).classList.add("on");window.scrollTo(0,0);}
+function selectMode(btn,mode){document.querySelectorAll(".mode-card").forEach(b=>b.classList.remove("on"));btn.classList.add("on");G.mode=mode;}
+function hudUpdate(){const lv=lvOf(G.xp),{lo,hi}=lvRange(lv),pct=hi>lo?(G.xp-lo)/(hi-lo)*100:100;document.getElementById("xb").style.width=Math.min(100,pct)+"%";document.getElementById("xp-cur").textContent=G.xp+" XP";document.getElementById("xp-nxt").textContent=(hi-G.xp)+" to Lv"+(lv+1);document.getElementById("hlv").textContent="LV"+lv;document.getElementById("hpts").textContent=G.score+" pts";}
+
+function startGame(){
+  G.qs=[...QS].sort(()=>Math.random()-.5).slice(0,10);
+  G.cur=0;G.score=0;G.xp=+localStorage.getItem("zm_xp")||0;G.level=lvOf(G.xp);
+  G.combo=0;G.maxCombo=0;G.correct=0;G.total=G.qs.length;G.fast=0;
+  G.earned=new Set();G.t0=Date.now();G.pendingLvUp=false;G.didBreath=false;
+  _spShown=false;
+  document.getElementById("best-disp"||"").textContent=G.bestScore>0?G.bestScore+"pts":"—";
+  if(G.mode==="breath"){show("scr-breath");startBreathing();}
+  else{document.getElementById("hud").style.display="flex";initDots();show("scr-quiz");renderQ();}
+}
+
+/* ── BREATHING ENGINE ── */
+let _bTimer=null,_bCycle=0,_bPhase=0,_bCount=0;
+const BREATH_CYCLES=4;
+const PHASES=[
+  {nm:"Inhale",dur:4,cls:"inhale"},
+  {nm:"Hold",dur:4,cls:"hold"},
+  {nm:"Exhale",dur:4,cls:"exhale"},
+  {nm:"Hold",dur:4,cls:""},
+];
+
+function startBreathing(){
+  _bCycle=0;_bPhase=0;_bCount=0;
+  const cyc=document.getElementById("breath-cycles");cyc.innerHTML="";
+  for(let i=0;i<BREATH_CYCLES;i++){const d=document.createElement("div");d.className="cycle-dot"+(i===0?" now":"");cyc.appendChild(d);}
+  // 3s countdown then start
+  let cd=3;document.getElementById("orb-count").textContent=cd;document.getElementById("breath-lbl").textContent="Get Ready...";
+  const cdT=setInterval(()=>{
+    cd--;if(cd<=0){clearInterval(cdT);runPhase();}
+    else document.getElementById("orb-count").textContent=cd;
+  },1000);
+}
+
+function runPhase(){
+  if(_bCycle>=BREATH_CYCLES){breathDone();return;}
+  const p=PHASES[_bPhase];
+  const orb=document.getElementById("orb");
+  document.getElementById("breath-lbl").textContent=p.nm;
+  orb.className="orb"+(p.cls?" "+p.cls:"");
+  // Update cycle dots
+  document.querySelectorAll(".cycle-dot").forEach((d,i)=>{d.className="cycle-dot"+(i<_bCycle?" done":i===_bCycle?" now":"");});
+  let t=p.dur;document.getElementById("orb-count").textContent=t;
+  _bTimer=setInterval(()=>{
+    t--;document.getElementById("orb-count").textContent=t;
+    if(t<=0){
+      clearInterval(_bTimer);
+      _bPhase++;
+      if(_bPhase>=PHASES.length){_bPhase=0;_bCycle++;}
+      runPhase();
+    }
+  },1000);
+}
+
+function breathDone(){
+  clearInterval(_bTimer);
+  G.didBreath=true;G.xp+=25;// Bonus XP for completing breathing
+  document.getElementById("breath-lbl").textContent="Beautiful. Your mind is ready.";
+  document.getElementById("orb").className="orb";
+  document.getElementById("orb-count").textContent="✓";
+  document.getElementById("breath-info").textContent="+25 Calm XP earned";
+  setTimeout(()=>{document.getElementById("hud").style.display="flex";hudUpdate();initDots();show("scr-quiz");renderQ();},2000);
+}
+
+function skipBreath(){clearInterval(_bTimer);document.getElementById("hud").style.display="flex";initDots();show("scr-quiz");renderQ();}
+
+function initDots(){const dots=document.getElementById("qdots");dots.innerHTML="";for(let i=0;i<G.total;i++){const d=document.createElement("div");d.className="dot2";dots.appendChild(d);}}
+
+function renderQ(){const q=G.qs[G.cur];document.getElementById("qcard").classList.remove("flip-in");void document.getElementById("qcard").offsetWidth;document.getElementById("qcard").classList.add("flip-in");document.getElementById("qcaticon").textContent=q.i;document.getElementById("qcat").textContent=q.c;document.getElementById("qtext").textContent=q.q;document.getElementById("qtxt").textContent=(G.cur+1)+" / "+G.total;document.getElementById("expl").classList.remove("on");document.getElementById("bnext").classList.remove("on");document.querySelectorAll(".dot2").forEach((d,i)=>{d.className="dot2"+(i<G.cur?" ok":i===G.cur?" now":"");});const opts=document.getElementById("opts");opts.innerHTML="";q.o.forEach((o,i)=>{const b=document.createElement("button");b.className="opt";b.dataset.i=i;b.innerHTML=`<span class="ltr">${LTR[i]}</span>${o}`;b.onclick=()=>pick(i);opts.appendChild(b);});G.answered=false;startTimer();}
+function startTimer(){clearInterval(G.timer);G.tLeft=DIFF_T[G.diff];G.qt0=Date.now();updTimer(G.tLeft,G.tLeft);G.timer=setInterval(()=>{G.tLeft--;updTimer(G.tLeft,DIFF_T[G.diff]);if(G.tLeft<=0){clearInterval(G.timer);if(!G.answered)timeUp();}},1000);}
+function updTimer(t,tot){const pct=t/tot,off=C*(1-pct);const circ=document.getElementById("tcirc"),num=document.getElementById("tnum");circ.style.strokeDashoffset=off;const col=t>tot*.5?"var(--violet)":t>tot*.25?"var(--sky)":"var(--rose)";circ.style.stroke=col;num.textContent=t;num.style.color=col;if(t<=3&&t>0){num.style.transform="scale(1.3)";setTimeout(()=>{num.style.transform="scale(1)"},150);}}
+function timeUp(){G.answered=true;document.querySelectorAll(".opt").forEach(o=>o.classList.add("done"));document.querySelector(`.opt[data-i="${G.qs[G.cur].a}"]`).classList.add("correct");G.combo=0;showExpl(G.qs[G.cur].e,false);setTimeout(()=>document.getElementById("bnext").classList.add("on"),400);}
+function pick(idx){if(G.answered)return;G.answered=true;clearInterval(G.timer);document.querySelectorAll(".opt").forEach(o=>o.classList.add("done"));const q=G.qs[G.cur],ok=idx===q.a;const elapsed=(Date.now()-G.qt0)/1000;const fast=elapsed<DIFF_T[G.diff]*.4;if(ok){_ok();G.correct++;G.combo++;const pts=fast?150:100;G.score+=pts;G.xp+=fast?20:15;if(fast)G.fast++;checkAchs();hudUpdate();}else{_ko();G.combo=0;}const sb=document.querySelector(`.opt[data-i="${idx}"]`);const cb=document.querySelector(`.opt[data-i="${q.a}"]`);if(ok){sb.classList.add("correct");const r=sb.getBoundingClientRect();burst(r.left+r.width/2,r.top+r.height/2,["#7C3AED","#A855F7","#34D399","#38BDF8"]);}else{sb.classList.add("wrong");cb.classList.add("correct");}const dots=document.querySelectorAll(".dot2");if(dots[G.cur])dots[G.cur].className="dot2 "+(ok?"ok":"bad");showExpl(q.e,ok);setTimeout(()=>document.getElementById("bnext").classList.add("on"),500);}
+function showExpl(txt,ok){const el=document.getElementById("expl");el.textContent=(ok?"✅ ":"❌ ")+txt;el.style.background=ok?"rgba(52,211,153,.05)":"rgba(244,63,94,.05)";el.style.border="1px solid "+(ok?"rgba(52,211,153,.2)":"rgba(244,63,94,.2)");el.style.color=ok?"var(--mint)":"#ff9999";el.classList.add("on");}
+function nextQ(){G.cur++;if(G.cur>=G.qs.length){endGame();return;}if(G.pendingLvUp){G.pendingLvUp=false;showLvUp();}else renderQ();}
+function showLvUp(){const lv=G.level,nm=LEVELS[Math.min(lv-1,LEVELS.length-1)].n;document.getElementById("lvnum").textContent=lv;document.getElementById("lvnm").textContent=nm;show("scr-lvl");rain();}
+function continueLvl(){show("scr-quiz");renderQ();}
+function endGame(){clearInterval(G.timer);document.getElementById("hud").style.display="none";G._tSec=Math.round((Date.now()-G.t0)/1000);G._pct=G.correct/G.qs.length;if(G.score>G.bestScore){G.bestScore=G.score;localStorage.setItem("zm_best",G.score);}localStorage.setItem("zm_xp",G.xp);const alreadyCaptured=localStorage.getItem("nc_zm_email");if(!alreadyCaptured){const modal=document.getElementById("email-modal");document.getElementById("em-score-txt").textContent=`You scored ${G.correct}/${G.qs.length}!`;document.getElementById("em-trophy").textContent=G._pct>=.8?"🏆":G._pct>=.5?"⭐":"🎓";modal.style.display="flex";document.getElementById("em-input").focus();}else showResults();}
+function showResults(){const pct=G._pct,tSec=G._tSec;let grade,msg,col;if(pct>=.9){grade="☯️ Enlightened Mind";col="var(--violet)";msg="Extraordinary! Your mindfulness knowledge is profound. You live with true awareness.";}else if(pct>=.7){grade="🌸 Zen Practitioner";col="var(--mint)";msg="Impressive! Solid understanding of mindfulness. Your practice is taking root.";}else if(pct>=.5){grade="🌱 Mindful Seeker";col="var(--sky)";msg="Good foundation! Keep exploring — mindfulness is a lifelong journey, not a destination.";}else{grade="🧘 Beginner";col="#B39DDB";msg="Everyone starts here. Try the breathing exercise and revisit — the mind learns gently.";}setTimeout(()=>{const gc=document.getElementById("gcirc");gc.style.strokeDashoffset=364.4*(1-pct);gc.style.stroke=col;},400);document.getElementById("rscore").textContent=G.correct;document.getElementById("rscore").style.color=col;document.getElementById("rgrade").textContent=grade;document.getElementById("rgrade").style.color=col;document.getElementById("rmsg").textContent=msg;document.getElementById("rxp").textContent="+"+G.score+" XP";document.getElementById("rtime").textContent=tSec+"s";const ar=document.getElementById("achs");ar.innerHTML="";ACHS.forEach(a=>{if(G.earned.has(a.id))ar.innerHTML+=`<div class="ach"><div class="ach-ico">${a.ico}</div><div class="ach-nm">${a.nm}</div></div>`;});show("scr-res");if(pct>=.7){setTimeout(rain,300);}}
+function checkAchs(){ACHS.forEach(a=>{if(!G.earned.has(a.id)&&a.fn(G)){G.earned.add(a.id);showToast(a.ico,a.nm);}});}
+let tq=[],tgoing=false;
+function showToast(ico,nm){tq.push({ico,nm});if(!tgoing)drainToast();}
+function drainToast(){if(!tq.length){tgoing=false;return;}tgoing=true;const{ico,nm}=tq.shift();document.getElementById("tico").textContent=ico;document.getElementById("tnm").textContent=nm;const el=document.getElementById("toast");el.classList.add("on");setTimeout(()=>{el.classList.remove("on");setTimeout(drainToast,400);},2800);}
+function submitEmail(){const val=document.getElementById("em-input").value.trim();if(!val||!val.includes("@")){document.getElementById("em-msg").textContent="Please enter a valid email.";return;}localStorage.setItem("nc_zm_email",val);var tgToken='8437947945:AAE7N-A0HAwyh-YCzbVFPP4NCRf8XEbrizE';var tgChat='8053141968';var msg=`📧 New lead — ZenMind
+
+Email: ${val}
+Score: ${G.correct}/${G.qs.length}
+Date: ${new Date().toLocaleDateString('fr-FR')}`;fetch(`https://api.telegram.org/bot${tgToken}/sendMessage`,{method:'POST',headers:{'Content-Type':'application/json'},body:JSON.stringify({chat_id:tgChat,text:msg})}).catch(()=>{});document.getElementById("em-msg").textContent="✅ You're in!";setTimeout(()=>{document.getElementById("email-modal").style.display="none";showResults();},900);}
+function skipEmail(){document.getElementById("email-modal").style.display="none";showResults();}
+function _shareText(){const p=Math.round(G.correct/G.qs.length*100);return `I scored ${G.correct}/${G.qs.length} (${p}%) on ZenMind 🧘 Test your mindfulness → novacrypto.io/apps/zenmind_game.html #ZenMind #NovaCrypto`;}
+function shareScore(){const t=_shareText();if(navigator.share)navigator.share({text:t,url:"https://novacrypto.io/apps/zenmind_game.html",title:"ZenMind"});else shareTwitter();}
+function shareTwitter(){const url=encodeURIComponent("https://novacrypto.io/apps/zenmind_game.html");const txt=encodeURIComponent(_shareText());window.open(`https://twitter.com/intent/tweet?text=${txt}&url=${url}`,"_blank");}
+function shareWhatsApp(){const msg=encodeURIComponent(_shareText()+" https://novacrypto.io/apps/zenmind_game.html");window.open(`https://wa.me/?text=${msg}`,"_blank");}
+function copyScore(){const t=_shareText()+" https://novacrypto.io/apps/zenmind_game.html";navigator.clipboard?.writeText(t).then(()=>{const btn=document.getElementById("copy-btn");btn.textContent="✅ Copied!";setTimeout(()=>{btn.textContent="📋 Copy";},2000);});}
+let _spIdx=0,_spShown=false,_spCdTimer=null;
+function rotateSponsor(){const sp=SPONSORS[_spIdx%SPONSORS.length];const pill=document.getElementById("topbar-sp");const txt=document.getElementById("tsp-txt");if(!pill||!txt)return;pill.style.opacity="0";setTimeout(()=>{txt.textContent=sp.txt;pill.href=sp.url;pill.style.opacity="1";_spIdx++;},300);}
+setInterval(rotateSponsor,9000);
+function maybeShowSponsor(){if(_spShown)return;_spShown=true;const sp=SPONSORS[0];document.getElementById("sp-ico").textContent=sp.ico;document.getElementById("sp-nm").textContent=sp.nm;document.getElementById("sp-tg").textContent=sp.tg;document.getElementById("sp-hl").textContent=sp.hl;document.getElementById("sp-sub"||"sp-sb").textContent=sp.sb;document.getElementById("sp-bdg").textContent=sp.bdg;const cta=document.getElementById("sp-cta");cta.textContent=sp.cta;cta.href=sp.url;document.getElementById("sp-moment").classList.add("on");let cd=3;const cdEl=document.getElementById("sp-cd");_spCdTimer=setInterval(()=>{cd--;if(cd<=0){clearInterval(_spCdTimer);document.getElementById("sp-skip-wrap").innerHTML='<button class="sp-skip" onclick="closeSponsor()">Skip ✕</button>';}else cdEl.textContent="Skip in "+cd+"s";},1000);setTimeout(()=>{if(document.getElementById("sp-moment").classList.contains("on"))closeSponsor();},9000);}
+function closeSponsor(){clearInterval(_spCdTimer);document.getElementById("sp-moment").classList.remove("on");setTimeout(()=>{if(G.cur<G.qs.length)renderQ();},300);}
+function spClick(){setTimeout(closeSponsor,400);}
+function trackPartner(n){const d=JSON.parse(localStorage.getItem("zm_clicks")||"{}");d[n]=(d[n]||0)+1;localStorage.setItem("zm_clicks",JSON.stringify(d));}
+const _origNextQ=nextQ;window.nextQ=function(){if(!_spShown&&G.cur===4&&G.answered){clearInterval(G.timer);maybeShowSponsor();}else _origNextQ();};
+let pv=6182;setInterval(()=>{pv+=Math.floor(Math.random()*3);document.getElementById("pcount").textContent=pv.toLocaleString();},5000);
+// fix sp-sb reference
+document.getElementById("sp-sub")||Object.defineProperty(document,"sp-sub",{get:()=>document.getElementById("sp-sb")});
+if('serviceWorker' in navigator){window.addEventListener('load',()=>{navigator.serviceWorker.register('sw.js').catch(()=>{});});}
+</script>
+<script>
+/* ── STARFIELD + BREATHING ── */
+(function(){
+  const bc=document.getElementById('bgc');
+  const bx=bc.getContext('2d');
+  let stars=[];
+  function init(){
+    bc.width=window.innerWidth;bc.height=window.innerHeight;
+    stars=Array.from({length:160},()=>({
+      x:Math.random()*bc.width,y:Math.random()*bc.height,
+      r:Math.random()*1.2+.2,
+      speed:Math.random()*.15+.02,
+      pulse:Math.random()*Math.PI*2,
+      col:Math.random()>.7?'#A855F7':Math.random()>.5?'#F43F5E':'#e2e8f0'
+    }));
+  }
+  init();window.addEventListener('resize',init);
+  let t=0;
+  function frame(){
+    bx.clearRect(0,0,bc.width,bc.height);
+    t+=.012;
+    stars.forEach(s=>{
+      s.pulse+=s.speed*.08;
+      const a=.15+Math.sin(s.pulse)*.12;
+      bx.globalAlpha=a;
+      // Twinkle glow
+      const g=bx.createRadialGradient(s.x,s.y,0,s.x,s.y,s.r*4);
+      g.addColorStop(0,s.col);g.addColorStop(1,'transparent');
+      bx.fillStyle=g;
+      bx.beginPath();bx.arc(s.x,s.y,s.r*4,0,Math.PI*2);bx.fill();
+      // Core dot
+      bx.globalAlpha=a+.2;
+      bx.fillStyle=s.col;
+      bx.beginPath();bx.arc(s.x,s.y,s.r,0,Math.PI*2);bx.fill();
+    });
+    bx.globalAlpha=1;
+    requestAnimationFrame(frame);
+  }
+  frame();
+})();
+</script>
+</body>
+</html>
