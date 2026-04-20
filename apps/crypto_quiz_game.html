@@ -510,6 +510,39 @@ body.fw{animation:flashW .3s ease;}
   background:linear-gradient(135deg,rgba(247,183,49,.03),transparent);
   pointer-events:none;
 }
+
+/* ── CRYPTO WORLD MAP ── */
+#crypto-map{
+  width:100%;margin-bottom:24px;position:relative;
+  border-radius:16px;overflow:hidden;
+  background:#04040E;
+  border:1px solid rgba(79,195,247,0.15);
+  animation:up .5s .32s ease both;
+}
+#map-cv{width:100%;display:block;}
+#map-ticker{
+  position:absolute;bottom:0;left:0;right:0;
+  padding:5px 14px;
+  background:rgba(0,0,0,0.55);
+  font-size:10px;color:rgba(79,195,247,0.85);
+  letter-spacing:0.3px;white-space:nowrap;overflow:hidden;
+  border-top:1px solid rgba(79,195,247,0.08);
+  transition:opacity 0.3s ease;
+}
+#map-top-label{
+  position:absolute;top:7px;left:12px;
+  font-size:9px;color:rgba(255,255,255,0.32);
+  letter-spacing:2.5px;text-transform:uppercase;
+  pointer-events:none;
+}
+#map-legend{
+  position:absolute;top:6px;right:10px;
+  display:flex;gap:7px;align-items:center;
+  pointer-events:none;
+}
+.mleg{display:flex;align-items:center;gap:3px;}
+.mleg-dot{width:6px;height:6px;border-radius:50%;}
+.mleg-txt{font-size:8px;color:rgba(255,255,255,0.35);letter-spacing:.3px;}
 </style>
 </head>
 <body>
@@ -574,10 +607,23 @@ body.fw{animation:flashW .3s ease;}
     <span style="background:rgba(179,157,219,.07);border:1px solid rgba(179,157,219,.15);color:rgba(179,157,219,.7);padding:5px 12px;border-radius:20px;font-size:11px;cursor:default;">🖼 NFTs</span>
     <span style="background:rgba(247,183,49,.07);border:1px solid rgba(247,183,49,.15);color:rgba(247,183,49,.7);padding:5px 12px;border-radius:20px;font-size:11px;cursor:default;">📈 Trading</span>
     <span style="background:rgba(255,64,96,.07);border:1px solid rgba(255,64,96,.15);color:rgba(255,64,96,.7);padding:5px 12px;border-radius:20px;font-size:11px;cursor:default;">⚡ Altcoins</span>
+    <span style="background:rgba(200,80,255,.07);border:1px solid rgba(200,80,255,.15);color:rgba(200,80,255,.7);padding:5px 12px;border-radius:20px;font-size:11px;cursor:default;">🐸 Meme Coins</span>
+  </div>
+  <!-- LIVE CRYPTO WORLD MAP -->
+  <div id="crypto-map">
+    <div id="map-top-label">🌍 Live Crypto Activity</div>
+    <div id="map-legend">
+      <div class="mleg"><div class="mleg-dot" style="background:#F7B731;box-shadow:0 0 4px #F7B731"></div><span class="mleg-txt">BTC</span></div>
+      <div class="mleg"><div class="mleg-dot" style="background:#627EEA;box-shadow:0 0 4px #627EEA"></div><span class="mleg-txt">ETH</span></div>
+      <div class="mleg"><div class="mleg-dot" style="background:#9945FF;box-shadow:0 0 4px #9945FF"></div><span class="mleg-txt">SOL</span></div>
+      <div class="mleg"><div class="mleg-dot" style="background:#00F5A0;box-shadow:0 0 4px #00F5A0"></div><span class="mleg-txt">ALTS</span></div>
+    </div>
+    <canvas id="map-cv"></canvas>
+    <div id="map-ticker">🌍 Loading live crypto activity...</div>
   </div>
   <div class="stats-row">
-    <div class="stat-box" style="transition:transform .07s;cursor:default;" onmouseover="this.style.transform='scale(1.023)'" onmouseout="this.style.transform=''"><div class="stat-n">50+</div><div class="stat-l">Questions</div></div>
-    <div class="stat-box" style="transition:transform .07s;cursor:default;" onmouseover="this.style.transform='scale(1.023)'" onmouseout="this.style.transform=''"><div class="stat-n">6</div><div class="stat-l">Categories</div></div>
+    <div class="stat-box" style="transition:transform .07s;cursor:default;" onmouseover="this.style.transform='scale(1.023)'" onmouseout="this.style.transform=''"><div class="stat-n">65+</div><div class="stat-l">Questions</div></div>
+    <div class="stat-box" style="transition:transform .07s;cursor:default;" onmouseover="this.style.transform='scale(1.023)'" onmouseout="this.style.transform=''"><div class="stat-n">8+</div><div class="stat-l">Categories</div></div>
     <div class="stat-box" style="transition:transform .07s;cursor:default;" onmouseover="this.style.transform='scale(1.023)'" onmouseout="this.style.transform=''"><div class="stat-n" id="best-disp">—</div><div class="stat-l">Your Best</div></div>
   </div>
   <button class="btn-play" onclick="startGame()">PLAY NOW ▶</button>
@@ -863,6 +909,23 @@ const QS = [
   {c:"Bitcoin",i:"₿",q:"What is Bitcoin's proof-of-work mechanism?",o:["Validators stake BTC to confirm blocks","Miners compete to solve SHA-256 puzzles, consuming energy to earn block rewards","A vote-based consensus between wallets","A smart contract securing transactions"],a:1,e:"Bitcoin uses Proof of Work: miners race to solve a SHA-256 hash puzzle. The winner adds the next block and earns the block reward (currently 3.125 BTC + fees). This energy expenditure makes attacking Bitcoin astronomically expensive."},
   {c:"Layer-2",i:"⚡",q:"What is TON (The Open Network)?",o:["A competitor to Bitcoin","Telegram's blockchain, now one of the fastest-growing L1/L2 ecosystems due to mini-apps","An Ethereum Layer-2","A privacy-focused blockchain"],a:1,e:"TON was originally built by Telegram and handed to the community. With Telegram's 900M+ user base, TON mini-apps and the TON wallet brought millions of new users onchain in 2024-2025, making it one of the fastest-growing ecosystems."},
   {c:"DeFi",i:"🏦",q:"What is 'Total Value Locked' (TVL) in DeFi?",o:["The total crypto held by all exchanges","The total value of assets deposited in DeFi protocols","The daily trading volume across all DEXes","The number of active DeFi wallets"],a:1,e:"TVL measures the total value of crypto locked in DeFi smart contracts (lending, LP, staking). It's the primary metric for DeFi protocol size. As of 2026, Ethereum hosts the most TVL (~$50B+), followed by Solana and BSC."},
+  {c:"Altcoins",i:"⚡",q:"What is Solana's main advantage over Ethereum?",o:["More DeFi protocols","~65,000 TPS at ultra-low fees via Proof of History","Better smart contract privacy","More validators"],a:1,e:"Solana processes ~65,000 TPS using Proof of History + Proof of Stake, with fees under $0.01. Trade-offs: historical network outages and a more centralized validator set. SOL is now top-3 by TVL, NFT volume, and meme coin ecosystem."},
+  {c:"Meme Coins",i:"🐸",q:"What is PEPE coin based on?",o:["A popular music video","The Pepe the Frog internet meme, launched on Ethereum in 2023","A DeFi protocol character","A Bitcoin mascot"],a:1,e:"PEPE is an Ethereum-based meme coin inspired by the Pepe the Frog internet meme. Launched April 2023, it hit $1B+ market cap within weeks — one of crypto's fastest meme coin launches, driven entirely by internet culture and viral speculation."},
+  {c:"Meme Coins",i:"🐕",q:"Who created Dogecoin (DOGE)?",o:["Elon Musk","Craig Wright","Billy Markus and Jackson Palmer","Vitalik Buterin"],a:2,e:"Dogecoin was created in December 2013 by Billy Markus and Jackson Palmer as a parody of crypto speculation, featuring the Shiba Inu 'Doge' meme. Elon Musk's tweets later sent it viral — DOGE peaked at $0.74 in May 2021 with a $90B+ market cap."},
+  {c:"Meme Coins",i:"🐕",q:"What is Shiba Inu (SHIB)?",o:["A Japanese crypto exchange","A 'Dogecoin killer' Ethereum meme coin with its own DEX (ShibaSwap)","A Bitcoin sidechain","An AI trading token"],a:1,e:"SHIB launched anonymously in August 2020, self-described as the 'Dogecoin Killer'. It has ShibaSwap (DEX), Shiboshi NFTs, and Shibarium (Layer-2). Despite being a meme, SHIB has one of crypto's largest communities and a genuine utility ecosystem."},
+  {c:"Meme Coins",i:"🐶",q:"What is WIF (dogwifhat)?",o:["An Ethereum meme coin","A Solana meme coin — a Shiba Inu dog wearing a pink hat","A DeFi yield optimizer","A Polkadot parachain"],a:1,e:"WIF (dogwifhat) is a Solana-based meme coin featuring a Shiba Inu wearing a pink hat. Launched late 2023, it reached a $4B+ market cap and became Solana's top meme coin — the flagship of the 'Solana casino' meme coin supercycle."},
+  {c:"Meme Coins",i:"🐶",q:"What is BONK?",o:["A Bitcoin mining pool","The first major Solana meme coin, airdropped to the SOL community post-FTX collapse","An Ethereum DEX","A hardware wallet brand"],a:1,e:"BONK was airdropped to Solana NFT holders, developers, and DeFi users in December 2022 when SOL crashed post-FTX. It single-handedly revived Solana ecosystem sentiment. BONK burns tokens regularly and remains one of Solana's most beloved community tokens."},
+  {c:"Meme Coins",i:"🐶",q:"What is FLOKI?",o:["A DeFi lending protocol","A meme coin named after Elon Musk's Shiba Inu dog, with its own DeFi platform and NFT game","A Cardano ecosystem token","An Ethereum bridge"],a:1,e:"FLOKI is named after Elon Musk's real Shiba Inu dog. It has FlokiFi (DeFi platform), Valhalla (NFT RPG game), and a university scholarship program. FLOKI runs on Ethereum and Binance Smart Chain — one of the rare meme coins with genuine utility ambitions."},
+  {c:"Altcoins",i:"🔮",q:"What is Polkadot (DOT)?",o:["An Ethereum Layer-2","A multi-chain network where 'parachains' connect to a central relay chain for shared security","A DeFi stablecoin","A Bitcoin sidechain"],a:1,e:"Polkadot enables independent blockchains (parachains) to connect to a central Relay Chain providing shared security and interoperability. DOT is used for governance and parachain slot bonding. Created by Gavin Wood, Ethereum's co-founder and Solidity language creator."},
+  {c:"Altcoins",i:"🔗",q:"What does Chainlink (LINK) do?",o:["A crypto payment network","A decentralized oracle network feeding real-world data into smart contracts","A Layer-2 scaling solution","A cross-chain token bridge"],a:1,e:"Chainlink is the dominant decentralized oracle network — it connects smart contracts to real-world data (prices, weather, sports). Without oracles like Chainlink, smart contracts cannot access any off-chain information. LINK secures $20T+ in DeFi contract value."},
+  {c:"Altcoins",i:"⬡",q:"What is Avalanche (AVAX) known for?",o:["The slowest finality of any L1","Sub-2-second finality via Avalanche consensus and a 3-chain architecture","A Bitcoin fork","Being Ethereum's oldest competitor"],a:1,e:"Avalanche achieves sub-2-second transaction finality using its novel Avalanche consensus protocol. Its 3-chain setup: X-Chain (assets), C-Chain (EVM smart contracts), P-Chain (validators). AVAX powers fees, staking, and governance across a growing subnet ecosystem."},
+  {c:"Altcoins",i:"🌐",q:"What is the Cosmos (ATOM) 'Internet of Blockchains'?",o:["A single privacy blockchain","A network of sovereign chains connected via IBC (Inter-Blockchain Communication) protocol","A DeFi lending protocol","A Bitcoin mining consortium"],a:1,e:"Cosmos connects independent sovereign blockchains via IBC (Inter-Blockchain Communication). Each chain is built with the Cosmos SDK and runs autonomously. ATOM secures the Cosmos Hub. Major IBC chains: Osmosis, dYdX, Celestia, and 60+ others."},
+  {c:"Altcoins",i:"🌿",q:"What is NEAR Protocol known for?",o:["A privacy coin","A developer-friendly L1 with Nightshade sharding for infinite scalability","A Solana fork","A Bitcoin scaling solution"],a:1,e:"NEAR uses Nightshade sharding to scale linearly as demand grows. It's EVM-compatible via Aurora L2 and has among the lowest fees of any L1. NEAR's named account system (e.g. 'alice.near') is one of crypto's most user-friendly onboarding innovations."},
+  {c:"Altcoins",i:"💧",q:"What is Ripple (XRP) primarily designed for?",o:["DeFi smart contracts","Fast, low-cost cross-border payments for banks and financial institutions","NFT minting","Bitcoin mining"],a:1,e:"XRP processes payments in 3-5 seconds for fractions of a cent, specifically designed for institutional cross-border transfers. RippleNet connects 300+ financial institutions globally. The SEC vs Ripple lawsuit (settled 2024) clarified XRP's US regulatory status as not a security on exchanges."},
+  {c:"Altcoins",i:"♠",q:"What distinguishes Cardano (ADA) from other Layer-1s?",o:["Speed-first — fastest L1","Peer-reviewed academic research and formal verification as its core development philosophy","Being Ethereum's oldest fork","Having the most DeFi protocols"],a:1,e:"Cardano, built by IOHK, uses peer-reviewed academic research and formal mathematical verification. Ouroboros is the first peer-reviewed Proof-of-Stake protocol. Founded by Charles Hoskinson, Ethereum's co-founder — Cardano prioritizes security and correctness over speed."},
+  {c:"Altcoins",i:"🔺",q:"What has Polygon (MATIC/POL) evolved into?",o:["A competitor to Bitcoin","A ZK-powered 'Aggregation Layer' connecting blockchains, after starting as an Ethereum sidechain","A standalone private blockchain","A stablecoin protocol"],a:1,e:"Polygon started as a fast/cheap Ethereum sidechain. Its 2.0 vision: an AggLayer connecting ZK chains across Web3. Products: Polygon PoS (sidechain), Polygon zkEVM (ZK rollup). MATIC rebranded to POL in 2024 as the multi-chain vision expanded."},
+  {c:"Markets",i:"💹",q:"How much of total crypto market cap does Bitcoin dominate? (April 2026)",o:["About 20%","~57% — BTC dominates via institutional ETF demand and the halving cycle","Exactly 50%","Less than 30% due to altcoin growth"],a:1,e:"Bitcoin dominance = ~57% of total crypto market cap (April 2026). Post-ETF approval (Jan 2024), BlackRock, Fidelity, and 9 others absorbed $50B+ into BTC spot ETFs — the fastest ETF inflows in history. When BTC dominance rises, altcoins typically underperform vs BTC."},
+  {c:"DeFi",i:"🏦",q:"What is Raydium on Solana?",o:["A Solana NFT marketplace","Solana's largest AMM/DEX, integrated with the OpenBook central limit order book","A Solana-to-Ethereum bridge","A Solana staking protocol"],a:1,e:"Raydium is Solana's largest automated market maker. Unlike Uniswap (pure AMM), Raydium integrates with OpenBook (Solana's central limit order book), letting LPs provide liquidity to both AMM pools and the order book simultaneously — a unique architecture advantage."},
 ];
 
 const LEVELS=[
@@ -1349,6 +1412,216 @@ if('serviceWorker' in navigator){
     navigator.serviceWorker.register('sw.js').catch(()=>{});
   });
 }
+</script>
+<script>
+/* ── LIVE CRYPTO WORLD MAP ── */
+(function(){
+  const mc=document.getElementById('map-cv');
+  if(!mc)return;
+  const mx=mc.getContext('2d');
+  const dpr=window.devicePixelRatio||1;
+  let W,H;
+
+  function initMap(){
+    W=mc.parentElement.clientWidth||320;
+    H=Math.max(130,Math.min(190,W*0.42));
+    mc.style.height=H+'px';
+    mc.width=Math.round(W*dpr);
+    mc.height=Math.round(H*dpr);
+    mx.setTransform(dpr,0,0,dpr,0,0);
+  }
+  initMap();
+  window.addEventListener('resize',()=>{initMap();});
+
+  // Simplified continent polygons (normalized 0-1)
+  const CONT=[
+    // North America
+    [[0.04,0.09],[0.14,0.07],[0.22,0.09],[0.30,0.09],[0.33,0.17],[0.31,0.28],[0.27,0.40],[0.23,0.52],[0.17,0.54],[0.13,0.47],[0.09,0.36],[0.06,0.24],[0.04,0.16]],
+    // South America
+    [[0.22,0.52],[0.30,0.50],[0.35,0.53],[0.37,0.63],[0.34,0.79],[0.29,0.87],[0.23,0.84],[0.20,0.72],[0.19,0.60]],
+    // Europe
+    [[0.43,0.09],[0.48,0.07],[0.54,0.09],[0.58,0.14],[0.60,0.22],[0.56,0.28],[0.51,0.30],[0.46,0.29],[0.43,0.23],[0.42,0.16]],
+    // Africa
+    [[0.43,0.31],[0.51,0.29],[0.57,0.31],[0.61,0.40],[0.61,0.55],[0.57,0.74],[0.50,0.79],[0.44,0.70],[0.41,0.56],[0.41,0.42]],
+    // Asia (mainland)
+    [[0.55,0.05],[0.72,0.05],[0.83,0.07],[0.91,0.14],[0.93,0.24],[0.89,0.34],[0.83,0.42],[0.76,0.50],[0.68,0.52],[0.62,0.48],[0.58,0.38],[0.56,0.27],[0.54,0.16]],
+    // Australia
+    [[0.79,0.60],[0.90,0.58],[0.94,0.66],[0.92,0.77],[0.84,0.81],[0.78,0.77],[0.76,0.68]],
+    // Greenland
+    [[0.25,0.03],[0.32,0.03],[0.35,0.09],[0.30,0.14],[0.24,0.12],[0.23,0.07]],
+  ];
+
+  // Country nodes with crypto assignment
+  const CNTR=[
+    {n:"USA",       x:0.19,y:0.34,c:"BTC", col:"#F7B731"},
+    {n:"Canada",    x:0.17,y:0.19,c:"BTC", col:"#F7B731"},
+    {n:"UK",        x:0.46,y:0.17,c:"ETH", col:"#627EEA"},
+    {n:"Germany",   x:0.51,y:0.21,c:"ETH", col:"#627EEA"},
+    {n:"France",    x:0.48,y:0.24,c:"ETH", col:"#627EEA"},
+    {n:"Russia",    x:0.71,y:0.17,c:"BTC", col:"#F7B731"},
+    {n:"Turkey",    x:0.58,y:0.29,c:"USDT",col:"#26A17B"},
+    {n:"UAE",       x:0.63,y:0.37,c:"BTC", col:"#F7B731"},
+    {n:"India",     x:0.68,y:0.43,c:"MATIC",col:"#8247E5"},
+    {n:"China",     x:0.78,y:0.30,c:"USDT",col:"#26A17B"},
+    {n:"S.Korea",   x:0.85,y:0.30,c:"ETH", col:"#627EEA"},
+    {n:"Japan",     x:0.89,y:0.28,c:"BTC", col:"#F7B731"},
+    {n:"Vietnam",   x:0.79,y:0.43,c:"DOGE",col:"#C2A633"},
+    {n:"Singapore", x:0.79,y:0.51,c:"SOL", col:"#9945FF"},
+    {n:"Australia", x:0.85,y:0.69,c:"ETH", col:"#627EEA"},
+    {n:"Nigeria",   x:0.49,y:0.49,c:"BTC", col:"#F7B731"},
+    {n:"S.Africa",  x:0.52,y:0.70,c:"BTC", col:"#F7B731"},
+    {n:"Brazil",    x:0.28,y:0.61,c:"BTC", col:"#F7B731"},
+    {n:"Argentina", x:0.25,y:0.73,c:"BTC", col:"#F7B731"},
+    {n:"El Salv.",  x:0.21,y:0.47,c:"BTC", col:"#F7B731"},
+    {n:"Mexico",    x:0.20,y:0.42,c:"BTC", col:"#F7B731"},
+    {n:"Philippines",x:0.84,y:0.46,c:"PEPE",col:"#5C9E5C"},
+    {n:"Switzerland",x:0.51,y:0.19,c:"BTC", col:"#F7B731"},
+    {n:"Netherlands",x:0.49,y:0.17,c:"ETH", col:"#627EEA"},
+  ];
+
+  const pulses=[],labels=[],flows=[];
+
+  function addPulse(cx,cy,col){
+    pulses.push({x:cx,y:cy,r:1,mr:24,col});
+  }
+
+  function triggerActivity(){
+    const c=CNTR[Math.floor(Math.random()*CNTR.length)];
+    const cx=c.x*W,cy=c.y*H;
+    addPulse(cx,cy,c.col);
+    // Floating crypto label
+    labels.push({x:cx,y:cy-8,txt:c.c,col:c.col,a:1,life:90,vy:-0.14});
+    // Animated flow line from another country
+    const src=CNTR[Math.floor(Math.random()*CNTR.length)];
+    if(src!==c) flows.push({x1:src.x*W,y1:src.y*H,x2:cx,y2:cy,col:c.col,p:0});
+  }
+
+  function toHex2(v){return Math.max(0,Math.min(255,Math.floor(v))).toString(16).padStart(2,'0');}
+
+  let raf;
+  function frame(){
+    raf=requestAnimationFrame(frame);
+    mx.clearRect(0,0,W,H);
+
+    // Background
+    const bgG=mx.createLinearGradient(0,0,W,H);
+    bgG.addColorStop(0,'#040410');bgG.addColorStop(1,'#06071E');
+    mx.fillStyle=bgG;mx.fillRect(0,0,W,H);
+
+    // Lat/lon grid
+    mx.strokeStyle='rgba(79,195,247,0.05)';mx.lineWidth=0.5;
+    for(let i=1;i<5;i++){
+      mx.beginPath();mx.moveTo(0,H*i/5);mx.lineTo(W,H*i/5);mx.stroke();
+      mx.beginPath();mx.moveTo(W*i/5,0);mx.lineTo(W*i/5,H);mx.stroke();
+    }
+
+    // Continent fills
+    CONT.forEach(pts=>{
+      mx.beginPath();
+      mx.moveTo(pts[0][0]*W,pts[0][1]*H);
+      for(let i=1;i<pts.length;i++) mx.lineTo(pts[i][0]*W,pts[i][1]*H);
+      mx.closePath();
+      mx.fillStyle='rgba(20,35,80,0.7)';mx.fill();
+      mx.strokeStyle='rgba(79,195,247,0.13)';mx.lineWidth=0.8;mx.stroke();
+    });
+
+    // Flow lines (animated travel)
+    for(let i=flows.length-1;i>=0;i--){
+      const fl=flows[i];
+      fl.p+=0.022;
+      if(fl.p>=1){flows.splice(i,1);continue;}
+      const alpha=fl.p<0.4?fl.p*2.5:Math.max(0,(1-fl.p)*1.6);
+      const ex=fl.x1+(fl.x2-fl.x1)*fl.p;
+      const ey=fl.y1+(fl.y2-fl.y1)*fl.p;
+      mx.beginPath();mx.moveTo(fl.x1,fl.y1);mx.lineTo(ex,ey);
+      mx.strokeStyle=fl.col+toHex2(alpha*110);
+      mx.lineWidth=1;mx.stroke();
+      // Glowing tip dot
+      mx.beginPath();mx.arc(ex,ey,2.2,0,Math.PI*2);
+      mx.fillStyle=fl.col+toHex2(alpha*255);mx.fill();
+    }
+
+    // Pulse rings
+    for(let i=pulses.length-1;i>=0;i--){
+      const p=pulses[i];
+      p.r+=0.7;
+      if(p.r>=p.mr){pulses.splice(i,1);continue;}
+      const a=1-p.r/p.mr;
+      mx.beginPath();mx.arc(p.x,p.y,p.r,0,Math.PI*2);
+      mx.strokeStyle=p.col+toHex2(a*210);
+      mx.lineWidth=1.5;mx.stroke();
+    }
+
+    // Country nodes with glow
+    CNTR.forEach(c=>{
+      const cx=c.x*W,cy=c.y*H;
+      const grd=mx.createRadialGradient(cx,cy,0,cx,cy,7);
+      grd.addColorStop(0,c.col+'55');grd.addColorStop(1,c.col+'00');
+      mx.beginPath();mx.arc(cx,cy,7,0,Math.PI*2);mx.fillStyle=grd;mx.fill();
+      mx.beginPath();mx.arc(cx,cy,2.4,0,Math.PI*2);mx.fillStyle=c.col;mx.fill();
+    });
+
+    // Floating crypto labels
+    mx.textAlign='center';mx.font='bold 8px monospace';
+    for(let i=labels.length-1;i>=0;i--){
+      const lb=labels[i];
+      lb.life--;lb.y+=lb.vy;
+      lb.a=Math.min(1,lb.life/20)*(lb.life/90);
+      if(lb.life<=0){labels.splice(i,1);continue;}
+      mx.fillStyle=lb.col+toHex2(lb.a*220);
+      mx.fillText(lb.txt,lb.x,lb.y);
+    }
+  }
+
+  // Ticker messages
+  const TICKS=[
+    "🇺🇸 USA → $4.2B flowing into BTC today · 1,293,847 active traders",
+    "🇯🇵 Japan → ETH holdings up 18% this week · 892K new wallets opened",
+    "🇧🇷 Brazil → DOGE volume +340% · 3.2M transactions in 24 hours",
+    "🇸🇬 Singapore → SOL ecosystem TVL at $8.2B — new all-time high",
+    "🇳🇬 Nigeria → #1 crypto adoption per capita globally · BTC P2P record high",
+    "🇰🇷 South Korea → SHIB craze: 2.4M new wallets created this week",
+    "🌍 Global → $2.8T total crypto market cap · 640M wallets worldwide",
+    "🇦🇷 Argentina → BTC as inflation hedge · 38% of adults hold crypto",
+    "🇦🇪 UAE → Crypto hub: $1.2B in institutional BTC inflows this month",
+    "🇻🇳 Vietnam → Highest DeFi usage per capita globally 3 years running",
+    "🇩🇪 Germany → ETF news: BlackRock BTC ETF adds €890M in new inflows",
+    "🇷🇺 Russia → USDT dominates P2P payments · $3.5B monthly volume",
+    "🇮🇳 India → MATIC/POL adoption surge: 18M new wallets · Mumbai DeFi hub",
+    "⚡ Live → PEPE breaks $1B market cap for 3rd time in 2026 · Meme season",
+    "🚀 Trending → WIF (dogwifhat) up 22% in 24h · Viral TikTok BONK effect",
+    "🔥 Alert → BONK burns 40B tokens · Solana meme ecosystem at full speed",
+    "🇨🇳 China → USDT P2P volume: $3.5B · Gray market crypto demand surging",
+    "🇬🇧 UK → FCA crypto licenses: 42 firms approved · ETH staking up 12%",
+    "🇸🇻 El Salvador → BTC legal tender 4yr anniversary: GDP +6% · 4M BTC wallets",
+    "📊 On-chain → Bitcoin long-term holders at 70% of supply · Diamond hands",
+    "🔗 DeFi → Chainlink LINK secures $20T+ in smart contract value globally",
+    "🌐 Cosmos → IBC: 60+ sovereign blockchains now connected via IBC protocol",
+    "🐸 Meme → PEPE + WIF + BONK combined market cap exceeds $10B",
+    "⬡ Avalanche → AVAX sub-2s finality: 500 subnets live · Institutional DeFi hub",
+  ];
+  let tickI=0;
+  const tickEl=document.getElementById('map-ticker');
+  function nextTick(){
+    if(!tickEl)return;
+    tickEl.style.opacity='0';
+    setTimeout(()=>{
+      tickEl.textContent=TICKS[tickI%TICKS.length];
+      tickEl.style.opacity='1';
+      tickI++;
+    },300);
+    setTimeout(nextTick,4800);
+  }
+
+  // Kick off
+  frame();
+  // Initial burst of activity
+  for(let i=0;i<4;i++) setTimeout(triggerActivity, i*300);
+  // Ongoing simulation
+  setInterval(triggerActivity,1800);
+  // Ticker
+  setTimeout(nextTick,400);
+})();
 </script>
 <script>
 /* ── MATRIX CRYPTO RAIN ── */

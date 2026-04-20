@@ -272,6 +272,11 @@ main{position:relative;z-index:10;min-height:100vh;padding:68px 16px 40px;displa
 .sp-dots{display:flex;justify-content:center;gap:5px;margin-top:12px;}
 .sp-dot{width:6px;height:6px;border-radius:50%;background:rgba(255,255,255,.12);transition:background .3s;}
 .sp-dot.on{background:var(--violet);}
+/* ── ZEN SCENE ── */
+#zen-scene{width:100%;height:200px;display:block;margin:0 auto 20px;position:relative;max-width:560px;}
+#zen-canvas{position:absolute;inset:0;width:100%;height:100%;}
+.zen-om{position:absolute;top:50%;left:50%;transform:translate(-50%,-50%);font-size:44px;opacity:0;animation:om-pulse 4s ease-in-out infinite;pointer-events:none;filter:drop-shadow(0 0 20px rgba(168,85,247,0.8));}
+@keyframes om-pulse{0%,100%{opacity:0;transform:translate(-50%,-50%) scale(0.8)}50%{opacity:0.7;transform:translate(-50%,-50%) scale(1.1)}}
 </style>
 </head>
 <body>
@@ -309,6 +314,10 @@ main{position:relative;z-index:10;min-height:100vh;padding:68px 16px 40px;displa
 
 <!-- INTRO -->
 <div class="scr on" id="scr-intro">
+<div id="zen-scene">
+  <canvas id="zen-canvas"></canvas>
+  <div class="zen-om">☯</div>
+</div>
   <div style="display:flex;gap:8px;align-items:center;margin-bottom:10px;flex-wrap:wrap;justify-content:center;">
     <span style="background:rgba(168,85,247,.12);border:1px solid rgba(168,85,247,.3);color:#A855F7;padding:4px 14px;border-radius:20px;font-size:11px;font-weight:700;letter-spacing:1.5px;text-transform:uppercase;">🧘 Mindfulness</span>
     <span style="background:rgba(244,63,94,.08);border:1px solid rgba(244,63,94,.2);color:#F43F5E;padding:4px 14px;border-radius:20px;font-size:11px;font-weight:700;letter-spacing:1.5px;text-transform:uppercase;">🌙 Inner Peace</span>
@@ -584,6 +593,103 @@ const SPONSORS=[
 ];
 
 /* PARTICLES */
+// ── ZEN MEDITATION SCENE ──────────────────────────────────────────
+(function(){
+  const cv=document.getElementById('zen-canvas');
+  if(!cv)return;
+  const cx=cv.getContext('2d');
+  let t=0,petals=[];
+
+  function rsz(){cv.width=cv.offsetWidth*devicePixelRatio;cv.height=cv.offsetHeight*devicePixelRatio;cx.scale(devicePixelRatio,devicePixelRatio);}
+  rsz();window.addEventListener('resize',rsz);
+
+  function spawnPetal(){
+    const W=cv.offsetWidth;
+    petals.push({x:W*0.1+Math.random()*W*0.8,y:-20,vx:(Math.random()-0.5)*0.6,vy:0.5+Math.random()*0.5,rot:Math.random()*Math.PI*2,rs:(Math.random()-0.5)*0.03,size:4+Math.random()*6,col:Math.random()>0.5?'rgba(168,85,247,':'rgba(244,63,94,',life:1});
+  }
+
+  function lotus(cx,x,y,sc){
+    // Petals
+    const PETAL_COLS=['rgba(168,85,247,0.8)','rgba(196,120,255,0.7)','rgba(244,63,94,0.65)','rgba(236,100,180,0.7)'];
+    const NUM=8;
+    for(let i=0;i<NUM;i++){
+      cx.save();cx.translate(x,y);cx.rotate((i/NUM)*Math.PI*2+t*0.04);
+      const pulse=1+Math.sin(t*1.5+i*0.8)*0.06;
+      cx.scale(sc*pulse,sc*pulse);
+      cx.beginPath();
+      cx.moveTo(0,0);
+      cx.bezierCurveTo(8,-10,16,-28,0,-36);
+      cx.bezierCurveTo(-16,-28,-8,-10,0,0);
+      cx.fillStyle=PETAL_COLS[i%4];
+      cx.shadowColor=PETAL_COLS[0].replace('0.8','0.5');cx.shadowBlur=12;
+      cx.fill();cx.restore();
+    }
+    // Inner petals
+    for(let i=0;i<6;i++){
+      cx.save();cx.translate(x,y);cx.rotate((i/6)*Math.PI*2+t*0.08+0.3);
+      cx.scale(sc*0.55,sc*0.55);
+      cx.beginPath();cx.moveTo(0,0);cx.bezierCurveTo(5,-7,10,-18,0,-22);cx.bezierCurveTo(-10,-18,-5,-7,0,0);
+      cx.fillStyle='rgba(248,180,255,0.75)';cx.shadowBlur=8;cx.fill();cx.restore();
+    }
+    // Center
+    cx.save();cx.translate(x,y);
+    const cg=cx.createRadialGradient(0,0,0,0,0,14*sc);
+    cg.addColorStop(0,'rgba(255,255,200,0.95)');cg.addColorStop(0.5,'rgba(247,183,49,0.8)');cg.addColorStop(1,'rgba(247,183,49,0)');
+    cx.fillStyle=cg;cx.shadowColor='rgba(247,183,49,0.6)';cx.shadowBlur=20;
+    cx.beginPath();cx.arc(0,0,14*sc,0,Math.PI*2);cx.fill();cx.shadowBlur=0;cx.restore();
+    // Lotus person (meditating)
+    meditator(cx,x,y,sc,t);
+  }
+
+  function meditator(cx,x,y,sc,t){
+    const yb=y+22*sc;
+    // Crossed legs
+    cx.strokeStyle='rgba(200,220,255,0.75)';cx.lineWidth=3.5*sc;cx.lineCap='round';
+    cx.beginPath();cx.moveTo(x-14*sc,yb+2*sc);cx.quadraticCurveTo(x-4*sc,yb-8*sc,x+10*sc,yb+2*sc);cx.stroke();
+    cx.beginPath();cx.moveTo(x+14*sc,yb+2*sc);cx.quadraticCurveTo(x+4*sc,yb-8*sc,x-10*sc,yb+2*sc);cx.stroke();
+    // Torso (slight sway)
+    cx.beginPath();cx.moveTo(x,yb-6*sc);cx.lineTo(x+Math.sin(t*0.4)*1.5,yb-22*sc);cx.stroke();
+    // Arms (mudra position)
+    cx.beginPath();cx.moveTo(x-2*sc,yb-16*sc);cx.quadraticCurveTo(x-12*sc,yb-10*sc,x-10*sc,yb-2*sc);cx.stroke();
+    cx.beginPath();cx.moveTo(x-2*sc,yb-16*sc);cx.quadraticCurveTo(x+12*sc,yb-10*sc,x+10*sc,yb-2*sc);cx.stroke();
+    // Head with aura
+    const breathScale=1+Math.sin(t*0.6)*0.08;
+    cx.shadowColor='rgba(168,85,247,0.5)';cx.shadowBlur=15*sc;
+    cx.fillStyle='rgba(200,220,255,0.9)';
+    cx.beginPath();cx.arc(x+Math.sin(t*0.4)*1.5,yb-27*sc,7*sc*breathScale,0,Math.PI*2);cx.fill();cx.shadowBlur=0;
+    // Breathing aura rings
+    for(let r=0;r<3;r++){
+      const ring_r=(20+r*18)*sc*(1+Math.sin(t*0.6+r*1.2)*0.2);
+      const alpha=0.12-r*0.03;
+      cx.strokeStyle=`rgba(168,85,247,${alpha*(1+Math.sin(t*0.6+r*1.2)*0.5)})`;
+      cx.lineWidth=1.5-r*0.3;
+      cx.beginPath();cx.arc(x,y+10*sc,ring_r,0,Math.PI*2);cx.stroke();
+    }
+  }
+
+  function frame(){
+    const W=cv.offsetWidth,H=cv.offsetHeight;
+    if(!W||!H){requestAnimationFrame(frame);return;}
+    cx.clearRect(0,0,W,H);
+    const sc=Math.min(W/500,1.4);
+    // Spawn petals
+    if(Math.random()<0.04)spawnPetal();
+    // Draw falling petals (behind)
+    petals=petals.filter(p=>p.life>0&&p.y<H+20);
+    petals.forEach(p=>{
+      p.x+=p.vx+Math.sin(t*0.5+p.y*0.02)*0.4;p.y+=p.vy;p.rot+=p.rs;p.life-=0.003;
+      cx.save();cx.translate(p.x,p.y);cx.rotate(p.rot);cx.globalAlpha=p.life*0.8;
+      cx.fillStyle=p.col+'0.7)';cx.shadowColor=p.col+'0.4)';cx.shadowBlur=6;
+      cx.beginPath();cx.moveTo(0,0);cx.bezierCurveTo(p.size,-p.size*2,p.size*2,-p.size*3,0,-p.size*3.5);cx.bezierCurveTo(-p.size*2,-p.size*3,-p.size,-p.size*2,0,0);
+      cx.fill();cx.restore();
+    });
+    // Main lotus + meditator (center)
+    lotus(cx,W/2,H*0.48,sc);
+    cx.globalAlpha=1;
+    t+=0.016;requestAnimationFrame(frame);
+  }
+  frame();
+})();
 let _AC;function _ac(){if(!_AC)try{_AC=new(window.AudioContext||window.webkitAudioContext)();}catch(e){}return _AC;}
 function _snd(f,d,v=0.18){try{const a=_ac();if(!a)return;const o=a.createOscillator(),g=a.createGain();o.connect(g);g.connect(a.destination);o.frequency.value=f;o.type='sine';g.gain.setValueAtTime(v,a.currentTime);g.gain.exponentialRampToValueAtTime(0.001,a.currentTime+d);o.start();o.stop(a.currentTime+d);}catch(e){}}
 function _ok(){_snd(440,0.1);setTimeout(()=>_snd(528,0.12),100);}

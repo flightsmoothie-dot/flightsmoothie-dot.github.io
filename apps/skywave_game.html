@@ -260,6 +260,11 @@ main{position:relative;z-index:10;min-height:100vh;padding:68px 16px 40px;displa
 .sp-dots{display:flex;justify-content:center;gap:5px;margin-top:12px;}
 .sp-dot{width:6px;height:6px;border-radius:50%;background:rgba(255,255,255,.12);transition:background .3s;}
 .sp-dot.on{background:var(--sky);}
+/* ── 3D SPORTS SCENE ── */
+#sports-scene{width:100%;height:220px;display:block;border-radius:20px;overflow:hidden;margin:0 auto 20px;max-width:600px;position:relative;}
+#sports-canvas{position:absolute;inset:0;width:100%;height:100%;border-radius:20px;}
+.scene-label{position:absolute;bottom:10px;left:50%;transform:translateX(-50%);display:flex;gap:14px;z-index:2;pointer-events:none;}
+.slbl{background:rgba(4,10,20,0.7);border:1px solid rgba(255,255,255,0.1);border-radius:20px;padding:4px 12px;font-size:10px;color:rgba(255,255,255,0.6);letter-spacing:1px;backdrop-filter:blur(8px);}
 </style>
 </head>
 <body>
@@ -300,6 +305,14 @@ main{position:relative;z-index:10;min-height:100vh;padding:68px 16px 40px;displa
 <main>
 
 <div class="scr on" id="scr-intro">
+<div id="sports-scene">
+  <canvas id="sports-canvas"></canvas>
+  <div class="scene-label">
+    <span class="slbl">🪂 Paragliding</span>
+    <span class="slbl">🪁 Kitesurfing</span>
+    <span class="slbl">✈️ Wingsuit</span>
+  </div>
+</div>
   <div style="display:flex;gap:8px;align-items:center;margin-bottom:10px;flex-wrap:wrap;justify-content:center;">
     <span style="background:rgba(56,189,248,.12);border:1px solid rgba(56,189,248,.3);color:#38BDF8;padding:4px 14px;border-radius:20px;font-size:11px;font-weight:700;letter-spacing:1.5px;text-transform:uppercase;">🪂 Extreme Sports</span>
     <span style="background:rgba(132,204,22,.08);border:1px solid rgba(132,204,22,.2);color:#84CC16;padding:4px 14px;border-radius:20px;font-size:11px;font-weight:700;letter-spacing:1.5px;text-transform:uppercase;">🔥 Expert Level</span>
@@ -497,15 +510,199 @@ const ACHS=[
   {id:"legend",ico:"🌊",nm:"Wave Legend",fn:s=>s.correct>=8},
 ];
 const SPONSORS=[
-  {txt:"Ozone — Official Partner",ico:"🪂",nm:"Ozone Paragliders",tg:"Official SkyWave Partner",hl:"Your knowledge is ready. Is your gear?",sb:"World's most trusted paragliders and kites. EN-A to competition level. Ships to 80+ countries.",bdg:"✅ Official SkyWave partner",cta:"Browse Ozone Gear →",url:"https://www.ozone-wings.com/?utm_source=skywave&utm_medium=popup&utm_campaign=novacrypto"},
-  {txt:"Blue Tomato — Kite & Surf",ico:"🪁",nm:"Blue Tomato",tg:"Gear Partner",hl:"Europe's #1 board sports store.",sb:"Kites, boards, harnesses, wetsuits. Free shipping over €75. 30-day returns.",bdg:"🛒 30,000+ products",cta:"Shop Blue Tomato →",url:"https://www.blue-tomato.com/?utm_source=skywave&utm_medium=game&utm_campaign=novacrypto"},
-  {txt:"Decathlon — Beginner gear",ico:"🏔️",nm:"Decathlon Outdoor",tg:"Beginner Partner",hl:"Start your journey without breaking the bank.",sb:"Complete paragliding & kite sets from €299. Sirocco EN-A from €1,200. Best value guaranteed.",bdg:"💶 Best beginner prices",cta:"View Decathlon Gear →",url:"https://www.decathlon.com/?utm_source=skywave&utm_medium=game&utm_campaign=novacrypto"},
-  {txt:"GetYourGuide — Book AFF",ico:"🎫",nm:"GetYourGuide Skydiving",tg:"Booking Partner",hl:"Book your first jump. 8% commission per booking.",sb:"Thousands of skydiving & paragliding experiences worldwide. Instant booking. Free cancellation.",bdg:"🎫 Instant booking",cta:"Book a Jump →",url:"https://www.getyourguide.com/s/?q=skydiving&utm_source=skywave&utm_medium=game&utm_campaign=novacrypto"},
-  {txt:"Skydive Empuriabrava — Jump",ico:"✈️",nm:"Skydive Empuriabrava",tg:"Skydiving Partner",hl:"Europe's largest dropzone. Your first jump awaits.",sb:"Located in Costa Brava, Spain. AFF courses, tandem jumps, tunnel adjacent. Best weather in Europe.",bdg:"🪂 Largest DZ in Europe",cta:"Book Your AFF →",url:"https://www.skydiveempuriabrava.com/?utm_source=skywave&utm_medium=game&utm_campaign=novacrypto"},
-  {txt:"iFly — Indoor Skydiving",ico:"💨",nm:"iFly Indoor Skydiving",tg:"Wind Tunnel Partner",hl:"Learn to fly before you jump.",sb:"80+ wind tunnel locations worldwide. 1h tunnel = 20 skydives of body skill. Perfect for AFF preparation.",bdg:"💨 80+ locations worldwide",cta:"Find a Tunnel →",url:"https://www.ifly.com/?utm_source=skywave&utm_medium=game&utm_campaign=novacrypto"},
+  {txt:"Niviuk — Spanish Innovation",ico:"🪂",nm:"Niviuk Paragliders",tg:"Top Paragliding Brand",hl:"Award-winning gliders built in Spain.",sb:"EN-A to competition class. Hook 6, Ikuma 3, Peak 6. Ships worldwide. 15+ years of innovation.",bdg:"🏆 Spanish Excellence",cta:"Explore Niviuk →",url:"https://www.niviuk.com/?utm_source=skywave&utm_medium=game&utm_campaign=novacrypto"},
+  {txt:"Advance — Swiss Precision",ico:"🪂",nm:"Advance Thun",tg:"Swiss Quality Since 1988",hl:"Precision-engineered in Switzerland.",sb:"ALPHA 7, SIGMA 12, OMEGA XALPS 4. Trusted by X-Alps athletes. Built to fly for 20 years.",bdg:"🇨🇭 Swiss Made",cta:"See Advance Wings →",url:"https://www.advance.ch/?utm_source=skywave&utm_medium=game&utm_campaign=novacrypto"},
+  {txt:"U-Turn — German Engineering",ico:"🪂",nm:"U-Turn Paragliders",tg:"German Precision Gliders",hl:"Performance and safety in perfect balance.",sb:"EMOTION 4, BLACKLIGHT 3, PARAJET. EN-A through competition. Developed at the Bavarian Alps.",bdg:"🇩🇪 Made in Germany",cta:"View U-Turn →",url:"https://www.u-turn.de/?utm_source=skywave&utm_medium=game&utm_campaign=novacrypto"},
+  {txt:"Nova — Austrian Excellence",ico:"🪂",nm:"Nova Paragliders",tg:"Austrian Innovation",hl:"Nova — born in the Alps, flown worldwide.",sb:"ION 7, MENTOR 7, XENON 2. From beginner to hike-and-fly champions. Won X-Alps multiple times.",bdg:"🇦🇹 Austrian Made",cta:"Discover Nova →",url:"https://www.nova.eu/?utm_source=skywave&utm_medium=game&utm_campaign=novacrypto"},
+  {txt:"GIN Gliders — Korean Masters",ico:"🪂",nm:"GIN Gliders",tg:"Performance Gliders",hl:"World Cup podiums. Every year.",sb:"BONANZA 3, GENIE RACE 4, EXPLORER 2. Designed by Gin Seok Song, used by top competition pilots.",bdg:"🏆 World Cup",cta:"See GIN Wings →",url:"https://www.gingliders.com/?utm_source=skywave&utm_medium=game&utm_campaign=novacrypto"},
+  {txt:"North Kiteboarding",ico:"🪁",nm:"North Kiteboarding",tg:"Kite Leader",hl:"The world's best-selling kite brand.",sb:"PULSE, REACH, NAVIGATOR. From beginner LEI to race foil. 25+ years of kite DNA. Free EU shipping.",bdg:"🏄 #1 Kite Brand",cta:"Shop North →",url:"https://www.northkiteboarding.com/?utm_source=skywave&utm_medium=game&utm_campaign=novacrypto"},
+  {txt:"Cabrinha — Kite Pioneers",ico:"🪁",nm:"Cabrinha Kites",tg:"Kitesurf Pioneers",hl:"Pete Cabrinha invented kitesurfing. His brand sets the standard.",sb:"SWITCHBLADE 12, MANTIS, DRIFTER. Designed in Maui. Used by Robby Naish, most professional riders.",bdg:"🌊 Maui Born",cta:"Browse Cabrinha →",url:"https://www.cabrinha.com/?utm_source=skywave&utm_medium=game&utm_campaign=novacrypto"},
+  {txt:"Duotone Kite",ico:"🪁",nm:"Duotone Kite",tg:"German Engineering Meets Ocean",hl:"Engineering excellence meets ocean spirit.",sb:"NEO SLS, REBEL SLS, EVO SLS. SLS technology = lightest kites ever made. Free EU shipping on orders 75€+.",bdg:"⚡ SLS Technology",cta:"Explore Duotone →",url:"https://www.duotonesports.com/kiteboarding/?utm_source=skywave&utm_medium=game&utm_campaign=novacrypto"},
+  {txt:"iFly — Wind Tunnels Worldwide",ico:"💨",nm:"iFly Indoor Skydiving",tg:"Wind Tunnel Partner",hl:"Learn to fly before you jump.",sb:"80+ wind tunnel locations. 1h tunnel = 20 skydives of skill. Perfect AFF preparation and fun for everyone.",bdg:"💨 80+ Locations",cta:"Find a Tunnel →",url:"https://www.ifly.com/?utm_source=skywave&utm_medium=game&utm_campaign=novacrypto"},
+  {txt:"GetYourGuide — Book Your Jump",ico:"🎫",nm:"GetYourGuide",tg:"Booking Partner",hl:"Book skydiving & paragliding instantly.",sb:"Tandem jumps, AFF courses, paragliding tandem flights — worldwide. Instant booking. Free cancellation.",bdg:"🎫 Instant Booking",cta:"Book Now →",url:"https://www.getyourguide.com/s/?q=skydiving+paragliding&utm_source=skywave&utm_medium=game&utm_campaign=novacrypto"},
 ];
 
 const cnv=document.getElementById("fx"),ctx=cnv.getContext("2d");let parts=[];
+// ── 3D SPORTS SCENE ANIMATION ──────────────────────────────────────
+(function(){
+  const cv=document.getElementById('sports-canvas');
+  if(!cv)return;
+  const cx=cv.getContext('2d');
+  let t=0,spray=[];
+
+  function rsz(){cv.width=cv.offsetWidth*devicePixelRatio;cv.height=cv.offsetHeight*devicePixelRatio;cx.scale(devicePixelRatio,devicePixelRatio);}
+  rsz();window.addEventListener('resize',rsz);
+
+  function glider(x,y,sc,ang){
+    cx.save();cx.translate(x,y);cx.rotate(ang);
+    const w=88*sc,h=20*sc;
+    const COLS=['#38BDF8','#0EA5E9','#F59E0B','#84CC16','#0284C7','#F59E0B','#38BDF8'];
+    // Shadow glow
+    cx.shadowColor='rgba(56,189,248,0.4)';cx.shadowBlur=18*sc;
+    // Cells
+    for(let i=0;i<7;i++){
+      const x0=-w/2+i*(w/7);
+      const arc=Math.sin(Math.PI*i/6)*6*sc;
+      cx.beginPath();
+      cx.moveTo(x0,arc);
+      cx.bezierCurveTo(x0+1,-h*0.9+arc,x0+w/7-1,-h*0.9+arc,x0+w/7,arc);
+      cx.lineTo(x0+w/7-2,-h*0.4+arc);
+      cx.lineTo(x0+2,-h*0.4+arc);
+      cx.fillStyle=COLS[i];cx.globalAlpha=0.92;cx.fill();
+      cx.strokeStyle='rgba(255,255,255,0.2)';cx.lineWidth=0.8;cx.stroke();
+    }
+    cx.shadowBlur=0;
+    // Risers
+    cx.globalAlpha=0.45;cx.strokeStyle='rgba(200,230,255,0.6)';cx.lineWidth=0.7;
+    [[-w/2.3,-2],[-w/4.5,-5],[0,-h*0.3],[w/4.5,-5],[w/2.3,-2]].forEach(([lx,ly])=>{
+      cx.beginPath();cx.moveTo(lx,ly);cx.lineTo(-5*sc,30*sc);cx.stroke();
+      cx.beginPath();cx.moveTo(lx,ly);cx.lineTo(5*sc,30*sc);cx.stroke();
+    });
+    // Harness
+    cx.globalAlpha=0.9;
+    cx.fillStyle='#0F2A4A';cx.strokeStyle='rgba(56,189,248,0.5)';cx.lineWidth=1;
+    cx.beginPath();cx.roundRect(-9*sc,28*sc,18*sc,16*sc,4*sc);cx.fill();cx.stroke();
+    // Helmet
+    cx.fillStyle='#F59E0B';cx.beginPath();cx.arc(0,28*sc,5.5*sc,Math.PI,0);cx.fill();
+    // Legs
+    cx.strokeStyle='#1E3A5F';cx.lineWidth=3*sc;cx.lineCap='round';cx.globalAlpha=0.8;
+    cx.beginPath();cx.moveTo(-4*sc,44*sc);cx.lineTo(-5*sc,54*sc);cx.stroke();
+    cx.beginPath();cx.moveTo(4*sc,44*sc);cx.lineTo(5*sc,54*sc);cx.stroke();
+    cx.globalAlpha=1;cx.restore();
+  }
+
+  function bowKite(x,y,sc){
+    cx.save();cx.translate(x,y);
+    const w=66*sc,h=22*sc;
+    cx.shadowColor='rgba(244,63,94,0.5)';cx.shadowBlur=15*sc;
+    // Main kite body (C-shape)
+    cx.beginPath();
+    cx.moveTo(-w/2,h/3);
+    cx.quadraticCurveTo(-w/2,-h*1.1,0,-h*1.25);
+    cx.quadraticCurveTo(w/2,-h*1.1,w/2,h/3);
+    cx.quadraticCurveTo(w/4,-h*0.35,0,-h*0.2);
+    cx.quadraticCurveTo(-w/4,-h*0.35,-w/2,h/3);
+    cx.fillStyle='#F43F5E';cx.globalAlpha=0.88;cx.fill();
+    cx.strokeStyle='rgba(255,255,255,0.2)';cx.lineWidth=1;cx.stroke();
+    cx.shadowBlur=0;
+    // Kite struts (inflate lines)
+    cx.strokeStyle='rgba(255,180,180,0.3)';cx.lineWidth=0.8;
+    for(let i=-2;i<=2;i++){
+      const px=i*(w/5);
+      cx.beginPath();cx.moveTo(px,-h*0.15);cx.lineTo(px*0.6,-h*0.85);cx.stroke();
+    }
+    // Leading edge highlight
+    cx.strokeStyle='rgba(255,255,255,0.25)';cx.lineWidth=1.5;
+    cx.beginPath();
+    cx.moveTo(-w/2,h/3);
+    cx.quadraticCurveTo(-w/2,-h*1.1,0,-h*1.25);
+    cx.quadraticCurveTo(w/2,-h*1.1,w/2,h/3);
+    cx.stroke();
+    cx.globalAlpha=1;cx.restore();
+  }
+
+  function kiteSurfer(x,y,sc,t){
+    cx.save();cx.translate(x,y);
+    const lean=Math.sin(t*0.6)*0.15;cx.rotate(lean);
+    // Board
+    cx.shadowColor='rgba(56,189,248,0.4)';cx.shadowBlur=8*sc;
+    cx.fillStyle='#0369A1';
+    cx.beginPath();cx.roundRect(-24*sc,-3*sc,48*sc,7*sc,3*sc);cx.fill();
+    cx.fillStyle='#38BDF8';cx.beginPath();cx.roundRect(-22*sc,-2.5*sc,44*sc,3*sc,2*sc);cx.fill();
+    cx.shadowBlur=0;
+    // Spray particles
+    if(Math.random()<0.2){spray.push({x:x-20*sc,y:y-2*sc,vx:-2-Math.random()*2,vy:-1-Math.random()*2,life:1});}
+    // Legs
+    cx.strokeStyle='#1E3A5F';cx.lineWidth=3.5*sc;cx.lineCap='round';
+    cx.beginPath();cx.moveTo(-7*sc,-3*sc);cx.lineTo(-6*sc,-16*sc);cx.stroke();
+    cx.beginPath();cx.moveTo(5*sc,-3*sc);cx.lineTo(4*sc,-16*sc);cx.stroke();
+    // Torso (leaning back)
+    cx.lineWidth=3*sc;
+    cx.beginPath();cx.moveTo(-1*sc,-16*sc);cx.lineTo(8*sc,-30*sc);cx.stroke();
+    // Arms up to bar
+    cx.lineWidth=2.5*sc;
+    cx.beginPath();cx.moveTo(8*sc,-24*sc);cx.lineTo(-2*sc,-34*sc);cx.stroke();
+    cx.beginPath();cx.moveTo(8*sc,-24*sc);cx.lineTo(18*sc,-34*sc);cx.stroke();
+    // Bar
+    cx.strokeStyle='rgba(200,200,200,0.6)';cx.lineWidth=2*sc;
+    cx.beginPath();cx.moveTo(-4*sc,-34*sc);cx.lineTo(20*sc,-34*sc);cx.stroke();
+    // Head/helmet
+    cx.shadowColor='rgba(132,204,22,0.4)';cx.shadowBlur=8*sc;
+    cx.fillStyle='#84CC16';cx.beginPath();cx.arc(8*sc,-32*sc,6*sc,0,Math.PI*2);cx.fill();
+    cx.shadowBlur=0;cx.globalAlpha=1;cx.restore();
+  }
+
+  function wingsuit(x,y,sc,t){
+    cx.save();cx.translate(x,y);cx.rotate(0.35+Math.sin(t*0.4)*0.05);
+    // Freefall trail
+    cx.strokeStyle='rgba(56,189,248,0.15)';cx.lineWidth=20*sc;cx.lineCap='round';
+    cx.beginPath();cx.moveTo(-3*sc,-8*sc);cx.lineTo(-3*sc,40*sc);cx.stroke();
+    // Wing fabric (left)
+    cx.fillStyle='rgba(239,68,68,0.85)';
+    cx.beginPath();cx.moveTo(-4*sc,-10*sc);cx.lineTo(-24*sc,4*sc);cx.lineTo(-14*sc,14*sc);cx.lineTo(-4*sc,6*sc);cx.fill();
+    // Wing fabric (right)
+    cx.beginPath();cx.moveTo(4*sc,-10*sc);cx.lineTo(24*sc,4*sc);cx.lineTo(14*sc,14*sc);cx.lineTo(4*sc,6*sc);cx.fill();
+    // Leg wing
+    cx.fillStyle='rgba(239,68,68,0.75)';
+    cx.beginPath();cx.moveTo(-5*sc,8*sc);cx.lineTo(-14*sc,20*sc);cx.lineTo(14*sc,20*sc);cx.lineTo(5*sc,8*sc);cx.fill();
+    // Body
+    cx.fillStyle='#0F2A4A';
+    cx.beginPath();cx.roundRect(-4*sc,-14*sc,8*sc,34*sc,3*sc);cx.fill();
+    // Arms
+    cx.strokeStyle='#0F2A4A';cx.lineWidth=5*sc;cx.lineCap='round';
+    cx.beginPath();cx.moveTo(-4*sc,-8*sc);cx.lineTo(-24*sc,4*sc);cx.stroke();
+    cx.beginPath();cx.moveTo(4*sc,-8*sc);cx.lineTo(24*sc,4*sc);cx.stroke();
+    // Helmet
+    cx.shadowColor='rgba(239,68,68,0.5)';cx.shadowBlur=10*sc;
+    cx.fillStyle='#EF4444';cx.beginPath();cx.arc(0,-14*sc,6.5*sc,0,Math.PI*2);cx.fill();
+    cx.fillStyle='rgba(56,189,248,0.7)';cx.beginPath();cx.ellipse(0,-13*sc,4*sc,2.5*sc,0,0,Math.PI);cx.fill();
+    cx.shadowBlur=0;cx.globalAlpha=1;cx.restore();
+  }
+
+  function drawWaves(w,h){
+    const wy=cv.offsetHeight*0.68;
+    for(let i=2;i>=0;i--){
+      cx.beginPath();cx.moveTo(0,wy+i*10);
+      for(let x=0;x<=w;x+=3)cx.lineTo(x,wy+i*10+Math.sin(x*0.018-t*(1.1-i*0.25)+i*1.2)*(8+i*4));
+      cx.lineTo(w,h);cx.lineTo(0,h);cx.closePath();
+      cx.fillStyle=`rgba(14,165,233,${0.14-i*0.04})`;cx.fill();
+    }
+    // Glint
+    cx.strokeStyle='rgba(125,211,252,0.18)';cx.lineWidth=1.2;
+    cx.beginPath();cx.moveTo(0,wy);
+    for(let x=0;x<=w;x+=3)cx.lineTo(x,wy+Math.sin(x*0.018-t*1.1)*8);
+    cx.stroke();
+  }
+
+  function frame(){
+    const W=cv.offsetWidth,H=cv.offsetHeight;
+    if(!W||!H){requestAnimationFrame(frame);return;}
+    cx.clearRect(0,0,W,H);
+    // Ocean
+    drawWaves(W,H);
+    const sc=Math.min(W/560,1.5);
+    // Paraglider (left)
+    glider(W*0.18+Math.sin(t*0.4)*22,H*0.33+Math.sin(t*0.65)*10,sc,Math.sin(t*0.3)*0.07);
+    // Kite high + rider low
+    bowKite(W*0.62+Math.sin(t*0.45)*18,H*0.22+Math.sin(t*0.38)*8,sc*0.9);
+    kiteSurfer(W*0.6+Math.sin(t*0.5)*24,H*0.72,sc,t);
+    // Kite lines (from kite to rider bar)
+    const kx=W*0.62+Math.sin(t*0.45)*18,ky=H*0.22+Math.sin(t*0.38)*8;
+    const rx=W*0.6+Math.sin(t*0.5)*24,ry=H*0.72;
+    cx.strokeStyle='rgba(255,255,255,0.15)';cx.lineWidth=0.8;
+    cx.beginPath();cx.moveTo(kx,ky+22*sc);cx.lineTo(rx-2*sc,ry-34*sc);cx.stroke();
+    cx.beginPath();cx.moveTo(kx,ky+22*sc);cx.lineTo(rx+2*sc,ry-34*sc);cx.stroke();
+    // Wingsuit (upper right)
+    const dvy=H*0.06+(t*1.8)%(H*0.55);
+    wingsuit(W*0.86+Math.sin(t*0.25)*8,dvy,sc*0.78,t);
+    // Spray
+    spray=spray.filter(p=>p.life>0);
+    spray.forEach(p=>{p.x+=p.vx;p.y+=p.vy;p.vy+=0.08;p.life-=0.05;cx.globalAlpha=p.life*0.7;cx.fillStyle='rgba(125,211,252,0.8)';cx.beginPath();cx.arc(p.x,p.y,1.5,0,Math.PI*2);cx.fill();});
+    cx.globalAlpha=1;
+    t+=0.018;requestAnimationFrame(frame);
+  }
+  frame();
+})();
 let _AC;function _ac(){if(!_AC)try{_AC=new(window.AudioContext||window.webkitAudioContext)();}catch(e){}return _AC;}
 function _snd(f,d,v=0.22){try{const a=_ac();if(!a)return;const o=a.createOscillator(),g=a.createGain();o.connect(g);g.connect(a.destination);o.frequency.value=f;g.gain.setValueAtTime(v,a.currentTime);g.gain.exponentialRampToValueAtTime(0.001,a.currentTime+d);o.start();o.stop(a.currentTime+d);}catch(e){}}
 function _ok(){_snd(523,0.07);setTimeout(()=>_snd(659,0.1),80);}
