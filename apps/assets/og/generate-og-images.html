@@ -1,0 +1,158 @@
+<!DOCTYPE html>
+<html>
+<head>
+<meta charset="UTF-8">
+<title>OG Image Generator — NovaCrypto</title>
+<style>
+body{background:#111;color:#fff;font-family:system-ui;padding:20px;}
+canvas{display:block;margin:16px 0;border:1px solid #333;border-radius:8px;}
+button{padding:8px 16px;background:#F7B731;color:#000;border:none;border-radius:6px;cursor:pointer;font-weight:700;margin:4px;}
+h2{margin:20px 0 8px;font-size:14px;color:#888;}
+</style>
+</head>
+<body>
+<h1 style="margin-bottom:4px">OG Image Generator</h1>
+<p style="color:#666;font-size:13px;margin-bottom:20px">Click each button to download the OG image (1200×630)</p>
+
+<script>
+function makeOG(config){
+  const c=document.createElement('canvas');
+  c.width=1200;c.height=630;
+  const ctx=c.getContext('2d');
+
+  // Background
+  const bg=ctx.createLinearGradient(0,0,1200,630);
+  config.bgColors.forEach((col,i)=>bg.addColorStop(i/(config.bgColors.length-1),col));
+  ctx.fillStyle=bg;ctx.fillRect(0,0,1200,630);
+
+  // Grid overlay
+  ctx.strokeStyle='rgba(255,255,255,0.04)';ctx.lineWidth=1;
+  for(let x=0;x<1200;x+=60){ctx.beginPath();ctx.moveTo(x,0);ctx.lineTo(x,630);ctx.stroke();}
+  for(let y=0;y<630;y+=60){ctx.beginPath();ctx.moveTo(0,y);ctx.lineTo(1200,y);ctx.stroke();}
+
+  // Aurora blobs
+  config.blobs.forEach(b=>{
+    const g=ctx.createRadialGradient(b.x,b.y,0,b.x,b.y,b.r);
+    g.addColorStop(0,b.col+'55');g.addColorStop(1,'transparent');
+    ctx.fillStyle=g;ctx.beginPath();ctx.arc(b.x,b.y,b.r,0,Math.PI*2);ctx.fill();
+  });
+
+  // Decorative emojis / symbols in bg
+  ctx.font='80px serif';ctx.globalAlpha=0.06;
+  config.symbols.forEach((s,i)=>{
+    ctx.fillStyle='#fff';
+    ctx.fillText(s, 80+i%4*280, 120+Math.floor(i/4)*200);
+  });
+  ctx.globalAlpha=1;
+
+  // Brand pill top-left
+  ctx.fillStyle='rgba(255,255,255,0.1)';
+  roundRect(ctx,40,40,200,38,20);
+  ctx.fill();
+  ctx.fillStyle='rgba(255,255,255,0.6)';
+  ctx.font='bold 14px system-ui';ctx.fillText('NOVACRYPTO GAMES',60,64);
+
+  // Main icon
+  ctx.font='120px serif';
+  ctx.textAlign='center';
+  ctx.fillText(config.icon, 600, 240);
+
+  // Title
+  ctx.font='bold 72px system-ui';
+  ctx.fillStyle=config.titleColor;
+  ctx.shadowColor=config.titleColor;ctx.shadowBlur=30;
+  ctx.fillText(config.title, 600, 330);
+  ctx.shadowBlur=0;
+
+  // Subtitle
+  ctx.font='28px system-ui';
+  ctx.fillStyle='rgba(255,255,255,0.7)';
+  ctx.fillText(config.subtitle, 600, 385);
+
+  // Stats row
+  ctx.font='bold 20px system-ui';
+  const stats=config.stats;
+  const sw=1200/(stats.length+1);
+  stats.forEach((s,i)=>{
+    const sx=sw*(i+1);
+    // Pill bg
+    ctx.fillStyle='rgba(255,255,255,0.08)';
+    roundRect(ctx,sx-90,430,180,52,26);ctx.fill();
+    // Stat value
+    ctx.fillStyle=config.titleColor;ctx.font='bold 22px system-ui';
+    ctx.fillText(s.v,sx,460);
+    // Stat label
+    ctx.fillStyle='rgba(255,255,255,0.5)';ctx.font='13px system-ui';
+    ctx.fillText(s.l,sx,478);
+  });
+
+  // Bottom CTA bar
+  ctx.fillStyle='rgba(255,255,255,0.06)';
+  ctx.fillRect(0,560,1200,70);
+  ctx.fillStyle='rgba(255,255,255,0.4)';
+  ctx.font='18px system-ui';ctx.textAlign='left';
+  ctx.fillText('🎮 Free to play — No signup needed — XP System — Achievements', 60, 601);
+  ctx.textAlign='right';
+  ctx.fillStyle=config.titleColor;ctx.font='bold 18px system-ui';
+  ctx.fillText('Play Now →', 1140, 601);
+
+  ctx.textAlign='center';
+  return c;
+}
+
+function roundRect(ctx,x,y,w,h,r){
+  ctx.beginPath();ctx.moveTo(x+r,y);ctx.lineTo(x+w-r,y);ctx.arcTo(x+w,y,x+w,y+r,r);
+  ctx.lineTo(x+w,y+h-r);ctx.arcTo(x+w,y+h,x+w-r,y+h,r);ctx.lineTo(x+r,y+h);
+  ctx.arcTo(x,y+h,x,y+h-r,r);ctx.lineTo(x,y+r);ctx.arcTo(x,y,x+r,y,r);ctx.closePath();
+}
+
+const CONFIGS={
+  cryptoquiz:{
+    bgColors:['#07070F','#0D0920','#070F18'],
+    blobs:[{x:200,y:150,r:300,col:'#7c3aed'},{x:1000,y:200,r:250,col:'#F7B731'},{x:600,y:500,r:280,col:'#0ea5e9'}],
+    icon:'₿',titleColor:'#F7B731',
+    title:'CRYPTOQUIZ',subtitle:'Test Your Bitcoin & DeFi Knowledge — 50+ Questions',
+    symbols:['₿','Ξ','◈','₮','$','¢','Ð','🚀'],
+    stats:[{v:'50+',l:'Questions'},{v:'XP',l:'System'},{v:'Free',l:'No Signup'},{v:'#1',l:'Crypto Quiz'}]
+  },
+  healthiq:{
+    bgColors:['#050F0A','#071A10','#030D08'],
+    blobs:[{x:150,y:200,r:320,col:'#00D4AA'},{x:1050,y:150,r:240,col:'#A8FF3E'},{x:600,y:480,r:300,col:'#00B894'}],
+    icon:'🧬',titleColor:'#00D4AA',
+    title:'HEALTHIQ',subtitle:'Science-Backed Wellness Quiz — 40 Questions',
+    symbols:['🧬','💪','🥗','😴','🫀','🧪','🏃','🥦'],
+    stats:[{v:'40',l:'Questions'},{v:'4.9★',l:'Rating'},{v:'Free',l:'No Signup'},{v:'#1',l:'Health Quiz'}]
+  },
+  zenmind:{
+    bgColors:['#06040F','#0A0518','#080412'],
+    blobs:[{x:180,y:180,r:300,col:'#7C3AED'},{x:1020,y:250,r:270,col:'#F43F5E'},{x:600,y:450,r:290,col:'#A855F7'}],
+    icon:'🧘',titleColor:'#A855F7',
+    title:'ZENMIND',subtitle:'Mindfulness & Meditation Quiz — Find Your Zen Score',
+    symbols:['🧘','☯️','🌸','🕯️','🌙','💜','🌿','✨'],
+    stats:[{v:'40',l:'Questions'},{v:'Breathe',l:'Guided'},{v:'Free',l:'No Signup'},{v:'#1',l:'Zen Quiz'}]
+  },
+  skyrider:{
+    bgColors:['#040A14','#061220','#030A18'],
+    blobs:[{x:200,y:180,r:330,col:'#0EA5E9'},{x:1000,y:200,r:260,col:'#F59E0B'},{x:600,y:500,r:280,col:'#84CC16'}],
+    icon:'🪂',titleColor:'#38BDF8',
+    title:'SKYRIDER',subtitle:'Extreme Sports Quiz — Paragliding · Skydiving · Kitesurf',
+    symbols:['🪂','🏄','🌊','🏔️','💨','🪁','✈️','⛰️'],
+    stats:[{v:'50+',l:'Questions'},{v:'3 Sports',l:'Covered'},{v:'Free',l:'No Signup'},{v:'#1',l:'Sports Quiz'}]
+  }
+};
+
+document.addEventListener('DOMContentLoaded',()=>{
+  Object.entries(CONFIGS).forEach(([key,cfg])=>{
+    const wrap=document.createElement('div');
+    const h2=document.createElement('h2');h2.textContent=cfg.title+' — cryptoquiz-og.png'.replace('cryptoquiz',key);
+    const c=makeOG(cfg);
+    const btn=document.createElement('button');
+    btn.textContent='⬇ Download '+key+'-og.png';
+    btn.onclick=()=>{const a=document.createElement('a');a.download=key+'-og.png';a.href=c.toDataURL('image/png');a.click();};
+    wrap.appendChild(h2);wrap.appendChild(c);wrap.appendChild(btn);
+    document.body.appendChild(wrap);
+  });
+});
+</script>
+</body>
+</html>
