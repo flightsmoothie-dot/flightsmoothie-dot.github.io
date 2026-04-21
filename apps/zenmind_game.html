@@ -279,22 +279,21 @@ main{position:relative;z-index:10;min-height:100vh;padding:68px 16px 40px;displa
 @keyframes om-pulse{0%,100%{opacity:0;transform:translate(-50%,-50%) scale(0.8)}50%{opacity:0.7;transform:translate(-50%,-50%) scale(1.1)}}
 
 /* ═══ MAGAZINE HERO — ZEN SCENE ═══ */
-.hero-cinema{position:relative;width:100%;border-radius:28px;overflow:hidden;margin-bottom:28px;min-height:300px;display:flex;align-items:flex-end;justify-content:center;}
+.hero-cinema{position:relative;width:100%;border-radius:28px;overflow:hidden;margin-bottom:28px;min-height:300px;display:flex;align-items:flex-end;justify-content:center;isolation:isolate;}
 
 /* Background photo — bright & visible */
 .hero-bg-img{
-  position:absolute;inset:0;
+  position:absolute;inset:0;z-index:0;
   background-image:url('https://image.pollinations.ai/prompt/zen%20garden%20japan%20cherry%20blossom%20temple%20pond%20lotus%20purple%20violet%20misty%20dawn%20cinematic%20beautiful?width=900&height=400&nologo=true&seed=20260421');
   background-size:cover;background-position:center 30%;
   filter:brightness(.72) saturate(1.1);
-  transform:scale(1.03);
   animation:heroZoom 20s ease-in-out infinite alternate;
 }
-@keyframes heroZoom{0%{transform:scale(1.03)}100%{transform:scale(1.09) translateX(-8px)}}
+@keyframes heroZoom{0%{transform:scale(1)}100%{transform:scale(1.08) translateX(-8px)}}
 
 /* Gradient overlay — only bottom third for text readability */
 .hero-overlay{
-  position:absolute;inset:0;
+  position:absolute;inset:0;z-index:1;
   background:linear-gradient(to bottom,
     transparent 0%,
     transparent 45%,
@@ -305,7 +304,7 @@ main{position:relative;z-index:10;min-height:100vh;padding:68px 16px 40px;displa
 /* Mandala rings — tucked left side, not blocking center */
 .zen-mandala{
   position:absolute;left:-60px;top:50%;transform:translateY(-50%);
-  pointer-events:none;z-index:2;
+  pointer-events:none;z-index:2;opacity:.9;
 }
 .zm-ring{position:absolute;border-radius:50%;border-style:solid;transform:translate(-50%,-50%);}
 .zm-ring:nth-child(1){width:70px;height:70px;border:1.5px solid rgba(168,85,247,.5);animation:zm-spin 10s linear infinite;}
@@ -317,7 +316,7 @@ main{position:relative;z-index:10;min-height:100vh;padding:68px 16px 40px;displa
 /* Left figure — meditating yogi */
 .zen-left{
   position:absolute;left:5%;bottom:28px;
-  font-size:62px;z-index:3;pointer-events:none;
+  font-size:72px;z-index:10;pointer-events:none;
   animation:zen-breathe 5s ease-in-out infinite;
   filter:drop-shadow(0 4px 18px rgba(168,85,247,.8));
 }
@@ -329,7 +328,7 @@ main{position:relative;z-index:10;min-height:100vh;padding:68px 16px 40px;displa
 /* Right figure — floating lotus */
 .zen-right{
   position:absolute;right:5%;bottom:24px;
-  font-size:58px;z-index:3;pointer-events:none;
+  font-size:68px;z-index:10;pointer-events:none;
   animation:zen-sway 6s ease-in-out infinite;
   filter:drop-shadow(0 4px 16px rgba(56,189,248,.7));
 }
@@ -341,7 +340,7 @@ main{position:relative;z-index:10;min-height:100vh;padding:68px 16px 40px;displa
 /* Top right — moon glow */
 .zen-moon{
   position:absolute;right:12%;top:12%;
-  font-size:44px;z-index:3;pointer-events:none;opacity:.85;
+  font-size:44px;z-index:10;pointer-events:none;opacity:.85;
   animation:zen-sway 8s ease-in-out infinite;animation-delay:-3s;
   filter:drop-shadow(0 0 18px rgba(200,180,255,.8));
 }
@@ -356,7 +355,7 @@ main{position:relative;z-index:10;min-height:100vh;padding:68px 16px 40px;displa
 @keyframes zp-float{0%,100%{transform:translateY(0)}50%{transform:translateY(-18px)}}
 
 /* Title bar */
-.hero-content{position:relative;z-index:5;text-align:center;padding:0 24px 20px;width:100%;}
+.hero-content{position:relative;z-index:15;text-align:center;padding:0 24px 20px;width:100%;}
 .hero-kicker{font-size:10px;letter-spacing:4px;text-transform:uppercase;color:#c084fc;font-weight:700;margin-bottom:5px;text-shadow:0 1px 10px rgba(0,0,0,.8);}
 .hero-title-mag{font-family:'Playfair Display',Georgia,serif;font-size:clamp(36px,9vw,60px);font-weight:900;line-height:1.05;letter-spacing:-1px;background:linear-gradient(135deg,#fff 0%,#c084fc 45%,#38BDF8 100%);-webkit-background-clip:text;-webkit-text-fill-color:transparent;background-clip:text;margin-bottom:2px;animation:up .6s .1s ease both;text-shadow:none;}
 .hero-title-accent{font-family:'Playfair Display',Georgia,serif;font-style:italic;font-size:clamp(13px,3.5vw,20px);color:rgba(220,180,255,.9);letter-spacing:1px;animation:up .6s .2s ease both;text-shadow:0 1px 8px rgba(0,0,0,.7);}

@@ -550,77 +550,82 @@ body.fw{animation:flashW .3s ease;}
 /* ═══════════════════════════════════════════
    MAGAZINE-GRADE HERO — CRYPTO SCENE
 ═══════════════════════════════════════════ */
-.hero-cinema {
-  position:relative; width:100%; border-radius:28px; overflow:hidden;
-  margin-bottom:28px; min-height:300px;
-  display:flex; align-items:flex-end; justify-content:center;
+/* ── STACKING CONTEXT FIX: explicit z-index on every layer ── */
+.hero-cinema{
+  position:relative;width:100%;border-radius:28px;overflow:hidden;
+  margin-bottom:28px;min-height:300px;
+  display:flex;align-items:flex-end;justify-content:center;
+  isolation:isolate; /* new stacking context so z-index is predictable */
 }
-
-/* Background photo — bright & visible */
 .hero-bg-img{
-  position:absolute;inset:0;
-  background-image:url('https://image.pollinations.ai/prompt/bitcoin%20crypto%20trading%20neon%20city%20skyline%20night%20gold%20charts%20dramatic%20cinematic%20magazine%20cover?width=900&height=400&nologo=true&seed=20260421');
+  position:absolute;inset:0;z-index:0; /* LAYER 0: photo */
+  background-image:url('https://image.pollinations.ai/prompt/bitcoin%20crypto%20trading%20neon%20city%20night%20gold%20chart%20cinematic%20magazine?width=900&height=400&nologo=true&seed=20260421');
   background-size:cover;background-position:center 40%;
-  filter:brightness(.72) saturate(1.1);
-  transform:scale(1.03);
+  filter:brightness(.75) saturate(1.1);
   animation:heroZoom 20s ease-in-out infinite alternate;
 }
-@keyframes heroZoom{0%{transform:scale(1.03)}100%{transform:scale(1.09) translateX(-8px)}}
-
-/* Gradient overlay — only bottom third for title */
+@keyframes heroZoom{0%{transform:scale(1)}100%{transform:scale(1.06) translateX(-6px)}}
 .hero-overlay{
-  position:absolute;inset:0;
-  background:linear-gradient(to bottom,
-    transparent 0%,
-    transparent 40%,
-    rgba(7,7,15,.5) 65%,
-    rgba(7,7,15,.92) 100%);
+  position:absolute;inset:0;z-index:1; /* LAYER 1: gradient */
+  background:linear-gradient(to bottom,transparent 0%,transparent 38%,rgba(7,7,15,.55) 65%,rgba(7,7,15,.93) 100%);
 }
-
-/* Floating coins — left side stack */
-.cq-coin{position:absolute;pointer-events:none;}
-.cq-coin-btc{left:4%;bottom:52px;font-size:64px;animation:coin-float 5s ease-in-out infinite;filter:drop-shadow(0 4px 20px rgba(247,183,49,.9));z-index:3;}
-.cq-coin-eth{left:6%;top:14%;font-size:36px;animation:coin-float 6s ease-in-out infinite;animation-delay:-2s;filter:drop-shadow(0 0 12px rgba(79,195,247,.7));opacity:.8;z-index:3;}
-/* Right side coins */
-.cq-coin-sol{right:5%;bottom:48px;font-size:58px;animation:coin-float 4.5s ease-in-out infinite;animation-delay:-1s;filter:drop-shadow(0 4px 18px rgba(153,69,255,.8));z-index:3;}
-.cq-coin-doge{right:8%;top:12%;font-size:34px;animation:coin-float 7s ease-in-out infinite;animation-delay:-3s;filter:drop-shadow(0 0 10px rgba(247,183,49,.6));opacity:.8;z-index:3;}
-@keyframes coin-float{0%,100%{transform:translateY(0) rotate(-5deg)}50%{transform:translateY(-16px) rotate(5deg)}}
-
-/* Candlestick chart at very bottom */
+/* LAYER 2: chart */
 .hero-chart{
-  position:absolute;bottom:0;left:0;right:0;height:64px;
-  display:flex;align-items:flex-end;gap:3px;padding:0 10px;
-  overflow:hidden;z-index:2;
-  background:linear-gradient(to top,rgba(7,7,15,.6) 0%,transparent 100%);
+  position:absolute;bottom:0;left:0;right:0;height:64px;z-index:2;
+  display:flex;align-items:flex-end;gap:3px;padding:0 10px;overflow:hidden;
+  background:linear-gradient(to top,rgba(7,7,15,.5) 0%,transparent 100%);
 }
 .candle{flex:1;display:flex;flex-direction:column;align-items:center;position:relative;}
 .candle-body{width:68%;border-radius:2px;min-height:5px;}
 .candle-wick{width:1.5px;background:rgba(255,255,255,.2);position:absolute;}
 .candle-wick-top{top:0;height:5px;}
 .candle-wick-bot{bottom:0;height:3px;}
-.candle.up .candle-body{background:rgba(0,245,160,.7);}
-.candle.dn .candle-body{background:rgba(255,64,96,.7);}
-
-/* Price tickers — top right pills */
+.candle.up .candle-body{background:rgba(0,245,160,.75);}
+.candle.dn .candle-body{background:rgba(255,64,96,.75);}
+/* LAYER 10: side coin figures — guaranteed on top */
+.cq-coin{position:absolute;pointer-events:none;z-index:10;}
+/* Left pair */
+.cq-coin-btc{
+  left:3%;bottom:44px;font-size:72px;
+  animation:coin-float 5s ease-in-out infinite;
+  filter:drop-shadow(0 6px 22px rgba(247,183,49,1));
+}
+.cq-coin-eth{
+  left:5%;top:12%;font-size:44px;
+  animation:coin-float 6.5s ease-in-out infinite;animation-delay:-2s;
+  filter:drop-shadow(0 4px 16px rgba(79,195,247,.95));
+}
+/* Right pair */
+.cq-coin-sol{
+  right:3%;bottom:40px;font-size:66px;
+  animation:coin-float 4.5s ease-in-out infinite;animation-delay:-1s;
+  filter:drop-shadow(0 6px 20px rgba(153,69,255,.95));
+}
+.cq-coin-doge{
+  right:6%;top:10%;font-size:40px;
+  animation:coin-float 7s ease-in-out infinite;animation-delay:-3s;
+  filter:drop-shadow(0 4px 14px rgba(247,183,49,.9));
+}
+@keyframes coin-float{0%,100%{transform:translateY(0) rotate(-5deg)}50%{transform:translateY(-18px) rotate(5deg)}}
+/* LAYER 11: tickers */
 .hero-ticker{
-  position:absolute;top:12px;right:12px;
-  display:flex;gap:7px;z-index:4;flex-wrap:wrap;justify-content:flex-end;
+  position:absolute;top:12px;right:12px;z-index:11;
+  display:flex;gap:7px;flex-wrap:wrap;justify-content:flex-end;
 }
 .htick{
-  background:rgba(7,7,15,.75);border:1px solid rgba(247,183,49,.25);
+  background:rgba(7,7,15,.8);border:1px solid rgba(247,183,49,.3);
   border-radius:8px;padding:4px 10px;font-size:10px;font-weight:700;
   color:var(--gold);letter-spacing:.5px;backdrop-filter:blur(10px);
   animation:tick-flash 2s ease-in-out infinite;
 }
-.htick-eth{color:#4FC3F7;border-color:rgba(79,195,247,.25);animation-delay:-.7s;}
-.htick-sol{color:#9945FF;border-color:rgba(153,69,255,.25);animation-delay:-1.3s;}
+.htick-eth{color:#4FC3F7;border-color:rgba(79,195,247,.3);animation-delay:-.7s;}
+.htick-sol{color:#9945FF;border-color:rgba(153,69,255,.3);animation-delay:-1.3s;}
 @keyframes tick-flash{0%,100%{opacity:1}50%{opacity:.7}}
-
-/* Title */
+/* LAYER 15: title */
 .hero-content{
-  position:relative;z-index:5;text-align:center;padding:0 24px 18px;width:100%;
+  position:relative;z-index:15;text-align:center;padding:0 24px 18px;width:100%;
 }
-.hero-kicker{font-size:10px;letter-spacing:4px;text-transform:uppercase;color:#fbbf24;font-weight:700;margin-bottom:5px;text-shadow:0 1px 10px rgba(0,0,0,.8);}
+.hero-kicker{font-size:10px;letter-spacing:4px;text-transform:uppercase;color:#fbbf24;font-weight:700;margin-bottom:5px;text-shadow:0 2px 12px rgba(0,0,0,.9);}
 .hero-title-mag{
   font-family:'Playfair Display',Georgia,serif;
   font-size:clamp(36px,9vw,60px);font-weight:900;line-height:1.05;letter-spacing:-1px;
@@ -630,10 +635,9 @@ body.fw{animation:flashW .3s ease;}
 }
 .hero-title-accent{
   font-family:'Playfair Display',Georgia,serif;font-style:italic;
-  font-size:clamp(13px,3.5vw,20px);color:rgba(255,210,100,.9);letter-spacing:1px;
-  animation:up .6s .2s ease both;text-shadow:0 1px 8px rgba(0,0,0,.7);
+  font-size:clamp(13px,3.5vw,20px);color:rgba(255,210,100,.95);letter-spacing:1px;
+  animation:up .6s .2s ease both;text-shadow:0 2px 10px rgba(0,0,0,.8);
 }
-@keyframes float-coin{0%,100%{transform:translateY(0) rotate(-5deg)}50%{transform:translateY(-16px) rotate(5deg)}}
 
 /* ── MAGAZINE DIVIDER ── */
 .mag-divider {

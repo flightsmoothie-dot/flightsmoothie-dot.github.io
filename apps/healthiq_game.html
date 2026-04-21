@@ -264,22 +264,21 @@ body.fw{animation:fw .3s ease;}
 @media(max-width:480px){.stats-row{gap:6px}.stat-box{padding:12px 14px;min-width:70px}.stat-n{font-size:22px}}
 
 /* ═══ MAGAZINE HERO — HEALTH SCENE ═══ */
-.hero-cinema{position:relative;width:100%;border-radius:28px;overflow:hidden;margin-bottom:28px;min-height:300px;display:flex;align-items:flex-end;justify-content:center;}
+.hero-cinema{position:relative;width:100%;border-radius:28px;overflow:hidden;margin-bottom:28px;min-height:300px;display:flex;align-items:flex-end;justify-content:center;isolation:isolate;}
 
 /* Background photo — bright & visible */
 .hero-bg-img{
-  position:absolute;inset:0;
+  position:absolute;inset:0;z-index:0;
   background-image:url('https://image.pollinations.ai/prompt/healthy%20athlete%20running%20sunrise%20green%20nature%20trail%20nutrition%20fitness%20beautiful%20cinematic%20emerald%20golden%20hour?width=900&height=400&nologo=true&seed=20260422');
   background-size:cover;background-position:center 25%;
   filter:brightness(.74) saturate(1.1);
-  transform:scale(1.03);
   animation:heroZoom 20s ease-in-out infinite alternate;
 }
-@keyframes heroZoom{0%{transform:scale(1.03)}100%{transform:scale(1.09) translateX(-8px)}}
+@keyframes heroZoom{0%{transform:scale(1)}100%{transform:scale(1.08) translateX(-8px)}}
 
 /* Gradient overlay — only bottom third */
 .hero-overlay{
-  position:absolute;inset:0;
+  position:absolute;inset:0;z-index:1;
   background:linear-gradient(to bottom,
     transparent 0%,
     transparent 42%,
@@ -298,9 +297,9 @@ body.fw{animation:fw .3s ease;}
 /* Left figure — runner */
 .hq-runner{
   position:absolute;left:4%;bottom:24px;
-  font-size:64px;z-index:3;pointer-events:none;
+  font-size:72px;z-index:10;pointer-events:none;
   animation:hq-run-anim 3s ease-in-out infinite;
-  filter:drop-shadow(0 4px 16px rgba(0,212,170,.8));
+  filter:drop-shadow(0 6px 22px rgba(0,212,170,1));
 }
 @keyframes hq-run-anim{
   0%,100%{transform:translateY(0) rotate(-2deg);}
@@ -311,7 +310,7 @@ body.fw{animation:fw .3s ease;}
 /* Right figure — yoga/stretch */
 .hq-yoga{
   position:absolute;right:5%;bottom:22px;
-  font-size:60px;z-index:3;pointer-events:none;
+  font-size:68px;z-index:10;pointer-events:none;
   animation:hq-yoga-anim 5s ease-in-out infinite;
   filter:drop-shadow(0 4px 14px rgba(168,255,62,.7));
 }
@@ -323,14 +322,14 @@ body.fw{animation:fw .3s ease;}
 /* Top right — apple/nutrition */
 .hq-food{
   position:absolute;right:14%;top:12%;
-  font-size:42px;z-index:3;pointer-events:none;opacity:.85;
+  font-size:42px;z-index:10;pointer-events:none;opacity:.85;
   animation:hq-yoga-anim 6s ease-in-out infinite;animation-delay:-2s;
   filter:drop-shadow(0 0 14px rgba(0,212,170,.6));
 }
 
 /* Heart beat pill — top left */
 .hq-bpm{
-  position:absolute;top:14px;left:14px;z-index:4;
+  position:absolute;top:14px;left:14px;z-index:10;
   background:rgba(5,15,10,.72);border:1px solid rgba(0,212,170,.3);
   border-radius:10px;padding:5px 12px;
   font-size:11px;font-weight:700;color:#00D4AA;
@@ -348,7 +347,7 @@ body.fw{animation:fw .3s ease;}
 @keyframes hq-part{0%,100%{transform:translateY(0)}50%{transform:translateY(-16px)}}
 
 /* Title */
-.hero-content{position:relative;z-index:5;text-align:center;padding:0 24px 20px;width:100%;}
+.hero-content{position:relative;z-index:15;text-align:center;padding:0 24px 20px;width:100%;}
 .hero-kicker{font-size:10px;letter-spacing:4px;text-transform:uppercase;color:#34d399;font-weight:700;margin-bottom:5px;text-shadow:0 1px 10px rgba(0,0,0,.8);}
 .hero-title-mag{font-family:'Playfair Display',Georgia,serif;font-size:clamp(36px,9vw,60px);font-weight:900;line-height:1.05;letter-spacing:-1px;background:linear-gradient(135deg,#fff 0%,#00D4AA 45%,#A8FF3E 100%);-webkit-background-clip:text;-webkit-text-fill-color:transparent;background-clip:text;margin-bottom:2px;animation:up .6s .1s ease both;text-shadow:none;}
 .hero-title-accent{font-family:'Playfair Display',Georgia,serif;font-style:italic;font-size:clamp(13px,3.5vw,20px);color:rgba(160,255,210,.9);letter-spacing:1px;animation:up .6s .2s ease both;text-shadow:0 1px 8px rgba(0,0,0,.7);}
