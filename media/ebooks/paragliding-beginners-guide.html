@@ -1,0 +1,1477 @@
+<!DOCTYPE html>
+<html lang="en">
+<head>
+<meta charset="UTF-8">
+<meta name="viewport" content="width=device-width, initial-scale=1.0">
+<title>Paragliding Beginner's Guide 2026 — Nova Wings</title>
+<style>
+  /* ===== RESET & BASE ===== */
+  *, *::before, *::after { box-sizing: border-box; margin: 0; padding: 0; }
+  html { scroll-behavior: smooth; }
+  body {
+    background: #080c14;
+    color: #c8d8ee;
+    font-family: Georgia, 'Times New Roman', serif;
+    font-size: 17px;
+    line-height: 1.75;
+  }
+
+  /* ===== LAYOUT ===== */
+  .container { max-width: 820px; margin: 0 auto; padding: 0 24px; }
+
+  /* ===== COVER ===== */
+  #cover {
+    position: relative;
+    width: 100%;
+    min-height: 100vh;
+    display: flex;
+    flex-direction: column;
+    align-items: center;
+    justify-content: center;
+    overflow: hidden;
+    background: radial-gradient(ellipse 120% 80% at 50% 30%,
+      #1a3a6e 0%, #0f2244 35%, #080c14 100%);
+  }
+  #cover::after {
+    content: '';
+    position: absolute;
+    inset: 0;
+    background: radial-gradient(ellipse 60% 40% at 50% 20%,
+      rgba(52,152,219,0.22) 0%, transparent 70%);
+    pointer-events: none;
+  }
+
+  .cover-content {
+    position: relative;
+    z-index: 2;
+    text-align: center;
+    padding: 40px 24px 32px;
+  }
+
+  .cover-eyebrow {
+    font-size: 12px;
+    letter-spacing: 3px;
+    text-transform: uppercase;
+    color: #3498DB;
+    margin-bottom: 16px;
+    font-family: 'Courier New', monospace;
+  }
+
+  .cover-title {
+    font-size: clamp(32px, 6vw, 62px);
+    font-weight: 700;
+    color: #ffffff;
+    line-height: 1.1;
+    margin-bottom: 16px;
+    text-shadow: 0 2px 24px rgba(52,152,219,0.5);
+  }
+
+  .cover-title span { color: #3498DB; }
+
+  .cover-subtitle {
+    font-size: clamp(15px, 2.5vw, 20px);
+    color: #a8c4e0;
+    max-width: 560px;
+    margin: 0 auto 32px;
+  }
+
+  .cover-badge {
+    display: inline-block;
+    background: rgba(52,152,219,0.15);
+    border: 1px solid rgba(52,152,219,0.4);
+    color: #3498DB;
+    font-size: 12px;
+    letter-spacing: 2px;
+    text-transform: uppercase;
+    padding: 6px 18px;
+    border-radius: 40px;
+    margin-bottom: 0;
+  }
+
+  .cover-svg-wrap {
+    position: relative;
+    z-index: 2;
+    width: 100%;
+    max-width: 700px;
+    margin: 0 auto;
+  }
+
+  /* ===== SPONSOR BANNER ===== */
+  #sponsors {
+    background: #0b1120;
+    border-top: 1px solid rgba(52,152,219,0.2);
+    border-bottom: 1px solid rgba(52,152,219,0.2);
+    padding: 18px 24px;
+  }
+  .sponsors-label {
+    text-align: center;
+    font-size: 10px;
+    letter-spacing: 2px;
+    text-transform: uppercase;
+    color: #4a6080;
+    margin-bottom: 14px;
+    font-family: 'Courier New', monospace;
+  }
+  .sponsors-grid {
+    display: flex;
+    flex-wrap: wrap;
+    gap: 12px;
+    justify-content: center;
+    align-items: center;
+  }
+  .sponsor-slot {
+    background: rgba(52,152,219,0.06);
+    border: 1px solid rgba(52,152,219,0.2);
+    border-radius: 8px;
+    padding: 10px 20px;
+    font-size: 13px;
+    font-family: 'Courier New', monospace;
+    font-weight: 700;
+    color: #7ab8e0;
+    letter-spacing: 0.5px;
+    text-decoration: none;
+    transition: all 0.2s;
+    text-align: center;
+  }
+  .sponsor-slot:hover { background: rgba(52,152,219,0.14); color: #fff; border-color: #3498DB; }
+  .sponsor-slot.advertise {
+    color: #4a6080;
+    border-style: dashed;
+    font-weight: 400;
+  }
+  .sponsor-slot.advertise:hover { color: #3498DB; border-color: #3498DB; }
+
+  /* ===== TABLE OF CONTENTS ===== */
+  #toc {
+    background: #0d1521;
+    padding: 60px 24px;
+    border-bottom: 1px solid rgba(52,152,219,0.15);
+  }
+  .section-label {
+    font-size: 11px;
+    letter-spacing: 3px;
+    text-transform: uppercase;
+    color: #3498DB;
+    margin-bottom: 8px;
+    font-family: 'Courier New', monospace;
+  }
+  .section-title {
+    font-size: clamp(24px, 4vw, 36px);
+    color: #ffffff;
+    font-weight: 700;
+    margin-bottom: 32px;
+    line-height: 1.2;
+  }
+  .toc-list { list-style: none; }
+  .toc-list li {
+    border-bottom: 1px solid rgba(52,152,219,0.1);
+  }
+  .toc-list li a {
+    display: flex;
+    align-items: center;
+    gap: 16px;
+    padding: 16px 0;
+    color: #c8d8ee;
+    text-decoration: none;
+    font-size: 16px;
+    transition: color 0.2s;
+  }
+  .toc-list li a:hover { color: #3498DB; }
+  .toc-num {
+    flex-shrink: 0;
+    width: 32px;
+    height: 32px;
+    border-radius: 50%;
+    background: rgba(52,152,219,0.12);
+    border: 1px solid rgba(52,152,219,0.3);
+    display: flex;
+    align-items: center;
+    justify-content: center;
+    font-size: 12px;
+    font-family: 'Courier New', monospace;
+    color: #3498DB;
+  }
+  .toc-chapter-title { flex: 1; }
+  .toc-arrow { color: #3498DB; font-size: 14px; }
+
+  /* ===== CHAPTERS ===== */
+  .chapter {
+    padding: 72px 0;
+    border-bottom: 1px solid rgba(52,152,219,0.12);
+  }
+  .chapter-header {
+    margin-bottom: 40px;
+  }
+  .chapter-number {
+    font-size: 11px;
+    letter-spacing: 3px;
+    text-transform: uppercase;
+    color: #3498DB;
+    font-family: 'Courier New', monospace;
+    margin-bottom: 10px;
+  }
+  .chapter-title {
+    font-size: clamp(22px, 3.5vw, 32px);
+    color: #ffffff;
+    font-weight: 700;
+    line-height: 1.25;
+    margin-bottom: 8px;
+  }
+  .chapter-divider {
+    width: 48px;
+    height: 3px;
+    background: linear-gradient(90deg, #3498DB, transparent);
+    border-radius: 2px;
+    margin-top: 16px;
+  }
+
+  /* ===== STATS ROW ===== */
+  .stats-row {
+    display: flex;
+    flex-wrap: wrap;
+    gap: 16px;
+    margin: 32px 0;
+  }
+  .stat-card {
+    flex: 1;
+    min-width: 160px;
+    background: rgba(52,152,219,0.07);
+    border: 1px solid rgba(52,152,219,0.2);
+    border-radius: 10px;
+    padding: 18px 20px;
+    text-align: center;
+  }
+  .stat-number {
+    font-size: 28px;
+    font-weight: 700;
+    color: #3498DB;
+    font-family: 'Courier New', monospace;
+    line-height: 1;
+    margin-bottom: 6px;
+  }
+  .stat-label {
+    font-size: 12px;
+    color: #7090b0;
+    text-transform: uppercase;
+    letter-spacing: 1px;
+  }
+
+  /* ===== TIP BOX ===== */
+  .tip-box {
+    background: rgba(52,152,219,0.07);
+    border-left: 4px solid #3498DB;
+    border-radius: 0 8px 8px 0;
+    padding: 18px 22px;
+    margin: 28px 0;
+  }
+  .tip-box-label {
+    font-size: 10px;
+    letter-spacing: 2px;
+    text-transform: uppercase;
+    color: #3498DB;
+    font-family: 'Courier New', monospace;
+    margin-bottom: 6px;
+  }
+  .tip-box p {
+    font-size: 15px;
+    color: #b0cce0;
+    margin: 0;
+  }
+
+  /* ===== WARNING BOX ===== */
+  .warning-box {
+    background: rgba(231,76,60,0.07);
+    border-left: 4px solid #e74c3c;
+    border-radius: 0 8px 8px 0;
+    padding: 18px 22px;
+    margin: 28px 0;
+  }
+  .warning-box-label {
+    font-size: 10px;
+    letter-spacing: 2px;
+    text-transform: uppercase;
+    color: #e74c3c;
+    font-family: 'Courier New', monospace;
+    margin-bottom: 6px;
+  }
+  .warning-box p {
+    font-size: 15px;
+    color: #c8a8a0;
+    margin: 0;
+  }
+
+  /* ===== BODY TEXT ===== */
+  .chapter p {
+    margin-bottom: 20px;
+    color: #c0d0e0;
+  }
+  .chapter h3 {
+    font-size: 19px;
+    color: #e0eef8;
+    margin: 32px 0 12px;
+    font-weight: 700;
+  }
+  .chapter ul, .chapter ol {
+    margin: 12px 0 20px 24px;
+    color: #b0c8e0;
+  }
+  .chapter li { margin-bottom: 8px; }
+
+  /* ===== MID-CHAPTER AD ===== */
+  .mid-ad {
+    background: linear-gradient(135deg, rgba(52,152,219,0.1) 0%, rgba(8,12,20,0.8) 100%);
+    border: 1px solid rgba(52,152,219,0.25);
+    border-radius: 12px;
+    padding: 24px 28px;
+    margin: 40px 0;
+    display: flex;
+    align-items: center;
+    gap: 24px;
+    flex-wrap: wrap;
+  }
+  .mid-ad-logo {
+    font-size: 20px;
+    font-weight: 700;
+    color: #3498DB;
+    font-family: 'Courier New', monospace;
+    flex-shrink: 0;
+    letter-spacing: 1px;
+  }
+  .mid-ad-logo span { color: #7ab8e0; font-size: 13px; display: block; font-weight: 400; }
+  .mid-ad-copy { flex: 1; min-width: 200px; }
+  .mid-ad-copy p { font-size: 14px; color: #8aaccc; margin: 0 0 4px; }
+  .mid-ad-copy strong { color: #c8d8ee; }
+  .mid-ad-cta {
+    flex-shrink: 0;
+    background: #3498DB;
+    color: #fff;
+    font-size: 13px;
+    font-weight: 700;
+    padding: 10px 20px;
+    border-radius: 6px;
+    text-decoration: none;
+    text-transform: uppercase;
+    letter-spacing: 1px;
+    transition: background 0.2s;
+  }
+  .mid-ad-cta:hover { background: #2980b9; }
+  .ad-label {
+    font-size: 9px;
+    letter-spacing: 2px;
+    text-transform: uppercase;
+    color: #3a5070;
+    margin-bottom: 8px;
+    font-family: 'Courier New', monospace;
+  }
+
+  /* ===== DESTINATION CARD GRID ===== */
+  .dest-grid {
+    display: grid;
+    grid-template-columns: repeat(auto-fit, minmax(230px, 1fr));
+    gap: 16px;
+    margin: 28px 0;
+  }
+  .dest-card {
+    background: rgba(52,152,219,0.06);
+    border: 1px solid rgba(52,152,219,0.18);
+    border-radius: 10px;
+    padding: 20px;
+  }
+  .dest-card-name {
+    font-size: 16px;
+    font-weight: 700;
+    color: #ffffff;
+    margin-bottom: 4px;
+  }
+  .dest-card-country {
+    font-size: 11px;
+    color: #3498DB;
+    text-transform: uppercase;
+    letter-spacing: 1px;
+    font-family: 'Courier New', monospace;
+    margin-bottom: 10px;
+  }
+  .dest-card p { font-size: 13px; color: #8aaccc; margin: 0; }
+
+  /* ===== CALENDAR TABLE ===== */
+  .cal-table { width: 100%; border-collapse: collapse; margin: 28px 0; }
+  .cal-table th {
+    background: rgba(52,152,219,0.15);
+    color: #3498DB;
+    font-family: 'Courier New', monospace;
+    font-size: 11px;
+    letter-spacing: 1px;
+    text-transform: uppercase;
+    padding: 10px 14px;
+    text-align: left;
+    border-bottom: 2px solid rgba(52,152,219,0.3);
+  }
+  .cal-table td {
+    padding: 12px 14px;
+    border-bottom: 1px solid rgba(52,152,219,0.08);
+    font-size: 14px;
+    color: #b0c8e0;
+    vertical-align: top;
+  }
+  .cal-table td:first-child {
+    color: #ffffff;
+    font-weight: 700;
+    white-space: nowrap;
+  }
+  .cal-table tr:hover td { background: rgba(52,152,219,0.04); }
+
+  /* ===== BOTTOM SPONSOR ROW ===== */
+  #bottom-sponsors {
+    background: #0b1120;
+    padding: 48px 24px;
+    border-top: 1px solid rgba(52,152,219,0.15);
+    border-bottom: 1px solid rgba(52,152,219,0.15);
+  }
+  .bottom-sponsors-title {
+    text-align: center;
+    font-size: 11px;
+    letter-spacing: 3px;
+    text-transform: uppercase;
+    color: #4a6080;
+    font-family: 'Courier New', monospace;
+    margin-bottom: 28px;
+  }
+  .bottom-partner-grid {
+    display: grid;
+    grid-template-columns: repeat(auto-fit, minmax(200px, 1fr));
+    gap: 16px;
+    max-width: 820px;
+    margin: 0 auto;
+  }
+  .partner-card {
+    background: rgba(52,152,219,0.06);
+    border: 1px solid rgba(52,152,219,0.18);
+    border-radius: 10px;
+    padding: 22px 20px;
+    text-align: center;
+    text-decoration: none;
+    transition: all 0.2s;
+  }
+  .partner-card:hover { background: rgba(52,152,219,0.14); border-color: #3498DB; }
+  .partner-card-name {
+    font-size: 15px;
+    font-weight: 700;
+    color: #ffffff;
+    margin-bottom: 6px;
+    font-family: 'Courier New', monospace;
+  }
+  .partner-card-offer {
+    font-size: 12px;
+    color: #3498DB;
+    margin-bottom: 8px;
+    font-weight: 700;
+  }
+  .partner-card-desc { font-size: 12px; color: #6888a8; }
+  .partner-btn {
+    display: inline-block;
+    margin-top: 12px;
+    font-size: 11px;
+    font-weight: 700;
+    letter-spacing: 1px;
+    text-transform: uppercase;
+    color: #3498DB;
+    border: 1px solid rgba(52,152,219,0.4);
+    padding: 5px 14px;
+    border-radius: 20px;
+    font-family: 'Courier New', monospace;
+  }
+  .partner-card:hover .partner-btn { background: #3498DB; color: #fff; }
+
+  /* ===== CTA SECTION ===== */
+  #cta {
+    padding: 80px 24px;
+    text-align: center;
+    background: radial-gradient(ellipse 80% 60% at 50% 50%,
+      rgba(52,152,219,0.1) 0%, transparent 70%);
+  }
+  .cta-eyebrow {
+    font-size: 11px;
+    letter-spacing: 3px;
+    text-transform: uppercase;
+    color: #3498DB;
+    font-family: 'Courier New', monospace;
+    margin-bottom: 16px;
+  }
+  .cta-title {
+    font-size: clamp(26px, 4vw, 40px);
+    color: #ffffff;
+    font-weight: 700;
+    margin-bottom: 16px;
+    line-height: 1.2;
+  }
+  .cta-desc {
+    font-size: 16px;
+    color: #8aaccc;
+    max-width: 500px;
+    margin: 0 auto 32px;
+  }
+  .cta-form {
+    display: flex;
+    flex-wrap: wrap;
+    gap: 12px;
+    justify-content: center;
+    max-width: 480px;
+    margin: 0 auto;
+  }
+  .cta-input {
+    flex: 1;
+    min-width: 200px;
+    background: rgba(52,152,219,0.08);
+    border: 1px solid rgba(52,152,219,0.3);
+    border-radius: 8px;
+    padding: 14px 18px;
+    color: #c8d8ee;
+    font-size: 15px;
+    outline: none;
+    font-family: Georgia, serif;
+  }
+  .cta-input:focus { border-color: #3498DB; }
+  .cta-input::placeholder { color: #4a6080; }
+  .cta-btn {
+    background: #3498DB;
+    color: #fff;
+    font-size: 14px;
+    font-weight: 700;
+    padding: 14px 28px;
+    border-radius: 8px;
+    border: none;
+    cursor: pointer;
+    text-transform: uppercase;
+    letter-spacing: 1px;
+    font-family: 'Courier New', monospace;
+    transition: background 0.2s;
+    text-decoration: none;
+  }
+  .cta-btn:hover { background: #2980b9; }
+  .cta-perks {
+    margin-top: 20px;
+    font-size: 13px;
+    color: #4a6080;
+  }
+
+  /* ===== FOOTER ===== */
+  #footer {
+    background: #060910;
+    padding: 40px 24px 32px;
+    text-align: center;
+  }
+  .footer-brand {
+    font-size: 20px;
+    font-weight: 700;
+    color: #3498DB;
+    font-family: 'Courier New', monospace;
+    letter-spacing: 2px;
+    margin-bottom: 8px;
+  }
+  .footer-tagline {
+    font-size: 13px;
+    color: #3a5070;
+    margin-bottom: 24px;
+  }
+  .footer-divider {
+    width: 48px;
+    height: 1px;
+    background: rgba(52,152,219,0.3);
+    margin: 16px auto;
+  }
+  .footer-links {
+    display: flex;
+    flex-wrap: wrap;
+    justify-content: center;
+    gap: 20px;
+    margin-bottom: 20px;
+  }
+  .footer-links a {
+    font-size: 13px;
+    color: #4a6080;
+    text-decoration: none;
+    font-family: 'Courier New', monospace;
+  }
+  .footer-links a:hover { color: #3498DB; }
+  .footer-disclosure {
+    font-size: 11px;
+    color: #2a3850;
+    max-width: 600px;
+    margin: 0 auto 20px;
+    line-height: 1.6;
+  }
+  .footer-copy {
+    font-size: 12px;
+    color: #2a3850;
+    font-family: 'Courier New', monospace;
+  }
+
+  /* ===== HIGHLIGHT TEXT ===== */
+  .hl { color: #3498DB; }
+  .hl-white { color: #ffffff; }
+
+  /* ===== GEAR TABLE ===== */
+  .gear-table { width: 100%; border-collapse: collapse; margin: 28px 0; font-size: 14px; }
+  .gear-table th {
+    background: rgba(52,152,219,0.1);
+    color: #3498DB;
+    font-family: 'Courier New', monospace;
+    font-size: 11px;
+    letter-spacing: 1px;
+    text-transform: uppercase;
+    padding: 10px 14px;
+    text-align: left;
+    border-bottom: 2px solid rgba(52,152,219,0.25);
+  }
+  .gear-table td {
+    padding: 11px 14px;
+    border-bottom: 1px solid rgba(52,152,219,0.07);
+    color: #b0c8e0;
+    vertical-align: top;
+  }
+  .gear-table td:first-child { color: #e0eef8; font-weight: 600; }
+  .badge-yes { color: #2ecc71; font-weight: 700; }
+  .badge-no { color: #e74c3c; font-weight: 700; }
+  .badge-maybe { color: #f39c12; font-weight: 700; }
+
+  @media (max-width: 600px) {
+    .stats-row { flex-direction: column; }
+    .mid-ad { flex-direction: column; gap: 16px; }
+    .sponsors-grid { flex-direction: column; align-items: stretch; }
+  }
+
+/* ── CHAPTER ILLUSTRATIONS ── */
+.ch-illustration{width:100%;height:280px;overflow:hidden;position:relative;border-radius:16px;margin:0 0 40px;}
+.ch-illustration img{width:100%;height:100%;object-fit:cover;filter:brightness(.8) saturate(1.15);display:block;}
+.ch-illustration::after{content:'';position:absolute;bottom:0;left:0;right:0;height:100px;background:linear-gradient(transparent,var(--dark,#080808));}
+.cover-hero-img{width:100%;max-width:680px;height:340px;overflow:hidden;border-radius:20px;margin:0 auto 48px;position:relative;display:block;}
+.cover-hero-img img{width:100%;height:100%;object-fit:cover;filter:brightness(.82) saturate(1.2);}
+.cover-hero-img::after{content:'';position:absolute;inset:0;background:linear-gradient(to bottom,transparent 40%,rgba(0,0,0,.6) 100%);}
+</style>
+</head>
+<body>
+
+<!-- ===== COVER ===== -->
+<section id="cover">
+  <div class="cover-content">
+    <div class="cover-eyebrow">Nova Wings Publishing · 2026 Edition</div>
+    <div class="cover-hero-img">
+      <img src="https://image.pollinations.ai/prompt/paraglider%20soaring%20above%20mountains%20valley%20cinematic%20golden%20hour%20hero%20aerial%20freedom?width=900&height=400&nologo=true&seed=240" alt="Cover art">
+    </div>
+    <h1 class="cover-title">The Complete<br><span>Paragliding</span><br>Beginner's Guide</h1>
+    <p class="cover-subtitle">From your very first slope to solo flight — everything you need to launch safely, fly confidently, and fall in love with the sky.</p>
+    <span class="cover-badge">Free Edition · Share Freely</span>
+  </div>
+
+  <!-- SVG Hero Graphic -->
+  <div class="cover-svg-wrap">
+    <svg viewBox="0 0 700 340" xmlns="http://www.w3.org/2000/svg" style="width:100%;display:block;">
+      <!-- Sky gradient background -->
+      <defs>
+        <radialGradient id="sunGlow" cx="50%" cy="30%" r="40%">
+          <stop offset="0%" stop-color="#f9d876" stop-opacity="0.55"/>
+          <stop offset="40%" stop-color="#e8922a" stop-opacity="0.25"/>
+          <stop offset="100%" stop-color="#080c14" stop-opacity="0"/>
+        </radialGradient>
+        <radialGradient id="skyBg" cx="50%" cy="20%" r="70%">
+          <stop offset="0%" stop-color="#1a4a8a" stop-opacity="0.7"/>
+          <stop offset="100%" stop-color="#080c14" stop-opacity="0"/>
+        </radialGradient>
+        <linearGradient id="mountainGrad" x1="0" y1="0" x2="0" y2="1">
+          <stop offset="0%" stop-color="#162848"/>
+          <stop offset="100%" stop-color="#080c14"/>
+        </linearGradient>
+        <linearGradient id="mountainGrad2" x1="0" y1="0" x2="0" y2="1">
+          <stop offset="0%" stop-color="#0e1e38"/>
+          <stop offset="100%" stop-color="#080c14"/>
+        </linearGradient>
+        <linearGradient id="wingGrad" x1="0" y1="0" x2="1" y2="0.5">
+          <stop offset="0%" stop-color="#3498DB"/>
+          <stop offset="50%" stop-color="#5dade2"/>
+          <stop offset="100%" stop-color="#2471a3"/>
+        </linearGradient>
+        <filter id="glow">
+          <feGaussianBlur stdDeviation="3" result="coloredBlur"/>
+          <feMerge><feMergeNode in="coloredBlur"/><feMergeNode in="SourceGraphic"/></feMerge>
+        </filter>
+      </defs>
+
+      <!-- Sky -->
+      <rect x="0" y="0" width="700" height="340" fill="url(#skyBg)"/>
+
+      <!-- Sun glow -->
+      <circle cx="350" cy="100" r="48" fill="url(#sunGlow)" filter="url(#glow)"/>
+      <!-- Sun disk -->
+      <circle cx="350" cy="100" r="22" fill="#f9d97e" opacity="0.85" filter="url(#glow)"/>
+
+      <!-- Sun rays (subtle lines) -->
+      <g stroke="#f9d97e" stroke-width="1" opacity="0.25">
+        <line x1="350" y1="62" x2="350" y2="50"/>
+        <line x1="350" y1="138" x2="350" y2="150"/>
+        <line x1="312" y1="100" x2="300" y2="100"/>
+        <line x1="388" y1="100" x2="400" y2="100"/>
+        <line x1="323" y1="73" x2="315" y2="65"/>
+        <line x1="377" y1="73" x2="385" y2="65"/>
+        <line x1="323" y1="127" x2="315" y2="135"/>
+        <line x1="377" y1="127" x2="385" y2="135"/>
+      </g>
+
+      <!-- Atmosphere haze band -->
+      <rect x="0" y="200" width="700" height="30" fill="#0d1c36" opacity="0.5"/>
+
+      <!-- Far mountains (back layer) -->
+      <polygon points="0,340 0,230 60,185 130,220 200,170 280,210 350,155 420,200 500,165 580,205 640,175 700,210 700,340" fill="url(#mountainGrad2)" opacity="0.9"/>
+
+      <!-- Near mountains (front layer) -->
+      <polygon points="0,340 0,270 80,230 160,260 240,210 320,250 400,200 480,240 550,215 620,245 700,220 700,340" fill="url(#mountainGrad)"/>
+
+      <!-- Horizon line glow -->
+      <rect x="0" y="218" width="700" height="2" fill="#3498DB" opacity="0.18"/>
+
+      <!-- Clouds (simple ellipses) -->
+      <ellipse cx="120" cy="130" rx="55" ry="16" fill="#1a3a6e" opacity="0.5"/>
+      <ellipse cx="140" cy="122" rx="30" ry="12" fill="#1e4478" opacity="0.4"/>
+      <ellipse cx="570" cy="118" rx="60" ry="14" fill="#1a3a6e" opacity="0.45"/>
+      <ellipse cx="550" cy="112" rx="28" ry="10" fill="#1e4478" opacity="0.35"/>
+      <ellipse cx="220" cy="88" rx="35" ry="10" fill="#1a3264" opacity="0.35"/>
+
+      <!-- Paraglider wing (canopy) — positioned upper center -->
+      <!-- Main canopy shape -->
+      <path d="M 280,142 Q 290,118 350,112 Q 410,118 420,142 Q 400,148 350,145 Q 300,148 280,142 Z"
+            fill="url(#wingGrad)" opacity="0.95" filter="url(#glow)"/>
+
+      <!-- Wing cells / sections lines -->
+      <g stroke="#2471a3" stroke-width="0.7" opacity="0.6">
+        <line x1="300" y1="114" x2="298" y2="143"/>
+        <line x1="317" y1="112" x2="315" y2="144"/>
+        <line x1="334" y1="112" x2="332" y2="145"/>
+        <line x1="350" y1="112" x2="350" y2="145"/>
+        <line x1="366" y1="112" x2="368" y2="145"/>
+        <line x1="382" y1="113" x2="385" y2="144"/>
+        <line x1="398" y1="116" x2="402" y2="143"/>
+      </g>
+
+      <!-- Wing highlight -->
+      <path d="M 295,132 Q 350,126 405,132" stroke="#a8d8f8" stroke-width="1.5" fill="none" opacity="0.5"/>
+
+      <!-- Suspension lines (risers) — go from wing to pilot -->
+      <!-- Left lines -->
+      <line x1="298" y1="143" x2="345" y2="185" stroke="#5dade2" stroke-width="0.7" opacity="0.6"/>
+      <line x1="315" y1="144" x2="345" y2="185" stroke="#5dade2" stroke-width="0.7" opacity="0.6"/>
+      <line x1="332" y1="145" x2="348" y2="185" stroke="#5dade2" stroke-width="0.7" opacity="0.6"/>
+      <!-- Right lines -->
+      <line x1="368" y1="144" x2="355" y2="185" stroke="#5dade2" stroke-width="0.7" opacity="0.6"/>
+      <line x1="385" y1="143" x2="355" y2="185" stroke="#5dade2" stroke-width="0.7" opacity="0.6"/>
+      <line x1="402" y1="142" x2="355" y2="185" stroke="#5dade2" stroke-width="0.7" opacity="0.6"/>
+
+      <!-- Pilot harness (silhouette) -->
+      <!-- Body -->
+      <ellipse cx="350" cy="192" rx="10" ry="6" fill="#1a3a6e"/>
+      <rect x="344" y="189" width="12" height="14" rx="3" fill="#1a3a6e"/>
+      <!-- Head -->
+      <circle cx="350" cy="183" r="7" fill="#0f2244"/>
+      <!-- Helmet highlight -->
+      <path d="M 345,180 Q 350,176 355,180" stroke="#3498DB" stroke-width="1.5" fill="none" opacity="0.7"/>
+      <!-- Arms (brake toggles) -->
+      <line x1="344" y1="194" x2="332" y2="200" stroke="#1a3a6e" stroke-width="3" stroke-linecap="round"/>
+      <line x1="356" y1="194" x2="368" y2="200" stroke="#1a3a6e" stroke-width="3" stroke-linecap="round"/>
+      <!-- Legs -->
+      <line x1="347" y1="203" x2="343" y2="216" stroke="#0f2244" stroke-width="3" stroke-linecap="round"/>
+      <line x1="353" y1="203" x2="357" y2="216" stroke="#0f2244" stroke-width="3" stroke-linecap="round"/>
+
+      <!-- Thermal indicator (rising dots on left) -->
+      <g opacity="0.4">
+        <circle cx="250" cy="220" r="2.5" fill="#3498DB"/>
+        <circle cx="248" cy="207" r="2" fill="#3498DB"/>
+        <circle cx="252" cy="195" r="1.5" fill="#3498DB"/>
+        <circle cx="249" cy="184" r="1.2" fill="#3498DB"/>
+      </g>
+
+      <!-- Birds (tiny v shapes far away) -->
+      <g stroke="#a0b8d0" stroke-width="1" fill="none" opacity="0.5">
+        <path d="M 160,150 Q 163,147 166,150"/>
+        <path d="M 170,145 Q 173,142 176,145"/>
+        <path d="M 540,140 Q 543,137 546,140"/>
+        <path d="M 548,148 Q 551,145 554,148"/>
+      </g>
+    </svg>
+  </div>
+</section>
+
+<!-- ===== SPONSOR BANNER ===== -->
+<section id="sponsors">
+  <div class="sponsors-label">Proud Sponsors of This Guide</div>
+  <div class="sponsors-grid">
+    <a href="#" class="sponsor-slot">&#9650; ADVANCE Gliders</a>
+    <a href="#" class="sponsor-slot">&#9670; GIN Gliders</a>
+    <a href="#" class="sponsor-slot">&#9711; SKYWALK</a>
+    <a href="mailto:contact@novamedia.io" class="sponsor-slot advertise">&#43; [Advertise Here]<br><span style="font-size:10px;color:#3a5070;">contact@novamedia.io</span></a>
+  </div>
+</section>
+
+<!-- ===== TABLE OF CONTENTS ===== -->
+<section id="toc">
+  <div class="container">
+    <div class="section-label">Contents</div>
+    <h2 class="section-title">What's Inside</h2>
+    <ul class="toc-list">
+      <li>
+        <a href="#ch1">
+          <span class="toc-num">01</span>
+          <span class="toc-chapter-title">What Is Paragliding? The Sport That Changed How Humans See the World</span>
+          <span class="toc-arrow">&#8594;</span>
+        </a>
+      </li>
+      <li>
+        <a href="#ch2">
+          <span class="toc-num">02</span>
+          <span class="toc-chapter-title">Training Pathway: From Zero to Solo in 10 Days</span>
+          <span class="toc-arrow">&#8594;</span>
+        </a>
+      </li>
+      <li>
+        <a href="#ch3">
+          <span class="toc-num">03</span>
+          <span class="toc-chapter-title">Understanding Weather, Wind &amp; Thermals</span>
+          <span class="toc-arrow">&#8594;</span>
+        </a>
+      </li>
+      <li>
+        <a href="#ch4">
+          <span class="toc-num">04</span>
+          <span class="toc-chapter-title">Gear Guide: What You Actually Need to Start (and What to Skip)</span>
+          <span class="toc-arrow">&#8594;</span>
+        </a>
+      </li>
+      <li>
+        <a href="#ch5">
+          <span class="toc-num">05</span>
+          <span class="toc-chapter-title">Safety First: The Risks Nobody Talks About (and How to Manage Them)</span>
+          <span class="toc-arrow">&#8594;</span>
+        </a>
+      </li>
+      <li>
+        <a href="#ch6">
+          <span class="toc-num">06</span>
+          <span class="toc-chapter-title">The World's Best Paragliding Destinations in 2026</span>
+          <span class="toc-arrow">&#8594;</span>
+        </a>
+      </li>
+      <li>
+        <a href="#ch7">
+          <span class="toc-num">07</span>
+          <span class="toc-chapter-title">Your First Season: A Month-by-Month Training Calendar</span>
+          <span class="toc-arrow">&#8594;</span>
+        </a>
+      </li>
+    </ul>
+  </div>
+</section>
+
+<!-- ===== CHAPTER 1 ===== -->
+<article class="chapter" id="ch1">
+  <div class="container">
+    <div class="chapter-header">
+      <div class="chapter-number">Chapter 01</div>
+      <h2 class="chapter-title">What Is Paragliding? The Sport That Changed How Humans See the World</h2>
+      <div class="chapter-divider"></div>
+    </div>
+    <div class="ch-illustration">
+      <img src="https://image.pollinations.ai/prompt/paragliding%20wing%20canopy%20launch%20mountain%20valley%20below%20cinematic%20golden%20light?width=900&height=360&nologo=true&seed=241" alt="Chapter illustration">
+    </div>
+
+    <div class="stats-row">
+      <div class="stat-card">
+        <div class="stat-number">100,000+</div>
+        <div class="stat-label">Active pilots globally</div>
+      </div>
+      <div class="stat-card">
+        <div class="stat-number">1978</div>
+        <div class="stat-label">Year of the first recorded paraglider flight</div>
+      </div>
+      <div class="stat-card">
+        <div class="stat-number">564 km</div>
+        <div class="stat-label">World distance record (Honorin Hamard, 2021)</div>
+      </div>
+    </div>
+
+    <p>There is a moment, somewhere between the first nervous step off a grassy hillside and the sudden lifting silence of free flight, when everything changes. The ground stops mattering in the way it always has. Gravity becomes negotiable. You are no longer a creature of the earth — you are, however briefly, something else entirely. That moment is what paragliding offers, and it is why hundreds of thousands of people around the planet spend their weekends chasing ridgelines and reading clouds.</p>
+
+    <p>Paragliding is a non-motorised foot-launch aviation sport. The pilot sits in a harness suspended beneath a fabric wing — called a canopy or glider — that is kept aloft purely by aerodynamic lift. Unlike hang gliding, the wing has no rigid frame. It is an inflated, ram-air structure: air enters through open cells at the leading edge, pressurising the wing and giving it its characteristic shape. The result is a remarkably packable aircraft — the entire kit fits in a backpack you can carry up a mountain.</p>
+
+    <h3>A Brief History</h3>
+    <p>The sport's origins trace to 1978, when French mountaineer Gérard Bosson descended from a mountain in the Alps using a modified rectangular parachute. Within a decade, pioneers like Jean-Claude Bétemps had refined the concept, and the first dedicated paragliding schools were opening across Europe. By the early 1990s, the sport had spread to North America, South America, and Asia. Today, the Fédération Aéronautique Internationale (FAI) governs competition paragliding, with the Paragliding World Cup drawing elite pilots to venues across the globe.</p>
+
+    <p>Technology has evolved dramatically. Early wings were slow, unpredictable, and difficult to control. Modern beginner gliders are astonishingly forgiving, designed with passive safety systems that resist collapses and self-recover from turbulence. Harnesses have become ergonomic cocoons with airbag protectors. Variometers — instruments that measure vertical speed — have become GPS-enabled flight computers that talk you through thermals in real time.</p>
+
+    <div class="tip-box">
+      <div class="tip-box-label">Key Insight</div>
+      <p>Paragliding is the most accessible form of aviation. A student with zero flight experience can complete a certified beginner course in 7–10 days and fly solo at the end of it. No pilot's licence is required in most countries — only a certified training course completion card.</p>
+    </div>
+
+    <h3>How a Paraglider Actually Flies</h3>
+    <p>The canopy generates lift through exactly the same aerodynamic principle as a conventional aircraft wing: Bernoulli's principle combined with Newtonian reaction. Air flows faster over the curved upper surface of the wing than the flat lower surface, creating a pressure differential — lower above, higher below — that pushes the wing upward. The pilot controls direction using two brake toggles connected to the trailing edge. Pulling the right toggle deforms the right side of the wing, slowing it and pivoting the glider to the right. Pulling both toggles simultaneously induces a stall, slowing the glider for landing.</p>
+
+    <p>In still air, a modern beginner wing descends at roughly 1.1 to 1.3 metres per second — about as fast as a slow walking pace, vertically. To stay aloft, pilots must find air that is rising faster than they are sinking. This is the art of soaring: reading the landscape and atmosphere to locate thermals (columns of warm rising air), ridge lift (air deflected upward by hillsides), and wave systems (standing waves downwind of mountains). A skilled pilot can stay aloft for hours and cover enormous distances using energy that costs nothing and leaves no environmental footprint.</p>
+
+    <p>The accessibility of paragliding is one of its defining characteristics. You need no runway, no tow plane, no engine. You need a hill, a working glider, and the knowledge to use it safely. That simplicity — combined with the profound experience of free flight — is what has made paragliding one of the fastest-growing adventure sports on the planet.</p>
+
+    <!-- MID AD -->
+    <div class="ad-label">Sponsored</div>
+    <div class="mid-ad">
+      <div class="mid-ad-logo">ADVANCE<span>Swiss Glider Manufacturer</span></div>
+      <div class="mid-ad-copy">
+        <p><strong>The ALPHA 7 — Best-In-Class Beginner Glider</strong></p>
+        <p>Forgiving, fun, and certified EN A. Used by schools on 4 continents. Try before you buy at your nearest Advance dealer.</p>
+      </div>
+      <a href="#" class="mid-ad-cta">Learn More</a>
+    </div>
+  </div>
+</article>
+
+<!-- ===== CHAPTER 2 ===== -->
+<article class="chapter" id="ch2">
+  <div class="container">
+    <div class="chapter-header">
+      <div class="chapter-number">Chapter 02</div>
+      <h2 class="chapter-title">Training Pathway: From Zero to Solo in 10 Days</h2>
+      <div class="chapter-divider"></div>
+    </div>
+    <div class="ch-illustration">
+      <img src="https://image.pollinations.ai/prompt/paragliding%20student%20training%20instructor%20ground%20school%20slope%20launch%20cinematic?width=900&height=360&nologo=true&seed=242" alt="Chapter illustration">
+    </div>
+
+    <div class="stats-row">
+      <div class="stat-card">
+        <div class="stat-number">7–10</div>
+        <div class="stat-label">Typical days to first solo flight</div>
+      </div>
+      <div class="stat-card">
+        <div class="stat-number">P1–P4</div>
+        <div class="stat-label">BHPA/APPI pilot rating levels</div>
+      </div>
+      <div class="stat-card">
+        <div class="stat-number">~€800</div>
+        <div class="stat-label">Average cost of a beginner course (Europe)</div>
+      </div>
+    </div>
+
+    <p>The path from curious beginner to solo paraglider pilot is shorter than almost any other aviation discipline — but it requires structured, professional instruction every step of the way. Do not attempt to teach yourself from YouTube videos. The consequences of a mistake at altitude are severe and irreversible. Every legitimate training pathway begins on the ground, proceeds through low-altitude training slopes, and only graduates students to higher sites after demonstrable competence at each stage.</p>
+
+    <h3>Day 1–2: Ground Handling and Theory</h3>
+    <p>Your course begins at ground level. You will spend the first morning learning to lay out the wing, inflate it, and control it on flat ground. This discipline — called ground handling or "kiting" — is the single most important skill a pilot can develop. A pilot who can perfectly control a wing on the ground in any wind condition is a pilot who will be safe in the air. You will practice forward inflations (running into the wind with the glider rising behind you), reverse inflations (facing the wing and using the brake toggles like reins), and basic steering inputs.</p>
+
+    <p>The afternoons of days one and two typically include classroom sessions covering aerodynamics, meteorology basics, airspace rules, and emergency procedures. Pay close attention to the meteorology content — weather judgment is the single greatest safety skill a paraglider pilot can possess.</p>
+
+    <div class="tip-box">
+      <div class="tip-box-label">Pro Tip</div>
+      <p>Spend extra time on ground handling even after your course ends. World-class pilots still practise kiting in their local park. An hour of ground handling each week is worth more to your skill development than two hours in the air on a calm day.</p>
+    </div>
+
+    <h3>Day 3–5: Bunny Slopes and First Flights</h3>
+    <p>With ground handling under control, you will move to a gentle training slope — typically 20 to 40 metres of elevation. Instructors use radios to guide you through your first flights, which may last only 20–30 seconds each. The focus is on: a clean inflation, a controlled run, lifting off without overcorrecting, flying a straight line, and executing a flared landing. You will make dozens of these short flights. Each one builds the muscle memory and spatial awareness that longer flights require.</p>
+
+    <h3>Day 6–8: Higher Site Flights</h3>
+    <p>As your instructors gain confidence in your ground handling and low-level control, you will progress to a larger hill. Flights here might last 3–10 minutes, giving you time to practice turns, figure-eights, and approach patterns. You will learn to identify a safe landing zone from altitude, plan a consistent circuit, and manage your height to arrive in the landing area on target.</p>
+
+    <h3>Day 9–10: First Solo Assessments</h3>
+    <p>The final days assess your readiness for solo flight. Instructors observe your pre-flight checks, weather assessment, launch technique, in-flight control, and landing precision. Most reputable courses use a standardised assessment rubric. Passing earns you a P1 (beginner) certification, which is your licence to fly supervised sites and continue your education under mentor pilots.</p>
+
+    <p>After your initial certification, the journey accelerates. Many pilots progress to P2 (club pilot) within their first season by accumulating flight hours, completing additional training, and attending workshops in SIV (Simulated Incident in Volley) manoeuvres, where you deliberately induce and recover from wing collapses under controlled conditions above water.</p>
+
+    <!-- MID AD -->
+    <div class="ad-label">Sponsored</div>
+    <div class="mid-ad">
+      <div class="mid-ad-logo">GIN GLIDERS<span>Korea · Worldwide Dealer Network</span></div>
+      <div class="mid-ad-copy">
+        <p><strong>Beginner Courses at GIN-Certified Schools</strong></p>
+        <p>Find an accredited training partner near you. GIN school packages include wing rental and full instructor support.</p>
+      </div>
+      <a href="#" class="mid-ad-cta">Find a School</a>
+    </div>
+  </div>
+</article>
+
+<!-- ===== CHAPTER 3 ===== -->
+<article class="chapter" id="ch3">
+  <div class="container">
+    <div class="chapter-header">
+      <div class="chapter-number">Chapter 03</div>
+      <h2 class="chapter-title">Understanding Weather, Wind &amp; Thermals</h2>
+      <div class="chapter-divider"></div>
+    </div>
+    <div class="ch-illustration">
+      <img src="https://image.pollinations.ai/prompt/weather%20thermals%20wind%20clouds%20sky%20meteorology%20paragliding%20cinematic%20dramatic%20sky?width=900&height=360&nologo=true&seed=243" alt="Chapter illustration">
+    </div>
+
+    <div class="stats-row">
+      <div class="stat-card">
+        <div class="stat-number">25 km/h</div>
+        <div class="stat-label">Max recommended wind speed for beginners</div>
+      </div>
+      <div class="stat-card">
+        <div class="stat-number">2–4 m/s</div>
+        <div class="stat-label">Typical thermal climb rate</div>
+      </div>
+      <div class="stat-card">
+        <div class="stat-number">80%</div>
+        <div class="stat-label">Of accidents linked to poor weather judgment</div>
+      </div>
+    </div>
+
+    <p>If paragliding has a single most important subject, it is meteorology. Not in the academic sense — you do not need a degree in atmospheric physics — but in the practical, observational sense. You need to understand what the sky is telling you before you launch, and you need to keep reading it throughout every flight. This chapter introduces the core concepts that every beginner must understand before leaving the ground.</p>
+
+    <h3>Wind: The Engine and the Enemy</h3>
+    <p>Wind is both what makes paragliding possible and what makes it dangerous. A moderate, steady headwind of 10–15 km/h is ideal for most sites. It gives the wing clean, consistent pressure during inflation and provides lift on ridges. But wind is rarely perfectly steady. You need to understand:</p>
+    <ul>
+      <li><strong>Wind gradient:</strong> Wind speed increases with altitude. Near the ground, friction slows the air. At 30 metres, the wind might be twice as strong as at ground level. This matters for your launch technique.</li>
+      <li><strong>Turbulence:</strong> Obstacles — trees, buildings, ridges — create turbulent wakes downwind. Never fly in the lee of an obstacle. The turbulence is invisible and can collapse your wing.</li>
+      <li><strong>Venturi effect:</strong> Wind accelerates through gaps between hills or valleys. Speeds can double without warning in these zones.</li>
+      <li><strong>Gusts:</strong> A gust is a rapid increase in wind speed. Gusts of 30–40% above the mean wind speed are common and can violently surge a canopy. Forecast gustiness before every flight.</li>
+    </ul>
+
+    <div class="warning-box">
+      <div class="warning-box-label">Critical Warning</div>
+      <p>If the wind speed exceeds your glider's rated speed range, or if gusts exceed 30% of the mean, do not fly. No exception. No "just one quick flight." Overconfidence in marginal conditions is the most common cause of paragliding fatalities.</p>
+    </div>
+
+    <h3>Thermals: Your Free Elevator</h3>
+    <p>Thermals are columns of warm air that rise when the sun heats the ground unevenly. Dark surfaces — tarmac roads, ploughed fields, rock faces — absorb more heat than vegetation and release that heat into the air above them, creating a rising bubble. When a thermal reaches a certain size and speed, it detaches from the ground and rises, sometimes to the base of cumulus clouds thousands of metres above.</p>
+
+    <p>As a beginner, thermals are primarily something to avoid — or at least to treat with caution. In strong conditions, thermals can be turbulent, asymmetric, and powerful enough to rapidly gain altitude you don't want. As your experience grows, you will learn to enter thermals gently, circle within them to climb (called "thermalling"), and use them to extend your flights significantly.</p>
+
+    <p>Clues to thermal location include: cumulus clouds (thermals frequently top out into clouds), wheeling birds (raptors and storks are expert thermal finders), ground features that absorb heat, and the light choppiness you feel in the glider as you pass through the edge of a rising column.</p>
+
+    <h3>Reading Forecast Apps</h3>
+    <p>The modern paragliding pilot has extraordinary meteorological tools available. Apps like XCMet, Windy, Meteoblue, and RASP provide detailed forecasts of thermal strength, wind shear, cloud base height, and boundary layer depth. Learn to read these tools before your first solo season. Cross-reference multiple sources. Look for consistency between forecasts — if three models disagree significantly, the day is uncertain and caution is warranted.</p>
+
+    <!-- MID AD -->
+    <div class="ad-label">Sponsored</div>
+    <div class="mid-ad">
+      <div class="mid-ad-logo">ADVANCE<span>Certified Meteorology Workshops</span></div>
+      <div class="mid-ad-copy">
+        <p><strong>Weather Reading Clinics — 2026 Schedule</strong></p>
+        <p>One-day meteorology workshops for beginner and intermediate pilots. Taught by qualified mountain guides and pilots.</p>
+      </div>
+      <a href="#" class="mid-ad-cta">View Dates</a>
+    </div>
+  </div>
+</article>
+
+<!-- ===== CHAPTER 4 ===== -->
+<article class="chapter" id="ch4">
+  <div class="container">
+    <div class="chapter-header">
+      <div class="chapter-number">Chapter 04</div>
+      <h2 class="chapter-title">Gear Guide: What You Actually Need to Start (and What to Skip)</h2>
+      <div class="chapter-divider"></div>
+    </div>
+    <div class="ch-illustration">
+      <img src="https://image.pollinations.ai/prompt/paragliding%20gear%20harness%20wing%20helmet%20reserve%20equipment%20laid%20out%20cinematic%20dark?width=900&height=360&nologo=true&seed=244" alt="Chapter illustration">
+    </div>
+
+    <div class="stats-row">
+      <div class="stat-card">
+        <div class="stat-number">€4,000–€7,500</div>
+        <div class="stat-label">Full new beginner kit cost</div>
+      </div>
+      <div class="stat-card">
+        <div class="stat-number">4–5 kg</div>
+        <div class="stat-label">Typical packed weight of wing + harness</div>
+      </div>
+      <div class="stat-card">
+        <div class="stat-number">EN A/B</div>
+        <div class="stat-label">Certification levels for beginners</div>
+      </div>
+    </div>
+
+    <p>Paragliding gear is expensive, and the market is full of products ranging from essential to unnecessary. Understanding what you genuinely need — and what can wait — will save you money and help you avoid the trap of buying the wrong equipment for your skill level. The most important rule: never compromise on the wing and the reserve parachute. Everything else is secondary.</p>
+
+    <h3>The Wing (Glider / Canopy)</h3>
+    <p>Your wing is your aircraft. Paragliding wings are certified under the European EN standard (EN A through EN D, where A is safest and D is for experts) or the German LTF standard. As a beginner, you want nothing beyond EN B, and for your first 50 hours, EN A is strongly recommended. EN A wings are designed to resist collapses, self-recover without pilot input, and are forgiving of imprecise control inputs.</p>
+    <p>Recommended beginner wings in 2026 include the Advance Alpha 7, Gin Explorer, Skywalk Chili 5, Nova Mentor 7 Light (for lighter pilots), and the Ozone Mojo 7. All are excellent. Buy the size recommended by your instructor based on your all-up weight (body + gear).</p>
+
+    <div class="tip-box">
+      <div class="tip-box-label">Buying Tip</div>
+      <p>Do not buy a used wing without a porosity test. Fabric ages and becomes porous, reducing performance and safety. A reputable dealer will test the wing for you. Avoid any wing over 5 years old as a first purchase.</p>
+    </div>
+
+    <h3>The Harness</h3>
+    <p>The harness is your seat, your back protection, and your connection point to the wing. Modern harnesses fall into three categories: pod/cocoon harnesses (aerodynamic, protective, standard for cross-country flying), reversible harnesses (double as a backpack, great for hiking-and-flying), and lightweight harnesses (minimal protection, for experienced pilots only). As a beginner, choose a mid-range pod harness with a certified airbag back protector. The airbag deploys on impact and is dramatically more effective than foam back protectors.</p>
+
+    <h3>The Reserve Parachute</h3>
+    <p>A reserve parachute is a round or square parachute stored in a dedicated pocket in the harness, deployed in extreme emergency (complete wing failure, unrecoverable spin, mid-air collision). It is not optional. In most countries, flying without a reserve is illegal at certified sites. Choose a certified round reserve for your first wing — they are simple, reliable, and effective. Steerable reserves offer more control but are better suited to more experienced pilots.</p>
+
+    <table class="gear-table">
+      <thead>
+        <tr>
+          <th>Item</th>
+          <th>Essential?</th>
+          <th>Approx. Cost (New)</th>
+          <th>Notes</th>
+        </tr>
+      </thead>
+      <tbody>
+        <tr><td>Wing (EN A)</td><td><span class="badge-yes">YES</span></td><td>€2,000–€3,500</td><td>Don't compromise here</td></tr>
+        <tr><td>Harness + airbag</td><td><span class="badge-yes">YES</span></td><td>€600–€1,200</td><td>Buy certified back protector</td></tr>
+        <tr><td>Reserve parachute</td><td><span class="badge-yes">YES</span></td><td>€500–€900</td><td>Requires periodic repacking</td></tr>
+        <tr><td>Helmet (full-face)</td><td><span class="badge-yes">YES</span></td><td>€120–€350</td><td>Mandatory at all schools</td></tr>
+        <tr><td>Variometer / GPS</td><td><span class="badge-maybe">SOON</span></td><td>€250–€600</td><td>Not needed on training days</td></tr>
+        <tr><td>Radio / intercom</td><td><span class="badge-yes">YES</span></td><td>€80–€180</td><td>Required during course</td></tr>
+        <tr><td>Speed bar</td><td><span class="badge-maybe">LATER</span></td><td>Included in harness</td><td>For intermediate pilots</td></tr>
+        <tr><td>Altimeter (standalone)</td><td><span class="badge-no">SKIP</span></td><td>—</td><td>Vario covers this</td></tr>
+        <tr><td>Gloves</td><td><span class="badge-yes">YES</span></td><td>€20–€60</td><td>Grip in cold conditions</td></tr>
+        <tr><td>Boots (ankle support)</td><td><span class="badge-yes">YES</span></td><td>€80–€200</td><td>Hiking boots work fine</td></tr>
+      </tbody>
+    </table>
+
+    <!-- MID AD -->
+    <div class="ad-label">Sponsored</div>
+    <div class="mid-ad">
+      <div class="mid-ad-logo">SKYWALK<span>German Engineering · Alpine Performance</span></div>
+      <div class="mid-ad-copy">
+        <p><strong>Chili 5 — The Beginner's Glider That Grows With You</strong></p>
+        <p>EN A certified. Trusted by 3,000+ students worldwide. Available in sizes XS–L. 2-year factory warranty.</p>
+      </div>
+      <a href="#" class="mid-ad-cta">Shop Now</a>
+    </div>
+  </div>
+</article>
+
+<!-- ===== CHAPTER 5 ===== -->
+<article class="chapter" id="ch5">
+  <div class="container">
+    <div class="chapter-header">
+      <div class="chapter-number">Chapter 05</div>
+      <h2 class="chapter-title">Safety First: The Risks Nobody Talks About (and How to Manage Them)</h2>
+      <div class="chapter-divider"></div>
+    </div>
+    <div class="ch-illustration">
+      <img src="https://image.pollinations.ai/prompt/paragliding%20safety%20risk%20management%20reserve%20parachute%20cinematic%20dramatic%20warning?width=900&height=360&nologo=true&seed=245" alt="Chapter illustration">
+    </div>
+
+    <div class="stats-row">
+      <div class="stat-card">
+        <div class="stat-number">1 in 10,000</div>
+        <div class="stat-label">Fatal accident rate per flight hour</div>
+      </div>
+      <div class="stat-card">
+        <div class="stat-number">70%</div>
+        <div class="stat-label">Of accidents occur in strong/turbulent conditions</div>
+      </div>
+      <div class="stat-card">
+        <div class="stat-number">SIV</div>
+        <div class="stat-label">Most important safety training after P2</div>
+      </div>
+    </div>
+
+    <p>Paragliding is safer than many people assume and more dangerous than some practitioners acknowledge. The sport sits in an interesting statistical middle ground: safer than motorcycle riding per hour of exposure, but carrying risk that demands consistent respect. The great majority of paragliding accidents are preventable. They cluster around a small number of causal patterns, almost all of which involve human decision-making rather than mechanical failure.</p>
+
+    <h3>The Real Risk Landscape</h3>
+    <p>The British Hang Gliding and Paragliding Association (BHPA) publishes detailed annual accident reports. The consistent findings over the past decade paint a clear picture of where danger actually lies:</p>
+    <ul>
+      <li><strong>Flying in unsuitable conditions</strong> — this is the leading cause of serious accidents, contributing to approximately 70% of fatalities. "Unsuitable" means conditions beyond the pilot's experience, or beyond the wing's certification, or both.</li>
+      <li><strong>Launching errors</strong> — aborted launches, twisted launches, and launches into cross-winds are common causes of low-altitude injuries. Most occur in the first 30 seconds of flight.</li>
+      <li><strong>Stalls and asymmetric collapses</strong> — caused by aggressive braking or flying in turbulent air close to the ground. A stall at 20 metres is potentially fatal; a stall at 150 metres is often recoverable.</li>
+      <li><strong>Reserve deployment failures</strong> — not because reserves don't work, but because pilots throw them too late, or not at all. Emergency procedures must be drilled until they are automatic.</li>
+      <li><strong>Collision</strong> — mid-air collisions at busy sites, and collisions with the terrain during landing approaches.</li>
+    </ul>
+
+    <div class="warning-box">
+      <div class="warning-box-label">Honest Assessment</div>
+      <p>The single most dangerous person in paragliding is not the raw beginner — they are supervised and cautious. The most dangerous pilot is the intermediate, around 50–200 hours, who has gained confidence faster than judgment. This period demands deliberate humility.</p>
+    </div>
+
+    <h3>Building a Safety Culture</h3>
+    <p>The most effective safety tool is not a better wing or a better helmet — it is a rigorous personal culture of decision-making. Experienced pilots use "go/no-go" checklists before every session. They establish hard limits — wind speed maximums, time-of-day windows, site requirements — and they do not negotiate with those limits when conditions push against them.</p>
+    <p>The pilot community uses the phrase "fly within your personal envelope." This means: know your actual current skill level (not your aspirational one), and only fly in conditions that envelope comfortably contains. Your envelope expands with experience. But it expands through deliberate training, not through gambling on days that are marginally above your limit.</p>
+
+    <h3>SIV Training: The Most Important Course After P2</h3>
+    <p>SIV stands for "Simulation d'Incident en Vol" — simulated in-flight incident. It is a training course where a fully qualified pilot deliberately induces stalls, collapses, spins, and spirals in controlled airspace over water, with a safety boat below and an instructor on radio. The goal is not thrill-seeking. The goal is to give your body the muscle memory of recovery before an emergency makes it necessary. After an SIV course, pilots almost universally report feeling dramatically more calm and capable in turbulent air. Book your first SIV course within your first year of flying.</p>
+
+    <!-- MID AD -->
+    <div class="ad-label">Sponsored</div>
+    <div class="mid-ad">
+      <div class="mid-ad-logo">ADVANCE<span>Safety Workshops · SIV Courses</span></div>
+      <div class="mid-ad-copy">
+        <p><strong>Advance SIV 2026 — Oludeniz, Turkey</strong></p>
+        <p>5-day intensive SIV course over water. Limited to 8 pilots per session. All skill levels from P2 upward.</p>
+      </div>
+      <a href="#" class="mid-ad-cta">Book Your Spot</a>
+    </div>
+  </div>
+</article>
+
+<!-- ===== CHAPTER 6 ===== -->
+<article class="chapter" id="ch6">
+  <div class="container">
+    <div class="chapter-header">
+      <div class="chapter-number">Chapter 06</div>
+      <h2 class="chapter-title">The World's Best Paragliding Destinations in 2026</h2>
+      <div class="chapter-divider"></div>
+    </div>
+    <div class="ch-illustration">
+      <img src="https://image.pollinations.ai/prompt/paragliding%20destinations%20world%20Alps%20Himalayas%20Brazil%20aerial%20cinematic%20golden%20hour?width=900&height=360&nologo=true&seed=246" alt="Chapter illustration">
+    </div>
+
+    <div class="stats-row">
+      <div class="stat-card">
+        <div class="stat-number">50+</div>
+        <div class="stat-label">World-class sites on 6 continents</div>
+      </div>
+      <div class="stat-card">
+        <div class="stat-number">300+</div>
+        <div class="stat-label">Flying days/year in Oludeniz</div>
+      </div>
+      <div class="stat-card">
+        <div class="stat-number">4,800m</div>
+        <div class="stat-label">Altitude of Bir Billing's primary launch</div>
+      </div>
+    </div>
+
+    <p>The world is full of extraordinary flying sites, but certain locations have earned legendary status through a combination of reliable weather, dramatic terrain, excellent infrastructure, and thriving pilot communities. Whether you are taking your first holiday flights as a freshly certified P1, or planning an extended paragliding expedition, these are the destinations that define the sport in 2026.</p>
+
+    <div class="dest-grid">
+      <div class="dest-card">
+        <div class="dest-card-name">Oludeniz</div>
+        <div class="dest-card-country">Turkey · Mediterranean</div>
+        <p>Launches from Babadag Mountain at 1,969m, landing on a famous blue lagoon beach. Tandem-heavy but excellent for solos. Perfect 300+ flying days per year. Beginner-friendly with multiple instructors year-round.</p>
+      </div>
+      <div class="dest-card">
+        <div class="dest-card-name">Interlaken / Lauterbrunnen</div>
+        <div class="dest-card-country">Switzerland · Alps</div>
+        <p>The postcard Alps. Launch above spectacular valley walls, fly past waterfalls. World-class organisation and landing zones. Expensive, but unforgettable. Best from May to October.</p>
+      </div>
+      <div class="dest-card">
+        <div class="dest-card-name">Bir Billing</div>
+        <div class="dest-card-country">India · Himachal Pradesh</div>
+        <p>The "paragliding capital of Asia." Epic Himalayan scenery, strong thermals, affordable. Hosts the Paragliding World Cup. Best season October–November and March–June.</p>
+      </div>
+      <div class="dest-card">
+        <div class="dest-card-name">Chamonix</div>
+        <div class="dest-card-country">France · Mont Blanc</div>
+        <p>Advanced terrain requiring experience. Paragliding with direct views of the Mont Blanc massif. Reserved for P2+ pilots. Summer season only. Cable cars access launches easily.</p>
+      </div>
+      <div class="dest-card">
+        <div class="dest-card-name">Medellín / Rio Claro</div>
+        <div class="dest-card-country">Colombia · South America</div>
+        <p>Year-round thermals and a growing paragliding scene. Extremely affordable. The Roldanillo area hosts some of South America's best XC flying. Entry visa-free for most nationals.</p>
+      </div>
+      <div class="dest-card">
+        <div class="dest-card-name">Queenstown</div>
+        <div class="dest-card-country">New Zealand · South Island</div>
+        <p>Iconic Southern Alps backdrop. Remarkably consistent southerly winds make Coronet Peak a world-class soaring site. A perfect combination with other adventure activities in the region.</p>
+      </div>
+      <div class="dest-card">
+        <div class="dest-card-name">Annecy</div>
+        <div class="dest-card-country">France · Haute-Savoie</div>
+        <p>The lake, the mountains, the cheese. Annecy is widely considered the spiritual home of European paragliding. Excellent infrastructure, schools, and the Coupe Icare festival every September.</p>
+      </div>
+      <div class="dest-card">
+        <div class="dest-card-name">Ager / Lleida</div>
+        <div class="dest-card-country">Spain · Pre-Pyrenees</div>
+        <p>Consistent strong thermals and long XC routes across the Pyrenean foothills. Host of multiple World Cup legs. The Montsec range provides ridge lift from spring through autumn.</p>
+      </div>
+    </div>
+
+    <div class="tip-box">
+      <div class="tip-box-label">Travel Tip</div>
+      <p>When travelling to a new site as a beginner, always book a local guide or introductory briefing. Site guides know the local quirks — afternoon valley winds, rotor zones, restricted airspace — that maps and apps don't fully convey. Most sites have a local club or school that offers site briefings for visiting pilots.</p>
+    </div>
+
+    <h3>Beginner-Best Destinations Shortlist</h3>
+    <p>If you are in your first or second year of flying, your priorities are different from an experienced cross-country pilot. You want: consistent, benign conditions (not too strong, not too turbulent), good infrastructure (easy access, clear landing zones, nearby assistance), a large pilot community (so you can learn from others), and ideally a combination with a good holiday destination for non-flying days. For these reasons, <span class="hl-white">Oludeniz</span>, <span class="hl-white">Annecy</span>, <span class="hl-white">Interlaken</span>, and <span class="hl-white">Bir Billing</span> consistently top beginner destination polls. All four offer access to certified instructors, tandem flights to preview sites before soloing, and a welcoming culture for new pilots.</p>
+
+    <!-- MID AD -->
+    <div class="ad-label">Sponsored</div>
+    <div class="mid-ad">
+      <div class="mid-ad-logo">GIN GLIDERS<span>Explore the Skies. Globally.</span></div>
+      <div class="mid-ad-copy">
+        <p><strong>GIN Explorer Package — Travel Ready, Certified Safe</strong></p>
+        <p>Ultra-packable beginner wing with integrated travel bag. Under 5kg. Adventure starts here.</p>
+      </div>
+      <a href="#" class="mid-ad-cta">Explore Range</a>
+    </div>
+  </div>
+</article>
+
+<!-- ===== CHAPTER 7 ===== -->
+<article class="chapter" id="ch7">
+  <div class="container">
+    <div class="chapter-header">
+      <div class="chapter-number">Chapter 07</div>
+      <h2 class="chapter-title">Your First Season: A Month-by-Month Training Calendar</h2>
+      <div class="chapter-divider"></div>
+    </div>
+    <div class="ch-illustration">
+      <img src="https://image.pollinations.ai/prompt/paragliding%20season%20training%20calendar%20progress%20first%20solo%20flight%20milestone%20cinematic?width=900&height=360&nologo=true&seed=247" alt="Chapter illustration">
+    </div>
+
+    <div class="stats-row">
+      <div class="stat-card">
+        <div class="stat-number">50+</div>
+        <div class="stat-label">Target flight hours in year one</div>
+      </div>
+      <div class="stat-card">
+        <div class="stat-number">P2</div>
+        <div class="stat-label">Realistic certification target after 6 months</div>
+      </div>
+      <div class="stat-card">
+        <div class="stat-number">1 SIV</div>
+        <div class="stat-label">Minimum safety training target in year one</div>
+      </div>
+    </div>
+
+    <p>The first year of paragliding is the most critical and the most exciting. Your skill grows fastest now, your confidence builds rapidly, and every flight is a new milestone. But this is also the period of greatest statistical risk, because confidence and judgment are not the same thing, and they tend to develop at different speeds. The structured calendar below gives you a month-by-month framework for progressing safely through your first season.</p>
+
+    <p>This calendar assumes a spring start (April/May in the northern hemisphere) following a beginner course completed in late winter or on a trip. Adapt to your local conditions and always consult your instructor before progressing.</p>
+
+    <table class="cal-table">
+      <thead>
+        <tr>
+          <th>Month</th>
+          <th>Focus</th>
+          <th>Milestones</th>
+          <th>Key Activities</th>
+        </tr>
+      </thead>
+      <tbody>
+        <tr>
+          <td>Month 1<br><span style="color:#3498DB;font-size:11px;">April</span></td>
+          <td>Consolidation &amp; ground handling</td>
+          <td>10+ site flights. Consistent launches. Accurate landings within 10m of target.</td>
+          <td>Fly supervised sites only. 2–3 sessions/week. Minimum 1hr ground handling per session.</td>
+        </tr>
+        <tr>
+          <td>Month 2<br><span style="color:#3498DB;font-size:11px;">May</span></td>
+          <td>Weather reading &amp; flight planning</td>
+          <td>20+ total flights. Can independently assess a "green light" flying day.</td>
+          <td>Start using Windy / XCMet daily. Journal every flight session with weather notes. Join a local club.</td>
+        </tr>
+        <tr>
+          <td>Month 3<br><span style="color:#3498DB;font-size:11px;">June</span></td>
+          <td>Extended flights &amp; soaring</td>
+          <td>First flights over 20 minutes. First ridge soaring session. 35+ total flights.</td>
+          <td>Seek ridge soaring opportunities. Practice figure-eights in lift. Attend a club ground-handling session.</td>
+        </tr>
+        <tr>
+          <td>Month 4<br><span style="color:#3498DB;font-size:11px;">July</span></td>
+          <td>Thermal awareness &amp; P2 prep</td>
+          <td>Begin to identify and gently work thermals. 50+ total flights.</td>
+          <td>Complete P2 (Club Pilot) assessment if your school offers it. Fly new sites with experienced mentor.</td>
+        </tr>
+        <tr>
+          <td>Month 5<br><span style="color:#3498DB;font-size:11px;">August</span></td>
+          <td>SIV training &amp; advanced safety</td>
+          <td>SIV course completion. Reserve deployment practised. Stall recovery normalised.</td>
+          <td>Book and attend SIV course. This is the most important investment of your first season. Non-negotiable.</td>
+        </tr>
+        <tr>
+          <td>Month 6<br><span style="color:#3498DB;font-size:11px;">September</span></td>
+          <td>XC introduction &amp; consolidation</td>
+          <td>First cross-country flight (5+ km). 65+ total flights. Confident in most autumn conditions.</td>
+          <td>Fly with an XC mentor. Study glide ratios and speed bar usage. Attend a club XC introduction day if available.</td>
+        </tr>
+        <tr>
+          <td>Month 7+<br><span style="color:#3498DB;font-size:11px;">Ongoing</span></td>
+          <td>Year-round development</td>
+          <td>100+ flights by end of year one. P2 certified. Growing XC distances.</td>
+          <td>Off-season: ground handling in the park, simulator training, meteorology study. Plan a destination trip for spring.</td>
+        </tr>
+      </tbody>
+    </table>
+
+    <div class="tip-box">
+      <div class="tip-box-label">Mindset Tip</div>
+      <p>Keep a detailed flight log — not just the date and location, but the weather conditions, what you worked on, what went well, and what surprised you. This forces deliberate reflection and accelerates learning dramatically. Many experienced pilots credit their flight journal as their most important training tool.</p>
+    </div>
+
+    <h3>Building Your Pilot Community</h3>
+    <p>Paragliding is not a solo sport in the social sense. The fastest and safest pilots in the world spend enormous time flying with more experienced pilots, watching how they read conditions, how they position themselves in thermals, and how they make go/no-go decisions. Find your local club, volunteer at events, offer to drive retrieve for more experienced pilots on XC days. Every retrieve drive is a free lesson in navigation, weather reading, and long-distance decision-making.</p>
+
+    <p>Online communities — the forums at Paraglidingforum.com, national association groups, and the growing presence of pilots on social video platforms — offer a tremendous supplementary resource. But online information has limits. Local knowledge, site-specific guidance, and real-time mentorship from pilots who know your site, your conditions, and your current skill level are irreplaceable. Invest in your local club. It will pay dividends for your entire flying career.</p>
+
+    <p>By the end of your first full season, if you have followed a structured progression, flown consistently but not recklessly, completed your SIV training, and integrated yourself into a local pilot community, you will be well on your way to becoming a capable, safe, and joyful paragliding pilot. The sky is patient. It will be there next weekend. Fly within yourself, grow deliberately, and the rewards are boundless.</p>
+
+    <!-- MID AD -->
+    <div class="ad-label">Sponsored</div>
+    <div class="mid-ad">
+      <div class="mid-ad-logo">ADVANCE<span>Progress Smarter. Fly Safer.</span></div>
+      <div class="mid-ad-copy">
+        <p><strong>Advance Pilot Progress Programme — Year 1 Support</strong></p>
+        <p>Structured progression plans, certified school network, and a community of 30,000+ Advance pilots worldwide.</p>
+      </div>
+      <a href="#" class="mid-ad-cta">Join Now</a>
+    </div>
+  </div>
+</article>
+
+<!-- ===== BOTTOM SPONSOR ROW ===== -->
+<section id="bottom-sponsors">
+  <div class="bottom-sponsors-title">Partner Offers for Nova Wings Readers</div>
+  <div class="bottom-partner-grid">
+    <a href="#" class="partner-card">
+      <div class="partner-card-name">ADVANCE</div>
+      <div class="partner-card-offer">10% off first wing</div>
+      <div class="partner-card-desc">Use code NOVAWINGS at checkout. Valid on Alpha 7 and Lightness 4 series.</div>
+      <div class="partner-btn">Claim Offer</div>
+    </a>
+    <a href="#" class="partner-card">
+      <div class="partner-card-name">GIN GLIDERS</div>
+      <div class="partner-card-offer">Free bag with any wing</div>
+      <div class="partner-card-desc">Explorer and Camino series. Free flight bag (€120 value) with any 2026 wing purchase.</div>
+      <div class="partner-btn">Shop Gin</div>
+    </a>
+    <a href="#" class="partner-card">
+      <div class="partner-card-name">SKYWALK</div>
+      <div class="partner-card-offer">Demo flight programme</div>
+      <div class="partner-card-desc">Try a Chili 5 or Range X-Alps before you buy. Free 1-day demo at certified partner schools.</div>
+      <div class="partner-btn">Book Demo</div>
+    </a>
+    <a href="mailto:contact@novamedia.io" class="partner-card">
+      <div class="partner-card-name">[YOUR BRAND]</div>
+      <div class="partner-card-offer">Advertise Here</div>
+      <div class="partner-card-desc">Reach 50,000+ active and aspiring paragliding pilots. contact@novamedia.io</div>
+      <div class="partner-btn">Get in Touch</div>
+    </a>
+  </div>
+</section>
+
+<!-- ===== CTA SECTION ===== -->
+<section id="cta">
+  <div class="container">
+    <div class="cta-eyebrow">Free Community · No Spam · Cancel Anytime</div>
+    <h2 class="cta-title">Join the Nova Wings Community</h2>
+    <p class="cta-desc">Free weekly newsletter: flying conditions reports, gear reviews, destination guides, and safety updates — delivered every Friday.</p>
+    <div class="cta-form">
+      <input class="cta-input" type="email" placeholder="Your email address"/>
+      <a href="#" class="cta-btn">Subscribe Free</a>
+    </div>
+    <p class="cta-perks">&#10003; Weekly conditions reports &nbsp;&nbsp; &#10003; Gear deals &nbsp;&nbsp; &#10003; Community forum access</p>
+  </div>
+</section>
+
+<!-- ===== FOOTER ===== -->
+<footer id="footer">
+  <div class="container">
+    <div class="footer-brand">NOVA WINGS</div>
+    <div class="footer-tagline">Fly Far. Fly Safe. Fly Free.</div>
+    <div class="footer-divider"></div>
+    <div class="footer-links">
+      <a href="#">Home</a>
+      <a href="#">Newsletter</a>
+      <a href="#">Gear Reviews</a>
+      <a href="#">Destinations</a>
+      <a href="#">Safety</a>
+      <a href="mailto:contact@novamedia.io">Contact</a>
+    </div>
+    <p class="footer-disclosure">
+      <strong style="color:#3a5070;">Affiliate Disclosure:</strong> This guide contains affiliate links and sponsored content. Nova Wings may earn a commission on purchases made through partner links at no additional cost to you. Sponsorships are clearly labelled. Our editorial content is independent and reflects honest assessment of products and services. We only partner with brands we would recommend to our own community members.
+    </p>
+    <div class="footer-divider"></div>
+    <div class="footer-copy">NOVA WINGS &copy; 2026 &nbsp;|&nbsp; novamedia.io &nbsp;|&nbsp; All Rights Reserved</div>
+  </div>
+</footer>
+
+</body>
+</html>

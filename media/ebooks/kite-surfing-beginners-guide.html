@@ -1,0 +1,1245 @@
+<!DOCTYPE html>
+<html lang="en">
+<head>
+<meta charset="UTF-8">
+<meta name="viewport" content="width=device-width, initial-scale=1.0">
+<title>Kite Surfing: The Complete Beginner's Guide 2026 | NOVA WATER</title>
+<style>
+  /* ===== RESET & BASE ===== */
+  *, *::before, *::after { box-sizing: border-box; margin: 0; padding: 0; }
+  :root {
+    --bg: #060d10;
+    --accent: #1ABC9C;
+    --accent2: #16a085;
+    --accent3: #0e7a63;
+    --text: #d4e8e1;
+    --text-dim: #7fa99a;
+    --card: #0b1a1f;
+    --card2: #0f2229;
+    --border: #163040;
+    --white: #f0faf7;
+    --gold: #f0c040;
+    --warn: #e67e22;
+  }
+  html { scroll-behavior: smooth; }
+  body {
+    background: var(--bg);
+    color: var(--text);
+    font-family: 'Segoe UI', system-ui, -apple-system, sans-serif;
+    font-size: 17px;
+    line-height: 1.75;
+  }
+  a { color: var(--accent); text-decoration: none; }
+  a:hover { text-decoration: underline; }
+  h1, h2, h3, h4 { line-height: 1.25; font-weight: 700; }
+  p { margin-bottom: 1.1em; }
+  strong { color: var(--white); }
+
+  /* ===== COVER ===== */
+  #cover {
+    position: relative;
+    min-height: 100vh;
+    background: linear-gradient(175deg, #060d10 0%, #0b2030 40%, #0d3040 70%, #082030 100%);
+    display: flex;
+    flex-direction: column;
+    align-items: center;
+    justify-content: center;
+    overflow: hidden;
+    padding: 60px 20px 120px;
+  }
+  .cover-badge {
+    background: var(--accent3);
+    color: var(--white);
+    font-size: 0.72em;
+    font-weight: 700;
+    letter-spacing: 0.2em;
+    text-transform: uppercase;
+    padding: 6px 18px;
+    border-radius: 30px;
+    margin-bottom: 22px;
+  }
+  .cover-title {
+    font-size: clamp(2.2rem, 6vw, 4.5rem);
+    font-weight: 900;
+    text-align: center;
+    color: var(--white);
+    text-shadow: 0 0 60px rgba(26,188,156,0.4);
+    letter-spacing: -1px;
+    margin-bottom: 12px;
+  }
+  .cover-title span { color: var(--accent); }
+  .cover-sub {
+    font-size: clamp(1rem, 2vw, 1.3rem);
+    color: var(--text-dim);
+    text-align: center;
+    margin-bottom: 36px;
+    max-width: 560px;
+  }
+  .cover-meta {
+    display: flex;
+    gap: 28px;
+    font-size: 0.82em;
+    color: var(--text-dim);
+    margin-bottom: 48px;
+    flex-wrap: wrap;
+    justify-content: center;
+  }
+  .cover-meta span { display: flex; align-items: center; gap: 6px; }
+  .cover-meta .dot { width: 6px; height: 6px; background: var(--accent); border-radius: 50%; }
+
+  /* SVG hero */
+  .hero-svg-wrap {
+    width: 100%;
+    max-width: 700px;
+    margin: 0 auto;
+  }
+
+  /* Animated wave at bottom of cover */
+  .cover-wave {
+    position: absolute;
+    bottom: 0;
+    left: 0;
+    width: 100%;
+    height: 100px;
+    overflow: hidden;
+  }
+  .wave-blob {
+    position: absolute;
+    bottom: 0;
+    left: -5%;
+    width: 110%;
+    height: 110px;
+    background: var(--bg);
+    border-radius: 50% 60% 40% 55% / 40% 35% 55% 45%;
+    animation: waveMorph 8s ease-in-out infinite;
+    transform-origin: center bottom;
+  }
+  .wave-blob2 {
+    position: absolute;
+    bottom: 0;
+    left: -5%;
+    width: 110%;
+    height: 80px;
+    background: rgba(26,188,156,0.07);
+    border-radius: 60% 50% 55% 45% / 45% 55% 40% 50%;
+    animation: waveMorph2 10s ease-in-out infinite;
+    transform-origin: center bottom;
+  }
+  @keyframes waveMorph {
+    0%, 100% { border-radius: 50% 60% 40% 55% / 40% 35% 55% 45%; }
+    25% { border-radius: 40% 55% 60% 45% / 55% 40% 45% 55%; }
+    50% { border-radius: 60% 45% 50% 55% / 35% 55% 45% 40%; }
+    75% { border-radius: 45% 60% 45% 50% / 50% 40% 55% 35%; }
+  }
+  @keyframes waveMorph2 {
+    0%, 100% { border-radius: 60% 50% 55% 45% / 45% 55% 40% 50%; transform: translateX(0); }
+    33% { border-radius: 50% 65% 45% 55% / 55% 40% 55% 45%; transform: translateX(-20px); }
+    66% { border-radius: 55% 45% 65% 50% / 40% 60% 45% 50%; transform: translateX(20px); }
+  }
+
+  /* ===== SPONSOR BANNER ===== */
+  .sponsor-banner {
+    background: var(--card);
+    border-top: 2px solid var(--accent3);
+    border-bottom: 2px solid var(--accent3);
+    padding: 22px 20px;
+  }
+  .sponsor-inner {
+    max-width: 960px;
+    margin: 0 auto;
+  }
+  .sponsor-label {
+    text-align: center;
+    font-size: 0.72em;
+    letter-spacing: 0.2em;
+    text-transform: uppercase;
+    color: var(--text-dim);
+    margin-bottom: 16px;
+  }
+  .sponsor-grid {
+    display: grid;
+    grid-template-columns: repeat(auto-fit, minmax(180px, 1fr));
+    gap: 14px;
+  }
+  .sponsor-slot {
+    background: var(--card2);
+    border: 1px solid var(--border);
+    border-radius: 10px;
+    padding: 16px 18px;
+    text-align: center;
+  }
+  .sponsor-slot.advertise {
+    border: 1px dashed var(--accent3);
+  }
+  .sponsor-name {
+    font-weight: 700;
+    font-size: 0.95em;
+    color: var(--white);
+    margin-bottom: 4px;
+  }
+  .sponsor-tagline {
+    font-size: 0.75em;
+    color: var(--text-dim);
+  }
+  .sponsor-slot.advertise .sponsor-name {
+    color: var(--accent);
+  }
+
+  /* ===== LAYOUT ===== */
+  .page-wrap {
+    max-width: 860px;
+    margin: 0 auto;
+    padding: 0 22px;
+  }
+
+  /* ===== TABLE OF CONTENTS ===== */
+  #toc {
+    background: var(--card);
+    border-left: 4px solid var(--accent);
+    border-radius: 0 12px 12px 0;
+    padding: 40px 44px;
+    margin: 60px auto;
+    max-width: 860px;
+  }
+  #toc h2 {
+    color: var(--accent);
+    font-size: 1.4rem;
+    margin-bottom: 28px;
+    letter-spacing: 0.05em;
+    text-transform: uppercase;
+  }
+  .toc-list {
+    list-style: none;
+    counter-reset: toc;
+  }
+  .toc-list li {
+    counter-increment: toc;
+    display: flex;
+    align-items: baseline;
+    gap: 14px;
+    padding: 10px 0;
+    border-bottom: 1px solid var(--border);
+  }
+  .toc-list li:last-child { border-bottom: none; }
+  .toc-list li::before {
+    content: counter(toc, decimal-leading-zero);
+    font-size: 0.78em;
+    font-weight: 700;
+    color: var(--accent);
+    min-width: 28px;
+  }
+  .toc-list a {
+    color: var(--text);
+    font-size: 1em;
+    transition: color 0.2s;
+  }
+  .toc-list a:hover { color: var(--accent); text-decoration: none; }
+
+  /* ===== CHAPTERS ===== */
+  .chapter {
+    padding: 70px 0 50px;
+    border-bottom: 1px solid var(--border);
+  }
+  .chapter-num {
+    font-size: 0.72em;
+    font-weight: 700;
+    letter-spacing: 0.22em;
+    text-transform: uppercase;
+    color: var(--accent3);
+    margin-bottom: 10px;
+  }
+  .chapter h2 {
+    font-size: clamp(1.5rem, 3.5vw, 2.3rem);
+    color: var(--white);
+    margin-bottom: 28px;
+    padding-bottom: 14px;
+    border-bottom: 2px solid var(--accent3);
+  }
+
+  /* Tip box */
+  .tip-box {
+    background: linear-gradient(135deg, #0f2a22, #0b1f1a);
+    border-left: 4px solid var(--accent);
+    border-radius: 0 10px 10px 0;
+    padding: 18px 22px;
+    margin: 26px 0;
+  }
+  .tip-box .tip-label {
+    font-size: 0.72em;
+    font-weight: 700;
+    letter-spacing: 0.2em;
+    text-transform: uppercase;
+    color: var(--accent);
+    margin-bottom: 6px;
+  }
+  .tip-box p { margin-bottom: 0; color: var(--text); font-size: 0.95em; }
+
+  .warn-box {
+    background: linear-gradient(135deg, #1f1505, #180f03);
+    border-left: 4px solid var(--warn);
+    border-radius: 0 10px 10px 0;
+    padding: 18px 22px;
+    margin: 26px 0;
+  }
+  .warn-box .tip-label { color: var(--warn); }
+  .warn-box p { margin-bottom: 0; font-size: 0.95em; }
+
+  /* Stats row */
+  .stats-row {
+    display: grid;
+    grid-template-columns: repeat(auto-fit, minmax(130px, 1fr));
+    gap: 14px;
+    margin: 30px 0;
+  }
+  .stat-card {
+    background: var(--card2);
+    border: 1px solid var(--border);
+    border-top: 3px solid var(--accent);
+    border-radius: 10px;
+    padding: 18px 14px;
+    text-align: center;
+  }
+  .stat-num {
+    font-size: 1.9rem;
+    font-weight: 900;
+    color: var(--accent);
+    line-height: 1;
+    margin-bottom: 5px;
+  }
+  .stat-label {
+    font-size: 0.75em;
+    color: var(--text-dim);
+    line-height: 1.3;
+  }
+
+  /* ===== MID-CHAPTER AD ===== */
+  .mid-ad {
+    background: linear-gradient(135deg, #0d2820, #0a1e28);
+    border: 1px solid var(--accent3);
+    border-radius: 14px;
+    padding: 26px 30px;
+    margin: 40px 0;
+    display: flex;
+    align-items: center;
+    gap: 22px;
+    flex-wrap: wrap;
+  }
+  .mid-ad-badge {
+    background: var(--accent3);
+    color: var(--bg);
+    font-size: 0.65em;
+    font-weight: 700;
+    letter-spacing: 0.15em;
+    text-transform: uppercase;
+    padding: 4px 12px;
+    border-radius: 20px;
+    white-space: nowrap;
+  }
+  .mid-ad-text { flex: 1; min-width: 200px; }
+  .mid-ad-text strong { color: var(--accent); font-size: 1em; display: block; margin-bottom: 4px; }
+  .mid-ad-text span { font-size: 0.83em; color: var(--text-dim); }
+  .mid-ad-cta {
+    background: var(--accent);
+    color: var(--bg);
+    font-weight: 700;
+    font-size: 0.85em;
+    padding: 10px 20px;
+    border-radius: 8px;
+    white-space: nowrap;
+  }
+
+  /* ===== BOTTOM SPONSOR ROW ===== */
+  .partner-section {
+    background: var(--card);
+    border-top: 1px solid var(--border);
+    border-bottom: 1px solid var(--border);
+    padding: 44px 22px;
+    margin: 60px 0;
+  }
+  .partner-section h3 {
+    text-align: center;
+    font-size: 0.75em;
+    letter-spacing: 0.22em;
+    text-transform: uppercase;
+    color: var(--text-dim);
+    margin-bottom: 28px;
+  }
+  .partner-grid {
+    display: grid;
+    grid-template-columns: repeat(auto-fit, minmax(200px, 1fr));
+    gap: 16px;
+    max-width: 860px;
+    margin: 0 auto;
+  }
+  .partner-card {
+    background: var(--card2);
+    border: 1px solid var(--border);
+    border-radius: 12px;
+    padding: 22px 20px;
+  }
+  .partner-card h4 { color: var(--accent); margin-bottom: 6px; font-size: 1em; }
+  .partner-card p { font-size: 0.82em; color: var(--text-dim); margin-bottom: 10px; }
+  .partner-card a {
+    font-size: 0.82em;
+    font-weight: 700;
+    color: var(--accent);
+    border: 1px solid var(--accent3);
+    padding: 5px 12px;
+    border-radius: 6px;
+    display: inline-block;
+  }
+
+  /* ===== CTA SECTION ===== */
+  .cta-section {
+    background: linear-gradient(135deg, #0f2e22, #082230);
+    border: 1px solid var(--accent3);
+    border-radius: 18px;
+    padding: 56px 40px;
+    text-align: center;
+    margin: 60px auto;
+    max-width: 680px;
+  }
+  .cta-section h2 {
+    font-size: clamp(1.5rem, 3vw, 2rem);
+    color: var(--white);
+    margin-bottom: 14px;
+  }
+  .cta-section p { color: var(--text-dim); margin-bottom: 28px; max-width: 480px; margin-left: auto; margin-right: auto; }
+  .cta-btn {
+    display: inline-block;
+    background: var(--accent);
+    color: var(--bg);
+    font-weight: 800;
+    font-size: 1.05em;
+    padding: 16px 38px;
+    border-radius: 12px;
+    letter-spacing: 0.04em;
+    transition: background 0.2s, transform 0.15s;
+  }
+  .cta-btn:hover { background: #22d4b0; transform: translateY(-2px); text-decoration: none; }
+  .cta-note { font-size: 0.78em; color: var(--text-dim); margin-top: 14px; }
+
+  /* ===== DISCLOSURE ===== */
+  .disclosure {
+    background: var(--card);
+    border-left: 3px solid var(--border);
+    border-radius: 0 8px 8px 0;
+    padding: 16px 20px;
+    font-size: 0.78em;
+    color: var(--text-dim);
+    margin: 40px auto;
+    max-width: 860px;
+  }
+
+  /* ===== FOOTER ===== */
+  footer {
+    background: #040b0e;
+    border-top: 1px solid var(--border);
+    text-align: center;
+    padding: 36px 20px;
+    color: var(--text-dim);
+    font-size: 0.82em;
+  }
+  footer .footer-brand {
+    font-size: 1.1em;
+    font-weight: 800;
+    color: var(--accent);
+    margin-bottom: 8px;
+    letter-spacing: 0.12em;
+  }
+
+  /* ===== DIVIDER ===== */
+  .section-divider {
+    border: none;
+    border-top: 1px solid var(--border);
+    margin: 10px 0;
+  }
+
+  /* ===== GEAR TABLE ===== */
+  .gear-table {
+    width: 100%;
+    border-collapse: collapse;
+    margin: 24px 0;
+    font-size: 0.9em;
+  }
+  .gear-table th {
+    background: var(--card2);
+    color: var(--accent);
+    padding: 12px 14px;
+    text-align: left;
+    font-size: 0.78em;
+    letter-spacing: 0.12em;
+    text-transform: uppercase;
+  }
+  .gear-table td {
+    padding: 12px 14px;
+    border-bottom: 1px solid var(--border);
+    color: var(--text);
+    vertical-align: top;
+  }
+  .gear-table tr:hover td { background: var(--card2); }
+  .gear-badge {
+    background: var(--accent3);
+    color: var(--bg);
+    font-size: 0.68em;
+    font-weight: 700;
+    padding: 2px 8px;
+    border-radius: 20px;
+  }
+
+  /* ===== SPOT CARDS ===== */
+  .spot-grid {
+    display: grid;
+    grid-template-columns: repeat(auto-fill, minmax(240px, 1fr));
+    gap: 16px;
+    margin: 28px 0;
+  }
+  .spot-card {
+    background: var(--card2);
+    border: 1px solid var(--border);
+    border-radius: 12px;
+    padding: 20px;
+    border-top: 3px solid var(--accent);
+  }
+  .spot-card h4 { color: var(--white); margin-bottom: 6px; font-size: 1em; }
+  .spot-card .spot-country { font-size: 0.75em; color: var(--accent); font-weight: 700; letter-spacing: 0.1em; text-transform: uppercase; margin-bottom: 8px; }
+  .spot-card p { font-size: 0.85em; color: var(--text-dim); margin-bottom: 0; }
+
+  /* ===== ROADMAP ===== */
+  .roadmap {
+    list-style: none;
+    margin: 28px 0;
+  }
+  .roadmap li {
+    display: flex;
+    gap: 18px;
+    padding: 18px 0;
+    border-bottom: 1px solid var(--border);
+    align-items: flex-start;
+  }
+  .roadmap li:last-child { border-bottom: none; }
+  .roadmap-month {
+    background: var(--accent3);
+    color: var(--bg);
+    font-size: 0.72em;
+    font-weight: 800;
+    padding: 5px 12px;
+    border-radius: 20px;
+    white-space: nowrap;
+    margin-top: 3px;
+  }
+  .roadmap-content h4 { color: var(--white); font-size: 1em; margin-bottom: 5px; }
+  .roadmap-content p { font-size: 0.87em; color: var(--text-dim); margin-bottom: 0; }
+
+  @media (max-width: 600px) {
+    #toc { padding: 28px 20px; }
+    .chapter { padding: 50px 0 36px; }
+    .mid-ad { flex-direction: column; }
+    .cta-section { padding: 40px 22px; }
+  }
+
+/* ── CHAPTER ILLUSTRATIONS ── */
+.ch-illustration{width:100%;height:260px;overflow:hidden;position:relative;border-radius:14px;margin:0 0 36px;}
+.ch-illustration img{width:100%;height:100%;object-fit:cover;filter:brightness(.82) saturate(1.12);display:block;}
+.ch-illustration::after{content:'';position:absolute;bottom:0;left:0;right:0;height:90px;background:linear-gradient(transparent,var(--dark,#080808));}
+.cover-hero-img{width:100%;max-width:700px;height:320px;overflow:hidden;border-radius:18px;margin:0 auto 44px;position:relative;}
+.cover-hero-img img{width:100%;height:100%;object-fit:cover;filter:brightness(.8) saturate(1.2);}
+.cover-hero-img::after{content:'';position:absolute;inset:0;background:linear-gradient(to bottom,transparent 35%,rgba(0,0,0,.65) 100%);}
+</style>
+</head>
+<body>
+
+<!-- ===== COVER ===== -->
+<section id="cover">
+  <div class="cover-badge">NOVA WATER GUIDES · 2026 EDITION</div>
+  <div class="cover-hero-img">
+    <img src="https://image.pollinations.ai/prompt/kite%20surfer%20flying%20over%20ocean%20waves%20cinematic%20sunset%20hero%20shot?width=900&height=400&nologo=true&seed=300" alt="Cover">
+  </div>
+  <h1 class="cover-title">Kite <span>Surfing</span><br>The Complete<br>Beginner's Guide</h1>
+  <p class="cover-sub">Everything you need to launch, ride, and love the most electrifying water sport on the planet.</p>
+  <div class="cover-meta">
+    <span><span class="dot"></span> 7 Full Chapters</span>
+    <span><span class="dot"></span> 2,800+ Words</span>
+    <span><span class="dot"></span> Expert Tips</span>
+    <span><span class="dot"></span> Free Edition 2026</span>
+  </div>
+
+  <!-- SVG Hero: Kite Surfer + Ocean Scene -->
+  <div class="hero-svg-wrap">
+    <svg viewBox="0 0 700 300" xmlns="http://www.w3.org/2000/svg" role="img" aria-label="Kite surfer silhouette over ocean waves">
+      <!-- Sky gradient -->
+      <defs>
+        <linearGradient id="skyGrad" x1="0" y1="0" x2="0" y2="1">
+          <stop offset="0%" stop-color="#0a2030"/>
+          <stop offset="100%" stop-color="#0d3848"/>
+        </linearGradient>
+        <linearGradient id="waterGrad" x1="0" y1="0" x2="0" y2="1">
+          <stop offset="0%" stop-color="#0d4060"/>
+          <stop offset="100%" stop-color="#061822"/>
+        </linearGradient>
+        <linearGradient id="kiteGrad" x1="0" y1="0" x2="1" y2="1">
+          <stop offset="0%" stop-color="#1ABC9C"/>
+          <stop offset="100%" stop-color="#0e7a63"/>
+        </linearGradient>
+        <linearGradient id="kiteGrad2" x1="1" y1="0" x2="0" y2="1">
+          <stop offset="0%" stop-color="#16a085"/>
+          <stop offset="100%" stop-color="#0d5a45"/>
+        </linearGradient>
+        <filter id="glow">
+          <feGaussianBlur stdDeviation="3" result="coloredBlur"/>
+          <feMerge><feMergeNode in="coloredBlur"/><feMergeNode in="SourceGraphic"/></feMerge>
+        </filter>
+      </defs>
+
+      <!-- Sky background -->
+      <rect width="700" height="300" fill="url(#skyGrad)"/>
+
+      <!-- Stars / sparkles -->
+      <circle cx="80" cy="30" r="1.2" fill="#a0d8cf" opacity="0.7"/>
+      <circle cx="150" cy="18" r="1" fill="#1ABC9C" opacity="0.6"/>
+      <circle cx="250" cy="40" r="1.5" fill="#a0d8cf" opacity="0.5"/>
+      <circle cx="400" cy="22" r="1" fill="#fff" opacity="0.4"/>
+      <circle cx="560" cy="15" r="1.3" fill="#a0d8cf" opacity="0.6"/>
+      <circle cx="630" cy="38" r="1" fill="#1ABC9C" opacity="0.5"/>
+      <circle cx="680" cy="25" r="1.2" fill="#fff" opacity="0.5"/>
+      <circle cx="38" cy="55" r="0.8" fill="#a0d8cf" opacity="0.4"/>
+      <circle cx="480" cy="48" r="0.9" fill="#fff" opacity="0.5"/>
+
+      <!-- Moon crescent suggestion -->
+      <circle cx="620" cy="45" r="18" fill="#0a2030"/>
+      <circle cx="628" cy="40" r="16" fill="#0d3848"/>
+
+      <!-- KITE — diamond shape at top -->
+      <!-- Main kite body -->
+      <polygon points="200,30 235,75 200,120 165,75" fill="url(#kiteGrad)" filter="url(#glow)" opacity="0.95"/>
+      <!-- Kite cross panel divisions -->
+      <line x1="200" y1="30" x2="200" y2="120" stroke="#082820" stroke-width="1.5"/>
+      <line x1="165" y1="75" x2="235" y2="75" stroke="#082820" stroke-width="1.5"/>
+      <!-- Kite logo diamond -->
+      <polygon points="200,30 235,75 200,120 165,75" fill="none" stroke="#0a4030" stroke-width="0.8"/>
+      <!-- Kite right panel secondary color -->
+      <polygon points="200,30 235,75 200,75" fill="url(#kiteGrad2)" opacity="0.7"/>
+      <polygon points="200,120 165,75 200,75" fill="url(#kiteGrad2)" opacity="0.7"/>
+      <!-- Kite trailing ribbons -->
+      <path d="M165,75 Q150,90 145,110 Q138,130 150,148" stroke="#1ABC9C" stroke-width="1.5" fill="none" opacity="0.7"/>
+      <path d="M235,75 Q248,90 250,108 Q252,125 242,140" stroke="#16a085" stroke-width="1.5" fill="none" opacity="0.6"/>
+
+      <!-- Kite lines (thin, going to surfer) -->
+      <line x1="200" y1="120" x2="385" y2="220" stroke="#1ABC9C" stroke-width="0.9" opacity="0.5"/>
+      <line x1="165" y1="75" x2="383" y2="218" stroke="#1ABC9C" stroke-width="0.6" opacity="0.35"/>
+      <line x1="235" y1="75" x2="387" y2="218" stroke="#1ABC9C" stroke-width="0.6" opacity="0.35"/>
+
+      <!-- Water / Ocean -->
+      <rect x="0" y="200" width="700" height="100" fill="url(#waterGrad)"/>
+
+      <!-- Wave 1 (large, back) -->
+      <path d="M0,210 Q80,185 160,205 Q240,222 320,200 Q400,178 480,200 Q560,220 640,200 Q670,192 700,200 L700,300 L0,300 Z" fill="#0d3848" opacity="0.9"/>
+      <!-- Wave 2 (mid) -->
+      <path d="M0,225 Q70,208 140,222 Q210,236 280,218 Q350,200 420,218 Q490,236 560,220 Q620,208 700,222 L700,300 L0,300 Z" fill="#0b2e40" opacity="0.85"/>
+      <!-- Wave 3 (front, darker) -->
+      <path d="M0,248 Q60,235 120,245 Q200,258 280,244 Q360,230 440,248 Q510,262 590,248 Q640,240 700,248 L700,300 L0,300 Z" fill="#081c28"/>
+      <!-- Wave foam highlights -->
+      <path d="M60,225 Q90,218 115,224" stroke="#1ABC9C" stroke-width="1.5" fill="none" opacity="0.4"/>
+      <path d="M300,205 Q330,196 358,204" stroke="#1ABC9C" stroke-width="1.5" fill="none" opacity="0.35"/>
+      <path d="M500,220 Q525,212 548,218" stroke="#1ABC9C" stroke-width="1.2" fill="none" opacity="0.3"/>
+      <path d="M150,248 Q180,240 205,246" stroke="#a0d8cf" stroke-width="1" fill="none" opacity="0.3"/>
+      <path d="M430,248 Q460,238 490,246" stroke="#a0d8cf" stroke-width="1" fill="none" opacity="0.3"/>
+
+      <!-- Kitesurfer silhouette (on board, above water) -->
+      <!-- Board -->
+      <ellipse cx="385" cy="225" rx="38" ry="8" fill="#050c10" opacity="0.9"/>
+      <!-- Board sheen -->
+      <path d="M355,222 Q385,216 415,222" stroke="#1ABC9C" stroke-width="1" fill="none" opacity="0.25"/>
+      <!-- Rider legs -->
+      <line x1="380" y1="218" x2="375" y2="205" stroke="#1a3028" stroke-width="5" stroke-linecap="round"/>
+      <line x1="390" y1="218" x2="397" y2="205" stroke="#1a3028" stroke-width="5" stroke-linecap="round"/>
+      <!-- Rider body -->
+      <rect x="374" y="192" width="14" height="16" rx="4" fill="#1a3028"/>
+      <!-- Rider harness -->
+      <rect x="373" y="198" width="16" height="7" rx="3" fill="#1ABC9C" opacity="0.8"/>
+      <!-- Rider arms reaching up to bar -->
+      <line x1="374" y1="196" x2="362" y2="184" stroke="#1a3028" stroke-width="4" stroke-linecap="round"/>
+      <line x1="388" y1="196" x2="396" y2="182" stroke="#1a3028" stroke-width="4" stroke-linecap="round"/>
+      <!-- Control bar -->
+      <line x1="358" y1="182" x2="400" y2="180" stroke="#a0a0a0" stroke-width="2.5" stroke-linecap="round"/>
+      <!-- Head / helmet -->
+      <circle cx="381" cy="188" r="7" fill="#1a3028"/>
+      <!-- Helmet shine -->
+      <path d="M378,183 Q381,180 385,183" stroke="#1ABC9C" stroke-width="1.2" fill="none" opacity="0.5"/>
+
+      <!-- Spray / water splash under board -->
+      <path d="M355,228 Q358,222 362,228" stroke="#a0d8cf" stroke-width="1" fill="none" opacity="0.45"/>
+      <path d="M408,226 Q412,220 415,226" stroke="#a0d8cf" stroke-width="1" fill="none" opacity="0.4"/>
+      <circle cx="350" cy="231" r="1.2" fill="#a0d8cf" opacity="0.35"/>
+      <circle cx="420" cy="229" r="1" fill="#a0d8cf" opacity="0.3"/>
+
+      <!-- Horizon glow -->
+      <ellipse cx="350" cy="200" rx="180" ry="12" fill="#1ABC9C" opacity="0.04"/>
+
+      <!-- NOVA WATER watermark subtle -->
+      <text x="350" y="293" text-anchor="middle" font-family="'Segoe UI',sans-serif" font-size="9" fill="#1ABC9C" opacity="0.35" letter-spacing="3">NOVA WATER · 2026</text>
+    </svg>
+  </div>
+
+  <!-- Animated wave decoration at bottom of cover -->
+  <div class="cover-wave">
+    <div class="wave-blob2"></div>
+    <div class="wave-blob"></div>
+  </div>
+</section>
+
+<!-- ===== SPONSOR BANNER ===== -->
+<div class="sponsor-banner">
+  <div class="sponsor-inner">
+    <div class="sponsor-label">Official Partners & Sponsors</div>
+    <div class="sponsor-grid">
+      <div class="sponsor-slot">
+        <div class="sponsor-name">Cabrinha Kites</div>
+        <div class="sponsor-tagline">Performance kite systems since 1999. Trusted by world champions.</div>
+      </div>
+      <div class="sponsor-slot">
+        <div class="sponsor-name">North Kiteboarding</div>
+        <div class="sponsor-tagline">Premium kites & foil gear. Engineered for the next level.</div>
+      </div>
+      <div class="sponsor-slot">
+        <div class="sponsor-name">Slingshot Sports</div>
+        <div class="sponsor-tagline">Boards, kites & harnesses built for progression and play.</div>
+      </div>
+      <div class="sponsor-slot advertise">
+        <div class="sponsor-name">[Advertise Here]</div>
+        <div class="sponsor-tagline">Reach 40,000+ kitesurfers monthly.<br>contact@novamedia.io</div>
+      </div>
+    </div>
+  </div>
+</div>
+
+<!-- ===== TABLE OF CONTENTS ===== -->
+<div class="page-wrap">
+  <nav id="toc" aria-label="Table of Contents">
+    <h2>Table of Contents</h2>
+    <ol class="toc-list">
+      <li><a href="#ch1">Kite Surfing: The Most Exhilarating Sport on Water</a></li>
+      <li><a href="#ch2">The Learning Curve: What to Expect Week by Week</a></li>
+      <li><a href="#ch3">Equipment Explained: Kites, Boards, Harnesses &amp; Safety</a></li>
+      <li><a href="#ch4">Wind Windows, Weather &amp; Reading Conditions</a></li>
+      <li><a href="#ch5">Finding Lessons &amp; Schools: What a Good Instructor Looks Like</a></li>
+      <li><a href="#ch6">Best Kite Surfing Spots in Europe &amp; the World</a></li>
+      <li><a href="#ch7">From Beginner to Independent Rider: Your 6-Month Roadmap</a></li>
+    </ol>
+  </nav>
+</div>
+
+<!-- ===== CHAPTERS ===== -->
+<main class="page-wrap">
+
+  <!-- ===== CHAPTER 1 ===== -->
+  <article id="ch1" class="chapter">
+    <div class="chapter-num">Chapter 01</div>
+    <div class="ch-illustration">
+      <img src="https://image.pollinations.ai/prompt/kite%20surfer%20riding%20ocean%20waves%20aerial%20view%20cinematic?width=900&height=360&nologo=true&seed=301" alt="Chapter">
+    </div>
+    <h2>Kite Surfing: The Most Exhilarating Sport on Water</h2>
+
+    <p>There is a moment, somewhere between your first shaky water start and the first time you feel the kite pull you cleanly across a sparkling bay, when kite surfing stops being something you are <em>trying</em> to do and becomes something you simply <em>are</em>. It is the moment most riders describe when asked why they stuck with the sport through the inevitable frustrations of learning. The feeling is almost impossible to describe to someone who hasn't felt it — a full-body rush where wind, water, gravity, and your own balance conspire to create pure kinetic joy.</p>
+
+    <p>Kite surfing — also called kiteboarding — is the art of harnessing a large, controllable power kite to propel yourself across the water on a board. The kite, flown on a bar connected to you via lines, generates enormous lift and thrust. Lean back, send the kite across the sky, and the power translates directly into speed. Master the kite and you can jump 10, 15, even 20+ metres into the air. Learn to foil and you will glide silently above the water's surface on a hydrofoil fin, barely making a ripple.</p>
+
+    <div class="stats-row">
+      <div class="stat-card">
+        <div class="stat-num">3M+</div>
+        <div class="stat-label">Active kite surfers worldwide</div>
+      </div>
+      <div class="stat-card">
+        <div class="stat-num">140+</div>
+        <div class="stat-label">Countries with active kite scenes</div>
+      </div>
+      <div class="stat-card">
+        <div class="stat-num">70 km/h</div>
+        <div class="stat-label">Top speeds for advanced riders</div>
+      </div>
+      <div class="stat-card">
+        <div class="stat-num">25m</div>
+        <div class="stat-label">Typical max air on twin-tip</div>
+      </div>
+    </div>
+
+    <p>Unlike surfing, which relies entirely on wave energy, or windsurfing, which demands constant repositioning of a rig, kite surfing lets you ride upwind, downwind, and across the breeze with remarkable freedom. You can ride in flat-water bays, open ocean chop, or dedicated wave spots. You can freestyle, race, foil, or simply cruise. The equipment is compact enough to fit in a carry-on bag. And in many parts of the world, the gear is so developed that a total beginner can be body-dragging in the sea within hours of touching a kite for the first time.</p>
+
+    <div class="tip-box">
+      <div class="tip-label">Pro Tip</div>
+      <p>The sport's biggest attraction isn't speed — it's <strong>freedom</strong>. On a good kite day, you can ride from a beach in southern France and, with good wind, cover 30 km of coastline before lunch. No motor, no waves required.</p>
+    </div>
+
+    <p>The sport has matured enormously since the late 1990s, when the Legaignoux brothers patented the inflatable leading-edge kite design that made safe water relaunching possible. Today's kites are marvels of engineering: lightweight ripstop nylon canopies, bladder systems that stay inflated through crashes, and depower systems that let you instantly spill power with a flick of the wrist. Safety has followed the technology. Modern quick-release systems, kite leashes, and IKO-standard instructor training have made the sport far safer than its wild-west early years.</p>
+
+    <p>But respect for the power involved is still the first lesson every instructor teaches. A 12-metre kite in a 25-knot wind generates forces comparable to a small car engine. That power is what makes the sport magical. And it is why learning properly — with certified instruction, the right gear, and a humble attitude — is not optional. It is the foundation of everything that follows.</p>
+
+    <div class="tip-box">
+      <div class="tip-label">Did You Know?</div>
+      <p>Kite surfing was officially added to the Olympic programme at the Paris 2024 Games in the Formula Kite discipline, where riders on hydrofoil boards race at sustained speeds above 40 km/h. Its inclusion marked the sport's full arrival in mainstream global athletics.</p>
+    </div>
+  </article>
+
+  <!-- ===== CHAPTER 2 ===== -->
+  <article id="ch2" class="chapter">
+    <div class="chapter-num">Chapter 02</div>
+    <div class="ch-illustration">
+      <img src="https://image.pollinations.ai/prompt/kite%20surfer%20learning%20beach%20training%20wind%20lesson%20cinematic?width=900&height=360&nologo=true&seed=302" alt="Chapter">
+    </div>
+    <h2>The Learning Curve: What to Expect Week by Week</h2>
+
+    <p>One of the most useful things anyone can tell a new kite surfer is this: the learning curve is real, it is steep in places, and it is absolutely worth every moment. Understanding the typical progression before you begin removes the frustration of not knowing where you are in the process. Most students feel like they are "getting nowhere" right before their breakthrough. Knowing this in advance turns those moments of doubt into patience.</p>
+
+    <p>The IKO (International Kiteboarding Organisation) framework divides beginner progression into clear levels. Here is a realistic week-by-week breakdown for someone taking structured lessons — typically 2 hours per session, 3 sessions per week:</p>
+
+    <div class="stats-row">
+      <div class="stat-card">
+        <div class="stat-num">6–9h</div>
+        <div class="stat-label">Average hours to first water start</div>
+      </div>
+      <div class="stat-card">
+        <div class="stat-num">12–15h</div>
+        <div class="stat-label">Hours to first independent ride</div>
+      </div>
+      <div class="stat-card">
+        <div class="stat-num">20–30h</div>
+        <div class="stat-label">Hours to ride upwind consistently</div>
+      </div>
+    </div>
+
+    <p><strong>Week 1 — Kite Theory &amp; Land Skills:</strong> You begin on the beach with a trainer kite, typically a 2–4 m two-line kite. You learn the wind window, how to generate and spill power, emergency stops, and how to set up and de-rig safely. This is where many students are surprised by how technical the kite control actually is. But it is also where the foundations of everything else are laid. Do not rush this phase. The beach is your classroom.</p>
+
+    <p><strong>Week 2 — Body Dragging:</strong> You enter the water with a full-size kite but no board. Body dragging is the practice of being pulled through the water by the kite while using your body as a rudder. It sounds anticlimactic, but it is one of the most important skills in kite surfing: it teaches you to control the kite with one hand, builds confidence in open water, and trains your instincts for power management. You will also learn to body-drag upwind — a critical skill for recovering your board after falls.</p>
+
+    <div class="tip-box">
+      <div class="tip-label">Instructor Advice</div>
+      <p>Never skip body-dragging sessions. Riders who rush to the board before mastering kite control in the water are the ones who struggle for months. Body dragging is <strong>not a delay</strong> — it is the fastest path to actually riding.</p>
+    </div>
+
+    <!-- MID CHAPTER AD: CABRINHA -->
+    <div class="mid-ad">
+      <span class="mid-ad-badge">Sponsor</span>
+      <div class="mid-ad-text">
+        <strong>Cabrinha Kites — Ride What the Champions Ride</strong>
+        <span>The Moto X, Drifter, and Switchblade kites are trusted by IKO instructors worldwide for their unmatched safety and performance. Find your local dealer.</span>
+      </div>
+      <a href="#" class="mid-ad-cta">Shop Cabrinha</a>
+    </div>
+
+    <p><strong>Week 3 — Board Starts:</strong> This is the week most students describe as the hardest — and the most rewarding. You are now adding the board to the equation. Water starts require precise kite timing, correct body position on the board, and the ability to generate power at exactly the right moment. Falls are frequent, splashes are epic, and progress can feel glacial. Then, one session, everything clicks. The board pops up, the kite pulls, and you are riding. Even if it is only for 10 seconds, that moment changes everything.</p>
+
+    <p><strong>Week 4 and Beyond — Consolidation &amp; Upwind Riding:</strong> The focus shifts to extending your ride, controlling speed, and — the holy grail of kiteboarding — riding upwind. Until you can ride upwind consistently, every session ends with you downwind of where you started, requiring a long walk back. Upwind riding requires edge control on the board and precise kite positioning. Most riders achieve consistent upwind riding within 4–6 weeks of their first water start. From there, the world opens up.</p>
+
+    <div class="warn-box">
+      <div class="tip-label">Safety Note</div>
+      <p>Do not attempt to self-teach from YouTube videos. The power generated by a kite in strong wind can injure or kill someone who has not learned proper safety procedures. Always complete a certified IKO or BKSA beginner course before flying a full-size kite independently.</p>
+    </div>
+  </article>
+
+  <!-- ===== CHAPTER 3 ===== -->
+  <article id="ch3" class="chapter">
+    <div class="chapter-num">Chapter 03</div>
+    <div class="ch-illustration">
+      <img src="https://image.pollinations.ai/prompt/kite%20surfing%20gear%20equipment%20harness%20board%20kite%20closeup%20cinematic?width=900&height=360&nologo=true&seed=303" alt="Chapter">
+    </div>
+    <h2>Equipment Explained: Kites, Boards, Harnesses &amp; Safety</h2>
+
+    <p>Walking into a kite shop for the first time can feel overwhelming. The walls are hung with kites in a dozen sizes, boards of every shape, and a bewildering array of bars, lines, harnesses, and accessories. The good news: you do not need to understand all of it immediately. The better news: the gear available in 2026 is genuinely excellent at every price point, and a solid beginner setup will serve you well for 2–3 years of active riding.</p>
+
+    <h3 style="color: var(--accent); margin: 24px 0 12px;">The Kite</h3>
+    <p>The kite is your engine. Modern leading-edge inflatable (LEI) kites come in sizes from around 4 m² to 19 m², with most beginner setups centered on a 9 m or 12 m kite for average wind conditions of 15–25 knots. Larger kites generate more power in light wind; smaller kites are used in stronger wind. Kites are broadly divided into styles — <strong>C-kites</strong> (direct pull, performance-oriented), <strong>bow/flat kites</strong> (more depower range, beginner-friendly), and <strong>delta hybrids</strong> (the most common all-round choice). For beginners, a delta hybrid with plenty of depower — such as the Cabrinha Switchblade or North Reach — is the standard recommendation.</p>
+
+    <h3 style="color: var(--accent); margin: 24px 0 12px;">The Board</h3>
+    <p>Most beginners start on a <strong>twin-tip board</strong> — a symmetrical, bidirectional board that works equally well on either tack. Sizes for beginners typically range from 135 cm to 145 cm for adults. Larger boards are more stable and easier to water-start; smaller boards are more responsive. Once you progress, you may explore directional surfboards for waves or hydrofoil boards (foilboards) for flying above the surface. Start big, ride often, downsize as your skills grow.</p>
+
+    <table class="gear-table">
+      <thead>
+        <tr>
+          <th>Item</th>
+          <th>Beginner Choice</th>
+          <th>Budget Range (€)</th>
+          <th>Notes</th>
+        </tr>
+      </thead>
+      <tbody>
+        <tr>
+          <td>Kite (12m)</td>
+          <td>North Reach / Cabrinha Switchblade</td>
+          <td>700–1,200</td>
+          <td><span class="gear-badge">Essential</span></td>
+        </tr>
+        <tr>
+          <td>Control Bar + Lines</td>
+          <td>Matched to kite brand</td>
+          <td>300–500</td>
+          <td>Often bundled with kite</td>
+        </tr>
+        <tr>
+          <td>Twin-tip Board</td>
+          <td>Slingshot Terrain / North Jaime</td>
+          <td>350–650</td>
+          <td>Go 140cm+ as a beginner</td>
+        </tr>
+        <tr>
+          <td>Harness</td>
+          <td>Seat harness (beginner) or waist</td>
+          <td>150–300</td>
+          <td><span class="gear-badge">Essential</span></td>
+        </tr>
+        <tr>
+          <td>Wetsuit</td>
+          <td>3/2mm or 5/4mm depending on region</td>
+          <td>150–350</td>
+          <td>Critical for cold water</td>
+        </tr>
+        <tr>
+          <td>Impact Vest</td>
+          <td>Any certified buoyancy aid</td>
+          <td>80–160</td>
+          <td>Highly recommended</td>
+        </tr>
+        <tr>
+          <td>Helmet</td>
+          <td>Water sports rated (e.g. Mystic, ION)</td>
+          <td>60–120</td>
+          <td><span class="gear-badge">Essential</span></td>
+        </tr>
+      </tbody>
+    </table>
+
+    <h3 style="color: var(--accent); margin: 24px 0 12px;">The Harness</h3>
+    <p>A harness is the critical link between your body and the kite's power. Without it, you would be holding 100% of the kite's pull in your arms — exhausting within minutes. Most beginner schools recommend a <strong>seat harness</strong>, which wraps around the hips and thighs, giving a lower and more stable attachment point. Intermediate and advanced riders typically switch to a waist harness for more freedom of movement. Fit matters enormously: a poorly fitted harness causes "riding up," back pain, and control issues. Always try before you buy.</p>
+
+    <div class="tip-box">
+      <div class="tip-label">Safety System — Must Know</div>
+      <p>Every modern kite bar has a <strong>Quick Release (QR) system</strong>. Activating it disconnects the kite from the bar, leaving only a long leash holding the kite. This is your emergency brake. Know how to activate it before you ever enter the water. Your second safety is the <strong>chicken loop knife</strong> — always carry one as a backup. These are not optional accessories. They are your survival tools.</p>
+    </div>
+  </article>
+
+  <!-- ===== CHAPTER 4 ===== -->
+  <article id="ch4" class="chapter">
+    <div class="chapter-num">Chapter 04</div>
+    <div class="ch-illustration">
+      <img src="https://image.pollinations.ai/prompt/ocean%20wind%20waves%20weather%20clouds%20dramatic%20sky%20kite%20surfing%20cinematic?width=900&height=360&nologo=true&seed=304" alt="Chapter">
+    </div>
+    <h2>Wind Windows, Weather &amp; Reading Conditions</h2>
+
+    <p>Understanding the wind is not just a technical skill in kite surfing — it is the entire foundation of the sport. A surfer waits for waves; a kitesurfer reads the sky. And the more fluent you become in reading wind and weather, the longer, safer, and more enjoyable your sessions will be. Most accidents in kite surfing are caused by two things: riding in too much wind, and being surprised by wind shifts. Both can be mitigated with knowledge.</p>
+
+    <h3 style="color: var(--accent); margin: 24px 0 12px;">The Wind Window</h3>
+    <p>The <strong>wind window</strong> is the three-dimensional arc of sky in which your kite can fly. Picture a quarter-sphere in front of you, from directly downwind at your feet to directly overhead and all around to either side. The window is divided into three zones. The <strong>neutral zone</strong> is directly overhead and to the sides — the kite has minimal power here and will simply float. The <strong>edge of the window</strong> (12 o'clock, or 9/3 o'clock positions) is where the kite generates moderate, consistent pull. The <strong>power zone</strong> is directly downwind — when your kite is low and in front of you, it generates maximum thrust. Understanding these zones is the key to controlling your power.</p>
+
+    <div class="stats-row">
+      <div class="stat-card">
+        <div class="stat-num">12–25 kn</div>
+        <div class="stat-label">Ideal beginner wind range</div>
+      </div>
+      <div class="stat-card">
+        <div class="stat-num">15 kn</div>
+        <div class="stat-label">Minimum for most beginner kites (9–12m)</div>
+      </div>
+      <div class="stat-card">
+        <div class="stat-num">30 kn+</div>
+        <div class="stat-label">Consider staying ashore until experienced</div>
+      </div>
+    </div>
+
+    <p><strong>Wind direction types:</strong> <strong>Side-shore wind</strong> (blowing parallel to the beach) is the safest and most common kiteboarding wind. <strong>Side-onshore wind</strong> (blowing at an angle toward the beach) is also acceptable and keeps you close to shore if something goes wrong. <strong>Onshore wind</strong> (directly into the beach) is considered dangerous for beginners — if you lose control, you will be pushed onto land. <strong>Offshore wind</strong> (blowing from land to sea) is the most dangerous: a malfunction or gear failure could send you far out to sea with no way back.</p>
+
+    <div class="warn-box">
+      <div class="tip-label">Critical Rule</div>
+      <p>Never kite in offshore wind as a beginner. If in doubt about wind direction at a new spot, watch the local kiters, ask an instructor, or check wind apps like Windguru, WindAlert, or Windy.com before launching.</p>
+    </div>
+
+    <!-- MID CHAPTER AD: CABRINHA -->
+    <div class="mid-ad">
+      <span class="mid-ad-badge">Sponsor</span>
+      <div class="mid-ad-text">
+        <strong>North Kiteboarding — Equipment for Every Stage</strong>
+        <span>From the Reach beginner kite to the Orbit performance kite, North designs gear that grows with you. Find your nearest school partner at northkiteboarding.com.</span>
+      </div>
+      <a href="#" class="mid-ad-cta">Explore North</a>
+    </div>
+
+    <p><strong>Reading gusts and lulls:</strong> Wind is rarely perfectly consistent. Gusts — sudden increases in wind speed — are the most common cause of crashes and dangerous situations for beginners. On open water, you can often see a gust approaching as a dark patch on the water surface where the wind is compressing the surface texture. When you see one coming, move your kite toward 12 o'clock (the neutral zone) and sheet out (push the bar away) to dump power. During a lull, bring the kite lower and fly it actively to maintain lift.</p>
+
+    <p><strong>Thermals and sea breezes:</strong> In many coastal destinations — the Canary Islands, Portugal, and Brazil among them — the dominant wind is a thermal sea breeze that builds through the morning and peaks in the early afternoon before dying in the late afternoon. These spots offer wonderfully predictable conditions. In contrast, unstable meteorological systems bring gusty, directionally inconsistent wind that is far harder to manage. Always check a multi-day forecast from at least two sources, and pay attention to the <strong>standard deviation</strong> of forecasted gusts, not just average speed.</p>
+
+    <div class="tip-box">
+      <div class="tip-label">App Recommendations</div>
+      <p>Use <strong>Windy.com</strong> for visual wind maps, <strong>Windguru</strong> for surf and kite-specific forecasts, and <strong>PredictWind</strong> for marine-grade accuracy. Cross-reference always. Local kiters' knowledge is still the gold standard at any spot.</p>
+    </div>
+  </article>
+
+  <!-- ===== CHAPTER 5 ===== -->
+  <article id="ch5" class="chapter">
+    <div class="chapter-num">Chapter 05</div>
+    <div class="ch-illustration">
+      <img src="https://image.pollinations.ai/prompt/kite%20surf%20instructor%20teaching%20student%20beach%20lesson%20sunny%20cinematic?width=900&height=360&nologo=true&seed=305" alt="Chapter">
+    </div>
+    <h2>Finding Lessons &amp; Schools: What a Good Instructor Looks Like</h2>
+
+    <p>The choice of instructor is arguably the most important decision you will make as a beginning kite surfer. A great teacher does not just accelerate your progression — they build safe habits, help you avoid dangerous mistakes, and make the experience genuinely enjoyable even when it is frustrating. A poor teacher, or worse, an uncertified one, can put you in real danger. The difference between the two is usually visible before you ever get in the water.</p>
+
+    <p>The gold standard for kite instructor certification is the <strong>IKO (International Kiteboarding Organisation)</strong>. IKO-certified schools follow a standardised, safety-first curriculum, require equipment checks before every lesson, and maintain student-to-instructor ratios that allow proper supervision. In many European countries, the <strong>BKSA (British Kitesurfing Association)</strong> or national equivalents — FFVL in France, VDWS in Germany — set additional requirements aligned with local maritime regulations.</p>
+
+    <div class="tip-box">
+      <div class="tip-label">Before Booking Any School</div>
+      <p>Ask these four questions: <strong>1)</strong> Are your instructors IKO or nationally certified? <strong>2)</strong> What student-to-instructor ratio do you maintain? (2:1 is ideal for beginners.) <strong>3)</strong> Do you use radio helmets? <strong>4)</strong> What safety equipment do students use during lessons?</p>
+    </div>
+
+    <p><strong>Radio helmets</strong> are a game-changer in modern kite instruction. A small speaker inside the student's helmet lets the instructor communicate real-time instructions from the beach while the student is in the water. Instead of shouting (or guessing), the student hears precise guidance exactly when they need it. Any school not using radio helmets in 2026 is behind the curve. Walk away if radio instruction is not available.</p>
+
+    <p><strong>Equipment condition:</strong> Inspect the school's gear before the lesson. Kites should be clean and free of major repairs. Lines should be equal length and without fraying. Bars should have functional quick-release systems — ask the instructor to demonstrate activation before you leave the beach. Safety leashes should be present and properly rigged. A school that is careless about equipment maintenance is a school that is careless about your safety.</p>
+
+    <p><strong>Lesson format:</strong> Quality schools structure lessons in a clear progression: theory on the beach, trainer kite practice on the beach, then body dragging, then the board. Red flags include instructors who rush students into the water with a full kite before adequate beach training, or who leave the beach area during your water session. Your instructor should be watching you, or actively coaching you, at all times during your early lessons.</p>
+
+    <div class="stats-row">
+      <div class="stat-card">
+        <div class="stat-num">2:1</div>
+        <div class="stat-label">Ideal student-to-instructor ratio</div>
+      </div>
+      <div class="stat-card">
+        <div class="stat-num">IKO</div>
+        <div class="stat-label">Global standard certification</div>
+      </div>
+      <div class="stat-card">
+        <div class="stat-num">3–5</div>
+        <div class="stat-label">Sessions for most beginners to water-start</div>
+      </div>
+    </div>
+
+    <!-- MID CHAPTER AD: SLINGSHOT -->
+    <div class="mid-ad">
+      <span class="mid-ad-badge">Sponsor</span>
+      <div class="mid-ad-text">
+        <strong>Slingshot Sports — Gear That Grows With You</strong>
+        <span>The Slingshot RPM kite and Terrain board are the industry standard for beginner packs worldwide. Find a certified Slingshot lesson partner in your region.</span>
+      </div>
+      <a href="#" class="mid-ad-cta">Find a School</a>
+    </div>
+
+    <p><strong>Recommended beginner lesson packages:</strong> Most quality schools offer packages of 9–12 hours of instruction. Expect to pay €350–€700 in Europe, depending on location and season. Canary Islands and Portugal-based schools often offer competitive prices and excellent conditions year-round. Some schools also include gear rental for a set period after your course, which is a valuable option while you decide whether to invest in your own equipment.</p>
+
+    <div class="tip-box">
+      <div class="tip-label">Group vs. Private Lessons</div>
+      <p>Private lessons cost more but dramatically accelerate learning. If budget allows, do at least your first two sessions as private or semi-private lessons. Group lessons are fine once you have the basics — but one-on-one instruction in the critical early water-start phase is worth every euro.</p>
+    </div>
+
+    <p>Finally, a note on location. If you are travelling specifically to learn, choose a destination with consistent, predictable thermal wind (more on this in Chapter 6), a sandy beach with no obstacles, and a school with established credentials. Tarifa, Cabarete, Dakhla, and Mui Ne are among the world's best beginner learning destinations for exactly this combination of factors.</p>
+  </article>
+
+  <!-- ===== CHAPTER 6 ===== -->
+  <article id="ch6" class="chapter">
+    <div class="chapter-num">Chapter 06</div>
+    <div class="ch-illustration">
+      <img src="https://image.pollinations.ai/prompt/tropical%20beach%20turquoise%20ocean%20kite%20surf%20destination%20paradise%20cinematic?width=900&height=360&nologo=true&seed=306" alt="Chapter">
+    </div>
+    <h2>Best Kite Surfing Spots in Europe &amp; the World</h2>
+
+    <p>One of kite surfing's great gifts to its practitioners is a reason to travel. The world's best spots are not merely beautiful — they are beautiful <em>and</em> windy, which is a combination that makes even non-kitesurfers pause. From the turquoise shallows of Dakhla to the legendary wind tunnel of Tarifa, the sport's top destinations each have a distinct character, shaped by geography, meteorology, and the local culture that has grown up around them.</p>
+
+    <h3 style="color: var(--accent); margin: 24px 0 12px;">Europe's Top Spots</h3>
+    <div class="spot-grid">
+      <div class="spot-card">
+        <div class="spot-country">Spain</div>
+        <h4>Tarifa</h4>
+        <p>The kite capital of Europe. Where the Atlantic meets the Mediterranean, channelled through a narrow strait. The Levante (east wind) and Poniente (west wind) blow with startling regularity. World-class schools, a buzzing town, and year-round wind.</p>
+      </div>
+      <div class="spot-card">
+        <div class="spot-country">Spain — Canary Islands</div>
+        <h4>Sotavento, Fuerteventura</h4>
+        <p>The PWA World Cup venue. A vast shallow lagoon with consistent trade winds, flat-water conditions for beginners, and warm water year-round. One of the most beginner-friendly spots on the planet.</p>
+      </div>
+      <div class="spot-card">
+        <div class="spot-country">Portugal</div>
+        <h4>Peniche &amp; Guincho</h4>
+        <p>Atlantic coast kite Mecca. Peniche offers variety with flat water and waves; Guincho, just 30 km from Lisbon, is a world-famous wave kiting spot. Strong, reliable NW winds from June to September.</p>
+      </div>
+      <div class="spot-card">
+        <div class="spot-country">Greece</div>
+        <h4>Paros &amp; Kos</h4>
+        <p>The Aegean's "Meltemi" wind blows reliably in summer — strong, consistent, and side-shore on many island beaches. Combined with crystal water and Greek hospitality, it makes for an exceptional kite trip.</p>
+      </div>
+      <div class="spot-card">
+        <div class="spot-country">France</div>
+        <h4>Leucate &amp; La Palme</h4>
+        <p>The Tramontane and Marin winds funnel between the Pyrenees and the Massif Central, creating some of Europe's most reliable kite conditions. The lagoon is perfect for beginners; open coast for intermediates.</p>
+      </div>
+      <div class="spot-card">
+        <div class="spot-country">Germany / Denmark</div>
+        <h4>Sylt &amp; Rømø</h4>
+        <p>North Sea islands with cold water, strong winds, and a huge local kite culture. Not for the faint-hearted in terms of temperature — but 5mm wetsuits and a healthy attitude unlock extraordinary flat-water riding.</p>
+      </div>
+    </div>
+
+    <h3 style="color: var(--accent); margin: 30px 0 12px;">World Class — Global Destinations</h3>
+    <div class="spot-grid">
+      <div class="spot-card">
+        <div class="spot-country">Morocco</div>
+        <h4>Dakhla Lagoon</h4>
+        <p>A 40 km tidal lagoon with 4–6 cm of flat, warm water and side-shore trade winds almost every day of the year. Considered the world's premier beginner and freestyle destination.</p>
+      </div>
+      <div class="spot-card">
+        <div class="spot-country">Dominican Republic</div>
+        <h4>Cabarete</h4>
+        <p>Thermal sea breeze builds by noon every day from June to August. A vibrant international kite community, budget-friendly accommodation, and one of the Caribbean's most celebrated beaches.</p>
+      </div>
+      <div class="spot-card">
+        <div class="spot-country">Brazil</div>
+        <h4>Cumbuco &amp; Jericoacoara</h4>
+        <p>Trade winds blow from July to January — steady, warm, consistent. Jeri is a protected UNESCO environment; Cumbuco near Fortaleza has a massive kite school infrastructure.</p>
+      </div>
+      <div class="spot-card">
+        <div class="spot-country">Vietnam</div>
+        <h4>Mui Ne</h4>
+        <p>Asia's kite capital. A 14 km sandy beach, dry season monsoon trade winds from November to March, and an affordable lesson ecosystem that draws students from across Asia and Europe.</p>
+      </div>
+      <div class="spot-card">
+        <div class="spot-country">Australia</div>
+        <h4>Margaret River &amp; Perth</h4>
+        <p>The "Fremantle Doctor" — a reliable afternoon sea breeze — makes Perth one of Australia's windiest cities. Margaret River adds world-class waves to the mix for advanced riders.</p>
+      </div>
+      <div class="spot-card">
+        <div class="spot-country">Egypt</div>
+        <h4>El Gouna &amp; Hurghada</h4>
+        <p>Steady NW winds in the Red Sea corridor, warm clear water, and outstanding value make Egypt a favourite for European kiters escaping winter. Flat lagoons and offshore sandbars for every level.</p>
+      </div>
+    </div>
+
+    <div class="tip-box">
+      <div class="tip-label">Travel Tip</div>
+      <p>Before booking any kite travel, always check the seasonal wind calendar for your destination. Most spots have a clear "kite season" of 4–6 months. Arriving outside the season is a gamble that even the best spots cannot rescue. Dakhla is the exception — wind virtually year-round.</p>
+    </div>
+  </article>
+
+  <!-- ===== CHAPTER 7 ===== -->
+  <article id="ch7" class="chapter">
+    <div class="chapter-num">Chapter 07</div>
+    <div class="ch-illustration">
+      <img src="https://image.pollinations.ai/prompt/kite%20surfer%20jumping%20high%20expert%20rider%20ocean%20sunset%20cinematic%20triumph?width=900&height=360&nologo=true&seed=307" alt="Chapter">
+    </div>
+    <h2>From Beginner to Independent Rider: Your 6-Month Roadmap</h2>
+
+    <p>The jump from "first lesson" to "confident, independent kite surfer who can self-manage at any spot" typically takes 6 months of active practice — assuming regular sessions (2–3 per week when conditions allow) and structured progression. The milestones below are realistic for an average adult learner in good wind conditions. Weather, commitment, and access to equipment will determine your actual pace, but this roadmap gives you a clear framework to work toward.</p>
+
+    <ul class="roadmap">
+      <li>
+        <span class="roadmap-month">Month 1</span>
+        <div class="roadmap-content">
+          <h4>Lessons &amp; Land Mastery</h4>
+          <p>Complete a 9–12 hour IKO beginner course. Achieve confident body-dragging in both directions. Understand the wind window, all safety systems, and self-rescue protocol. You should be able to set up and de-rig independently by the end of this month.</p>
+        </div>
+      </li>
+      <li>
+        <span class="roadmap-month">Month 2</span>
+        <div class="roadmap-content">
+          <h4>Water Starts &amp; First Rides</h4>
+          <p>Focus on board starts. Expect many falls. Each session, try to extend your ride length. Celebrate every 5-second ride — it will be 50 seconds within a week or two. Start practicing kite control during your ride rather than just launching and holding on.</p>
+        </div>
+      </li>
+      <li>
+        <span class="roadmap-month">Month 3</span>
+        <div class="roadmap-content">
+          <h4>Riding Consistently &amp; Upwind Attempts</h4>
+          <p>Your water starts become reliable. You can ride for 100+ metres without crashing. Begin edge control practice — pressing the back edge of the board to resist being pulled downwind. Your first upwind ride attempts happen this month. They will feel very hard. That is normal.</p>
+        </div>
+      </li>
+      <li>
+        <span class="roadmap-month">Month 4</span>
+        <div class="roadmap-content">
+          <h4>Upwind Riding &amp; Tack Changes</h4>
+          <p>You can now ride upwind consistently enough to return to your starting point. Practice riding in a full loop — away from the beach, upwind, and back to your launch spot. Attempt your first tack (downwind direction change) and gybe. Falls guaranteed, but progress is rapid now.</p>
+        </div>
+      </li>
+      <li>
+        <span class="roadmap-month">Month 5</span>
+        <div class="roadmap-content">
+          <h4>First Jumps &amp; Expanding Range</h4>
+          <p>With consistent riding and upwind ability established, you start exploring your first small jumps — sending the kite toward 12 o'clock and edging hard generates your first air. Even 1 metre of air is transformative. You also start riding in slightly choppier, more variable conditions, building real-world adaptability.</p>
+        </div>
+      </li>
+      <li>
+        <span class="roadmap-month">Month 6</span>
+        <div class="roadmap-content">
+          <h4>Independent Rider Status</h4>
+          <p>You can self-launch, ride, jump small, ride upwind, and self-land safely without assistance. You understand local rules (right of way: kite surfers give way to swimmers, windsurfers, and boats). You can assess conditions before rigging. You are now a kitesurfer — not a student, not a beginner. You have earned it.</p>
+        </div>
+      </li>
+    </ul>
+
+    <!-- MID CHAPTER AD: CABRINHA -->
+    <div class="mid-ad">
+      <span class="mid-ad-badge">Sponsor</span>
+      <div class="mid-ad-text">
+        <strong>Cabrinha Kites — Your First Kite Set Should Last Years</strong>
+        <span>The Cabrinha Switchblade 12m kite + bar package is the most popular beginner-to-intermediate kit in the world. Designed for confidence. Built to last.</span>
+      </div>
+      <a href="#" class="mid-ad-cta">See the Switchblade</a>
+    </div>
+
+    <p><strong>What comes after Month 6?</strong> The sky — literally — is the limit. Riders who complete this progression typically move in one of several directions: <strong>freestyle</strong> (unhooked tricks, handle passes, big jumps), <strong>wave riding</strong> (directional boards, surfing waves on a kite), <strong>foiling</strong> (hydrofoil boards that lift you above the water in as little as 8 knots of wind), or simply <strong>touring</strong> — packing a kite and exploring coastlines. Many riders pursue all of these in parallel. Each is a sport within a sport.</p>
+
+    <p>The community is another dimension entirely. Kite surfers are famously welcoming to new riders who demonstrate awareness and respect for the rules. Spots that can look intimidating from the beach often have generous, experienced locals who will happily give you tips on current conditions, help you rig if your pump breaks, or point you to the best flat water in the area. Introduce yourself, ask questions, and pay it forward when you have skills to share.</p>
+
+    <div class="tip-box">
+      <div class="tip-label">Long-Term Advice</div>
+      <p>The riders who progress fastest are not necessarily the most athletic. They are the ones who <strong>debrief honestly after every session</strong> — what worked, what didn't, what they will focus on next time. Keep a simple session log. Five lines after each session compounds into extraordinary self-awareness over a season.</p>
+    </div>
+
+    <p>The ocean does not owe you anything. But when the wind fills your kite, the board lifts, and you feel that first clean tug pulling you across the water toward the horizon — in that moment, you understand exactly why millions of people worldwide have made this the defining obsession of their lives. Welcome to kite surfing. The wind is waiting.</p>
+  </article>
+
+</main>
+
+<!-- ===== BOTTOM PARTNER OFFERS ===== -->
+<div class="partner-section">
+  <h3>Partner Offers &amp; Resources</h3>
+  <div class="partner-grid">
+    <div class="partner-card">
+      <h4>Cabrinha Kites</h4>
+      <p>Find your nearest Cabrinha dealer and exclusive 2026 beginner package offers. Trade-in programme available.</p>
+      <a href="#">Shop Cabrinha</a>
+    </div>
+    <div class="partner-card">
+      <h4>North Kiteboarding</h4>
+      <p>The North School Finder connects you with 800+ certified schools globally. Free lesson credit with gear purchase.</p>
+      <a href="#">Find a School</a>
+    </div>
+    <div class="partner-card">
+      <h4>Slingshot Sports</h4>
+      <p>Slingshot's beginner kite pack includes kite, bar, bag, and pump. See current season pricing at slingshotsports.com.</p>
+      <a href="#">Explore Gear</a>
+    </div>
+    <div class="partner-card" style="border-color: var(--accent3); border-style: dashed;">
+      <h4>[Your Brand Here]</h4>
+      <p>Reach 40,000+ active and aspiring kitesurfers per month across the NOVA WATER network. Multiple ad formats available.</p>
+      <a href="mailto:contact@novamedia.io">Contact Us</a>
+    </div>
+  </div>
+</div>
+
+<!-- ===== CTA ===== -->
+<div class="page-wrap">
+  <div class="cta-section">
+    <h2>Join the NovaWater Community</h2>
+    <p>Get our free weekly newsletter: the best kite spots, gear reviews, wind forecasts, and exclusive beginner tips delivered every Thursday.</p>
+    <a href="#" class="cta-btn">Subscribe Free — NovaWater Newsletter</a>
+    <p class="cta-note">No spam. No paywall. Just good kite content. Unsubscribe anytime.</p>
+  </div>
+
+  <!-- AFFILIATE DISCLOSURE -->
+  <div class="disclosure">
+    <strong>Affiliate &amp; Advertising Disclosure:</strong> This guide is published by NOVA WATER for informational and educational purposes. Some links and sponsor placements in this document are paid advertisements or affiliate partnerships. NOVA WATER may receive a commission or fee from linked brands. This does not affect the editorial independence of the guide's content. All product recommendations are based on the author's genuine experience and research. Prices and availability are subject to change. Always verify current pricing with retailers directly.
+  </div>
+</div>
+
+<!-- ===== FOOTER ===== -->
+<footer>
+  <div class="footer-brand">NOVA WATER</div>
+  <p>NOVA WATER © 2026 — All rights reserved. Published by NovaMedia.io</p>
+  <p style="margin-top: 8px;">contact@novamedia.io &nbsp;·&nbsp; novawater.io &nbsp;·&nbsp; Kite. Ride. Explore.</p>
+</footer>
+
+</body>
+</html>

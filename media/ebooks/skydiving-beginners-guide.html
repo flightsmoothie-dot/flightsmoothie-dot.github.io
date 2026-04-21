@@ -1,0 +1,1399 @@
+<!DOCTYPE html>
+<html lang="en">
+<head>
+<meta charset="UTF-8">
+<meta name="viewport" content="width=device-width, initial-scale=1.0">
+<title>Skydiving: The Complete Beginner's Guide | Nova Sky</title>
+<style>
+  /* ===== RESET & BASE ===== */
+  *, *::before, *::after { box-sizing: border-box; margin: 0; padding: 0; }
+  html { scroll-behavior: smooth; }
+  body {
+    background: #080808;
+    color: #e0e0e0;
+    font-family: 'Georgia', 'Times New Roman', serif;
+    font-size: 17px;
+    line-height: 1.8;
+  }
+  a { color: #F39C12; text-decoration: none; }
+  a:hover { text-decoration: underline; }
+
+  /* ===== COVER ===== */
+  .cover {
+    position: relative;
+    width: 100%;
+    min-height: 100vh;
+    display: flex;
+    flex-direction: column;
+    align-items: center;
+    justify-content: center;
+    overflow: hidden;
+    background:
+      radial-gradient(ellipse at 50% 0%, rgba(243,156,18,0.08) 0%, transparent 60%),
+      radial-gradient(ellipse at 20% 80%, rgba(243,156,18,0.05) 0%, transparent 50%),
+      radial-gradient(ellipse at 80% 60%, rgba(80,120,200,0.06) 0%, transparent 50%),
+      linear-gradient(180deg, #000005 0%, #080820 40%, #080808 100%);
+  }
+  /* CSS Starfield */
+  .stars-layer-1, .stars-layer-2, .stars-layer-3 {
+    position: absolute;
+    top: 0; left: 0;
+    width: 100%; height: 100%;
+    pointer-events: none;
+  }
+  .stars-layer-1 {
+    background-image:
+      radial-gradient(1px 1px at 10% 15%, #fff 0%, transparent 100%),
+      radial-gradient(1px 1px at 25% 30%, #fff 0%, transparent 100%),
+      radial-gradient(1px 1px at 40% 8%,  rgba(255,255,255,0.8) 0%, transparent 100%),
+      radial-gradient(1px 1px at 55% 22%, #fff 0%, transparent 100%),
+      radial-gradient(1px 1px at 70% 5%,  rgba(255,255,255,0.6) 0%, transparent 100%),
+      radial-gradient(1px 1px at 85% 18%, #fff 0%, transparent 100%),
+      radial-gradient(1px 1px at 15% 45%, rgba(255,255,255,0.7) 0%, transparent 100%),
+      radial-gradient(1px 1px at 32% 60%, #fff 0%, transparent 100%),
+      radial-gradient(1px 1px at 48% 50%, rgba(255,255,255,0.5) 0%, transparent 100%),
+      radial-gradient(1px 1px at 63% 38%, #fff 0%, transparent 100%),
+      radial-gradient(1px 1px at 78% 52%, rgba(255,255,255,0.8) 0%, transparent 100%),
+      radial-gradient(1px 1px at 92% 35%, #fff 0%, transparent 100%),
+      radial-gradient(1px 1px at 5%  70%, rgba(255,255,255,0.6) 0%, transparent 100%),
+      radial-gradient(1px 1px at 20% 78%, #fff 0%, transparent 100%),
+      radial-gradient(1px 1px at 35% 85%, rgba(255,255,255,0.4) 0%, transparent 100%),
+      radial-gradient(1px 1px at 50% 72%, #fff 0%, transparent 100%),
+      radial-gradient(1px 1px at 65% 88%, rgba(255,255,255,0.7) 0%, transparent 100%),
+      radial-gradient(1px 1px at 80% 75%, #fff 0%, transparent 100%),
+      radial-gradient(1px 1px at 95% 62%, rgba(255,255,255,0.5) 0%, transparent 100%),
+      radial-gradient(1px 1px at 12% 92%, #fff 0%, transparent 100%);
+    animation: twinkle1 6s ease-in-out infinite alternate;
+  }
+  .stars-layer-2 {
+    background-image:
+      radial-gradient(1.5px 1.5px at 7%  12%, rgba(243,200,100,0.6) 0%, transparent 100%),
+      radial-gradient(1.5px 1.5px at 22% 28%, rgba(255,255,255,0.9) 0%, transparent 100%),
+      radial-gradient(1.5px 1.5px at 37% 42%, rgba(243,200,100,0.4) 0%, transparent 100%),
+      radial-gradient(1.5px 1.5px at 53% 17%, rgba(255,255,255,0.8) 0%, transparent 100%),
+      radial-gradient(1.5px 1.5px at 68% 55%, rgba(243,200,100,0.5) 0%, transparent 100%),
+      radial-gradient(1.5px 1.5px at 83% 33%, rgba(255,255,255,0.7) 0%, transparent 100%),
+      radial-gradient(1.5px 1.5px at 18% 65%, rgba(255,255,255,0.6) 0%, transparent 100%),
+      radial-gradient(1.5px 1.5px at 44% 80%, rgba(243,200,100,0.4) 0%, transparent 100%),
+      radial-gradient(1.5px 1.5px at 59% 95%, rgba(255,255,255,0.5) 0%, transparent 100%),
+      radial-gradient(1.5px 1.5px at 75% 68%, rgba(243,200,100,0.6) 0%, transparent 100%),
+      radial-gradient(1.5px 1.5px at 90% 82%, rgba(255,255,255,0.8) 0%, transparent 100%),
+      radial-gradient(1.5px 1.5px at 3%  47%, rgba(243,200,100,0.3) 0%, transparent 100%);
+    animation: twinkle2 8s ease-in-out infinite alternate;
+  }
+  .stars-layer-3 {
+    background-image:
+      radial-gradient(2px 2px at 14% 20%, rgba(255,255,255,0.4) 0%, transparent 100%),
+      radial-gradient(2px 2px at 42% 35%, rgba(243,156,18,0.3) 0%, transparent 100%),
+      radial-gradient(2px 2px at 71% 14%, rgba(255,255,255,0.5) 0%, transparent 100%),
+      radial-gradient(2px 2px at 28% 58%, rgba(243,156,18,0.2) 0%, transparent 100%),
+      radial-gradient(2px 2px at 88% 44%, rgba(255,255,255,0.4) 0%, transparent 100%),
+      radial-gradient(2px 2px at 56% 77%, rgba(243,156,18,0.3) 0%, transparent 100%);
+    animation: twinkle3 10s ease-in-out infinite alternate;
+  }
+  @keyframes twinkle1 {
+    0%   { opacity: 0.7; }
+    50%  { opacity: 1; }
+    100% { opacity: 0.5; }
+  }
+  @keyframes twinkle2 {
+    0%   { opacity: 0.5; }
+    50%  { opacity: 0.9; }
+    100% { opacity: 0.7; }
+  }
+  @keyframes twinkle3 {
+    0%   { opacity: 0.3; }
+    50%  { opacity: 0.8; }
+    100% { opacity: 0.4; }
+  }
+  .cover-content {
+    position: relative;
+    z-index: 10;
+    text-align: center;
+    padding: 40px 20px;
+    max-width: 800px;
+  }
+  .nova-badge {
+    display: inline-block;
+    background: rgba(243,156,18,0.15);
+    border: 1px solid rgba(243,156,18,0.4);
+    color: #F39C12;
+    font-family: 'Arial', sans-serif;
+    font-size: 11px;
+    font-weight: 700;
+    letter-spacing: 3px;
+    text-transform: uppercase;
+    padding: 6px 18px;
+    border-radius: 20px;
+    margin-bottom: 28px;
+  }
+  .cover-title {
+    font-family: 'Georgia', serif;
+    font-size: clamp(2.4rem, 6vw, 4.2rem);
+    font-weight: 700;
+    color: #ffffff;
+    line-height: 1.15;
+    margin-bottom: 8px;
+    text-shadow: 0 0 40px rgba(243,156,18,0.3);
+  }
+  .cover-title span {
+    color: #F39C12;
+  }
+  .cover-subtitle {
+    font-size: clamp(1rem, 2.5vw, 1.25rem);
+    color: #aaa;
+    font-style: italic;
+    margin-bottom: 36px;
+    letter-spacing: 0.5px;
+  }
+  /* SVG hero */
+  .hero-svg-wrap {
+    margin: 10px auto 30px;
+    width: 340px;
+    max-width: 90vw;
+    filter: drop-shadow(0 0 30px rgba(243,156,18,0.25));
+  }
+  /* Altitude depth bands */
+  .altitude-bands {
+    position: absolute;
+    bottom: 0; left: 0;
+    width: 100%;
+    height: 200px;
+    background: linear-gradient(
+      to bottom,
+      transparent 0%,
+      rgba(243,156,18,0.03) 30%,
+      rgba(243,156,18,0.06) 60%,
+      rgba(243,156,18,0.04) 80%,
+      rgba(8,8,8,0.8) 100%
+    );
+    pointer-events: none;
+  }
+  .cover-scroll-hint {
+    position: absolute;
+    bottom: 28px;
+    left: 50%;
+    transform: translateX(-50%);
+    display: flex;
+    flex-direction: column;
+    align-items: center;
+    gap: 6px;
+    color: #555;
+    font-size: 11px;
+    letter-spacing: 2px;
+    text-transform: uppercase;
+    font-family: 'Arial', sans-serif;
+    animation: bounce 2s ease-in-out infinite;
+  }
+  @keyframes bounce {
+    0%, 100% { transform: translateX(-50%) translateY(0); }
+    50%       { transform: translateX(-50%) translateY(8px); }
+  }
+
+  /* ===== SPONSOR BANNER ===== */
+  .sponsor-banner {
+    background: #0e0e0e;
+    border-top: 1px solid #222;
+    border-bottom: 1px solid #222;
+    padding: 20px 30px;
+  }
+  .sponsor-banner-label {
+    text-align: center;
+    font-family: 'Arial', sans-serif;
+    font-size: 10px;
+    letter-spacing: 3px;
+    text-transform: uppercase;
+    color: #444;
+    margin-bottom: 16px;
+  }
+  .sponsor-slots {
+    display: flex;
+    flex-wrap: wrap;
+    justify-content: center;
+    gap: 12px;
+  }
+  .sponsor-slot {
+    background: #151515;
+    border: 1px solid #282828;
+    border-radius: 6px;
+    padding: 10px 22px;
+    font-family: 'Arial', sans-serif;
+    font-size: 13px;
+    font-weight: 700;
+    color: #ccc;
+    letter-spacing: 0.5px;
+    transition: border-color 0.2s;
+    text-align: center;
+    min-width: 160px;
+  }
+  .sponsor-slot.primary { border-color: #F39C12; color: #F39C12; }
+  .sponsor-slot.advertise { border: 1px dashed #333; color: #555; font-style: italic; font-weight: 400; }
+  .sponsor-slot:hover { border-color: #F39C12; }
+  .sponsor-slot small { display: block; font-weight: 400; font-size: 10px; color: #666; margin-top: 2px; }
+
+  /* ===== LAYOUT ===== */
+  .main-wrap {
+    max-width: 820px;
+    margin: 0 auto;
+    padding: 0 24px;
+  }
+
+  /* ===== TABLE OF CONTENTS ===== */
+  .toc-section {
+    padding: 60px 0 40px;
+    border-bottom: 1px solid #1a1a1a;
+  }
+  .section-label {
+    font-family: 'Arial', sans-serif;
+    font-size: 10px;
+    font-weight: 700;
+    letter-spacing: 4px;
+    text-transform: uppercase;
+    color: #F39C12;
+    margin-bottom: 18px;
+  }
+  .toc-title {
+    font-size: 2rem;
+    color: #fff;
+    margin-bottom: 30px;
+    font-weight: 700;
+  }
+  .toc-list {
+    list-style: none;
+    counter-reset: toc-counter;
+  }
+  .toc-list li {
+    counter-increment: toc-counter;
+    border-bottom: 1px solid #161616;
+    padding: 14px 0;
+    display: flex;
+    align-items: center;
+    gap: 16px;
+  }
+  .toc-list li::before {
+    content: "0" counter(toc-counter);
+    font-family: 'Arial', sans-serif;
+    font-size: 12px;
+    font-weight: 700;
+    color: #F39C12;
+    min-width: 28px;
+    opacity: 0.8;
+  }
+  .toc-list li a {
+    color: #ddd;
+    font-size: 1.05rem;
+    transition: color 0.2s;
+  }
+  .toc-list li a:hover { color: #F39C12; text-decoration: none; }
+  .toc-dots {
+    flex: 1;
+    border-bottom: 1px dotted #2a2a2a;
+    height: 1px;
+    margin: 0 8px;
+  }
+  .toc-pg {
+    font-family: 'Arial', sans-serif;
+    font-size: 12px;
+    color: #444;
+  }
+
+  /* ===== CHAPTER STYLES ===== */
+  .chapter {
+    padding: 70px 0 50px;
+    border-bottom: 1px solid #1a1a1a;
+  }
+  .chapter-number {
+    font-family: 'Arial', sans-serif;
+    font-size: 10px;
+    font-weight: 700;
+    letter-spacing: 4px;
+    text-transform: uppercase;
+    color: #F39C12;
+    margin-bottom: 10px;
+    opacity: 0.8;
+  }
+  .chapter-title {
+    font-size: clamp(1.6rem, 4vw, 2.4rem);
+    color: #ffffff;
+    line-height: 1.2;
+    margin-bottom: 28px;
+    font-weight: 700;
+  }
+  .chapter-title span { color: #F39C12; }
+  .chapter p {
+    margin-bottom: 20px;
+    color: #ccc;
+  }
+  .chapter p:first-of-type::first-letter {
+    font-size: 3.4em;
+    font-weight: 700;
+    color: #F39C12;
+    float: left;
+    line-height: 0.8;
+    margin: 8px 12px 0 0;
+    font-family: 'Georgia', serif;
+  }
+  h3.section-head {
+    font-size: 1.15rem;
+    color: #F39C12;
+    font-family: 'Arial', sans-serif;
+    font-weight: 700;
+    margin: 34px 0 12px;
+    letter-spacing: 0.5px;
+    text-transform: uppercase;
+  }
+
+  /* ===== TIP BOXES ===== */
+  .tip-box {
+    background: rgba(243,156,18,0.07);
+    border-left: 3px solid #F39C12;
+    border-radius: 0 6px 6px 0;
+    padding: 16px 20px;
+    margin: 28px 0;
+    font-size: 0.95rem;
+    color: #ddd;
+  }
+  .tip-box strong {
+    display: block;
+    color: #F39C12;
+    font-family: 'Arial', sans-serif;
+    font-size: 11px;
+    letter-spacing: 2px;
+    text-transform: uppercase;
+    margin-bottom: 6px;
+  }
+  .info-box {
+    background: rgba(80,120,200,0.07);
+    border-left: 3px solid #4a80c8;
+    border-radius: 0 6px 6px 0;
+    padding: 16px 20px;
+    margin: 28px 0;
+    font-size: 0.95rem;
+    color: #ddd;
+  }
+  .info-box strong {
+    display: block;
+    color: #6a9fdd;
+    font-family: 'Arial', sans-serif;
+    font-size: 11px;
+    letter-spacing: 2px;
+    text-transform: uppercase;
+    margin-bottom: 6px;
+  }
+  .warning-box {
+    background: rgba(200,50,50,0.07);
+    border-left: 3px solid #c84444;
+    border-radius: 0 6px 6px 0;
+    padding: 16px 20px;
+    margin: 28px 0;
+    font-size: 0.95rem;
+    color: #ddd;
+  }
+  .warning-box strong {
+    display: block;
+    color: #e06060;
+    font-family: 'Arial', sans-serif;
+    font-size: 11px;
+    letter-spacing: 2px;
+    text-transform: uppercase;
+    margin-bottom: 6px;
+  }
+
+  /* ===== STATS ROW ===== */
+  .stats-row {
+    display: flex;
+    flex-wrap: wrap;
+    gap: 1px;
+    background: #1a1a1a;
+    border: 1px solid #1a1a1a;
+    border-radius: 8px;
+    overflow: hidden;
+    margin: 32px 0;
+  }
+  .stat-card {
+    flex: 1;
+    min-width: 140px;
+    background: #0f0f0f;
+    padding: 20px 16px;
+    text-align: center;
+  }
+  .stat-number {
+    font-family: 'Arial', sans-serif;
+    font-size: 2rem;
+    font-weight: 700;
+    color: #F39C12;
+    line-height: 1;
+    margin-bottom: 6px;
+  }
+  .stat-label {
+    font-family: 'Arial', sans-serif;
+    font-size: 11px;
+    color: #666;
+    text-transform: uppercase;
+    letter-spacing: 1.5px;
+  }
+
+  /* ===== MID CHAPTER AD ===== */
+  .mid-ad {
+    background: linear-gradient(135deg, #0e0e0e 0%, #111108 100%);
+    border: 1px solid #2a2200;
+    border-radius: 10px;
+    padding: 22px 28px;
+    margin: 40px 0;
+    display: flex;
+    flex-wrap: wrap;
+    align-items: center;
+    justify-content: space-between;
+    gap: 16px;
+  }
+  .mid-ad-text strong {
+    display: block;
+    color: #F39C12;
+    font-family: 'Arial', sans-serif;
+    font-size: 10px;
+    letter-spacing: 3px;
+    text-transform: uppercase;
+    margin-bottom: 4px;
+  }
+  .mid-ad-text p { color: #aaa; font-size: 0.9rem; margin: 0; }
+  .mid-ad-text p b { color: #ddd; }
+  .mid-ad-cta {
+    background: #F39C12;
+    color: #000;
+    font-family: 'Arial', sans-serif;
+    font-weight: 700;
+    font-size: 13px;
+    padding: 10px 22px;
+    border-radius: 5px;
+    white-space: nowrap;
+    text-decoration: none;
+    letter-spacing: 0.5px;
+    transition: background 0.2s;
+  }
+  .mid-ad-cta:hover { background: #e08e00; text-decoration: none; }
+
+  /* ===== BOTTOM SPONSOR ROW ===== */
+  .bottom-sponsors {
+    padding: 50px 0 30px;
+    border-bottom: 1px solid #1a1a1a;
+  }
+  .partner-grid {
+    display: flex;
+    flex-wrap: wrap;
+    gap: 16px;
+    justify-content: center;
+    margin-top: 24px;
+  }
+  .partner-card {
+    background: #0f0f0f;
+    border: 1px solid #222;
+    border-radius: 8px;
+    padding: 18px 24px;
+    text-align: center;
+    flex: 1;
+    min-width: 180px;
+    max-width: 240px;
+  }
+  .partner-card .p-name {
+    color: #F39C12;
+    font-family: 'Arial', sans-serif;
+    font-weight: 700;
+    font-size: 14px;
+    margin-bottom: 6px;
+  }
+  .partner-card .p-offer {
+    color: #888;
+    font-size: 12px;
+    font-family: 'Arial', sans-serif;
+  }
+  .partner-card .p-link {
+    display: inline-block;
+    margin-top: 10px;
+    font-size: 11px;
+    color: #F39C12;
+    font-family: 'Arial', sans-serif;
+    border: 1px solid rgba(243,156,18,0.3);
+    padding: 4px 12px;
+    border-radius: 20px;
+  }
+
+  /* ===== CTA SECTION ===== */
+  .cta-section {
+    padding: 70px 0 60px;
+    text-align: center;
+    border-bottom: 1px solid #1a1a1a;
+  }
+  .cta-section h2 {
+    font-size: clamp(1.8rem, 4vw, 2.8rem);
+    color: #fff;
+    margin-bottom: 14px;
+    font-weight: 700;
+  }
+  .cta-section h2 span { color: #F39C12; }
+  .cta-section p { color: #999; max-width: 500px; margin: 0 auto 30px; }
+  .cta-form {
+    display: flex;
+    flex-wrap: wrap;
+    gap: 10px;
+    justify-content: center;
+    max-width: 480px;
+    margin: 0 auto;
+  }
+  .cta-form input[type="email"] {
+    flex: 1;
+    min-width: 220px;
+    background: #141414;
+    border: 1px solid #2a2a2a;
+    border-radius: 5px;
+    padding: 12px 18px;
+    color: #ddd;
+    font-size: 14px;
+    outline: none;
+    font-family: 'Arial', sans-serif;
+  }
+  .cta-form input[type="email"]:focus { border-color: #F39C12; }
+  .cta-btn {
+    background: #F39C12;
+    color: #000;
+    font-family: 'Arial', sans-serif;
+    font-weight: 700;
+    font-size: 14px;
+    padding: 12px 28px;
+    border-radius: 5px;
+    border: none;
+    cursor: pointer;
+    letter-spacing: 0.5px;
+    transition: background 0.2s;
+  }
+  .cta-btn:hover { background: #e08e00; }
+  .cta-note { font-size: 12px; color: #555; margin-top: 12px; font-style: italic; }
+
+  /* ===== AFFILIATE DISCLOSURE ===== */
+  .disclosure {
+    padding: 28px 0 20px;
+    font-size: 12px;
+    color: #444;
+    font-family: 'Arial', sans-serif;
+    line-height: 1.6;
+    border-bottom: 1px solid #141414;
+  }
+  .disclosure strong { color: #555; }
+
+  /* ===== FOOTER ===== */
+  footer {
+    padding: 30px 0 40px;
+    text-align: center;
+    font-family: 'Arial', sans-serif;
+    font-size: 12px;
+    color: #333;
+  }
+  footer .footer-brand {
+    font-size: 16px;
+    font-weight: 700;
+    color: #F39C12;
+    letter-spacing: 3px;
+    text-transform: uppercase;
+    margin-bottom: 8px;
+  }
+  footer .footer-links a {
+    color: #444;
+    margin: 0 10px;
+    font-size: 11px;
+    letter-spacing: 1px;
+  }
+  footer .footer-links a:hover { color: #F39C12; }
+
+  /* ===== RESPONSIVE ===== */
+  @media (max-width: 600px) {
+    .toc-dots, .toc-pg { display: none; }
+    .mid-ad { flex-direction: column; }
+    .stats-row { flex-direction: column; }
+  }
+
+/* ── CHAPTER ILLUSTRATIONS ── */
+.ch-illustration{width:100%;height:280px;overflow:hidden;position:relative;border-radius:16px;margin:0 0 40px;}
+.ch-illustration img{width:100%;height:100%;object-fit:cover;filter:brightness(.8) saturate(1.15);display:block;}
+.ch-illustration::after{content:'';position:absolute;bottom:0;left:0;right:0;height:100px;background:linear-gradient(transparent,var(--dark,#080808));}
+.cover-hero-img{width:100%;max-width:680px;height:340px;overflow:hidden;border-radius:20px;margin:0 auto 48px;position:relative;display:block;}
+.cover-hero-img img{width:100%;height:100%;object-fit:cover;filter:brightness(.82) saturate(1.2);}
+.cover-hero-img::after{content:'';position:absolute;inset:0;background:linear-gradient(to bottom,transparent 40%,rgba(0,0,0,.6) 100%);}
+</style>
+</head>
+<body>
+
+<!-- ========== COVER ========== -->
+<section class="cover" id="cover">
+  <div class="stars-layer-1"></div>
+  <div class="stars-layer-2"></div>
+  <div class="stars-layer-3"></div>
+  <div class="altitude-bands"></div>
+
+  <div class="cover-content">
+    <div class="nova-badge">Nova Sky Publishing · 2026 Edition</div>
+    <div class="cover-hero-img">
+      <img src="https://image.pollinations.ai/prompt/skydiver%20freefall%20blue%20sky%20clouds%20cinematic%20adrenaline%20hero%20shot%20aerial?width=900&height=400&nologo=true&seed=230" alt="Cover art">
+    </div>
+    <h1 class="cover-title">
+      The Complete<br><span>Skydiving</span><br>Beginner's Guide
+    </h1>
+    <p class="cover-subtitle">From Ground School to Licensed Skydiver — Everything You Need to Know</p>
+
+    <!-- SVG Hero: Skydiver in freefall with altimeter -->
+    <div class="hero-svg-wrap">
+      <svg viewBox="0 0 340 400" xmlns="http://www.w3.org/2000/svg" aria-label="Skydiver in freefall with altimeter">
+        <!-- Sky depth gradient background -->
+        <defs>
+          <radialGradient id="skyGlow" cx="50%" cy="40%" r="55%">
+            <stop offset="0%" stop-color="#1a2040" stop-opacity="1"/>
+            <stop offset="100%" stop-color="#050510" stop-opacity="1"/>
+          </radialGradient>
+          <radialGradient id="bodyGlow" cx="50%" cy="50%" r="50%">
+            <stop offset="0%" stop-color="#F39C12" stop-opacity="0.25"/>
+            <stop offset="100%" stop-color="#F39C12" stop-opacity="0"/>
+          </radialGradient>
+          <linearGradient id="altGrad" x1="0" y1="0" x2="0" y2="1">
+            <stop offset="0%" stop-color="#1a1a1a"/>
+            <stop offset="100%" stop-color="#0d0d0d"/>
+          </linearGradient>
+          <filter id="glowFilter">
+            <feGaussianBlur stdDeviation="3" result="coloredBlur"/>
+            <feMerge>
+              <feMergeNode in="coloredBlur"/>
+              <feMergeNode in="SourceGraphic"/>
+            </feMerge>
+          </filter>
+          <filter id="softGlow">
+            <feGaussianBlur stdDeviation="2" result="coloredBlur"/>
+            <feMerge>
+              <feMergeNode in="coloredBlur"/>
+              <feMergeNode in="SourceGraphic"/>
+            </feMerge>
+          </filter>
+        </defs>
+
+        <!-- Background -->
+        <rect width="340" height="400" rx="12" fill="url(#skyGlow)"/>
+
+        <!-- Altitude depth bands (horizontal) -->
+        <rect x="0" y="0" width="340" height="60" rx="0" fill="rgba(10,15,40,0.5)"/>
+        <rect x="0" y="60" width="340" height="80" rx="0" fill="rgba(8,12,35,0.3)"/>
+        <rect x="0" y="320" width="340" height="80" rx="0" fill="rgba(5,5,10,0.7)"/>
+
+        <!-- Cloud wisps (altitude markers) -->
+        <g opacity="0.15" fill="white">
+          <ellipse cx="60" cy="320" rx="80" ry="10"/>
+          <ellipse cx="280" cy="335" rx="60" ry="8"/>
+          <ellipse cx="150" cy="345" rx="110" ry="12"/>
+        </g>
+        <g opacity="0.08" fill="white">
+          <ellipse cx="90" cy="355" rx="100" ry="14"/>
+          <ellipse cx="250" cy="360" rx="80" ry="10"/>
+        </g>
+
+        <!-- Faint distant stars -->
+        <g fill="white" opacity="0.4">
+          <circle cx="30" cy="20" r="0.8"/>
+          <circle cx="70" cy="35" r="0.6"/>
+          <circle cx="120" cy="15" r="0.8"/>
+          <circle cx="200" cy="25" r="0.6"/>
+          <circle cx="260" cy="18" r="0.8"/>
+          <circle cx="310" cy="40" r="0.6"/>
+          <circle cx="45" cy="55" r="0.5"/>
+          <circle cx="170" cy="50" r="0.7"/>
+          <circle cx="290" cy="60" r="0.6"/>
+        </g>
+
+        <!-- Body glow aura -->
+        <ellipse cx="170" cy="175" rx="60" ry="60" fill="url(#bodyGlow)"/>
+
+        <!-- ===== SKYDIVER SILHOUETTE ===== -->
+        <!-- Arch position: arms out, legs bent up (classic freefall) -->
+
+        <!-- Legs (spread, bent back) -->
+        <!-- Left leg -->
+        <g fill="#F39C12" filter="url(#softGlow)">
+          <line x1="155" y1="195" x2="120" y2="230" stroke="#F39C12" stroke-width="10" stroke-linecap="round"/>
+          <line x1="120" y1="230" x2="105" y2="210" stroke="#F39C12" stroke-width="9" stroke-linecap="round"/>
+          <!-- Left foot -->
+          <ellipse cx="100" cy="207" rx="9" ry="6" transform="rotate(-30,100,207)"/>
+        </g>
+        <!-- Right leg -->
+        <g fill="#F39C12" filter="url(#softGlow)">
+          <line x1="185" y1="195" x2="220" y2="230" stroke="#F39C12" stroke-width="10" stroke-linecap="round"/>
+          <line x1="220" y1="230" x2="235" y2="210" stroke="#F39C12" stroke-width="9" stroke-linecap="round"/>
+          <!-- Right foot -->
+          <ellipse cx="240" cy="207" rx="9" ry="6" transform="rotate(30,240,207)"/>
+        </g>
+
+        <!-- Torso (slightly arched back, belly-to-earth orientation) -->
+        <rect x="150" y="155" width="40" height="50" rx="12" fill="#F39C12" filter="url(#softGlow)"/>
+
+        <!-- Arms spread wide -->
+        <!-- Left arm -->
+        <g>
+          <line x1="152" y1="168" x2="90" y2="155" stroke="#F39C12" stroke-width="10" stroke-linecap="round"/>
+          <line x1="90" y1="155" x2="72" y2="165" stroke="#F39C12" stroke-width="9" stroke-linecap="round"/>
+          <!-- Left hand -->
+          <circle cx="68" cy="168" r="7" fill="#F39C12" filter="url(#softGlow)"/>
+        </g>
+        <!-- Right arm -->
+        <g>
+          <line x1="188" y1="168" x2="250" y2="155" stroke="#F39C12" stroke-width="10" stroke-linecap="round"/>
+          <line x1="250" y1="155" x2="268" y2="165" stroke="#F39C12" stroke-width="9" stroke-linecap="round"/>
+          <!-- Right hand -->
+          <circle cx="272" cy="168" r="7" fill="#F39C12" filter="url(#softGlow)"/>
+        </g>
+
+        <!-- Helmet / Head -->
+        <circle cx="170" cy="148" r="18" fill="#F39C12" filter="url(#softGlow)"/>
+        <!-- Visor shine -->
+        <path d="M158 143 Q170 138 182 143 Q180 152 170 154 Q160 152 158 143Z" fill="rgba(150,200,255,0.25)" stroke="rgba(150,200,255,0.4)" stroke-width="0.5"/>
+        <!-- Helmet goggle band -->
+        <path d="M153 147 Q170 140 187 147" fill="none" stroke="rgba(0,0,0,0.4)" stroke-width="2"/>
+
+        <!-- Rig / parachute container on back (visible bump) -->
+        <rect x="156" y="157" width="28" height="38" rx="6" fill="rgba(180,100,0,0.7)" stroke="rgba(243,156,18,0.4)" stroke-width="1"/>
+        <!-- Rig lines -->
+        <line x1="160" y1="163" x2="160" y2="190" stroke="rgba(243,156,18,0.3)" stroke-width="0.8"/>
+        <line x1="170" y1="162" x2="170" y2="192" stroke="rgba(243,156,18,0.3)" stroke-width="0.8"/>
+        <line x1="180" y1="163" x2="180" y2="190" stroke="rgba(243,156,18,0.3)" stroke-width="0.8"/>
+
+        <!-- Speed lines (wind) -->
+        <g stroke="rgba(243,156,18,0.15)" stroke-width="1.5" stroke-linecap="round">
+          <line x1="50" y1="120" x2="20" y2="110"/>
+          <line x1="50" y1="135" x2="15" y2="130"/>
+          <line x1="52" y1="150" x2="18" y2="148"/>
+          <line x1="290" y1="120" x2="320" y2="110"/>
+          <line x1="290" y1="135" x2="325" y2="130"/>
+          <line x1="288" y1="150" x2="322" y2="148"/>
+        </g>
+
+        <!-- Altitude numbers floating -->
+        <g font-family="Arial, sans-serif" font-size="9" fill="rgba(243,156,18,0.3)" text-anchor="middle">
+          <text x="30" y="315">10,000 ft</text>
+          <text x="30" y="345">5,000 ft</text>
+          <text x="30" y="375">2,500 ft</text>
+        </g>
+        <!-- Altitude line markers -->
+        <g stroke="rgba(243,156,18,0.12)" stroke-width="0.5" stroke-dasharray="3,4">
+          <line x1="55" y1="312" x2="340" y2="312"/>
+          <line x1="55" y1="342" x2="340" y2="342"/>
+          <line x1="55" y1="372" x2="340" y2="372"/>
+        </g>
+
+        <!-- ===== ALTIMETER GAUGE (bottom right) ===== -->
+        <g transform="translate(248, 265)">
+          <!-- Outer bezel -->
+          <circle cx="0" cy="0" r="48" fill="#111" stroke="#F39C12" stroke-width="2.5"/>
+          <!-- Inner face -->
+          <circle cx="0" cy="0" r="44" fill="url(#altGrad)"/>
+          <!-- Warning zone (red arc 1000-3000ft) -->
+          <path d="M 0,-44 A 44,44 0 0,1 38,22" fill="none" stroke="rgba(200,50,50,0.4)" stroke-width="6"/>
+          <!-- Tick marks -->
+          <g stroke="#555" stroke-width="1">
+            <!-- 12 major ticks -->
+            <line x1="0" y1="-36" x2="0" y2="-44" stroke="#888" stroke-width="1.5"/>
+            <line x1="22" y1="-31" x2="25.5" y2="-37" stroke="#888" stroke-width="1.5"/>
+            <line x1="38" y1="-11" x2="43" y2="-13" stroke="#888" stroke-width="1.5"/>
+            <line x1="44" y1="0" x2="38" y2="0" stroke="#888" stroke-width="1.5"/>
+            <line x1="38" y1="22" x2="43" y2="25" stroke="#888" stroke-width="1.5"/>
+            <line x1="0" y1="44" x2="0" y2="37" stroke="#888" stroke-width="1.5"/>
+            <line x1="-38" y1="22" x2="-43" y2="25" stroke="#888" stroke-width="1.5"/>
+            <line x1="-44" y1="0" x2="-38" y2="0" stroke="#888" stroke-width="1.5"/>
+            <line x1="-38" y1="-11" x2="-43" y2="-13" stroke="#888" stroke-width="1.5"/>
+            <line x1="-22" y1="-31" x2="-25.5" y2="-37" stroke="#888" stroke-width="1.5"/>
+            <!-- Minor ticks -->
+            <line x1="11" y1="-42.5" x2="12.5" y2="-39"/>
+            <line x1="33" y1="-28" x2="36" y2="-25"/>
+            <line x1="42.5" y1="-11" x2="39" y2="-9.5"/>
+            <line x1="42.5" y1="11" x2="39" y2="9.5"/>
+            <line x1="33" y1="28" x2="36" y2="25"/>
+            <line x1="11" y1="42.5" x2="12.5" y2="39"/>
+            <line x1="-11" y1="42.5" x2="-12.5" y2="39"/>
+            <line x1="-33" y1="28" x2="-36" y2="25"/>
+            <line x1="-42.5" y1="11" x2="-39" y2="9.5"/>
+            <line x1="-42.5" y1="-11" x2="-39" y2="-9.5"/>
+            <line x1="-33" y1="-28" x2="-36" y2="-25"/>
+            <line x1="-11" y1="-42.5" x2="-12.5" y2="-39"/>
+          </g>
+          <!-- Altitude labels -->
+          <g font-family="Arial, sans-serif" font-size="7.5" fill="#888" text-anchor="middle">
+            <text x="0" y="-28">10</text>
+            <text x="19" y="-22">9</text>
+            <text x="31" y="-5">8</text>
+            <text x="28" y="17">7</text>
+            <text x="0" y="32">6</text>
+            <text x="-28" y="17">5</text>
+            <text x="-31" y="-5">4</text>
+            <text x="-19" y="-22">3</text>
+            <text x="-5" y="-29">1</text>
+          </g>
+          <!-- Altitude label (thousands) -->
+          <text x="0" y="15" font-family="Arial" font-size="6" fill="#555" text-anchor="middle">×1000 FT</text>
+          <!-- Needle (pointing to ~10,500 ft = just past 12 o'clock toward 9) -->
+          <g transform="rotate(-15)">
+            <line x1="0" y1="8" x2="0" y2="-36" stroke="#F39C12" stroke-width="2" stroke-linecap="round" filter="url(#glowFilter)"/>
+            <polygon points="0,-36 -2.5,-28 2.5,-28" fill="#F39C12"/>
+          </g>
+          <!-- Center pin -->
+          <circle cx="0" cy="0" r="4" fill="#F39C12"/>
+          <circle cx="0" cy="0" r="2" fill="#000"/>
+          <!-- Warning ring glow -->
+          <circle cx="0" cy="0" r="48" fill="none" stroke="rgba(243,156,18,0.2)" stroke-width="1"/>
+          <!-- ALT label -->
+          <text x="0" y="-16" font-family="Arial" font-size="7" fill="#F39C12" text-anchor="middle" font-weight="bold">ALT</text>
+        </g>
+
+        <!-- Altitude readout digital -->
+        <rect x="140" y="330" width="100" height="28" rx="4" fill="#0a0a0a" stroke="#2a2a2a" stroke-width="1"/>
+        <text x="190" y="349" font-family="'Courier New', monospace" font-size="13" fill="#F39C12" text-anchor="middle" font-weight="bold" filter="url(#glowFilter)">10,500 FT</text>
+
+        <!-- Bottom label -->
+        <text x="170" y="395" font-family="Arial" font-size="10" fill="rgba(243,156,18,0.4)" text-anchor="middle" letter-spacing="3">FREEFALL</text>
+      </svg>
+    </div>
+    <!-- /SVG -->
+
+    <p style="color:#666; font-size:13px; font-family:Arial,sans-serif; letter-spacing:1px;">
+      Published by <strong style="color:#F39C12;">NOVA SKY</strong> &nbsp;·&nbsp; novasky.io
+    </p>
+  </div>
+
+  <div class="cover-scroll-hint">
+    <span>Scroll to Begin</span>
+    <svg width="14" height="20" viewBox="0 0 14 20" fill="none">
+      <path d="M7 1v14M1 9l6 6 6-6" stroke="#555" stroke-width="1.5" stroke-linecap="round" stroke-linejoin="round"/>
+    </svg>
+  </div>
+</section>
+<!-- /COVER -->
+
+
+<!-- ========== SPONSOR BANNER ========== -->
+<div class="sponsor-banner">
+  <div class="sponsor-banner-label">Proudly Supported By</div>
+  <div class="sponsor-slots">
+    <div class="sponsor-slot primary">
+      Aerodyne Research
+      <small>World-Class Parachute Systems</small>
+    </div>
+    <div class="sponsor-slot">
+      Skydive Empuriabrava
+      <small>Europe's Premier Drop Zone · Spain</small>
+    </div>
+    <div class="sponsor-slot">
+      Para Gear Equipment
+      <small>Gear Since 1930 · paragear.com</small>
+    </div>
+    <div class="sponsor-slot advertise">
+      [Advertise Here]
+      <small>contact@novamedia.io</small>
+    </div>
+  </div>
+</div>
+
+
+<!-- ========== MAIN CONTENT ========== -->
+<div class="main-wrap">
+
+  <!-- TABLE OF CONTENTS -->
+  <section class="toc-section" id="toc">
+    <div class="section-label">Contents</div>
+    <h2 class="toc-title">What's Inside</h2>
+    <ol class="toc-list">
+      <li>
+        <a href="#ch1">Why Skydiving Changes Your Life (Not Just Your Instagram)</a>
+        <span class="toc-dots"></span>
+        <span class="toc-pg">Chapter 1</span>
+      </li>
+      <li>
+        <a href="#ch2">Tandem vs AFF: Your Two Paths Into the Sky</a>
+        <span class="toc-dots"></span>
+        <span class="toc-pg">Chapter 2</span>
+      </li>
+      <li>
+        <a href="#ch3">The AFF Course: What Happens on Every Level (1–8)</a>
+        <span class="toc-dots"></span>
+        <span class="toc-pg">Chapter 3</span>
+      </li>
+      <li>
+        <a href="#ch4">Freefall Science: Speed, Physics &amp; the Feeling of Flying</a>
+        <span class="toc-dots"></span>
+        <span class="toc-pg">Chapter 4</span>
+      </li>
+      <li>
+        <a href="#ch5">Gear 101: Parachutes, Altimeters, AADs &amp; What Keeps You Alive</a>
+        <span class="toc-dots"></span>
+        <span class="toc-pg">Chapter 5</span>
+      </li>
+      <li>
+        <a href="#ch6">Drop Zones, Licenses &amp; the Global Skydiving Community</a>
+        <span class="toc-dots"></span>
+        <span class="toc-pg">Chapter 6</span>
+      </li>
+      <li>
+        <a href="#ch7">Your First Year as a Licensed Skydiver: Jump Numbers &amp; Goals</a>
+        <span class="toc-dots"></span>
+        <span class="toc-pg">Chapter 7</span>
+      </li>
+    </ol>
+  </section>
+
+
+  <!-- ========== CHAPTER 1 ========== -->
+  <article class="chapter" id="ch1">
+    <div class="chapter-number">Chapter 01</div>
+    <div class="ch-illustration">
+      <img src="https://image.pollinations.ai/prompt/skydiver%20life%20changing%20moment%20exit%20aircraft%20sky%20freedom%20cinematic%20dramatic?width=900&height=360&nologo=true&seed=231" alt="Chapter illustration">
+    </div>
+    <h2 class="chapter-title">Why Skydiving Changes Your Life<br><span>(Not Just Your Instagram)</span></h2>
+
+    <p>There is a moment, approximately three seconds after you exit a perfectly good aircraft at altitude, when something profound and irreversible happens inside the human brain. The internal noise — the deadlines, the arguments, the low-level hum of modern anxiety — goes completely silent. What remains is pure, distilled presence. You are not thinking about the past. You are not afraid of the future. There is only the wind, the earth far below, and the breathtaking fact of being alive at terminal velocity. That moment is why skydivers jump. Not for Instagram. Not for bucket lists. For that.</p>
+
+    <p>Skydiving has been called the ultimate catalyst for personal change, and the science backs it up. Studies on high-arousal experiences — particularly those involving controlled confrontation with perceived danger — show measurable and lasting reductions in anxiety, increases in self-efficacy, and a sharpened ability to differentiate between genuine risk and imagined worry. In plain English: people who skydive regularly get better at not catastrophizing. They train themselves, jump by jump, to remain functional under pressure.</p>
+
+    <h3 class="section-head">The Psychology of the Exit</h3>
+    <p>The exit point — that doorway at 13,000 feet — is one of the purest decision gates humans voluntarily face. On one side: the known, the comfortable, the ordinary. On the other: the sky, the unknown, the extraordinary. Every time you step through that door, you are practicing radical commitment. You are choosing to override the primal brain's objections and act in alignment with a deliberate intention. Athletes, executives, and performers who skydive regularly describe this transfer effect: the neural pathways trained in the door translate directly to clarity of decision-making on the ground.</p>
+
+    <div class="stats-row">
+      <div class="stat-card">
+        <div class="stat-number">3.6M+</div>
+        <div class="stat-label">Jumps made in the US annually</div>
+      </div>
+      <div class="stat-card">
+        <div class="stat-number">92%</div>
+        <div class="stat-label">First-time jumpers who want to go again</div>
+      </div>
+      <div class="stat-card">
+        <div class="stat-number">60 sec</div>
+        <div class="stat-label">Average freefall time from 15,000 ft</div>
+      </div>
+    </div>
+
+    <p>Beyond the psychology, there is a social dimension to skydiving that rivals almost any other sport. Drop zones are among the most genuinely welcoming communities in the outdoor world. You will find 22-year-old university students and 68-year-old grandparents waiting in the same manifest line, swapping gear tips and weather gossip with equal enthusiasm. The sport flattens hierarchies. Nobody cares what you do for work. What matters is your logbook, your attitude, and whether you remembered to buy the landing case of beer after your 100th jump.</p>
+
+    <div class="tip-box">
+      <strong>Nova Sky Tip</strong>
+      Before your first jump, spend an afternoon at a drop zone just watching. Talk to licensed skydivers. Ask what changed for them. The stories you hear will tell you more about the sport's real value than any YouTube video.
+    </div>
+
+    <p>People also jump because skydiving is one of the few sports where the learning curve never plateaus. A complete beginner and a 10,000-jump veteran are both still discovering new dimensions of the sky. From basic stable freefall to formation skydiving to wingsuit BASE, the progression is essentially infinite. You will never be bored. You will always have the next goal pulling you forward. That relentless sense of forward motion — of becoming — is, perhaps, what changes people most. Not the jump itself, but the person they are slowly becoming by choosing to jump.</p>
+
+    <div class="info-box">
+      <strong>Did You Know?</strong>
+      The oldest recorded tandem skydiver was 103 years old. The youngest licensed skydivers in countries with no minimum age restrictions have been as young as 16. The sky genuinely has no demographic.
+    </div>
+
+    <div class="mid-ad">
+      <div class="mid-ad-text">
+        <strong>Sponsor · Aerodyne Research</strong>
+        <p>Aerodyne Research designs <b>world-class parachute systems</b> trusted by skydivers, military units, and aerial athletes worldwide. Purpose-built. Precision-engineered.</p>
+      </div>
+      <a href="#" class="mid-ad-cta">Explore Gear →</a>
+    </div>
+  </article>
+
+
+  <!-- ========== CHAPTER 2 ========== -->
+  <article class="chapter" id="ch2">
+    <div class="chapter-number">Chapter 02</div>
+    <div class="ch-illustration">
+      <img src="https://image.pollinations.ai/prompt/tandem%20skydive%20instructor%20student%20harness%20aircraft%20door%20cinematic%20two%20paths?width=900&height=360&nologo=true&seed=232" alt="Chapter illustration">
+    </div>
+    <h2 class="chapter-title">Tandem vs AFF:<br><span>Your Two Paths Into the Sky</span></h2>
+
+    <p>When most people discover skydiving, they face an immediate fork in the road. On the left: a tandem jump, the fastest possible route from the ground to the sky, where you are harnessed to an instructor who handles everything. On the right: Accelerated Freefall (AFF), the full training course that leads to your skydiving license. Both paths have their place, and understanding the difference between them is the first critical step in your skydiving journey.</p>
+
+    <h3 class="section-head">The Tandem Jump</h3>
+    <p>A tandem skydive is exactly what it sounds like: you and a certified tandem instructor jump together, connected by a harness system designed to support two people. Your instructor wears the parachute; you wear a harness that clips to the front of theirs. After about 30–45 minutes of ground training — mostly instruction on body position and landing — you board the aircraft and jump from altitudes typically between 10,000 and 15,000 feet. Freefall lasts between 30 and 60 seconds depending on exit altitude. Then the instructor deploys the parachute and flies you to landing. The entire experience, from exit to landing, takes around six to eight minutes.</p>
+
+    <div class="stats-row">
+      <div class="stat-card">
+        <div class="stat-number">$150–$250</div>
+        <div class="stat-label">Typical tandem jump cost</div>
+      </div>
+      <div class="stat-card">
+        <div class="stat-number">~45 min</div>
+        <div class="stat-label">Total time including ground training</div>
+      </div>
+      <div class="stat-card">
+        <div class="stat-number">1 jump</div>
+        <div class="stat-label">Required before some AFF programs</div>
+      </div>
+    </div>
+
+    <p>Tandem jumping is ideal if you simply want to experience skydiving — the sensation of freefall and canopy flight — without committing to a full course. It is also the standard entry point for those uncertain about whether they want to pursue the sport long-term. Many drop zones require a tandem jump before enrolling in AFF, arguing it gives you a baseline experience of what freefall actually feels like before you are expected to perform tasks during it.</p>
+
+    <h3 class="section-head">Accelerated Freefall (AFF)</h3>
+    <p>AFF is the path to becoming a licensed, independent skydiver. Rather than relying on an instructor to control the jump, you are trained to jump solo — with two instructors alongside you in freefall during the early levels, transitioning to one instructor and eventually solo jumps. The full AFF course typically consists of a ground school day followed by eight progressive jump levels, each introducing new skills. Upon completing AFF and the required additional solo jumps, you earn your USPA A-License (or the equivalent in your country), which allows you to jump independently at any affiliated drop zone in the world.</p>
+
+    <div class="tip-box">
+      <strong>Nova Sky Tip</strong>
+      If you know you want to become a licensed skydiver, skip the tandem and go straight to AFF. The cost of a tandem jump (around $200) is money better spent toward your AFF course, and some schools will credit it toward AFF enrollment anyway.
+    </div>
+
+    <p>The cost of AFF varies significantly by drop zone and country. In the United States, expect to pay between $1,200 and $1,800 for the full eight-level course. In Spain, the UK, or Australia, costs may be higher or lower. Most drop zones offer payment plans. Some offer package deals that include all required post-AFF jumps for the A-License. The investment feels significant, but when you consider that you are purchasing the ability to jump independently for the rest of your life, the per-jump cost drops dramatically over time.</p>
+
+    <div class="info-box">
+      <strong>Which Path Is Right For You?</strong>
+      Choose tandem if: you want to experience the sky once, you are unsure about committing, or you want to gift a jump to someone. Choose AFF if: you want to become a skydiver, you are goal-oriented, and you are ready to train seriously. There is no wrong answer — just different destinations.
+    </div>
+
+    <div class="mid-ad">
+      <div class="mid-ad-text">
+        <strong>Sponsor · Skydive Empuriabrava</strong>
+        <p>Europe's largest skydiving centre, set on the stunning Costa Brava in Spain. <b>World-class AFF training</b>, tandem jumps, and a legendary drop zone community.</p>
+      </div>
+      <a href="#" class="mid-ad-cta">Book Your Jump →</a>
+    </div>
+  </article>
+
+
+  <!-- ========== CHAPTER 3 ========== -->
+  <article class="chapter" id="ch3">
+    <div class="chapter-number">Chapter 03</div>
+    <div class="ch-illustration">
+      <img src="https://image.pollinations.ai/prompt/AFF%20skydiving%20training%20levels%20progression%20freefall%20skill%20cinematic%20dark?width=900&height=360&nologo=true&seed=233" alt="Chapter illustration">
+    </div>
+    <h2 class="chapter-title">The AFF Course:<br><span>What Happens on Every Level (1–8)</span></h2>
+
+    <p>The Accelerated Freefall program is one of the most carefully engineered skill progression systems in any adventure sport. Each of the eight levels is designed to build precisely on the one before it, introducing new skills in freefall while reinforcing the fundamentals of altitude awareness, body control, and emergency procedures. No two jump levels are interchangeable, and no level can be skipped. Understanding what to expect at each stage removes the anxiety of the unknown and lets you focus on actually flying.</p>
+
+    <h3 class="section-head">Ground School: Before You Jump</h3>
+    <p>Before any AFF jump, students complete a full-day ground school that typically runs five to eight hours. You will learn the emergency procedures for every conceivable malfunction — from a partial deployment to a total reserve ride. You will practice the exit and freefall body position on the ground until it is muscle memory. You will learn how to read your altimeter, how to deploy your main parachute, and how to land safely. Ground school is not optional and not just formality: it is the foundation on which every skill in the air is built.</p>
+
+    <div class="stats-row">
+      <div class="stat-card">
+        <div class="stat-number">8</div>
+        <div class="stat-label">AFF levels to complete</div>
+      </div>
+      <div class="stat-card">
+        <div class="stat-number">25</div>
+        <div class="stat-label">Min solo jumps for A-License</div>
+      </div>
+      <div class="stat-card">
+        <div class="stat-number">5–8 hrs</div>
+        <div class="stat-label">Typical ground school duration</div>
+      </div>
+    </div>
+
+    <p><strong>Level 1</strong> — The Controlled Exit: Your first AFF jump introduces the fundamental arch position. Two instructors grip your harness at exit and through freefall, ensuring stability while you focus on altitude awareness and deploying your own parachute at 5,500 feet. The goal is a stable, controlled freefall and a clean deployment.</p>
+
+    <p><strong>Level 2</strong> — Practice Pulls and Altitude Awareness: With two instructors still present, you begin practicing the muscle memory of reaching for the deployment handle — "practice pulls" — and consciously checking your altimeter. You also practice the first recovery arc drill: if you become unstable, this is the technique to regain a stable arch.</p>
+
+    <p><strong>Level 3</strong> — Turns and Control: Level 3 introduces your first controlled turns in freefall using arm and leg movements. You begin to understand how the body acts as a wing. Two instructors may still be present, though one may release grip to observe your control. The sensation of deliberate navigation in freefall is extraordinary.</p>
+
+    <div class="tip-box">
+      <strong>Nova Sky Tip</strong>
+      Levels 3 and 4 are where students most commonly need to repeat a jump. Do not be discouraged. Every extra jump at this stage is buying you better fundamental skills that pay dividends for your entire skydiving career.
+    </div>
+
+    <p><strong>Level 4</strong> — Solo Turns and Forward Movement: One instructor now. You perform 90-degree turns in both directions and practice forward movement using your body position. You also begin learning to exit more cleanly and control your heading from the moment of exit.</p>
+
+    <p><strong>Level 5</strong> — Docking and Altitude Awareness Drills: Level 5 is often considered the biggest confidence milestone. You perform a series of maneuvers and may practice docking on your instructor. Independent altitude awareness check-ins become more rigorous, building the habit that will keep you safe for life.</p>
+
+    <p><strong>Level 6</strong> — Backloops and Delta Position: The backloop — a full 360-degree back somersault — tests your understanding of body symmetry and control. The delta position, arms swept back, introduces forward speed and the concept of intentional horizontal movement. This level is where freefall begins to feel genuinely playful.</p>
+
+    <p><strong>Level 7</strong> — Solo Exit and Solo Freefall: Your instructor is present but hands-off. You perform a clean solo exit, execute turns, a backloop, and demonstrate full altitude awareness. This level is often emotional — the first real taste of truly independent flight.</p>
+
+    <p><strong>Level 8</strong> — Graduation Jump: The final AFF level is a comprehensive skills assessment. You perform a solo exit, complete a set of maneuvers, and demonstrate the judgment and altitude awareness of a safe independent skydiver. Upon a clean pass, you are certified to jump solo and begin the remaining solo jumps required for your A-License.</p>
+
+    <div class="info-box">
+      <strong>After AFF: The Solo Jump Requirement</strong>
+      Most licensing bodies (USPA, BPA, etc.) require a total of 25 jumps for an A-License. Since you complete approximately 8 jumps during AFF, you will need roughly 17 additional supervised-but-solo jumps. These are the jumps where the real learning begins — you are free, but still in a structured environment with coaches available.
+    </div>
+  </article>
+
+
+  <!-- ========== CHAPTER 4 ========== -->
+  <article class="chapter" id="ch4">
+    <div class="chapter-number">Chapter 04</div>
+    <div class="ch-illustration">
+      <img src="https://image.pollinations.ai/prompt/freefall%20physics%20terminal%20velocity%20speed%20skydiver%20wind%20cinematic%20science?width=900&height=360&nologo=true&seed=234" alt="Chapter illustration">
+    </div>
+    <h2 class="chapter-title">Freefall Science:<br><span>Speed, Physics &amp; the Feeling of Flying</span></h2>
+
+    <p>Skydiving is, at its core, applied physics. Every sensation you feel in freefall — the wind, the buoyancy, the resistance when you spread your arms — is the result of fundamental forces acting on your body with unusual clarity. Understanding the science does not diminish the magic. It deepens it. When you know why you feel what you feel, the experience becomes richer, and your ability to control your body in the air improves dramatically.</p>
+
+    <h3 class="section-head">Terminal Velocity: The Natural Speed Limit</h3>
+    <p>As you exit the aircraft, gravity accelerates your body downward at 9.8 meters per second squared. But you are not falling through a vacuum — you are falling through air, and air pushes back. As your speed increases, so does the aerodynamic drag acting against you. At some point, drag force equals gravitational force. Acceleration stops. You have reached terminal velocity. For a human body in a standard belly-to-earth arch position, that terminal velocity is approximately 120 miles per hour (193 km/h) or around 54 meters per second. It typically takes 10–12 seconds after exit to reach this speed.</p>
+
+    <div class="stats-row">
+      <div class="stat-card">
+        <div class="stat-number">120 mph</div>
+        <div class="stat-label">Standard belly-to-earth terminal velocity</div>
+      </div>
+      <div class="stat-card">
+        <div class="stat-number">180+ mph</div>
+        <div class="stat-label">Head-down freefly terminal velocity</div>
+      </div>
+      <div class="stat-card">
+        <div class="stat-number">~300 mph</div>
+        <div class="stat-label">Wingsuit speed record (tracked)</div>
+      </div>
+    </div>
+
+    <p>Terminal velocity is not fixed — it varies based on body position, body weight, and equipment. A heavier jumper falls faster than a lighter one in the same position. A jumper tracking (arms and legs swept back in a delta) falls faster than one in a full spread arch. A head-down freeflyer falls at 150–180 mph. This variable terminal velocity is what makes formation skydiving challenging: jumpers of different weights and sizes must adjust their drag profile precisely to fall at the same rate and stay level with each other.</p>
+
+    <h3 class="section-head">What Freefall Actually Feels Like</h3>
+    <p>First-time jumpers are almost universally surprised by what freefall does not feel like. It does not feel like a drop. It does not feel like the first plunge on a roller coaster. There is no stomach-in-throat sensation, because that feeling comes from sudden deceleration in a seated position — the opposite of what happens in freefall. What freefall actually feels like is sustained, intense wind pressure against your entire body. You are floating in a column of air, balanced between gravity below and lift above. The earth below appears almost stationary — the distance is so great that your descent is not obviously apparent.</p>
+
+    <div class="tip-box">
+      <strong>Nova Sky Tip</strong>
+      Many first-time AFF students forget to breathe in freefall due to the sensory overload. Practice taking a deliberate breath immediately after exit. This also helps you relax your body into the arch position rather than tensing against the wind.
+    </div>
+
+    <p>The parachute opening — called "canopy deployment" or simply "deployment" — is one of the most dramatic transitions in all of sport. In less than three seconds, you go from 120 mph to approximately 12 mph as the canopy inflates and catches the air. The deceleration force during this transition is typically between 3 and 5 times the force of gravity (3–5G), concentrated primarily on your chest and leg straps. A well-packed main canopy deploying correctly produces a firm but comfortable opening. A poorly packed canopy can produce a snappy, violent opening — one of the many reasons proper packing technique matters.</p>
+
+    <div class="info-box">
+      <strong>The Physics of Canopy Flight</strong>
+      Under canopy you are a pilot, not a passenger. A modern rectangular parachute is an airfoil — a wing. It generates lift through the same Bernoulli principle as an aircraft wing: air moves faster over the curved top surface than the flat bottom, creating lower pressure above and higher pressure below. You fly it by pulling on two handles called toggles, which reshape the trailing edge of the canopy, steering and controlling descent rate. Under a modern parachute, you are not simply falling slowly — you are gliding at a 3:1 to 4:1 glide ratio.
+    </div>
+
+    <div class="mid-ad">
+      <div class="mid-ad-text">
+        <strong>Sponsor · Aerodyne Research</strong>
+        <p>From first canopy to competition rig — <b>Aerodyne's parachute systems</b> are trusted by 80,000+ skydivers globally. Icon, Pilot, Vision, Pilot7 and more.</p>
+      </div>
+      <a href="#" class="mid-ad-cta">View Systems →</a>
+    </div>
+  </article>
+
+
+  <!-- ========== CHAPTER 5 ========== -->
+  <article class="chapter" id="ch5">
+    <div class="chapter-number">Chapter 05</div>
+    <div class="ch-illustration">
+      <img src="https://image.pollinations.ai/prompt/parachute%20gear%20rig%20altimeter%20AAD%20skydiving%20equipment%20safety%20cinematic%20dark?width=900&height=360&nologo=true&seed=235" alt="Chapter illustration">
+    </div>
+    <h2 class="chapter-title">Gear 101: Parachutes, Altimeters,<br><span>AADs &amp; What Keeps You Alive</span></h2>
+
+    <p>Skydiving equipment is a marvel of engineering refinement. Decades of incremental improvement, driven by the combined intelligence of skydivers who were also engineers, riggers who were also physicists, and manufacturers who were also jumpers, have produced systems of extraordinary reliability. Understanding your gear is not just academic — it is the foundation of a healthy safety culture that will serve you for your entire skydiving life. You do not need to be able to pack a reserve immediately, but you need to understand what every component does and why.</p>
+
+    <h3 class="section-head">The Rig: Your Container System</h3>
+    <p>The parachute system you wear is called a rig or container. It is a harness-and-container assembly that houses two parachutes: the main canopy and the reserve canopy. The harness distributes deployment forces across your chest, shoulders, and legs. The container consists of two separate deployment systems — one for the main and one for the reserve — with distinct handles and distinct deployment sequences. Modern sport rigs are custom-fitted to the individual jumper's body dimensions for both comfort and safety.</p>
+
+    <div class="stats-row">
+      <div class="stat-card">
+        <div class="stat-number">2</div>
+        <div class="stat-label">Parachutes in every rig (main + reserve)</div>
+      </div>
+      <div class="stat-card">
+        <div class="stat-number">$6,000–$12,000</div>
+        <div class="stat-label">Typical new rig cost (complete)</div>
+      </div>
+      <div class="stat-card">
+        <div class="stat-number">180 days</div>
+        <div class="stat-label">Max interval between reserve repacks</div>
+      </div>
+    </div>
+
+    <h3 class="section-head">The Main Canopy</h3>
+    <p>The main parachute is a rectangular or elliptical ram-air canopy — essentially a fabric wing with an open front and closed rear, divided into cells that fill with air on deployment. Modern main canopies range from large, docile student canopies (around 230–260 square feet) down to aggressive small canopies (sub-100 square feet) used by highly experienced jumpers. The main is deployed by pulling a brightly colored handle called the pull or the pilot chute — which extracts a small pilot chute that in turn extracts the deployment bag and inflates the main canopy.</p>
+
+    <div class="tip-box">
+      <strong>Nova Sky Tip</strong>
+      As a student, you will jump a large, stable canopy. Resist any temptation to downsize quickly as you gain experience. Canopy downsizing is the single largest contributor to serious injuries and fatalities in skydiving. The sky will be there. Take your time.
+    </div>
+
+    <h3 class="section-head">The Reserve Canopy</h3>
+    <p>Every rig carries a second, independent parachute: the reserve. The reserve is packed, inspected, and sealed by a certified FAA Senior or Master Rigger and must be repacked every 180 days regardless of whether it has been deployed. Reserve parachutes are built to even tighter specifications than main canopies and are tested for deployments at higher speeds under greater chaos conditions. The reserve is deployed by pulling a separate red handle. In the event of a main canopy malfunction, you cut away the main (releasing it entirely) and deploy the reserve.</p>
+
+    <h3 class="section-head">The Altimeter</h3>
+    <p>The altimeter is your most critical situational awareness tool. An analog altimeter is a sealed barometric pressure gauge mounted on your wrist or chest that shows your altitude above ground level (AGL) in real time. Digital altimeters offer altitude readouts plus audio alarms that trigger at preset altitudes — extremely useful in freefall where reading a gauge while managing body position is cognitively demanding. All skydivers are required to wear an altimeter. Student skydivers typically wear both a wrist altimeter and a chest-mounted backup.</p>
+
+    <h3 class="section-head">The AAD: Automatic Activation Device</h3>
+    <p>The AAD is the last line of defense in skydiving — a small electronic device mounted inside the container that monitors altitude and descent rate. If you reach a preset low altitude (typically 750 feet for main, 750–1,000 for reserve AAD) while still falling at freefall speed, the AAD fires a cutter that severs the loop holding the reserve deployment system closed, initiating reserve deployment automatically. AADs do not decide whether there is a malfunction. They simply measure: altitude + descent rate = parachute should be open by now. Two dominant brands — Cypres and Vigil — are found in the vast majority of sport rigs worldwide.</p>
+
+    <div class="warning-box">
+      <strong>Safety Note</strong>
+      The AAD is a backup device, not a substitute for proper altitude awareness and timely deployment. Never become complacent about pulling on time simply because you have an AAD. Devices fail, and they are designed for emergencies — not as a replacement for skydiver skill.
+    </div>
+  </article>
+
+
+  <!-- ========== CHAPTER 6 ========== -->
+  <article class="chapter" id="ch6">
+    <div class="chapter-number">Chapter 06</div>
+    <div class="ch-illustration">
+      <img src="https://image.pollinations.ai/prompt/skydiving%20drop%20zone%20airfield%20community%20hangar%20skydivers%20cinematic%20aerial?width=900&height=360&nologo=true&seed=236" alt="Chapter illustration">
+    </div>
+    <h2 class="chapter-title">Drop Zones, Licenses &amp;<br><span>the Global Skydiving Community</span></h2>
+
+    <p>Skydiving is not a sport you practice in isolation. It lives and breathes in a specific place — the drop zone — and within a specific community: the global tribe of jumpers who make up one of the most connected, passionate, and welcoming sporting communities on earth. Understanding how drop zones work, how the licensing system functions, and how the community is structured will help you navigate your early skydiving life with confidence and find your place within it.</p>
+
+    <h3 class="section-head">The Drop Zone: How It Works</h3>
+    <p>A drop zone (DZ) is the operational base of skydiving — an airfield with aircraft, packing areas, manifest (jump scheduling) operations, and usually a thriving social scene. The heartbeat of any DZ is manifest, the central desk where jumpers sign up for loads and aircraft slots are allocated. You arrive, check the weather, sign onto a load, wait for your slot, gear up, board the aircraft, jump, land, debrief, re-manifest, and repeat. The rhythm of this cycle — load after load across a flying day — is the fundamental texture of skydiving life.</p>
+
+    <div class="stats-row">
+      <div class="stat-card">
+        <div class="stat-number">270+</div>
+        <div class="stat-label">USPA Group Member DZs in the US</div>
+      </div>
+      <div class="stat-card">
+        <div class="stat-number">40,000+</div>
+        <div class="stat-label">Licensed skydivers in the US alone</div>
+      </div>
+      <div class="stat-card">
+        <div class="stat-number">150+</div>
+        <div class="stat-label">Countries with active skydiving communities</div>
+      </div>
+    </div>
+
+    <h3 class="section-head">The USPA and International Licensing</h3>
+    <p>In the United States, skydiving is governed by the United States Parachute Association (USPA), a non-profit body that sets safety standards, administers the licensing system, and advocates for drop zone access and airspace rights. Most countries have an equivalent national body — the British Parachute Association (BPA) in the UK, the Fédération Française de Parachutisme (FFP) in France, the Australian Parachute Federation (APF) in Australia. These organizations collectively form the network of the International Skydiving Commission (ISC), under the Fédération Aéronautique Internationale (FAI).</p>
+
+    <div class="tip-box">
+      <strong>Nova Sky Tip</strong>
+      USPA membership costs around $75 per year and is required to jump at most Group Member drop zones. It also provides liability insurance for the DZ and access to Parachutist magazine, the organization's official publication. It is non-negotiable and entirely worth it.
+    </div>
+
+    <h3 class="section-head">License Levels: A, B, C, D</h3>
+    <p>The USPA system has four license levels. The <strong>A-License</strong> (25 jumps minimum) is the entry-level qualification for independent jumping. The <strong>B-License</strong> (50 jumps) allows you to jump in night conditions and demonstrates basic freefly skills. The <strong>C-License</strong> (200 jumps) opens competitive skydiving at national events and grants coach rating eligibility. The <strong>D-License</strong> (500 jumps) is the highest civilian rating, required for examiner-level coaching and advanced competitive activities. Beyond licensing, jumpers can earn rating certifications as coaches, AFF instructors, tandem instructors, and USPA examiners.</p>
+
+    <p>Internationally, most USPA licenses are recognized by foreign drop zones and licensing bodies under the framework of the FAI Sporting License, which simplifies jumping abroad enormously. A USPA A-License holder can walk onto virtually any affiliated DZ in Europe, Australia, New Zealand, or South America, show their card, and jump. This global portability is one of skydiving's great gifts to its community.</p>
+
+    <div class="info-box">
+      <strong>The DZ Culture Code</strong>
+      Every drop zone has its customs, but some are universal: you buy beer for the group after significant milestones (first jump, 100th jump, first landing in water, getting a reserve ride). You help beginners. You ask before touching anyone's gear. You never rush a gear check. You always debrief. And you never, ever disrespect the sky.
+    </div>
+
+    <div class="mid-ad">
+      <div class="mid-ad-text">
+        <strong>Sponsor · Skydive Empuriabrava</strong>
+        <p>Set on Spain's Costa Brava, Empuriabrava is one of the <b>world's largest drop zones</b> — 70+ aircraft jumps daily, AFF training in 5 languages, and a community of 10,000+ annual jumpers.</p>
+      </div>
+      <a href="#" class="mid-ad-cta">Plan Your Stay →</a>
+    </div>
+  </article>
+
+
+  <!-- ========== CHAPTER 7 ========== -->
+  <article class="chapter" id="ch7">
+    <div class="chapter-number">Chapter 07</div>
+    <div class="ch-illustration">
+      <img src="https://image.pollinations.ai/prompt/licensed%20skydiver%20first%20year%20logbook%20jumps%20goals%20achievement%20cinematic%20gold?width=900&height=360&nologo=true&seed=237" alt="Chapter illustration">
+    </div>
+    <h2 class="chapter-title">Your First Year as a<br><span>Licensed Skydiver: Jump Numbers &amp; Goals</span></h2>
+
+    <p>Earning your A-License is the beginning — not the end — of your skydiving education. The first year after licensing is arguably the most critical developmental period in a skydiver's life. The skills you build (or fail to build) in jumps 26 through 200 establish the foundations of your technique, your judgment, your safety culture, and your long-term trajectory in the sport. Approach this year with intention, and you will build a genuinely solid platform. Approach it casually, and you may develop habits that take years to unlearn.</p>
+
+    <h3 class="section-head">Jumps 26–50: The Post-AFF Learning Curve</h3>
+    <p>The first jumps after AFF can feel disorienting. You are now truly solo — no instructor at your hip, no structured level to work through. Many new A-License holders describe a period of "what do I do now?" uncertainty. The answer is: take canopy skills courses, jump with more experienced skydivers, and focus relentlessly on consistent altitude awareness and deployment discipline. These jumps are about consolidation, not exploration. The fundamental skills of a safe skydiver — pull on time, fly your canopy accurately, land in the designated area — take hundreds of repetitions to truly internalize.</p>
+
+    <div class="stats-row">
+      <div class="stat-card">
+        <div class="stat-number">25</div>
+        <div class="stat-label">Jumps for A-License</div>
+      </div>
+      <div class="stat-card">
+        <div class="stat-number">200</div>
+        <div class="stat-label">Jumps for C-License eligibility</div>
+      </div>
+      <div class="stat-card">
+        <div class="stat-number">~100+</div>
+        <div class="stat-label">Jumps before most instructors recommend gear purchase</div>
+      </div>
+    </div>
+
+    <h3 class="section-head">Jumps 50–100: Building Freefall Skills</h3>
+    <p>By jump 50, you should be comfortable with basic flat flying, stable exits, and accurate canopy landings. Now is the time to start attending coached jumps, beginning with basic relative work (RW) — formation skydiving — where you learn to fall at the same rate as others and dock on a moving target. Even one hour of coached jumping with an experienced jumper will advance your skills more than ten solo fun jumps. Consider attending a skills camp or a skydiving event. These concentrated learning environments with multiple coaches and peers at similar levels are transformative.</p>
+
+    <div class="tip-box">
+      <strong>Nova Sky Tip</strong>
+      Budget for at least two or three formal coaching sessions in your first year, even if they feel expensive. A 30-minute debrief after a coached jump — watching the video, identifying specific errors, receiving structured correction — is worth more than 20 unjudged solo jumps.
+    </div>
+
+    <h3 class="section-head">Jumps 100–200: Discipline Exploration</h3>
+    <p>Jump 100 is traditionally celebrated with the first big way or some community milestone, but its real significance is as a developmental milestone. By this point, your freefall should feel natural and controlled. You are ready to begin exploring disciplines: Formation Skydiving (FS/RW), Freefly, Canopy Piloting, Wingsuit, Skysurf, or Speed Skydiving. Most coaches recommend beginning to experiment with disciplines at around 100–150 jumps. The exception is canopy piloting, which has its own strict prerequisites and should only be approached after dedicated canopy coaching regardless of jump numbers.</p>
+
+    <h3 class="section-head">Buying Your Own Gear</h3>
+    <p>Most experienced instructors recommend waiting until 100–200 jumps before purchasing your own container system. The reason: your preferences change dramatically in the first year. The canopy size and type that feels right at jump 30 is probably not optimal at jump 150. Renting or borrowing gear in the early months means you can arrive at your first gear purchase with genuine self-knowledge — body dimensions stabilized, jump style identified, discipline preference clear. When you do buy, consult with your instructors and a certified rigger. Do not buy on price alone. Your rig is a life-support system.</p>
+
+    <div class="warning-box">
+      <strong>The Downsizing Danger Zone</strong>
+      The period between 100 and 500 jumps is historically the most dangerous in a skydiver's career — not because the jumper lacks skill, but because confidence outruns competence. Canopy incidents, many involving premature downsizing, account for the majority of serious injuries in the sport. Stay on a large, forgiving canopy longer than you think you need to. The extra time is never wasted.
+    </div>
+
+    <h3 class="section-head">Year-One Goals: A Suggested Framework</h3>
+    <p>Here is a practical goal framework for your first year as a licensed skydiver: aim for at least 50 jumps in the year (ideally 100+), complete a canopy skills course, jump with at least three experienced coaches, attend one skydiving event or boogie, achieve a clean solo exit every jump, and land within the target circle 80% of the time. Secondary goals: understand your rig's emergency procedures so well you could talk someone through them blindfolded, learn how to pack your own main canopy, and make at least ten new friends at the drop zone. The jump numbers will come. The community, the culture, and the character — those are what you build in year one.</p>
+
+    <div class="info-box">
+      <strong>The Long View</strong>
+      Veteran skydivers with thousands of jumps often say the same thing: the first few hundred were the most important, the most formative, and — looking back — the most fun. There is a magic in that early period of discovery that never quite returns. Be present in it. Log every jump. Debrief honestly. Ask questions. The sky rewards patience and humility more reliably than talent or aggression.
+    </div>
+  </article>
+
+</div><!-- /main-wrap -->
+
+
+<!-- ========== BOTTOM SPONSOR ROW ========== -->
+<div class="main-wrap">
+  <section class="bottom-sponsors">
+    <div class="section-label">Our Partners</div>
+    <div class="partner-grid">
+      <div class="partner-card">
+        <div class="p-name">Aerodyne Research</div>
+        <div class="p-offer">Premium parachute systems for every level — student to competition</div>
+        <a href="#" class="p-link">aerodyne.com →</a>
+      </div>
+      <div class="partner-card">
+        <div class="p-name">Skydive Empuriabrava</div>
+        <div class="p-offer">Europe's largest DZ · AFF Training · Costa Brava, Spain</div>
+        <a href="#" class="p-link">empuriabrava.com →</a>
+      </div>
+      <div class="partner-card">
+        <div class="p-name">Para Gear Equipment</div>
+        <div class="p-offer">The world's complete skydiving store since 1930 — gear, accessories, apparel</div>
+        <a href="#" class="p-link">paragear.com →</a>
+      </div>
+      <div class="partner-card" style="border-style: dashed; border-color: #252525;">
+        <div class="p-name" style="color:#555;">[Advertise Here]</div>
+        <div class="p-offer">Reach 50,000+ skydiving enthusiasts monthly. Contact us to secure your spot.</div>
+        <a href="mailto:contact@novamedia.io" class="p-link" style="color:#555; border-color:#333;">contact@novamedia.io →</a>
+      </div>
+    </div>
+  </section>
+</div>
+
+
+<!-- ========== CTA SECTION ========== -->
+<div class="main-wrap">
+  <section class="cta-section">
+    <div class="section-label">Free Newsletter</div>
+    <h2>Join the <span>NovaSky</span> Community</h2>
+    <p>Weekly dispatches on skydiving technique, gear reviews, drop zone spotlights, and the stories of skydivers worldwide. Free, forever.</p>
+    <form class="cta-form" onsubmit="return false;">
+      <input type="email" placeholder="your@email.com" autocomplete="email">
+      <button type="submit" class="cta-btn">Subscribe Free</button>
+    </form>
+    <p class="cta-note">No spam. Unsubscribe any time. Join 12,000+ skydivers already subscribed.</p>
+  </section>
+</div>
+
+
+<!-- ========== AFFILIATE DISCLOSURE ========== -->
+<div class="main-wrap">
+  <div class="disclosure">
+    <strong>Affiliate &amp; Advertising Disclosure:</strong> This ebook is produced by Nova Sky Media and contains sponsored content and affiliate links. Some links to products and services may earn Nova Sky Media a commission if you make a purchase. This does not affect editorial independence — all recommendations reflect genuine assessment. Sponsor placements are clearly labeled. Skydiving involves serious risk of injury or death. All information in this guide is for educational purposes only and does not substitute for instruction by a certified skydiving instructor at a licensed drop zone. Always consult qualified professionals before engaging in skydiving activities.
+  </div>
+</div>
+
+
+<!-- ========== FOOTER ========== -->
+<footer>
+  <div class="main-wrap">
+    <div class="footer-brand">NOVA SKY</div>
+    <div class="footer-links">
+      <a href="#">novasky.io</a>
+      <a href="#">Privacy Policy</a>
+      <a href="#">Advertise</a>
+      <a href="mailto:contact@novamedia.io">Contact</a>
+    </div>
+    <p style="margin-top:16px; letter-spacing:1px;">NOVA SKY &copy; 2026 &nbsp;·&nbsp; All rights reserved &nbsp;·&nbsp; novasky.io</p>
+    <p style="margin-top:6px; font-size:10px; color:#2a2a2a;">This publication is protected by copyright. Unauthorized reproduction is prohibited.</p>
+  </div>
+</footer>
+
+</body>
+</html>

@@ -1,0 +1,915 @@
+<!DOCTYPE html>
+<html lang="en">
+<head>
+<meta charset="UTF-8">
+<meta name="viewport" content="width=device-width, initial-scale=1.0">
+<title>The Tournament Format Guide: How to Go Viral in 90 Seconds — NovaCrypto 2026</title>
+<meta name="description" content="The complete guide to the viral Tournament format. 7 niches, 35 ready-to-film ideas, the full AI script generator prompt, and filming tips. Free.">
+<link rel="preconnect" href="https://fonts.googleapis.com">
+<link href="https://fonts.googleapis.com/css2?family=Inter:wght@300;400;500;600;700;900&family=Playfair+Display:wght@700;900&family=JetBrains+Mono:wght@400;700&display=swap" rel="stylesheet">
+<style>
+:root {
+  --orange: #F97316; --orange-dim: rgba(249,115,22,0.12); --orange-border: rgba(249,115,22,0.3);
+  --dark: #080808; --dark2: #0f0f0f; --dark3: #161616; --dark4: #1e1e1e;
+  --text: #e8e8e8; --text-sub: #999; --text-muted: #666;
+  --gold: #F7B731; --green: #10b981; --red: #ef4444; --blue: #3b82f6;
+  --border: rgba(255,255,255,0.07);
+  --r: 12px; --r-sm: 8px;
+  --font-body: 'Inter', sans-serif;
+  --font-head: 'Playfair Display', Georgia, serif;
+  --font-mono: 'JetBrains Mono', monospace;
+  --max: 720px;
+  --accent: var(--orange); --accent-dim: var(--orange-dim); --accent-border: var(--orange-border);
+}
+* { box-sizing: border-box; margin: 0; padding: 0; }
+html { scroll-behavior: smooth; }
+body { background: var(--dark); color: var(--text); font-family: var(--font-body); line-height: 1.75; font-size: 17px; }
+
+#progress-bar { position: fixed; top: 0; left: 0; width: 0%; height: 3px;
+  background: linear-gradient(90deg, var(--orange), #fbbf24); z-index: 1000; transition: width 0.1s linear; }
+
+.top-nav { position: fixed; top: 3px; left: 0; right: 0; z-index: 999;
+  background: rgba(8,8,8,0.92); backdrop-filter: blur(12px);
+  border-bottom: 1px solid var(--border); padding: 0 32px;
+  display: flex; align-items: center; justify-content: space-between; height: 52px; }
+.nav-brand { font-family: var(--font-body); font-weight: 900; font-size: 14px;
+  letter-spacing: 4px; color: var(--orange); text-transform: uppercase; }
+.nav-links { display: flex; gap: 24px; }
+.nav-links a { font-size: 12px; color: var(--text-muted); text-decoration: none; letter-spacing: 1px; transition: color 0.2s; }
+.nav-links a:hover { color: var(--orange); }
+.nav-cta { background: var(--orange); color: #fff; font-size: 12px; font-weight: 700;
+  padding: 6px 16px; border-radius: 6px; text-decoration: none; letter-spacing: 1px; white-space: nowrap; }
+@media(max-width:600px){ .nav-links{display:none;} }
+
+.cover {
+  min-height: 100vh; padding: 120px 40px 80px;
+  background: radial-gradient(ellipse at 30% 20%, rgba(249,115,22,0.1) 0%, transparent 50%),
+              radial-gradient(ellipse at 80% 80%, rgba(251,191,36,0.05) 0%, transparent 50%),
+              linear-gradient(180deg, #000 0%, #0f0500 100%);
+  display: flex; flex-direction: column; align-items: center; justify-content: center;
+  text-align: center; position: relative; overflow: hidden; }
+.cover::before { content: ''; position: absolute; inset: 0;
+  background: repeating-linear-gradient(0deg, transparent, transparent 60px, rgba(255,255,255,0.01) 61px);
+  pointer-events: none; }
+.cover-badge { display: inline-flex; align-items: center; gap: 8px;
+  background: var(--orange-dim); border: 1px solid var(--orange-border);
+  color: var(--orange); font-size: 11px; font-weight: 700; letter-spacing: 4px;
+  text-transform: uppercase; padding: 6px 20px; border-radius: 100px; margin-bottom: 40px; }
+.cover h1 { font-family: var(--font-head); font-size: clamp(36px, 6vw, 64px);
+  font-weight: 900; line-height: 1.05; color: #fff; max-width: 820px; margin-bottom: 24px; }
+.cover h1 em { font-style: normal; color: var(--orange); }
+.cover-sub { font-size: 20px; color: var(--text-sub); max-width: 540px; margin-bottom: 48px; line-height: 1.6; font-weight: 300; }
+.cover-stats { display: flex; gap: 48px; margin-bottom: 56px; flex-wrap: wrap; justify-content: center; }
+.cover-stat { text-align: center; }
+.cover-stat .n { font-size: 36px; font-weight: 900; color: var(--orange); font-family: var(--font-mono); }
+.cover-stat .l { font-size: 12px; color: var(--text-muted); letter-spacing: 2px; text-transform: uppercase; margin-top: 4px; }
+.cover-cta { display: inline-flex; align-items: center; gap: 12px;
+  background: var(--orange); color: #fff; font-size: 16px; font-weight: 900;
+  padding: 18px 48px; border-radius: 100px; text-decoration: none; letter-spacing: 1px;
+  transition: transform 0.2s, box-shadow 0.2s; box-shadow: 0 0 40px rgba(249,115,22,0.3); }
+.cover-cta:hover { transform: translateY(-2px); box-shadow: 0 8px 48px rgba(249,115,22,0.4); }
+.cover-meta { font-size: 13px; color: var(--text-muted); margin-top: 24px; }
+
+.toc-page { max-width: var(--max); margin: 0 auto; padding: 80px 40px; }
+.section-label { font-size: 11px; letter-spacing: 5px; color: var(--orange); text-transform: uppercase;
+  font-weight: 700; margin-bottom: 32px; display: flex; align-items: center; gap: 16px; }
+.section-label::after { content: ''; flex: 1; height: 1px; background: var(--border); }
+.toc-grid { display: grid; gap: 2px; }
+.toc-item { display: flex; align-items: center; gap: 20px; padding: 16px 20px;
+  border-radius: var(--r-sm); text-decoration: none; color: var(--text);
+  transition: background 0.2s; border: 1px solid transparent; }
+.toc-item:hover { background: var(--dark3); border-color: var(--border); }
+.toc-num { font-size: 32px; font-weight: 900; color: var(--orange); opacity: 0.25;
+  font-family: var(--font-mono); min-width: 48px; line-height: 1; }
+.toc-text { flex: 1; }
+.toc-text .t { font-size: 16px; font-weight: 600; }
+.toc-text .s { font-size: 13px; color: var(--text-muted); margin-top: 2px; }
+.toc-arrow { color: var(--text-muted); font-size: 18px; }
+
+.chapter { max-width: var(--max); margin: 0 auto; padding: 80px 40px; border-bottom: 1px solid var(--border); }
+.ch-label { font-size: 11px; letter-spacing: 5px; color: var(--orange); text-transform: uppercase;
+  font-weight: 700; margin-bottom: 16px; }
+.ch-title { font-family: var(--font-head); font-size: clamp(26px, 4vw, 40px);
+  font-weight: 900; color: #fff; margin-bottom: 40px; line-height: 1.15; }
+.ch-body { font-size: 17px; line-height: 1.8; }
+.ch-body p { margin-bottom: 20px; }
+.ch-body strong { color: var(--orange); font-weight: 700; }
+.ch-body h3 { font-family: var(--font-head); font-size: 22px; color: #fff; margin: 36px 0 16px; font-weight: 700; }
+.ch-body ul, .ch-body ol { margin: 16px 0 20px 24px; }
+.ch-body li { margin-bottom: 8px; }
+
+.code-block { background: var(--dark3); border: 1px solid var(--border);
+  border-radius: var(--r); padding: 24px; margin: 24px 0; overflow-x: auto; }
+.code-block pre { font-family: var(--font-mono); font-size: 13px; color: #c9d1d9; line-height: 1.7; white-space: pre-wrap; }
+.code-label { font-size: 10px; letter-spacing: 3px; text-transform: uppercase;
+  color: var(--orange); margin-bottom: 12px; font-family: var(--font-body); font-weight: 700; }
+
+.callout { border-radius: var(--r); padding: 24px 28px; margin: 32px 0; border-left: 4px solid; }
+.callout-orange { background: rgba(249,115,22,0.07); border-color: var(--orange); }
+.callout-gold { background: rgba(247,183,49,0.07); border-color: var(--gold); }
+.callout-red { background: rgba(239,68,68,0.07); border-color: var(--red); }
+.callout-green { background: rgba(16,185,129,0.07); border-color: var(--green); }
+.callout-label { font-size: 10px; font-weight: 700; letter-spacing: 3px; text-transform: uppercase; margin-bottom: 8px; opacity: 0.8; }
+.callout-orange .callout-label { color: var(--orange); }
+.callout-gold .callout-label { color: var(--gold); }
+.callout-red .callout-label { color: var(--red); }
+.callout-green .callout-label { color: var(--green); }
+.callout p { margin: 0; font-size: 15px; line-height: 1.7; }
+
+.pull-quote { font-family: var(--font-head); font-size: clamp(20px, 3vw, 26px);
+  color: var(--orange); line-height: 1.4; border-left: 3px solid var(--orange);
+  padding: 20px 28px; margin: 40px 0; font-style: italic;
+  background: var(--dark3); border-radius: 0 var(--r) var(--r) 0; }
+
+.stat-row { display: grid; grid-template-columns: repeat(auto-fit, minmax(140px,1fr)); gap: 16px; margin: 32px 0; }
+.stat-box { background: var(--dark3); border: 1px solid var(--border);
+  border-radius: var(--r); padding: 24px; text-align: center; }
+.stat-box .sv { font-size: 32px; font-weight: 900; color: var(--orange); font-family: var(--font-mono); line-height: 1; margin-bottom: 8px; }
+.stat-box .sl { font-size: 12px; color: var(--text-muted); letter-spacing: 1px; text-transform: uppercase; }
+
+/* Bracket visual */
+.bracket { background: var(--dark3); border: 1px solid var(--orange-border);
+  border-radius: var(--r); padding: 32px; margin: 32px 0; overflow-x: auto; }
+.bracket-grid { display: grid; grid-template-columns: 1fr auto 1fr; gap: 20px; align-items: center; min-width: 480px; }
+.bracket-col { display: flex; flex-direction: column; gap: 12px; }
+.bracket-match { background: var(--dark4); border: 1px solid var(--border); border-radius: 8px; overflow: hidden; }
+.bracket-match .team { padding: 10px 16px; font-size: 13px; font-weight: 600; border-bottom: 1px solid var(--border); }
+.bracket-match .team:last-child { border-bottom: none; }
+.bracket-match .team.winner { color: var(--orange); background: rgba(249,115,22,0.07); }
+.bracket-match .team.loser { color: var(--text-muted); text-decoration: line-through; opacity: 0.5; }
+.bracket-center { display: flex; flex-direction: column; align-items: center; gap: 8px; }
+.bracket-trophy { font-size: 32px; }
+.bracket-final { background: var(--orange-dim); border: 1px solid var(--orange-border);
+  border-radius: 8px; padding: 12px 20px; text-align: center; }
+.bracket-final .winner-name { color: var(--orange); font-weight: 900; font-size: 15px; }
+.bracket-final .winner-label { font-size: 10px; color: var(--text-muted); letter-spacing: 2px; text-transform: uppercase; margin-top: 4px; }
+
+/* Niche cards */
+.niche-section { margin: 40px 0; }
+.niche-header { background: var(--orange-dim); border: 1px solid var(--orange-border);
+  border-radius: var(--r) var(--r) 0 0; padding: 16px 24px; }
+.niche-header h3 { color: var(--orange); font-size: 14px; font-weight: 900; letter-spacing: 3px; text-transform: uppercase; margin: 0; }
+.niche-body { background: var(--dark3); border: 1px solid var(--border); border-top: none;
+  border-radius: 0 0 var(--r) var(--r); padding: 8px 0; }
+.niche-idea { padding: 14px 24px; border-bottom: 1px solid var(--border); }
+.niche-idea:last-child { border-bottom: none; }
+.niche-idea .idea-num { font-size: 10px; color: var(--text-muted); letter-spacing: 2px; font-family: var(--font-mono); }
+.niche-idea .idea-topic { font-size: 15px; font-weight: 600; color: #fff; margin: 4px 0; }
+.niche-idea .idea-title { font-size: 13px; color: var(--orange); font-style: italic; }
+
+/* Script sections */
+.script-section { margin: 24px 0; background: var(--dark3); border-radius: var(--r);
+  border: 1px solid var(--border); overflow: hidden; }
+.script-header { background: rgba(249,115,22,0.1); padding: 12px 20px;
+  border-bottom: 1px solid var(--border); display: flex; align-items: center; gap: 12px; }
+.script-header .script-tag { font-size: 10px; font-weight: 900; letter-spacing: 3px;
+  text-transform: uppercase; color: var(--orange); }
+.script-header .script-time { font-size: 11px; color: var(--text-muted); font-family: var(--font-mono); }
+.script-body { padding: 20px 24px; font-size: 14px; line-height: 1.8; color: var(--text-sub); font-family: var(--font-mono); }
+.script-body .screen-text { color: var(--gold); }
+.script-body .elim { color: var(--red); font-weight: 700; }
+.script-body .direction { color: var(--text-muted); font-style: italic; }
+
+.cta-section { max-width: var(--max); margin: 0 auto; padding: 80px 40px; text-align: center; }
+.cta-section h2 { font-family: var(--font-head); font-size: clamp(28px, 4vw, 42px); color: #fff; margin-bottom: 16px; }
+.cta-section p { color: var(--text-sub); font-size: 18px; margin-bottom: 40px; max-width: 480px; margin-left: auto; margin-right: auto; }
+.cta-btn-main { display: inline-flex; align-items: center; gap: 12px;
+  background: var(--orange); color: #fff; font-size: 16px; font-weight: 900;
+  padding: 18px 48px; border-radius: 100px; text-decoration: none; letter-spacing: 1px;
+  transition: transform 0.2s, box-shadow 0.2s; box-shadow: 0 0 40px rgba(249,115,22,0.3); }
+.cta-btn-main:hover { transform: translateY(-2px); box-shadow: 0 8px 48px rgba(249,115,22,0.4); }
+
+footer { background: #000; border-top: 1px solid var(--border); padding: 48px 40px; text-align: center; }
+footer .brand { font-family: var(--font-body); font-weight: 900; font-size: 18px;
+  letter-spacing: 6px; color: var(--orange); text-transform: uppercase; margin-bottom: 12px; }
+footer p { color: var(--text-muted); font-size: 13px; max-width: 500px; margin: 0 auto; }
+
+@media(max-width:640px){
+  .cover { padding: 100px 20px 60px; }
+  .chapter { padding: 60px 20px; }
+  .bracket-grid { grid-template-columns: 1fr; }
+  .bracket-center { flex-direction: row; }
+}
+
+/* ── CHAPTER ILLUSTRATIONS ── */
+.ch-illustration{width:100%;height:260px;overflow:hidden;position:relative;border-radius:14px;margin:0 0 36px;}
+.ch-illustration img{width:100%;height:100%;object-fit:cover;filter:brightness(.82) saturate(1.12);display:block;}
+.ch-illustration::after{content:'';position:absolute;bottom:0;left:0;right:0;height:90px;background:linear-gradient(transparent,var(--dark,#080808));}
+.cover-hero-img{width:100%;max-width:700px;height:320px;overflow:hidden;border-radius:18px;margin:0 auto 44px;position:relative;}
+.cover-hero-img img{width:100%;height:100%;object-fit:cover;filter:brightness(.8) saturate(1.2);}
+.cover-hero-img::after{content:'';position:absolute;inset:0;background:linear-gradient(to bottom,transparent 35%,rgba(0,0,0,.65) 100%);}
+</style>
+</head>
+<body>
+
+<div id="progress-bar"></div>
+
+<nav class="top-nav">
+  <div class="nav-brand">NovaCrypto</div>
+  <div class="nav-links">
+    <a href="#toc">Contents</a>
+    <a href="#ch2">How-To</a>
+    <a href="#ch3">Topics</a>
+    <a href="#ch4">AI Prompt</a>
+    <a href="#ch5">Filming</a>
+  </div>
+  <a href="index.html" class="nav-cta">← Library</a>
+</nav>
+
+<!-- COVER -->
+<div class="cover">
+  <div class="cover-badge">Content Strategy — 2026 Edition</div>
+  <div class="cover-hero-img">
+    <img src="https://image.pollinations.ai/prompt/tournament%20bracket%20competition%20arena%20cinematic%20dark%20neon?width=900&height=400&nologo=true&seed=320" alt="Cover">
+  </div>
+  <h1>The Tournament Format:<br><em>How to Go Viral</em><br>in 90 Seconds</h1>
+  <p class="cover-sub">The complete guide to the bracket content format dominating TikTok and Reels — 35 ready-to-film ideas, the full AI script generator, and filming tips.</p>
+  <div class="cover-stats">
+    <div class="cover-stat"><div class="n">7</div><div class="l">Niches</div></div>
+    <div class="cover-stat"><div class="n">35</div><div class="l">Topic Ideas</div></div>
+    <div class="cover-stat"><div class="n">6</div><div class="l">Chapters</div></div>
+    <div class="cover-stat"><div class="n">€0</div><div class="l">Cost</div></div>
+  </div>
+  <a href="#ch1" class="cover-cta">Start Reading →</a>
+  <p class="cover-meta">NovaCrypto Publishing · April 2026 · Free distribution · Not professional advice</p>
+</div>
+
+<!-- TOC -->
+<div id="toc" class="toc-page">
+  <div class="section-label">Table of Contents</div>
+  <div class="toc-grid">
+    <a href="#ch1" class="toc-item">
+      <span class="toc-num">01</span>
+      <div class="toc-text"><div class="t">What Is the Tournament Format?</div><div class="s">Why it works, the science behind the engagement spike</div></div>
+      <span class="toc-arrow">→</span>
+    </a>
+    <a href="#ch2" class="toc-item">
+      <span class="toc-num">02</span>
+      <div class="toc-text"><div class="t">3 Steps: Idea to Finished Video</div><div class="s">Choose your niche, topic, and structure — in under 10 minutes</div></div>
+      <span class="toc-arrow">→</span>
+    </a>
+    <a href="#ch3" class="toc-item">
+      <span class="toc-num">03</span>
+      <div class="toc-text"><div class="t">35 Topic Ideas by Niche</div><div class="s">Health, Business, Finance, Interior Design, Real Estate, Beauty, Relationships</div></div>
+      <span class="toc-arrow">→</span>
+    </a>
+    <a href="#ch4" class="toc-item">
+      <span class="toc-num">04</span>
+      <div class="toc-text"><div class="t">The AI Script Generator Prompt</div><div class="s">Copy-paste into Claude or any LLM — get a full script in minutes</div></div>
+      <span class="toc-arrow">→</span>
+    </a>
+    <a href="#ch5" class="toc-item">
+      <span class="toc-num">05</span>
+      <div class="toc-text"><div class="t">Filming & Editing Guide</div><div class="s">Bracket visuals, pacing, animations, gear — everything to film today</div></div>
+      <span class="toc-arrow">→</span>
+    </a>
+    <a href="#ch6" class="toc-item">
+      <span class="toc-num">06</span>
+      <div class="toc-text"><div class="t">Distribution & Building a Series</div><div class="s">Algorithm captions, hashtag strategy, turning one video into a franchise</div></div>
+      <span class="toc-arrow">→</span>
+    </a>
+  </div>
+</div>
+
+<!-- CHAPTER 1 -->
+<div id="ch1" class="chapter">
+  <div class="ch-label">Chapter 01</div>
+  <div class="ch-illustration">
+    <img src="https://image.pollinations.ai/prompt/viral%20content%20competition%20bracket%20format%20social%20media%20neon%20cinematic?width=900&height=360&nologo=true&seed=321" alt="Chapter">
+  </div>
+  <h2 class="ch-title">What Is the Tournament Format?</h2>
+  <div class="ch-body">
+
+    <p>The Tournament is a short-video content format where <strong>8 contenders compete in a single-elimination bracket</strong> — round after round — until one winner remains. The creator reacts to each matchup with fast, decisive commentary.</p>
+
+    <div class="stat-row">
+      <div class="stat-box"><div class="sv">8</div><div class="sl">Contenders</div></div>
+      <div class="stat-box"><div class="sv">4</div><div class="sl">Round 1 Duels</div></div>
+      <div class="stat-box"><div class="sv">2</div><div class="sl">Semi-Finals</div></div>
+      <div class="stat-box"><div class="sv">1</div><div class="sl">Champion</div></div>
+    </div>
+
+    <p>Here's what a typical bracket looks like in action:</p>
+
+    <div class="bracket">
+      <div class="code-label" style="margin-bottom:20px;">Example: "What's the WORST Supplement to Waste Money On?"</div>
+      <div class="bracket-grid">
+        <div class="bracket-col">
+          <div class="bracket-match">
+            <div class="team winner">Collagen Powder</div>
+            <div class="team loser">Testosterone Booster</div>
+          </div>
+          <div class="bracket-match">
+            <div class="team winner">Pre-Workout</div>
+            <div class="team loser">BCAAs</div>
+          </div>
+          <div style="margin-top:8px; font-size:12px; color:var(--text-muted); text-align:center; letter-spacing:1px;">SEMI-FINAL → Pre-Workout wins</div>
+        </div>
+        <div class="bracket-center">
+          <div class="bracket-trophy">🏆</div>
+          <div class="bracket-final">
+            <div class="winner-name">Pre-Workout</div>
+            <div class="winner-label">Biggest waste</div>
+          </div>
+        </div>
+        <div class="bracket-col">
+          <div class="bracket-match">
+            <div class="team winner">Detox Teas</div>
+            <div class="team loser">Fat Burners</div>
+          </div>
+          <div class="bracket-match">
+            <div class="team winner">Mega-Dose Vit C</div>
+            <div class="team loser">Homeopathics</div>
+          </div>
+          <div style="margin-top:8px; font-size:12px; color:var(--text-muted); text-align:center; letter-spacing:1px;">SEMI-FINAL → Detox Teas wins</div>
+        </div>
+      </div>
+    </div>
+
+    <h3>Why Does This Format Explode?</h3>
+
+    <p>Three mechanics drive the engagement spike — and they're all backed by how platforms actually reward content:</p>
+
+    <div class="callout callout-orange">
+      <div class="callout-label">Tension</div>
+      <p>Brackets create natural suspense. The audience genuinely wants to know who wins. <strong>Watch time stays high because viewers can't leave before the final.</strong></p>
+    </div>
+
+    <div class="callout callout-gold">
+      <div class="callout-label">Debate</div>
+      <p>Controversial picks generate comments. When you eliminate something people love — or crown something they hate — they <strong>must say something</strong>. Comment velocity signals the algorithm to boost the post.</p>
+    </div>
+
+    <div class="callout callout-green">
+      <div class="callout-label">Identity</div>
+      <p>People share content that reflects their values and opinions. A tournament about the best workout or the worst spending habit <strong>feels personal</strong> — it gets saved, shared, and stitched.</p>
+    </div>
+
+    <div class="pull-quote">"The algorithm rewards watch time and comments. The tournament format is engineered to produce both."</div>
+
+    <p>This is not a trend that will fade. Debate content has driven engagement since the first talk show. The Tournament format is just the 2026 version of a mechanic that's been working for decades — compressed into 90 seconds and optimized for vertical video.</p>
+
+  </div>
+</div>
+
+<!-- CHAPTER 2 -->
+<div id="ch2" class="chapter">
+  <div class="ch-label">Chapter 02</div>
+  <div class="ch-illustration">
+    <img src="https://image.pollinations.ai/prompt/video%20content%20creation%20filming%20idea%20to%20viral%20dark%20neon%20cinematic?width=900&height=360&nologo=true&seed=322" alt="Chapter">
+  </div>
+  <h2 class="ch-title">3 Steps: From Idea to Finished Video</h2>
+  <div class="ch-body">
+
+    <h3>Step 1 — Choose Your Niche</h3>
+    <p>Find the section in <a href="#ch3" style="color:var(--orange);">Chapter 3</a> that matches your expertise. There are 7 niches covered: Health &amp; Fitness, Business, Finance, Interior Design, Real Estate, Beauty/Skincare, and Relationships. Each niche has 5 ready-to-use tournament ideas.</p>
+
+    <h3>Step 2 — Pick a Topic That's Controversial or Misunderstood</h3>
+
+    <div class="callout callout-orange">
+      <div class="callout-label">The Golden Rule</div>
+      <p>Pick a topic where your audience <em>thinks they know the answer</em> but your take will surprise them. Controversy isn't about being offensive — it's about having a <strong>strong, defensible opinion</strong> that not everyone will agree with.</p>
+    </div>
+
+    <p>The best tournament topics share three traits:</p>
+    <ul>
+      <li><strong>Everyone in your audience has an opinion on it</strong> — even beginners</li>
+      <li><strong>There's a "trap" option</strong> — something people think is good but isn't (or vice versa)</li>
+      <li><strong>The result creates identity statements</strong> — "I knew it" or "That's wrong and here's why"</li>
+    </ul>
+
+    <h3>Step 3 — Use the Framework to Script Your Video</h3>
+
+    <p>Every tournament video follows the same structure:</p>
+
+    <div class="script-section">
+      <div class="script-header">
+        <span class="script-tag">Hook</span>
+        <span class="script-time">3–5 seconds</span>
+      </div>
+      <div class="script-body">
+        <span class="direction">Ultra-direct. Assertive. No weak questions.</span><br>
+        ✅ "8 supplements. One winner. Let's settle this."<br>
+        ✅ "I'm ranking the worst spending habits — this will trigger someone."<br>
+        ❌ "Hey guys, have you ever wondered which..."
+      </div>
+    </div>
+
+    <div class="script-section">
+      <div class="script-header">
+        <span class="script-tag">Round 1 — 4 Duels</span>
+        <span class="script-time">30–45 seconds</span>
+      </div>
+      <div class="script-body">
+        <span class="screen-text">[ON SCREEN: Collagen vs Testosterone Booster]</span><br>
+        "Collagen powder — at least it can improve skin. Testosterone booster — pure marketing."<br>
+        <span class="elim">[ELIMINATED: Testosterone Booster]</span><br><br>
+        <span class="direction">One verdict per duel. Max one sentence. No hesitation.</span>
+      </div>
+    </div>
+
+    <div class="script-section">
+      <div class="script-header">
+        <span class="script-tag">Round 2 — Semi-Finals</span>
+        <span class="script-time">20–30 seconds</span>
+      </div>
+      <div class="script-body">
+        <span class="direction">2–3 sentences max per matchup. Add substance and expertise here.</span><br><br>
+        "Pre-Workout versus Collagen. Pre-workout has actual evidence behind it — caffeine, beta-alanine work. But the doses in most products are under-dosed and the crash is brutal."<br>
+        <span class="elim">[ELIMINATED: Collagen]</span>
+      </div>
+    </div>
+
+    <div class="script-section">
+      <div class="script-header">
+        <span class="script-tag">Finale</span>
+        <span class="script-time">15–20 seconds</span>
+      </div>
+      <div class="script-body">
+        "And now, for the finale..." <span class="direction">[Rising tension]</span><br><br>
+        "Pre-Workout versus Detox Tea. Detox Tea is literally a laxative in a pretty box. Pre-Workout at least gives you energy — even if it's mostly placebo. The winner: Pre-Workout. Biggest waste of money? Detox Tea. Every. Single. Time."
+      </div>
+    </div>
+
+    <div class="script-section">
+      <div class="script-header">
+        <span class="script-tag">CTA</span>
+        <span class="script-time">5–10 seconds</span>
+      </div>
+      <div class="script-body">
+        Option A: "What would <em>you</em> have put in the final? Tell me in the comments."<br>
+        Option B: "Tomorrow we're ranking the BEST supplements worth every cent. Get ready."
+      </div>
+    </div>
+
+    <div class="callout callout-orange">
+      <div class="callout-label">Scriptwriting Rules</div>
+      <p>Max 15 words per sentence. Spoken language only — read it aloud before filming. Zero filler words (actually, basically, so). Total spoken duration: 45–90 seconds. <strong>Stand by your choices.</strong> Hesitation kills the format.</p>
+    </div>
+
+  </div>
+</div>
+
+<!-- CHAPTER 3 -->
+<div id="ch3" class="chapter">
+  <div class="ch-label">Chapter 03</div>
+  <div class="ch-illustration">
+    <img src="https://image.pollinations.ai/prompt/niche%20content%20ideas%20brainstorm%20topics%20social%20media%20strategy%20cinematic?width=900&height=360&nologo=true&seed=323" alt="Chapter">
+  </div>
+  <h2 class="ch-title">35 Topic Ideas by Niche</h2>
+  <div class="ch-body">
+
+    <p>Use these as direct launch pads. The title format is: <strong>"Which [WHAT YOU ARE COMPARING] is the best/worst for [RESULT]?"</strong> — copy it directly as your video title.</p>
+
+    <div class="niche-section">
+      <div class="niche-header"><h3>Health &amp; Fitness</h3></div>
+      <div class="niche-body">
+        <div class="niche-idea">
+          <div class="idea-num">01 — GLUTES</div>
+          <div class="idea-topic">Glute Exercises</div>
+          <div class="idea-title">"Which of these exercises is best for building your glutes?"</div>
+        </div>
+        <div class="niche-idea">
+          <div class="idea-num">02 — HEART</div>
+          <div class="idea-topic">Heart Health Foods</div>
+          <div class="idea-title">"Which of these foods is best for heart health?"</div>
+        </div>
+        <div class="niche-idea">
+          <div class="idea-num">03 — CORTISOL</div>
+          <div class="idea-topic">Cortisol-Spiking Habits</div>
+          <div class="idea-title">"Which of these bad habits sends your cortisol levels skyrocketing?"</div>
+        </div>
+        <div class="niche-idea">
+          <div class="idea-num">04 — SUPPLEMENTS</div>
+          <div class="idea-topic">Daily Supplements</div>
+          <div class="idea-title">"Which of these supplements should you take every day?"</div>
+        </div>
+        <div class="niche-idea">
+          <div class="idea-num">05 — FAT LOSS</div>
+          <div class="idea-topic">Fat-Loss Foods</div>
+          <div class="idea-title">"Which of these foods are best for fat loss?"</div>
+        </div>
+      </div>
+    </div>
+
+    <div class="niche-section">
+      <div class="niche-header"><h3>Business Coaches &amp; Consultants</h3></div>
+      <div class="niche-body">
+        <div class="niche-idea">
+          <div class="idea-num">01 — AI</div>
+          <div class="idea-topic">Business AI Software</div>
+          <div class="idea-title">"Which AI Software Is Best for Your Business?"</div>
+        </div>
+        <div class="niche-idea">
+          <div class="idea-num">02 — PAYMENT</div>
+          <div class="idea-topic">Payment Processors</div>
+          <div class="idea-title">"Which of These Payment Processors Is the Best?"</div>
+        </div>
+        <div class="niche-idea">
+          <div class="idea-num">03 — BUSINESS TYPES</div>
+          <div class="idea-topic">Business Models 2026</div>
+          <div class="idea-title">"Which Businesses Are the Most Profitable to Launch in 2026?"</div>
+        </div>
+        <div class="niche-idea">
+          <div class="idea-num">04 — LEAD MAGNETS</div>
+          <div class="idea-topic">Lead Magnet Styles</div>
+          <div class="idea-title">"Which Style of Lead Magnet Converts Best?"</div>
+        </div>
+        <div class="niche-idea">
+          <div class="idea-num">05 — CRM</div>
+          <div class="idea-topic">CRM Platforms</div>
+          <div class="idea-title">"Which CRM Platforms Are the Best?"</div>
+        </div>
+      </div>
+    </div>
+
+    <div class="niche-section">
+      <div class="niche-header"><h3>Finance &amp; Investing</h3></div>
+      <div class="niche-body">
+        <div class="niche-idea">
+          <div class="idea-num">01 — CREDIT CARDS</div>
+          <div class="idea-topic">Travel Rewards Cards</div>
+          <div class="idea-title">"Which Credit Card Is Best for Travel Rewards?"</div>
+        </div>
+        <div class="niche-idea">
+          <div class="idea-num">02 — STOCKS</div>
+          <div class="idea-topic">Beginner Stocks</div>
+          <div class="idea-title">"Which Stocks Should You Invest In When Starting Out?"</div>
+        </div>
+        <div class="niche-idea">
+          <div class="idea-num">03 — INVESTING</div>
+          <div class="idea-topic">Return on Investment</div>
+          <div class="idea-title">"Where Should You Put Your Money to Get Good Returns?"</div>
+        </div>
+        <div class="niche-idea">
+          <div class="idea-num">04 — SPENDING HABITS</div>
+          <div class="idea-topic">Money Killers</div>
+          <div class="idea-title">"Which Spending Habits Are Keeping You Broke?"</div>
+        </div>
+        <div class="niche-idea">
+          <div class="idea-num">05 — TAX</div>
+          <div class="idea-topic">Tax Strategies</div>
+          <div class="idea-title">"Which Tax Strategies Save You the Most Money?"</div>
+        </div>
+      </div>
+    </div>
+
+    <div class="niche-section">
+      <div class="niche-header"><h3>Interior Design &amp; Decor</h3></div>
+      <div class="niche-body">
+        <div class="niche-idea">
+          <div class="idea-num">01 — DEAD TRENDS</div>
+          <div class="idea-topic">Decor Trends to Kill</div>
+          <div class="idea-title">"Which Decor Trends Need to Die in 2026?"</div>
+        </div>
+        <div class="niche-idea">
+          <div class="idea-num">02 — CHEAP LOOK</div>
+          <div class="idea-topic">Furniture Offenders</div>
+          <div class="idea-title">"Which Furniture Gives Your Interior a Cheap Look?"</div>
+        </div>
+        <div class="niche-idea">
+          <div class="idea-num">03 — BUDGET LUXURY</div>
+          <div class="idea-topic">Affordable Upgrades</div>
+          <div class="idea-title">"Which Affordable Upgrades Give Your Home a Luxury Look?"</div>
+        </div>
+        <div class="niche-idea">
+          <div class="idea-num">04 — RENOVATION</div>
+          <div class="idea-topic">ROI Renovations</div>
+          <div class="idea-title">"Which Renovations Add the Most Value to Your Home?"</div>
+        </div>
+        <div class="niche-idea">
+          <div class="idea-num">05 — APPLIANCES</div>
+          <div class="idea-topic">Appliance Brands</div>
+          <div class="idea-title">"Which Appliance Brands Are the Most Reliable?"</div>
+        </div>
+      </div>
+    </div>
+
+    <div class="niche-section">
+      <div class="niche-header"><h3>Real Estate</h3></div>
+      <div class="niche-body">
+        <div class="niche-idea">
+          <div class="idea-num">01 — NEIGHBORHOODS</div>
+          <div class="idea-topic">[City] Neighborhoods</div>
+          <div class="idea-title">"What is the most affordable neighborhood to live in near [CITY]?"</div>
+        </div>
+        <div class="niche-idea">
+          <div class="idea-num">02 — RED FLAGS</div>
+          <div class="idea-topic">Viewing Red Flags</div>
+          <div class="idea-title">"The biggest red flag to spot during a property viewing:"</div>
+        </div>
+        <div class="niche-idea">
+          <div class="idea-num">03 — INSPECTION</div>
+          <div class="idea-topic">Inspection Red Flags</div>
+          <div class="idea-title">"The biggest red flag to spot during a property inspection:"</div>
+        </div>
+        <div class="niche-idea">
+          <div class="idea-num">04 — STAGING</div>
+          <div class="idea-topic">Home Staging Techniques</div>
+          <div class="idea-title">"Which home staging technique sells your house faster?"</div>
+        </div>
+        <div class="niche-idea">
+          <div class="idea-num">05 — INVESTMENT</div>
+          <div class="idea-topic">Real Estate Markets 2026</div>
+          <div class="idea-title">"What is the best place to invest in real estate in 2026?"</div>
+        </div>
+      </div>
+    </div>
+
+    <div class="niche-section">
+      <div class="niche-header"><h3>Beauty &amp; Skincare</h3></div>
+      <div class="niche-body">
+        <div class="niche-idea">
+          <div class="idea-num">01 — TRENDS</div>
+          <div class="idea-topic">TikTok Skincare Trends</div>
+          <div class="idea-title">"Which TikTok skincare trends are making your skin worse?"</div>
+        </div>
+        <div class="niche-idea">
+          <div class="idea-num">02 — ACNE</div>
+          <div class="idea-topic">Breakout Triggers</div>
+          <div class="idea-title">"Which bad habit causes the most breakouts?"</div>
+        </div>
+        <div class="niche-idea">
+          <div class="idea-num">03 — MORNING ROUTINE</div>
+          <div class="idea-topic">AM Skincare Habits</div>
+          <div class="idea-title">"The best morning skincare habit for fresh-looking skin:"</div>
+        </div>
+        <div class="niche-idea">
+          <div class="idea-num">04 — SUNSCREEN</div>
+          <div class="idea-topic">Sunscreen Brands</div>
+          <div class="idea-title">"Which sunscreen brand offers the best protection for your face?"</div>
+        </div>
+        <div class="niche-idea">
+          <div class="idea-num">05 — UNDER-EYES</div>
+          <div class="idea-topic">Under-Eye Patches</div>
+          <div class="idea-title">"Which brand of under-eye patches is best for dark circles?"</div>
+        </div>
+      </div>
+    </div>
+
+    <div class="niche-section">
+      <div class="niche-header"><h3>Relationship &amp; Dating Coaches</h3></div>
+      <div class="niche-body">
+        <div class="niche-idea">
+          <div class="idea-num">01 — RED FLAGS</div>
+          <div class="idea-topic">First Date Red Flags</div>
+          <div class="idea-title">"The Biggest Red Flag on a First Date:"</div>
+        </div>
+        <div class="niche-idea">
+          <div class="idea-num">02 — RELATIONSHIP HEALTH</div>
+          <div class="idea-topic">Breakup Predictors</div>
+          <div class="idea-title">"What Is the #1 Sign a Couple Is Going to Break Up?"</div>
+        </div>
+        <div class="niche-idea">
+          <div class="idea-num">03 — HIGH VALUE</div>
+          <div class="idea-topic">Partner Traits</div>
+          <div class="idea-title">"The Best Trait to Look for in a Partner:"</div>
+        </div>
+        <div class="niche-idea">
+          <div class="idea-num">04 — DATE IDEAS</div>
+          <div class="idea-topic">First Date Spots</div>
+          <div class="idea-title">"The Best Place for a First Date:"</div>
+        </div>
+        <div class="niche-idea">
+          <div class="idea-num">05 — GREEN FLAGS</div>
+          <div class="idea-topic">Positive Signals</div>
+          <div class="idea-title">"The Biggest Green Flag on a First Date:"</div>
+        </div>
+      </div>
+    </div>
+
+  </div>
+</div>
+
+<!-- CHAPTER 4 -->
+<div id="ch4" class="chapter">
+  <div class="ch-label">Chapter 04</div>
+  <div class="ch-illustration">
+    <img src="https://image.pollinations.ai/prompt/AI%20script%20generator%20prompt%20glowing%20text%20tech%20neon%20dark%20cinematic?width=900&height=360&nologo=true&seed=324" alt="Chapter">
+  </div>
+  <h2 class="ch-title">The AI Script Generator Prompt</h2>
+  <div class="ch-body">
+
+    <p>Paste this prompt into any LLM (Claude, ChatGPT, Gemini). It will ask you 2 questions, propose 5 tournament concepts for your niche, and write a complete ready-to-film script.</p>
+
+    <div class="callout callout-orange">
+      <div class="callout-label">How to Use It</div>
+      <p>1. Copy the full prompt below. 2. Paste into a new chat. 3. Answer the 2 niche questions. 4. Choose one of the 5 concepts it proposes. 5. Receive your complete script — ready to film.</p>
+    </div>
+
+    <div class="code-block">
+      <div class="code-label">Full AI Prompt — Copy Everything Below</div>
+      <pre>You are an expert in creating viral content for social media, specializing in the "tournament" format (single-elimination bracket).
+
+## The Tournament Format
+The tournament is a content format where 8 elements compete in a single-elimination bracket, round after round, until only one remains. The creator reacts to each duel decisively and quickly. This format generates massive engagement because it creates tension, debate, and identification.
+
+## Your Role
+You will help me create complete tournament content (idea + tournament + script ready to film) adapted to my niche.
+
+## Step 1 — Understanding my niche
+Ask me exactly 2 short questions:
+1. What is your niche or area of expertise?
+2. Who is your target audience (typical profile, level, interests)?
+
+Wait for my answers before moving on to the next step. Don't suggest anything until I've answered.
+
+## Step 2 — Proposing Tournament Concepts
+Once you have my answers, propose 5 tournament concepts tailored to my niche.
+
+For each concept, provide:
+- A catchy title (Format: "What is the WORST/BEST _?")
+- The 8 tournament elements, organized into 4 first-round matchups (LEFT SIDE: Match 1, Match 2 / RIGHT SIDE: Match 3, Match 4)
+- A one-sentence explanation of why this concept will spark debate.
+
+Rules for selecting the 8 elements:
+- Mix obvious choices with surprising ones.
+- Include at least 1–2 "trap" elements — items people think are good but aren't (or vice versa).
+- Elements must be concrete and visual (no abstract concepts).
+- Each element must be limited to a maximum of 3–4 words (for on-screen display).
+- Place the most divisive matchups at the beginning of the tournament (to hook the audience).
+
+Present the 5 concepts in a numbered list, then ask me to choose one.
+Wait for my selection before proceeding to the next step.
+
+## Step 3 — Write the Full Script
+Once the concept is chosen, write the complete script:
+
+### HOOK (3-5 seconds)
+- Ultra-direct opening sentence. Assertive tone. No weak questions.
+- Patterns: "[Topic]: We're settling this today." / "8 [items]. Only one winner. Let's go."
+
+### ROUND 1 — 4 Duels (30-45 seconds)
+For each duel:
+- Announce the two elements facing off.
+- Give your verdict in ONE sentence maximum.
+- Be decisive and direct. Fast pace. No lengthy justifications.
+- Indicate [TEXT ON SCREEN: "Element A vs Element B"] before each duel.
+- State [ELIMINATED: Element X] after each verdict.
+
+### ROUND 2 — Semi-Finals (20-30 seconds)
+For each semi-final:
+- Announce the matchup.
+- Elaborate slightly more (2-3 sentences max).
+
+### FINALE (15-20 seconds)
+- Announce with rising tension: "And now, for the finale..."
+- Deliver your verdict with a punchy justification in 2-3 sentences.
+- End with confidence.
+
+### CTA (5-10 seconds)
+- Invite debate: "What would you have put in the final?" or
+- Tease next episode: "Tomorrow we're doing [topic] — get ready."
+
+### Scriptwriting Rules
+- Use spoken language. Read it aloud.
+- Max 15 words per sentence.
+- No filler words (actually, basically, so...).
+- Direct and assertive. You stand by your choices.
+- Total duration: 45–90 seconds of spoken dialogue.
+
+## Output Format
+Present the script in clearly separated sections (HOOK / ROUND 1 / ROUND 2 / FINALE / CTA).
+
+After the script, provide:
+- 3 alternative hook variations
+- Algorithm-optimized caption (with hashtags)
+- A suggestion for a follow-up tournament topic (to build a series)</pre>
+    </div>
+
+    <div class="callout callout-green">
+      <div class="callout-label">Pro Tip — Skip to Step 3</div>
+      <p>If you already know your topic and your 8 contenders, paste the prompt and immediately add: <em>"Skip Steps 1 and 2. My topic is [TITLE]. My 8 contenders are: [LIST]. Write the full script directly."</em> This cuts the process to under 2 minutes.</p>
+    </div>
+
+  </div>
+</div>
+
+<!-- CHAPTER 5 -->
+<div id="ch5" class="chapter">
+  <div class="ch-label">Chapter 05</div>
+  <div class="ch-illustration">
+    <img src="https://image.pollinations.ai/prompt/filming%20editing%20camera%20video%20production%20dark%20studio%20cinematic?width=900&height=360&nologo=true&seed=325" alt="Chapter">
+  </div>
+  <h2 class="ch-title">Filming &amp; Editing Guide</h2>
+  <div class="ch-body">
+
+    <h3>The Bracket Visual</h3>
+    <p>The bracket is not optional — it is the format. Without the visual, it's just a list. Create your bracket in <strong>Canva</strong> (free) or any video editor, then overlay it on your footage as a full-screen graphic or corner insert.</p>
+
+    <div class="callout callout-orange">
+      <div class="callout-label">Canva Bracket Template Tips</div>
+      <p>Use a dark background (black or deep navy). Bold white text for names. Accent color for the winner's side. Cross out or fade eliminated entries. Keep it clean — max 3 words per entry. Export at 1080×1920 (vertical 9:16).</p>
+    </div>
+
+    <h3>Camera Setup</h3>
+    <ul>
+      <li><strong>Frame:</strong> Medium close-up — chest to top of head. Face fills the upper 60% of frame.</li>
+      <li><strong>Background:</strong> Contextual is better than blank. Office (business niche), kitchen (health), gym (fitness), living room (interior design).</li>
+      <li><strong>Lighting:</strong> Ring light or window at 45°. No harsh overhead lights. Fill shadows on one side.</li>
+      <li><strong>Eye contact:</strong> Film to camera, not to your bracket. The bracket is a cutaway — you react to it, not read from it.</li>
+    </ul>
+
+    <h3>Editing for Maximum Retention</h3>
+
+    <div class="callout callout-gold">
+      <div class="callout-label">The 3-Edit Rule</div>
+      <p>Every duel should be: 1. <strong>On-screen text reveal</strong> (0.5s) → 2. <strong>Your verbal verdict</strong> (2-4s) → 3. <strong>Elimination animation</strong> (0.5s cross-out or fade). Total per duel: under 6 seconds. If it takes longer, cut harder.</p>
+    </div>
+
+    <ul>
+      <li><strong>Hard cuts only.</strong> No slow dissolves between duels.</li>
+      <li><strong>Zoom pulse on verdicts.</strong> A subtle 5–10% zoom-in when you deliver the verdict adds emphasis.</li>
+      <li><strong>Sound design.</strong> A short "elimination" sound (buzzer, cross-out effect) when a contender is knocked out. Canva, CapCut, and DaVinci Resolve all have free sound packs.</li>
+      <li><strong>Captions.</strong> Auto-generate with CapCut or Submagic. Always. 80% of viewers watch without sound.</li>
+      <li><strong>Final reveal:</strong> Freeze-frame + slow zoom on the winner. Add a small trophy emoji or graphic. Give it 2 extra seconds — this is the payoff moment.</li>
+    </ul>
+
+    <h3>Pacing Checklist</h3>
+
+    <div class="callout callout-green">
+      <div class="callout-label">Ideal Timeline</div>
+      <p>0:00–0:04 Hook → 0:04–0:40 Round 1 (4 duels, ~9 sec each) → 0:40–1:05 Semi-Finals (2 matchups, ~12 sec each) → 1:05–1:22 Finale (17 sec) → 1:22–1:30 CTA (8 sec). <strong>Total: ~90 seconds.</strong> Anything over 100 seconds needs aggressive cuts.</p>
+    </div>
+
+  </div>
+</div>
+
+<!-- CHAPTER 6 -->
+<div id="ch6" class="chapter">
+  <div class="ch-label">Chapter 06</div>
+  <div class="ch-illustration">
+    <img src="https://image.pollinations.ai/prompt/social%20media%20distribution%20viral%20content%20series%20growth%20dark%20neon%20cinematic?width=900&height=360&nologo=true&seed=326" alt="Chapter">
+  </div>
+  <h2 class="ch-title">Distribution &amp; Building a Series</h2>
+  <div class="ch-body">
+
+    <h3>Algorithm-Optimized Caption Formula</h3>
+
+    <div class="callout callout-orange">
+      <div class="callout-label">Caption Template</div>
+      <p><em>"[WINNER] wins — no debate. 🏆 [Brief 1-sentence explanation of why]. Which one would YOU put in the final? Drop it in the comments 👇"</em><br><br>
+      Then add 3–5 targeted hashtags: 1 broad (#fitness, #crypto, #skincare), 1 niche-specific, 1 format-specific (#tournament #debate #ranking).</p>
+    </div>
+
+    <p>The question in the caption is mandatory. It's not decoration — it's an <strong>engagement trigger</strong>. Comments tell the algorithm the content is worth distributing.</p>
+
+    <h3>Cross-Platform Strategy</h3>
+
+    <ul>
+      <li><strong>TikTok:</strong> Post at 7–9 PM. Use trending sounds if the bracket allows. Stitch-bait: "Stitch this if you disagree."</li>
+      <li><strong>Instagram Reels:</strong> Same video. Clean captions. Tag 2–3 brands (the contenders, if applicable) — they may repost.</li>
+      <li><strong>YouTube Shorts:</strong> Add a thumbnail. Title = your tournament question exactly. Helps search discovery.</li>
+    </ul>
+
+    <h3>Building a Tournament Series</h3>
+
+    <div class="pull-quote">"One tournament is a video. A series is an audience. The best creators film 4–8 in a weekend and post over a month."</div>
+
+    <p>The series mechanic is simple: announce the next tournament at the end of every video. <em>"Tomorrow: the WORST investing advice on the internet. You won't like the answer."</em> This drives return visitors, saves, and follows.</p>
+
+    <div class="callout callout-gold">
+      <div class="callout-label">5-Week Content Calendar</div>
+      <p>Week 1 → Worst [bad thing in your niche] · Week 2 → Best [tool/habit/strategy] · Week 3 → Most overrated [popular thing] · Week 4 → Most underrated [hidden gem] · Week 5 → The one [thing] that beats all others. <strong>Each title uses a different emotional trigger — fear, aspiration, contrarianism, discovery, authority.</strong></p>
+    </div>
+
+    <h3>Tracking Performance</h3>
+
+    <p>The metrics that matter for this format (in order of importance):</p>
+    <ol>
+      <li><strong>Comment volume</strong> — the primary signal this format drives</li>
+      <li><strong>Watch-through rate to finale</strong> — measures bracket tension quality</li>
+      <li><strong>Shares</strong> — indicates identity-resonance ("this is so me")</li>
+      <li><strong>Saves</strong> — indicates the topic library content (niche ideas) is valuable</li>
+    </ol>
+
+    <div class="callout callout-green">
+      <div class="callout-label">When to Iterate</div>
+      <p>If comment volume is low, your verdict wasn't controversial enough — make a more divisive pick next time. If watch-through drops after Round 1, your pacing is too slow — cut harder. If shares are high but follows are low, your CTA isn't strong enough.</p>
+    </div>
+
+  </div>
+</div>
+
+<!-- CTA -->
+<div class="cta-section">
+  <div class="section-label" style="justify-content:center;max-width:200px;margin:0 auto 40px;">Go Film It</div>
+  <h2>You Have Everything.<br>Film Today.</h2>
+  <p>Pick a niche. Pick a topic. Paste the prompt. Film. Post. The algorithm rewards those who act — not those who plan.</p>
+  <a href="#ch4" class="cta-btn-main">Get the AI Prompt →</a>
+</div>
+
+<footer>
+  <div class="brand">NOVA MEDIA</div>
+  <p>© 2026 NovaCrypto Publishing. Free to read and share. Not professional advice. All opinions are the author's own.</p>
+</footer>
+
+<script>
+const bar = document.getElementById('progress-bar');
+window.addEventListener('scroll', () => {
+  const pct = (window.scrollY / (document.documentElement.scrollHeight - window.innerHeight)) * 100;
+  bar.style.width = pct + '%';
+});
+</script>
+</body>
+</html>

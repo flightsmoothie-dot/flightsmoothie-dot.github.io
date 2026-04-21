@@ -1,0 +1,524 @@
+<!DOCTYPE html>
+<html lang="en">
+<head>
+<meta charset="UTF-8">
+<meta name="viewport" content="width=device-width, initial-scale=1.0">
+<title>AI Tools That Run Your Business While You Sleep — NovaCrypto 2026</title>
+<meta name="description" content="The free AI stack that replaces a full marketing team. 5 chapters. €0 in subscriptions. Start tonight.">
+<link rel="preconnect" href="https://fonts.googleapis.com">
+<link href="https://fonts.googleapis.com/css2?family=Inter:wght@300;400;500;600;700;900&family=Playfair+Display:wght@700;900&family=JetBrains+Mono:wght@400;700&display=swap" rel="stylesheet">
+<style>
+/* ===== TOKENS ===== */
+:root {
+  --purple: #A855F7; --purple-dim: rgba(168,85,247,0.12); --purple-border: rgba(168,85,247,0.3);
+  --dark: #080808; --dark2: #0f0f0f; --dark3: #161616; --dark4: #1e1e1e;
+  --text: #e8e8e8; --text-sub: #999; --text-muted: #666;
+  --gold: #F7B731; --green: #10b981; --red: #ef4444; --blue: #3b82f6;
+  --border: rgba(255,255,255,0.07);
+  --r: 12px; --r-sm: 8px;
+  --font-body: 'Inter', sans-serif;
+  --font-head: 'Playfair Display', Georgia, serif;
+  --font-mono: 'JetBrains Mono', monospace;
+  --max: 720px;
+  --accent: var(--purple); --accent-dim: var(--purple-dim); --accent-border: var(--purple-border);
+}
+* { box-sizing: border-box; margin: 0; padding: 0; }
+html { scroll-behavior: smooth; }
+body { background: var(--dark); color: var(--text); font-family: var(--font-body); line-height: 1.75; font-size: 17px; }
+
+/* ===== PROGRESS BAR ===== */
+#progress-bar { position: fixed; top: 0; left: 0; width: 0%; height: 3px;
+  background: linear-gradient(90deg, var(--purple), #e879f9); z-index: 1000;
+  transition: width 0.1s linear; }
+
+/* ===== NAV ===== */
+.top-nav { position: fixed; top: 3px; left: 0; right: 0; z-index: 999;
+  background: rgba(8,8,8,0.92); backdrop-filter: blur(12px);
+  border-bottom: 1px solid var(--border); padding: 0 32px;
+  display: flex; align-items: center; justify-content: space-between; height: 52px; }
+.nav-brand { font-family: var(--font-body); font-weight: 900; font-size: 14px;
+  letter-spacing: 4px; color: var(--purple); text-transform: uppercase; }
+.nav-links { display: flex; gap: 24px; }
+.nav-links a { font-size: 12px; color: var(--text-muted); text-decoration: none;
+  letter-spacing: 1px; transition: color 0.2s; }
+.nav-links a:hover { color: var(--purple); }
+.nav-cta { background: var(--purple); color: #fff; font-size: 12px; font-weight: 700;
+  padding: 6px 16px; border-radius: 6px; text-decoration: none; letter-spacing: 1px;
+  white-space: nowrap; }
+@media(max-width:600px){ .nav-links{display:none;} }
+
+/* ===== COVER ===== */
+.cover {
+  min-height: 100vh; padding: 120px 40px 80px;
+  background: radial-gradient(ellipse at 30% 20%, rgba(168,85,247,0.1) 0%, transparent 50%),
+              radial-gradient(ellipse at 80% 80%, rgba(59,130,246,0.06) 0%, transparent 50%),
+              linear-gradient(180deg, #000 0%, #08000f 100%);
+  display: flex; flex-direction: column; align-items: center; justify-content: center;
+  text-align: center; position: relative; overflow: hidden; }
+.cover::before { content: ''; position: absolute; inset: 0;
+  background: repeating-linear-gradient(0deg, transparent, transparent 60px, rgba(255,255,255,0.01) 61px);
+  pointer-events: none; }
+.cover-badge { display: inline-flex; align-items: center; gap: 8px;
+  background: var(--purple-dim); border: 1px solid var(--purple-border);
+  color: var(--purple); font-size: 11px; font-weight: 700; letter-spacing: 4px;
+  text-transform: uppercase; padding: 6px 20px; border-radius: 100px;
+  margin-bottom: 40px; }
+.cover h1 { font-family: var(--font-head); font-size: clamp(36px, 6vw, 66px);
+  font-weight: 900; line-height: 1.05; color: #fff; max-width: 800px;
+  margin-bottom: 24px; }
+.cover h1 em { font-style: normal; color: var(--purple); }
+.cover-sub { font-size: 20px; color: var(--text-sub); max-width: 520px; margin-bottom: 48px;
+  line-height: 1.6; font-weight: 300; }
+.cover-stats { display: flex; gap: 48px; margin-bottom: 56px; flex-wrap: wrap; justify-content: center; }
+.cover-stat { text-align: center; }
+.cover-stat .n { font-size: 36px; font-weight: 900; color: var(--purple); font-family: var(--font-mono); }
+.cover-stat .l { font-size: 12px; color: var(--text-muted); letter-spacing: 2px; text-transform: uppercase; margin-top: 4px; }
+.cover-cta { display: inline-flex; align-items: center; gap: 12px;
+  background: var(--purple); color: #fff; font-size: 16px; font-weight: 900;
+  padding: 18px 48px; border-radius: 100px; text-decoration: none;
+  letter-spacing: 1px; transition: transform 0.2s, box-shadow 0.2s;
+  box-shadow: 0 0 40px rgba(168,85,247,0.3); }
+.cover-cta:hover { transform: translateY(-2px); box-shadow: 0 8px 48px rgba(168,85,247,0.4); }
+.cover-meta { font-size: 13px; color: var(--text-muted); margin-top: 24px; }
+
+/* ===== TOC ===== */
+.toc-page { max-width: var(--max); margin: 0 auto; padding: 80px 40px; }
+.section-label { font-size: 11px; letter-spacing: 5px; color: var(--purple); text-transform: uppercase;
+  font-weight: 700; margin-bottom: 32px; display: flex; align-items: center; gap: 16px; }
+.section-label::after { content: ''; flex: 1; height: 1px; background: var(--border); }
+.toc-grid { display: grid; gap: 2px; }
+.toc-item { display: flex; align-items: center; gap: 20px; padding: 16px 20px;
+  border-radius: var(--r-sm); text-decoration: none; color: var(--text);
+  transition: background 0.2s; border: 1px solid transparent; }
+.toc-item:hover { background: var(--dark3); border-color: var(--border); }
+.toc-num { font-size: 32px; font-weight: 900; color: var(--purple); opacity: 0.25;
+  font-family: var(--font-mono); min-width: 48px; line-height: 1; }
+.toc-text { flex: 1; }
+.toc-text .t { font-size: 16px; font-weight: 600; }
+.toc-text .s { font-size: 13px; color: var(--text-muted); margin-top: 2px; }
+.toc-arrow { color: var(--text-muted); font-size: 18px; }
+
+/* ===== CHAPTERS ===== */
+.chapter { max-width: var(--max); margin: 0 auto; padding: 80px 40px;
+  border-bottom: 1px solid var(--border); }
+.ch-label { font-size: 11px; letter-spacing: 5px; color: var(--purple); text-transform: uppercase;
+  font-weight: 700; margin-bottom: 16px; }
+.ch-title { font-family: var(--font-head); font-size: clamp(26px, 4vw, 40px);
+  font-weight: 900; color: #fff; margin-bottom: 40px; line-height: 1.15; }
+.ch-body { font-size: 17px; line-height: 1.8; }
+.ch-body p { margin-bottom: 20px; }
+.ch-body strong { color: var(--purple); font-weight: 700; }
+.ch-body h3 { font-family: var(--font-head); font-size: 22px; color: #fff;
+  margin: 36px 0 16px; font-weight: 700; }
+.ch-body ul, .ch-body ol { margin: 16px 0 20px 24px; }
+.ch-body li { margin-bottom: 8px; }
+
+/* ===== CODE BLOCK ===== */
+.code-block { background: var(--dark3); border: 1px solid var(--border);
+  border-radius: var(--r); padding: 24px; margin: 24px 0; overflow-x: auto; }
+.code-block pre { font-family: var(--font-mono); font-size: 13px;
+  color: #c9d1d9; line-height: 1.7; white-space: pre-wrap; }
+.code-label { font-size: 10px; letter-spacing: 3px; text-transform: uppercase;
+  color: var(--purple); margin-bottom: 12px; font-family: var(--font-body); }
+
+/* ===== CALLOUT BLOCKS ===== */
+.callout { border-radius: var(--r); padding: 24px 28px; margin: 32px 0;
+  border-left: 4px solid; }
+.callout-purple { background: rgba(168,85,247,0.07); border-color: var(--purple); }
+.callout-gold { background: rgba(247,183,49,0.07); border-color: var(--gold); }
+.callout-red { background: rgba(239,68,68,0.07); border-color: var(--red); }
+.callout-green { background: rgba(16,185,129,0.07); border-color: var(--green); }
+.callout-label { font-size: 10px; font-weight: 700; letter-spacing: 3px; text-transform: uppercase;
+  margin-bottom: 8px; opacity: 0.7; }
+.callout-purple .callout-label { color: var(--purple); }
+.callout-gold .callout-label { color: var(--gold); }
+.callout-red .callout-label { color: var(--red); }
+.callout-green .callout-label { color: var(--green); }
+.callout p { margin: 0; font-size: 15px; line-height: 1.7; }
+
+/* ===== PULL QUOTE ===== */
+.pull-quote { font-family: var(--font-head); font-size: clamp(20px, 3vw, 26px);
+  color: var(--purple); line-height: 1.4; border-left: 3px solid var(--purple);
+  padding: 20px 28px; margin: 40px 0; font-style: italic; background: var(--dark3);
+  border-radius: 0 var(--r) var(--r) 0; }
+
+/* ===== TOOL CARDS ===== */
+.tools-grid { display: grid; grid-template-columns: repeat(auto-fit, minmax(200px,1fr));
+  gap: 16px; margin: 32px 0; }
+.tool-card { background: var(--dark3); border: 1px solid var(--border);
+  border-radius: var(--r); padding: 20px; transition: border-color 0.2s; }
+.tool-card:hover { border-color: var(--purple-border); }
+.tool-name { font-weight: 700; color: #fff; font-size: 15px; margin-bottom: 4px; }
+.tool-badge { display: inline-block; background: var(--purple-dim);
+  color: var(--purple); font-size: 10px; font-weight: 700; letter-spacing: 2px;
+  text-transform: uppercase; padding: 2px 8px; border-radius: 4px; margin-bottom: 8px; }
+.tool-desc { font-size: 13px; color: var(--text-muted); line-height: 1.5; }
+
+/* ===== STAT BOX ===== */
+.stat-row { display: grid; grid-template-columns: repeat(auto-fit, minmax(140px,1fr));
+  gap: 16px; margin: 32px 0; }
+.stat-box { background: var(--dark3); border: 1px solid var(--border);
+  border-radius: var(--r); padding: 24px; text-align: center; }
+.stat-box .sv { font-size: 32px; font-weight: 900; color: var(--purple);
+  font-family: var(--font-mono); line-height: 1; margin-bottom: 8px; }
+.stat-box .sl { font-size: 12px; color: var(--text-muted); letter-spacing: 1px;
+  text-transform: uppercase; }
+
+/* ===== CTA SECTION ===== */
+.cta-section { max-width: var(--max); margin: 0 auto; padding: 80px 40px;
+  text-align: center; }
+.cta-section h2 { font-family: var(--font-head); font-size: clamp(28px, 4vw, 42px);
+  color: #fff; margin-bottom: 16px; }
+.cta-section p { color: var(--text-sub); font-size: 18px; margin-bottom: 40px;
+  max-width: 480px; margin-left: auto; margin-right: auto; }
+.cta-btn-main { display: inline-flex; align-items: center; gap: 12px;
+  background: var(--purple); color: #fff; font-size: 16px; font-weight: 900;
+  padding: 18px 48px; border-radius: 100px; text-decoration: none;
+  letter-spacing: 1px; transition: transform 0.2s, box-shadow 0.2s;
+  box-shadow: 0 0 40px rgba(168,85,247,0.3); }
+.cta-btn-main:hover { transform: translateY(-2px); box-shadow: 0 8px 48px rgba(168,85,247,0.4); }
+
+/* ===== FOOTER ===== */
+footer { background: #000; border-top: 1px solid var(--border); padding: 48px 40px;
+  text-align: center; }
+footer .brand { font-family: var(--font-body); font-weight: 900; font-size: 18px;
+  letter-spacing: 6px; color: var(--purple); text-transform: uppercase; margin-bottom: 12px; }
+footer p { color: var(--text-muted); font-size: 13px; max-width: 500px; margin: 0 auto; }
+
+/* ===== PRINT ===== */
+@media print {
+  #progress-bar, .top-nav { display: none; }
+  body { background: white; color: #111; font-size: 12pt; }
+  .cover { background: #f8f8f8 !important; color: #111; min-height: auto; padding: 40px; }
+  .chapter { page-break-before: always; }
+}
+
+/* ── CHAPTER ILLUSTRATIONS ── */
+.ch-illustration{width:100%;height:260px;overflow:hidden;position:relative;border-radius:14px;margin:0 0 36px;}
+.ch-illustration img{width:100%;height:100%;object-fit:cover;filter:brightness(.82) saturate(1.12);display:block;}
+.ch-illustration::after{content:'';position:absolute;bottom:0;left:0;right:0;height:90px;background:linear-gradient(transparent,var(--dark,#080808));}
+.cover-hero-img{width:100%;max-width:700px;height:320px;overflow:hidden;border-radius:18px;margin:0 auto 44px;position:relative;}
+.cover-hero-img img{width:100%;height:100%;object-fit:cover;filter:brightness(.8) saturate(1.2);}
+.cover-hero-img::after{content:'';position:absolute;inset:0;background:linear-gradient(to bottom,transparent 35%,rgba(0,0,0,.65) 100%);}
+</style>
+</head>
+<body>
+
+<div id="progress-bar"></div>
+
+<nav class="top-nav">
+  <div class="nav-brand">NovaCrypto</div>
+  <div class="nav-links">
+    <a href="#toc">Contents</a>
+    <a href="#ch1">Stack</a>
+    <a href="#ch3">Images</a>
+    <a href="#ch5">Agents</a>
+  </div>
+  <a href="https://promote.mexc.co/r/UzCEsmBcLP" class="nav-cta" target="_blank">Start Free →</a>
+</nav>
+
+<!-- COVER -->
+<div class="cover">
+  <div class="cover-badge">NovaCrypto Publishing — 2026 Edition</div>
+  <div class="cover-hero-img">
+    <img src="https://image.pollinations.ai/prompt/futuristic%20AI%20tools%20business%20person%20laptop%20hologram%20cinematic?width=900&height=400&nologo=true&seed=330" alt="Cover">
+  </div>
+  <h1>AI Tools That Run Your<br>Business <em>While You Sleep</em></h1>
+  <p class="cover-sub">The free and cheap AI stack that replaces a full marketing team — €0 in subscriptions, unlimited output.</p>
+  <div class="cover-stats">
+    <div class="cover-stat"><div class="n">€0</div><div class="l">Stack Cost</div></div>
+    <div class="cover-stat"><div class="n">5</div><div class="l">Chapters</div></div>
+    <div class="cover-stat"><div class="n">24/7</div><div class="l">Operation</div></div>
+    <div class="cover-stat"><div class="n">11</div><div class="l">Free Tools</div></div>
+  </div>
+  <a href="https://promote.mexc.co/r/UzCEsmBcLP" class="cover-cta" target="_blank">Open Free MEXC Account →</a>
+  <p class="cover-meta">NovaCrypto Publishing · April 2026 · Free distribution · Not financial advice</p>
+</div>
+
+<!-- TOC -->
+<div id="toc" class="toc-page">
+  <div class="section-label">Table of Contents</div>
+  <div class="toc-grid">
+    <a href="#ch1" class="toc-item">
+      <span class="toc-num">01</span>
+      <div class="toc-text"><div class="t">The €0 AI Content Stack</div><div class="s">Ollama, Pollinations.ai, FLUX, Haiper — the complete free toolkit</div></div>
+      <span class="toc-arrow">→</span>
+    </a>
+    <a href="#ch2" class="toc-item">
+      <span class="toc-num">02</span>
+      <div class="toc-text"><div class="t">Writing Content With Local AI</div><div class="s">Blog posts, social captions, email newsletters — prompt templates</div></div>
+      <span class="toc-arrow">→</span>
+    </a>
+    <a href="#ch3" class="toc-item">
+      <span class="toc-num">03</span>
+      <div class="toc-text"><div class="t">Free Image Generation for Social Media</div><div class="s">Pollinations.ai, Stable Horde, Craiyon — workflows and prompts</div></div>
+      <span class="toc-arrow">→</span>
+    </a>
+    <a href="#ch4" class="toc-item">
+      <span class="toc-num">04</span>
+      <div class="toc-text"><div class="t">Automating Your Content Pipeline</div><div class="s">Python scripts, cron jobs, auto-posting — the 24/7 machine</div></div>
+      <span class="toc-arrow">→</span>
+    </a>
+    <a href="#ch5" class="toc-item">
+      <span class="toc-num">05</span>
+      <div class="toc-text"><div class="t">Building an AI Agent System</div><div class="s">Multi-agent architecture, NovaCrypto blueprint, your starting point</div></div>
+      <span class="toc-arrow">→</span>
+    </a>
+  </div>
+</div>
+
+<!-- CHAPTER 1 -->
+<div id="ch1" class="chapter">
+  <div class="ch-label">Chapter 01</div>
+  <div class="ch-illustration">
+    <img src="https://image.pollinations.ai/prompt/AI%20content%20stack%20tools%20automation%20business%20tech%20dark%20cinematic?width=900&height=360&nologo=true&seed=331" alt="Chapter">
+  </div>
+  <h2 class="ch-title">The €0 AI Content Stack</h2>
+  <div class="ch-body">
+    <div class="tools-grid">
+      <div class="tool-card">
+        <div class="tool-badge">Local LLM</div>
+        <div class="tool-name">Ollama</div>
+        <div class="tool-desc">Run Llama 3.1, Mistral, Qwen on your laptop. Zero API cost. Data never leaves your machine.</div>
+      </div>
+      <div class="tool-card">
+        <div class="tool-badge">Image Gen</div>
+        <div class="tool-name">Pollinations.ai</div>
+        <div class="tool-desc">No account. No credit card. Royalty-free commercial images. Batch 50 variations overnight.</div>
+      </div>
+      <div class="tool-card">
+        <div class="tool-badge">Pro Images</div>
+        <div class="tool-name">FLUX via HuggingFace</div>
+        <div class="tool-desc">Photorealistic product shots. 1–4 step generation. Free inference tier. Outperforms Midjourney.</div>
+      </div>
+      <div class="tool-card">
+        <div class="tool-badge">Video</div>
+        <div class="tool-name">Haiper + Pika</div>
+        <div class="tool-desc">Free-tier video generation. Animate static product photos into motion ads for TikTok/Reels.</div>
+      </div>
+      <div class="tool-card">
+        <div class="tool-badge">Editing</div>
+        <div class="tool-name">CapCut Desktop</div>
+        <div class="tool-desc">Auto-captions, background removal, batch processing. No watermarks on export.</div>
+      </div>
+      <div class="tool-card">
+        <div class="tool-badge">API</div>
+        <div class="tool-name">Groq Free Tier</div>
+        <div class="tool-desc">Llama 3 / Mixtral via API. Fastest inference available. Free tier handles most automations.</div>
+      </div>
+    </div>
+
+    <div class="callout callout-purple">
+      <div class="callout-label">The 24-Hour Content Factory</div>
+      <p>Draft scripts with Ollama at midnight → Generate images with Pollinations.ai by dawn → Animate with Haiper during your morning coffee. <strong>Your content calendar fills itself. Zero dollars spent.</strong></p>
+    </div>
+
+    <p>Stack these tools. Schedule overnight batch processing using Python scripts and wake up to finished content. Download Ollama tonight. Generate next month's blog outlines before sunrise.</p>
+  </div>
+</div>
+
+<!-- CHAPTER 2 -->
+<div id="ch2" class="chapter">
+  <div class="ch-label">Chapter 02</div>
+  <div class="ch-illustration">
+    <img src="https://image.pollinations.ai/prompt/AI%20writing%20content%20generation%20laptop%20glowing%20tech%20dark%20cinematic?width=900&height=360&nologo=true&seed=332" alt="Chapter">
+  </div>
+  <h2 class="ch-title">Writing Content With Local AI</h2>
+  <div class="ch-body">
+    <p>Install Ollama and pull the model: <code style="background:var(--dark3);padding:2px 6px;border-radius:4px;font-family:var(--font-mono);color:var(--purple)">ollama pull qwen3</code>. Run with extended context for long-form content.</p>
+
+    <div class="callout callout-purple">
+      <div class="callout-label">Blog Post Template</div>
+      <p><em>"Write an 800-word blog post about [TOPIC] for [AUDIENCE]. Structure: Hook addressing [PAIN POINT], three H2 sections with actionable steps, conclusion with CTA. Tone: [PROFESSIONAL/CASUAL]. Include a 50-word meta description."</em></p>
+    </div>
+
+    <div class="callout callout-gold">
+      <div class="callout-label">Social Media Caption Template</div>
+      <p><em>"Create 5 [PLATFORM] captions promoting [OFFER]. Constraints: [280/2200/150] characters max. Hook style: curiosity gap. Include 3 hashtags. CTA: [SPECIFIC ACTION]. Tone: [WITTY/AUTHORITATIVE]. Add emoji usage: [YES/NO]."</em></p>
+    </div>
+
+    <div class="callout callout-green">
+      <div class="callout-label">Email Newsletter Template</div>
+      <p><em>"Newsletter for [SEGMENT]. Subject lines: 3 options using urgency/curiosity. Body: 150 words, personal story angle about [TOPIC], single CTA button '[TEXT]'. PS section with deadline. Goal: [CLICK/SALE/REPLY]."</em></p>
+    </div>
+
+    <div class="code-block">
+      <div class="code-label">Automation — Pipe Prompts Directly</div>
+      <pre>cat blog_prompt.txt | ollama run qwen3 > output.md
+
+# Creative social posts
+ollama run qwen3 --temp 0.7 "Generate caption..."
+
+# Technical specs
+ollama run qwen3 --temp 0.3 "Write product spec..."</pre>
+    </div>
+
+    <p>Save prompts as <code style="background:var(--dark3);padding:2px 6px;border-radius:4px;font-family:var(--font-mono);color:var(--purple)">.txt</code> files and pipe them directly. Create shell aliases for repeated content types. Run overnight to generate weeks of content without API costs.</p>
+  </div>
+</div>
+
+<!-- CHAPTER 3 -->
+<div id="ch3" class="chapter">
+  <div class="ch-label">Chapter 03</div>
+  <div class="ch-illustration">
+    <img src="https://image.pollinations.ai/prompt/AI%20image%20generation%20social%20media%20visuals%20hologram%20tech%20cinematic?width=900&height=360&nologo=true&seed=333" alt="Chapter">
+  </div>
+  <h2 class="ch-title">Free Image Generation for Social Media</h2>
+  <div class="ch-body">
+    <div class="tools-grid">
+      <div class="tool-card">
+        <div class="tool-badge">Best Quality</div>
+        <div class="tool-name">Pollinations.ai</div>
+        <div class="tool-desc">Flux model. No signup. No watermarks. Royalty-free commercial use. 10–15s per image.</div>
+      </div>
+      <div class="tool-card">
+        <div class="tool-badge">High Res</div>
+        <div class="tool-name">Stable Horde</div>
+        <div class="tool-desc">Anonymous generation. SDXL for social resolution. 4 simultaneous images. WEBP output.</div>
+      </div>
+      <div class="tool-card">
+        <div class="tool-badge">Instant</div>
+        <div class="tool-name">Craiyon</div>
+        <div class="tool-desc">Unlimited free generations. Zero wait time. Lower res but perfect for rapid concept testing.</div>
+      </div>
+    </div>
+
+    <div class="callout callout-purple">
+      <div class="callout-label">Product Mockup Prompt</div>
+      <p><em>"Professional product photography, matte black skincare bottle on marble surface, soft studio lighting from 45 degrees, shallow depth of field, 8k resolution, commercial advertising style, minimalist white background, luxury aesthetic"</em></p>
+    </div>
+
+    <div class="callout callout-gold">
+      <div class="callout-label">TikTok Thumbnail Prompt</div>
+      <p><em>"Vertical 9:16 aspect ratio, vibrant neon purple and pink gradient background, bold empty center space for large text, high contrast, energetic composition, viral video style, professional thumbnail design, 4k"</em></p>
+    </div>
+
+    <div class="pull-quote">"Always specify aspect ratios. Always add 'professional photography' or 'commercial quality'. Always generate three variations. Download immediately — free tiers don't retain history."</div>
+
+    <p><strong>Execution Strategy</strong> — Run initial concepts through Craiyon to test compositions. Transfer working prompts to Stable Horde for higher resolution batches. Polish final assets in Pollinations.ai.</p>
+  </div>
+</div>
+
+<!-- CHAPTER 4 -->
+<div id="ch4" class="chapter">
+  <div class="ch-label">Chapter 04</div>
+  <div class="ch-illustration">
+    <img src="https://image.pollinations.ai/prompt/content%20automation%20pipeline%20workflow%20AI%20business%20robot%20dark%20cinematic?width=900&height=360&nologo=true&seed=334" alt="Chapter">
+  </div>
+  <h2 class="ch-title">Automating Your Content Pipeline</h2>
+  <div class="ch-body">
+    <p>Stop writing posts manually. Automate your entire content pipeline using free AI APIs and Python. This system generates, formats, and distributes content while you sleep.</p>
+
+    <div class="stat-row">
+      <div class="stat-box"><div class="sv">$0</div><div class="sl">Cost</div></div>
+      <div class="stat-box"><div class="sv">∞</div><div class="sl">Output</div></div>
+      <div class="stat-box"><div class="sv">24/7</div><div class="sl">Operation</div></div>
+      <div class="stat-box"><div class="sv">5K</div><div class="sl">Free Emails/mo</div></div>
+    </div>
+
+    <div class="code-block">
+      <div class="code-label">Content Generation Script (generate_content.py)</div>
+      <pre>import requests, json, datetime
+
+def generate_post(topic):
+    headers = {"Authorization": "Bearer YOUR_GROQ_KEY"}
+    payload = {
+        "model": "llama3-8b-8192",
+        "messages": [{"role": "user",
+                      "content": f"Write 200 words about {topic}"}]
+    }
+    r = requests.post(
+        "https://api.groq.com/openai/v1/chat/completions",
+        headers=headers, json=payload)
+    return r.json()['choices'][0]['message']['content']
+
+today = datetime.date.today()
+with open(f"content/{today}.txt", "w") as f:
+    f.write(generate_post("Industry trends"))</pre>
+    </div>
+
+    <div class="code-block">
+      <div class="code-label">Schedule with Cron (crontab -e)</div>
+      <pre># Generate content at 2 AM daily
+0 2 * * * /usr/bin/python3 /home/user/generate_content.py
+
+# Post to social media at 9 AM
+0 9 * * * /usr/bin/python3 /home/user/auto_post.py</pre>
+    </div>
+
+    <div class="callout callout-green">
+      <div class="callout-label">Free Email Services</div>
+      <p><strong>Mailgun</strong> — 5,000 free emails/month · <strong>SendGrid</strong> — 100/day free tier · <strong>MailerLite</strong> — 1,000 subscribers free. Use Mailgun API + Python to blast newsletters automatically every morning.</p>
+    </div>
+
+    <p><strong>Error Handling</strong> — Log failures to a file or Slack webhook. Verify API responses before saving. Test scripts manually before adding to cron. Cost: $0. Output: Unlimited.</p>
+  </div>
+</div>
+
+<!-- CHAPTER 5 -->
+<div id="ch5" class="chapter">
+  <div class="ch-label">Chapter 05</div>
+  <div class="ch-illustration">
+    <img src="https://image.pollinations.ai/prompt/AI%20agent%20system%20autonomous%20robots%20network%20future%20tech%20dark%20cinematic?width=900&height=360&nologo=true&seed=335" alt="Chapter">
+  </div>
+  <h2 class="ch-title">Building an AI Agent System</h2>
+  <div class="ch-body">
+    <p>AI agents are autonomous software workers that execute tasks without human intervention. Unlike chatbots that wait for prompts, agents initiate actions, make decisions, and complete workflows end-to-end.</p>
+
+    <div class="callout callout-purple">
+      <div class="callout-label">How Multi-Agent Systems Work</div>
+      <p>Specialized departments that never sleep. One agent monitors competitor pricing while another updates your inventory. They communicate through <strong>shared memory databases</strong> and orchestration protocols. When Agent A finishes research, Agent B automatically drafts campaigns. No handoffs. No bottlenecks.</p>
+    </div>
+
+    <div class="tools-grid">
+      <div class="tool-card">
+        <div class="tool-badge">Core</div>
+        <div class="tool-name">Ollama</div>
+        <div class="tool-desc">Run LLMs locally. No per-token costs. Customer data stays offline.</div>
+      </div>
+      <div class="tool-card">
+        <div class="tool-badge">Intelligence</div>
+        <div class="tool-name">Scrapy / Playwright</div>
+        <div class="tool-desc">Feed agents real-time data from competitor sites, supplier portals, filings.</div>
+      </div>
+      <div class="tool-card">
+        <div class="tool-badge">Actions</div>
+        <div class="tool-name">API Integrations</div>
+        <div class="tool-desc">Connect to Shopify, QuickBooks, Slack, Gmail — direct action without CSV exports.</div>
+      </div>
+    </div>
+
+    <div class="callout callout-gold">
+      <div class="callout-label">The NovaCrypto Blueprint — 11 Agents</div>
+      <p>Scout · Content · SEO · Intel · Magazine · Publisher · Finance · Watchdog · Creative · Scraper · BookFactory — each specialized, all coordinated through a central hub that resolves conflicts and prioritizes actions. Result: 24/7 operation with human oversight limited to quarterly strategy adjustments.</p>
+    </div>
+
+    <p><strong>Your Starting Point</strong> — You don't need 11 agents on day one. Start with one autonomous worker handling a single high-volume pain point — like processing invoices or monitoring competitor pricing. Scale horizontally once the first agent proves ROI.</p>
+
+    <div class="pull-quote">"The difference between a tool and an agent is autonomy. Tools wait. Agents work."</div>
+  </div>
+</div>
+
+<!-- FINAL CTA -->
+<div class="cta-section">
+  <div class="section-label" style="justify-content:center;max-width:200px;margin:0 auto 40px;">Get Started</div>
+  <h2>Your AI Business<br>Starts Tonight</h2>
+  <p>Join 10M+ users on MEXC — the crypto infrastructure for the AI-powered future.</p>
+  <a href="https://promote.mexc.co/r/UzCEsmBcLP" class="cta-btn-main" target="_blank">Open Free Account on MEXC →</a>
+</div>
+
+<footer>
+  <div class="brand">NOVA CRYPTO</div>
+  <p>© 2026 NovaCrypto Publishing. Free to share with attribution. Not financial advice.<br>Affiliate disclosure: this book contains affiliate links — we earn a commission at no cost to you.</p>
+</footer>
+
+<script>
+const bar = document.getElementById('progress-bar');
+window.addEventListener('scroll', () => {
+  const h = document.documentElement;
+  const pct = (h.scrollTop / (h.scrollHeight - h.clientHeight)) * 100;
+  bar.style.width = pct + '%';
+});
+</script>
+</body>
+</html>

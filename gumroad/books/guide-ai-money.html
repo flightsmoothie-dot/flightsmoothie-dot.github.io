@@ -1,0 +1,820 @@
+<!DOCTYPE html>
+<html lang="en">
+<head>
+<meta charset="UTF-8">
+<meta name="viewport" content="width=device-width, initial-scale=1.0">
+<title>The AI Money Guide 2026 — NovaCrypto</title>
+<style>
+@import url('https://fonts.googleapis.com/css2?family=Inter:wght@300;400;500;600;700;900&family=Playfair+Display:wght@700;900&display=swap');
+
+:root {
+  --accent: #F59E0B;
+  --bg: #0A0A1A;
+  --text: #E8E8F0;
+  --muted: rgba(232,232,240,0.6);
+  --surface: rgba(255,255,255,0.04);
+  --border: rgba(255,255,255,0.08);
+}
+
+* { margin:0; padding:0; box-sizing:border-box; }
+
+body {
+  font-family: 'Inter', sans-serif;
+  background: var(--bg);
+  color: var(--text);
+  line-height: 1.75;
+  font-size: 16px;
+}
+
+/* Cover Page */
+.cover {
+  width: 100%;
+  min-height: 100vh;
+  display: flex;
+  flex-direction: column;
+  align-items: center;
+  justify-content: center;
+  text-align: center;
+  padding: 80px 40px;
+  background: radial-gradient(ellipse at 30% 20%, #F59E0B22, transparent 60%),
+              radial-gradient(ellipse at 80% 80%, #F59E0B10, transparent 55%),
+              var(--bg);
+  border-bottom: 1px solid var(--border);
+  page-break-after: always;
+  position: relative;
+  overflow: hidden;
+}
+.cover::before {
+  content: '';
+  position: absolute;
+  inset: 0;
+  background-image: linear-gradient(#F59E0B06 1px, transparent 1px),
+                    linear-gradient(90deg, #F59E0B06 1px, transparent 1px);
+  background-size: 40px 40px;
+}
+.cover-tag {
+  font-size: 11px;
+  letter-spacing: 4px;
+  font-weight: 700;
+  color: var(--accent);
+  text-transform: uppercase;
+  margin-bottom: 24px;
+  opacity: 0.8;
+}
+.cover-title {
+  font-family: 'Playfair Display', serif;
+  font-size: clamp(42px, 6vw, 72px);
+  font-weight: 900;
+  line-height: 1.1;
+  color: #FFFFFF;
+  margin-bottom: 24px;
+  text-shadow: 0 4px 40px #F59E0B33;
+}
+.cover-divider {
+  width: 60px;
+  height: 3px;
+  background: linear-gradient(90deg, var(--accent), transparent);
+  margin: 0 auto 24px;
+  border-radius: 2px;
+}
+.cover-subtitle {
+  font-size: 18px;
+  color: var(--muted);
+  max-width: 600px;
+  line-height: 1.6;
+  margin-bottom: 48px;
+}
+.cover-author {
+  font-size: 13px;
+  letter-spacing: 4px;
+  text-transform: uppercase;
+  color: var(--accent);
+  opacity: 0.7;
+}
+
+/* Table of Contents */
+.toc {
+  max-width: 760px;
+  margin: 0 auto;
+  padding: 80px 40px;
+  page-break-after: always;
+}
+.toc h2 {
+  font-family: 'Playfair Display', serif;
+  font-size: 32px;
+  color: var(--accent);
+  margin-bottom: 40px;
+}
+.toc ol {
+  list-style: none;
+  counter-reset: toc-counter;
+}
+.toc li {
+  counter-increment: toc-counter;
+  display: flex;
+  align-items: baseline;
+  gap: 16px;
+  padding: 14px 0;
+  border-bottom: 1px solid var(--border);
+}
+.toc li::before {
+  content: counter(toc-counter, decimal-leading-zero);
+  font-size: 12px;
+  font-weight: 700;
+  color: var(--accent);
+  opacity: 0.6;
+  min-width: 24px;
+}
+.toc a {
+  color: var(--text);
+  text-decoration: none;
+  font-size: 15px;
+  font-weight: 500;
+  transition: color 0.2s;
+}
+.toc a:hover { color: var(--accent); }
+
+/* Chapters */
+.chapter {
+  max-width: 760px;
+  margin: 0 auto;
+  padding: 80px 40px;
+  page-break-before: always;
+}
+.chapter-header {
+  margin-bottom: 48px;
+}
+.chapter-num {
+  font-size: 11px;
+  letter-spacing: 4px;
+  font-weight: 700;
+  color: var(--accent);
+  text-transform: uppercase;
+  margin-bottom: 16px;
+  opacity: 0.7;
+}
+.chapter-title {
+  font-family: 'Playfair Display', serif;
+  font-size: clamp(28px, 4vw, 44px);
+  font-weight: 900;
+  color: #FFFFFF;
+  line-height: 1.2;
+  margin-bottom: 20px;
+}
+.chapter-accent-line {
+  width: 40px;
+  height: 3px;
+  background: linear-gradient(90deg, var(--accent), transparent);
+  border-radius: 2px;
+}
+.chapter-body p {
+  margin-bottom: 20px;
+  color: var(--text);
+  font-size: 16px;
+}
+.chapter-body h3 {
+  font-size: 22px;
+  font-weight: 700;
+  color: #FFFFFF;
+  margin: 40px 0 16px;
+}
+.chapter-body h4 {
+  font-size: 16px;
+  font-weight: 700;
+  color: var(--accent);
+  text-transform: uppercase;
+  letter-spacing: 2px;
+  margin: 32px 0 12px;
+}
+.chapter-body ul, .chapter-body ol {
+  padding-left: 24px;
+  margin-bottom: 20px;
+}
+.chapter-body li {
+  margin-bottom: 8px;
+  color: var(--text);
+}
+.chapter-body strong { color: #FFFFFF; }
+.chapter-body em { color: var(--accent); font-style: italic; }
+
+/* Callouts */
+.callout {
+  border-radius: 12px;
+  padding: 24px;
+  margin: 32px 0;
+  display: flex;
+  gap: 20px;
+  align-items: flex-start;
+}
+.callout.gold { background: #F59E0B15; border: 1px solid #F59E0B30; }
+.callout.blue { background: rgba(56,189,248,0.08); border: 1px solid rgba(56,189,248,0.2); }
+.callout.red { background: rgba(239,68,68,0.08); border: 1px solid rgba(239,68,68,0.2); }
+.callout-icon { font-size: 24px; flex-shrink: 0; margin-top: 2px; }
+.callout-text { font-size: 15px; line-height: 1.6; }
+.callout.gold .callout-text { color: #FDE68A; }
+.callout.blue .callout-text { color: #BAE6FD; }
+.callout.red .callout-text { color: #FCA5A5; }
+
+/* Stats */
+.stat-box {
+  text-align: center;
+  padding: 32px;
+  background: var(--surface);
+  border: 1px solid var(--border);
+  border-radius: 16px;
+  margin: 32px 0;
+}
+.stat {
+  font-size: 56px;
+  font-weight: 900;
+  color: var(--accent);
+  font-family: 'Playfair Display', serif;
+}
+.stat-label {
+  color: var(--muted);
+  font-size: 14px;
+  margin-top: 8px;
+}
+
+/* Tool grid */
+.tool-grid {
+  display: grid;
+  grid-template-columns: repeat(auto-fill, minmax(220px, 1fr));
+  gap: 16px;
+  margin: 24px 0;
+}
+.tool-card {
+  background: var(--surface);
+  border: 1px solid var(--border);
+  border-radius: 12px;
+  padding: 20px;
+}
+.tool-name { font-weight: 700; color: #FFFFFF; margin-bottom: 8px; }
+.tool-desc { font-size: 13px; color: var(--muted); line-height: 1.5; margin-bottom: 12px; }
+.tool-price { font-size: 12px; font-weight: 600; color: var(--accent); }
+
+/* Product CTA */
+.product-cta {
+  background: linear-gradient(135deg, #F59E0B20, #F59E0B05);
+  border: 1px solid #F59E0B40;
+  border-radius: 12px;
+  padding: 24px;
+  margin: 32px 0;
+}
+.product-cta p { margin-bottom: 16px; color: var(--text); }
+.affiliate-link {
+  display: inline-block;
+  color: var(--accent);
+  font-weight: 600;
+  text-decoration: none;
+  font-size: 14px;
+  padding: 8px 0;
+  border-bottom: 1px solid #F59E0B40;
+}
+.affiliate-link:hover { border-bottom-color: var(--accent); }
+
+/* CTA Buttons */
+.cta-btn {
+  display: inline-block;
+  background: var(--accent);
+  color: #000;
+  font-weight: 700;
+  font-size: 15px;
+  padding: 14px 28px;
+  border-radius: 8px;
+  text-decoration: none;
+  transition: opacity 0.2s;
+}
+.cta-btn:hover { opacity: 0.85; }
+.cta-btn.large { font-size: 17px; padding: 18px 36px; }
+.cta-btn.secondary {
+  background: transparent;
+  border: 1px solid var(--accent);
+  color: var(--accent);
+  margin-left: 12px;
+}
+
+/* Week plan */
+.week-plan { margin: 20px 0; }
+.day {
+  background: var(--surface);
+  border-left: 3px solid var(--accent);
+  padding: 16px 20px;
+  margin-bottom: 12px;
+  border-radius: 0 8px 8px 0;
+  font-size: 15px;
+}
+.day-num {
+  display: block;
+  font-size: 11px;
+  font-weight: 700;
+  letter-spacing: 2px;
+  color: var(--accent);
+  text-transform: uppercase;
+  margin-bottom: 6px;
+}
+
+/* Framework */
+.framework {
+  background: var(--surface);
+  border: 1px solid var(--border);
+  border-radius: 12px;
+  padding: 24px;
+  margin: 24px 0;
+}
+.framework-title {
+  font-weight: 700;
+  color: var(--accent);
+  margin-bottom: 16px;
+  font-size: 14px;
+  text-transform: uppercase;
+  letter-spacing: 2px;
+}
+.framework-item {
+  padding: 12px 0;
+  border-bottom: 1px solid var(--border);
+  font-size: 15px;
+}
+.framework-item:last-child { border-bottom: none; }
+.q-num {
+  font-weight: 900;
+  color: var(--accent);
+  margin-right: 8px;
+}
+
+/* Red flags */
+.red-flags { list-style: none; padding: 0; }
+.red-flags li {
+  padding: 10px 0;
+  border-bottom: 1px solid var(--border);
+  font-size: 15px;
+}
+
+/* Checklist */
+.checklist { margin: 20px 0; }
+.check-item {
+  padding: 12px 0;
+  border-bottom: 1px solid var(--border);
+  font-size: 15px;
+}
+
+/* Chapter summary */
+.chapter-summary {
+  background: #F59E0B10;
+  border: 1px solid #F59E0B25;
+  border-radius: 12px;
+  padding: 24px;
+  margin: 40px 0 0;
+}
+.chapter-summary h4 {
+  color: var(--accent);
+  font-size: 13px;
+  letter-spacing: 2px;
+  text-transform: uppercase;
+  margin-bottom: 16px;
+  margin-top: 0;
+}
+.chapter-summary ul { padding-left: 20px; }
+.chapter-summary li { font-size: 14px; color: var(--muted); margin-bottom: 6px; }
+
+/* Final CTA */
+.final-cta {
+  text-align: center;
+  padding: 48px 32px;
+  background: var(--surface);
+  border: 1px solid var(--border);
+  border-radius: 16px;
+  margin-top: 64px;
+}
+.final-cta h3 {
+  font-family: 'Playfair Display', serif;
+  font-size: 28px;
+  color: #FFFFFF;
+  margin-bottom: 16px;
+}
+.final-cta p { color: var(--muted); margin-bottom: 24px; }
+
+/* Print styles */
+@media print {
+  .cover { min-height: 100vh; page-break-after: always; }
+  .chapter { page-break-before: always; }
+  .toc { page-break-after: always; }
+  a { color: var(--accent) !important; }
+}
+
+/* Responsive */
+@media (max-width: 600px) {
+  .chapter, .toc { padding: 40px 20px; }
+  .tool-grid { grid-template-columns: 1fr; }
+  .cta-btn.secondary { margin-left: 0; margin-top: 12px; display: block; text-align: center; }
+}
+
+/* ── CHAPTER ILLUSTRATIONS ── */
+.ch-illustration{width:100%;height:260px;overflow:hidden;position:relative;border-radius:14px;margin:0 0 36px;}
+.ch-illustration img{width:100%;height:100%;object-fit:cover;filter:brightness(.82) saturate(1.12);display:block;}
+.ch-illustration::after{content:'';position:absolute;bottom:0;left:0;right:0;height:90px;background:linear-gradient(transparent,var(--dark,#080808));}
+.cover-hero-img{width:100%;max-width:700px;height:320px;overflow:hidden;border-radius:18px;margin:0 auto 44px;position:relative;}
+.cover-hero-img img{width:100%;height:100%;object-fit:cover;filter:brightness(.8) saturate(1.2);}
+.cover-hero-img::after{content:'';position:absolute;inset:0;background:linear-gradient(to bottom,transparent 35%,rgba(0,0,0,.65) 100%);}
+</style>
+</head>
+<body>
+
+<!-- Cover -->
+<div class="cover">
+  <div class="cover-tag">NovaCrypto · 2026</div>
+  <div class="cover-hero-img">
+    <img src="https://image.pollinations.ai/prompt/person%20making%20money%20with%20AI%20laptop%20gold%20coins%20flying%20cinematic?width=900&height=400&nologo=true&seed=400" alt="Cover">
+  </div>
+  <h1 class="cover-title">The AI Money Guide 2026</h1>
+  <div class="cover-divider"></div>
+  <p class="cover-subtitle">How Artificial Intelligence Is Quietly Minting Millionaires — And How You Get In</p>
+  <div class="cover-author">NovaCrypto</div>
+</div>
+
+<!-- Table of Contents -->
+<div class="toc">
+  <h2>Table of Contents</h2>
+  <ol>
+    <li><a href="#ch1">Chapter 1: The Quiet Revolution Nobody Is Talking About</a></li>
+<li><a href="#ch2">Chapter 2: The 7 AI Income Models That Actually Work</a></li>
+<li><a href="#ch3">Chapter 3: The Tools Stack: What to Use in 2026</a></li>
+<li><a href="#ch4">Chapter 4: Your 30-Day AI Money Plan</a></li>
+<li><a href="#ch5">Chapter 5: Advanced: AI + Crypto = Maximum Leverage</a></li>
+<li><a href="#ch6">Chapter 6: The Mindset of an AI Money Maker</a></li>
+
+  </ol>
+</div>
+
+<!-- Chapters -->
+
+<section class="chapter" id="ch1">
+  <div class="chapter-header">
+    <div class="chapter-num">Chapter 1</div>
+    <h2 class="chapter-title">The Quiet Revolution Nobody Is Talking About</h2>
+    <div class="chapter-accent-line"></div>
+  </div>
+  <div class="ch-illustration">
+    <img src="https://image.pollinations.ai/prompt/AI%20revolution%20technology%20future%20income%20automation%20cinematic?width=900&height=360&nologo=true&seed=401" alt="Chapter">
+  </div>
+  <div class="chapter-body">
+    
+<p>In 2023, a 28-year-old from Portugal started using AI tools to write product descriptions for Amazon sellers. By the end of the year, he was making €4,200/month. He never wrote a single word himself.</p>
+
+<p>In 2024, a former teacher in Lyon used ChatGPT and Midjourney to create and sell children's book illustrations on Etsy. She made €11,000 in her first six months.</p>
+
+<p>These aren't exceptions. They're the new normal.</p>
+
+<div class="callout gold">
+<div class="callout-icon">💡</div>
+<div class="callout-text"><strong>The Core Insight:</strong> AI doesn't replace effort — it <em>multiplies</em> it. One person using AI tools can now do the work of a 5-person team. That leverage is where the money is.</div>
+</div>
+
+<p>The problem is that most people are watching AI happen instead of using it to make money. This guide is about the second group — the people actually extracting income from these tools, right now, in 2026.</p>
+
+<h3>Why 2026 Is Different</h3>
+<p>The AI models available in 2026 are dramatically more capable than what existed in 2022. We now have:</p>
+<ul>
+<li><strong>Multimodal models</strong> that understand text, images, audio, and video simultaneously</li>
+<li><strong>Agent frameworks</strong> that let AI complete multi-step tasks autonomously</li>
+<li><strong>Local models</strong> that run on your laptop without sending data anywhere</li>
+<li><strong>Fine-tuned specialists</strong> trained specifically for coding, legal, medical, or financial tasks</li>
+</ul>
+
+<p>The barrier to using these tools effectively has collapsed. You don't need a computer science degree. You need curiosity and a willingness to experiment.</p>
+
+<div class="stat-box">
+<div class="stat">$15.7T</div>
+<div class="stat-label">Projected AI economic contribution by 2030 (McKinsey)</div>
+</div>
+
+  </div>
+</section>
+
+<section class="chapter" id="ch2">
+  <div class="chapter-header">
+    <div class="chapter-num">Chapter 2</div>
+    <h2 class="chapter-title">The 7 AI Income Models That Actually Work</h2>
+    <div class="chapter-accent-line"></div>
+  </div>
+  <div class="ch-illustration">
+    <img src="https://image.pollinations.ai/prompt/AI%20income%20models%20money%20laptop%20passive%20income%20gold%20cinematic?width=900&height=360&nologo=true&seed=402" alt="Chapter">
+  </div>
+  <div class="chapter-body">
+    
+<p>There are dozens of ways people claim to make money with AI. Most of them are hype. These seven are real, proven, and accessible to anyone starting today.</p>
+
+<h3>Model 1: AI-Assisted Content Creation</h3>
+<p><strong>What it is:</strong> Using AI to write, edit, and publish content at scale — blog posts, newsletters, YouTube scripts, social media.</p>
+<p><strong>Real earnings:</strong> €500–€5,000/month</p>
+<p><strong>How to start:</strong> Pick one niche you know something about. Use Claude or GPT-4 to generate drafts. Add your own insights and publish daily. Monetize with ads (Google AdSense), sponsorships, or affiliate links.</p>
+
+<div class="callout blue">
+<div class="callout-icon">🔑</div>
+<div class="callout-text"><strong>The Secret:</strong> AI writes the skeleton. You add the experience. Readers pay for perspective, not just information.</div>
+</div>
+
+<h3>Model 2: AI Service Arbitrage</h3>
+<p><strong>What it is:</strong> Selling AI-powered services on platforms like Fiverr, Upwork, or directly to businesses. Logo design, copywriting, video scripts, data analysis.</p>
+<p><strong>Real earnings:</strong> €1,000–€8,000/month</p>
+<p><strong>How to start:</strong> Pick a service with clear deliverables. Use AI to deliver it 10x faster than competitors. Undercut prices initially, then raise them as reviews accumulate.</p>
+
+<h3>Model 3: AI-Generated Digital Products</h3>
+<p><strong>What it is:</strong> Creating once, selling forever. E-books, prompt packs, templates, notion dashboards, course content.</p>
+<p><strong>Real earnings:</strong> €200–€10,000/month (passive after launch)</p>
+<p><strong>Best platforms:</strong> Gumroad, Etsy, Teachable, Podia</p>
+
+<div class="product-cta">
+<p>📚 <strong>The NovaCrypto Crypto Course Bundle</strong> — Everything you need to understand, buy, and profit from crypto in 2026.</p>
+<a href="https://novacrypto.gumroad.com" class="cta-btn">Get the Bundle →</a>
+</div>
+
+<h3>Model 4: AI Trading Assistants</h3>
+<p><strong>What it is:</strong> Using AI to analyze markets, generate trading signals, or manage crypto portfolios.</p>
+<p><strong>Real earnings:</strong> Varies widely — €0 to unlimited</p>
+<p><strong>Important warning:</strong> This requires deep knowledge and risk tolerance. Never invest more than you can afford to lose.</p>
+
+<div class="callout red">
+<div class="callout-icon">⚠️</div>
+<div class="callout-text"><strong>Risk Warning:</strong> AI trading tools can amplify both gains AND losses. Always use stop-losses and paper trade first.</div>
+</div>
+
+<p><strong>Best exchange to start:</strong> MEXC offers one of the widest selection of altcoins with low fees.</p>
+<a href="https://www.mexc.com/register?inviteCode=novacrypto" class="affiliate-link">→ Open MEXC Account (up to 70% fee discount)</a>
+
+<h3>Model 5: AI Automation Consulting</h3>
+<p><strong>What it is:</strong> Helping businesses automate repetitive tasks using AI and no-code tools like Zapier, Make.com, n8n.</p>
+<p><strong>Real earnings:</strong> €2,000–€15,000/month</p>
+<p><strong>How to start:</strong> Learn Make.com + OpenAI API integration. Find one local business. Offer to automate their invoice processing or customer emails for free. Use that case study to land paying clients.</p>
+
+<h3>Model 6: Prompt Engineering & AI Training</h3>
+<p><strong>What it is:</strong> Creating optimized prompts and training materials for AI models. Teaching others how to use AI effectively.</p>
+<p><strong>Real earnings:</strong> €1,000–€6,000/month</p>
+
+<h3>Model 7: AI-Powered E-commerce</h3>
+<p><strong>What it is:</strong> Using AI for product research, listing optimization, customer service, and ad copy at scale.</p>
+<p><strong>Real earnings:</strong> €500–€20,000/month</p>
+
+<div class="chapter-summary">
+<h4>Chapter Summary</h4>
+<ul>
+<li>7 proven AI income models exist, each with different risk/reward profiles</li>
+<li>Content creation and service arbitrage are lowest-risk entry points</li>
+<li>Digital products offer the best passive income potential</li>
+<li>Trading requires significant caution and experience</li>
+</ul>
+</div>
+
+  </div>
+</section>
+
+<section class="chapter" id="ch3">
+  <div class="chapter-header">
+    <div class="chapter-num">Chapter 3</div>
+    <h2 class="chapter-title">The Tools Stack: What to Use in 2026</h2>
+    <div class="chapter-accent-line"></div>
+  </div>
+  <div class="ch-illustration">
+    <img src="https://image.pollinations.ai/prompt/AI%20tools%20stack%20software%20dashboard%20tech%20hologram%20dark%20cinematic?width=900&height=360&nologo=true&seed=403" alt="Chapter">
+  </div>
+  <div class="chapter-body">
+    
+<p>The AI tools landscape changes every month. Here's what's actually worth using in 2026, organized by task.</p>
+
+<h3>Text & Writing</h3>
+<div class="tool-grid">
+<div class="tool-card">
+<div class="tool-name">Claude (Anthropic)</div>
+<div class="tool-desc">Best for: long-form writing, analysis, coding. Strongest reasoning. Available via claude.ai</div>
+<div class="tool-price">Free / €18/mo Pro</div>
+</div>
+<div class="tool-card">
+<div class="tool-name">ChatGPT-4o</div>
+<div class="tool-desc">Best for: versatile tasks, image analysis, plugin ecosystem. Most widely used.</div>
+<div class="tool-price">Free / €20/mo Plus</div>
+</div>
+<div class="tool-card">
+<div class="tool-name">Gemini Ultra</div>
+<div class="tool-desc">Best for: Google integration, long context, multimodal tasks.</div>
+<div class="tool-price">Free / €20/mo Advanced</div>
+</div>
+</div>
+
+<h3>Image Generation</h3>
+<div class="tool-grid">
+<div class="tool-card">
+<div class="tool-name">Midjourney v7</div>
+<div class="tool-desc">Best quality for artistic and commercial images. Still Discord-based.</div>
+<div class="tool-price">From €8/mo</div>
+</div>
+<div class="tool-card">
+<div class="tool-name">FLUX.1</div>
+<div class="tool-desc">Open-source, photorealistic. Run locally or via Replicate API.</div>
+<div class="tool-price">Free (local) / Pay-per-use</div>
+</div>
+<div class="tool-card">
+<div class="tool-name">Ideogram 3.0</div>
+<div class="tool-desc">Best for: text in images, logos, typography. Game changer for design work.</div>
+<div class="tool-price">Free tier / €7/mo</div>
+</div>
+</div>
+
+<h3>Video Generation</h3>
+<div class="tool-grid">
+<div class="tool-card">
+<div class="tool-name">Runway ML Gen-3</div>
+<div class="tool-desc">Industry standard for AI video. Used by major studios.</div>
+<div class="tool-price">From €12/mo</div>
+</div>
+<div class="tool-card">
+<div class="tool-name">Kling AI</div>
+<div class="tool-desc">Best quality/price ratio. Chinese-made but globally accessible.</div>
+<div class="tool-price">From €7/mo</div>
+</div>
+</div>
+
+<h3>Automation & Agents</h3>
+<div class="tool-grid">
+<div class="tool-card">
+<div class="tool-name">Make.com</div>
+<div class="tool-desc">No-code automation. Connect any app to any AI model.</div>
+<div class="tool-price">Free / €9/mo</div>
+</div>
+<div class="tool-card">
+<div class="tool-name">n8n</div>
+<div class="tool-desc">Open-source Make alternative. Self-hostable. More powerful.</div>
+<div class="tool-price">Free (self-hosted)</div>
+</div>
+<div class="tool-card">
+<div class="tool-name">Claude Code</div>
+<div class="tool-desc">Autonomous coding agent. Writes, runs, and debugs code independently.</div>
+<div class="tool-price">Included with Claude Pro</div>
+</div>
+</div>
+
+<div class="callout gold">
+<div class="callout-icon">💡</div>
+<div class="callout-text"><strong>Stack Recommendation for Beginners:</strong> Start with Claude (free tier) + Make.com (free tier). These two tools alone can generate €500/month in services within 30 days.</div>
+</div>
+
+  </div>
+</section>
+
+<section class="chapter" id="ch4">
+  <div class="chapter-header">
+    <div class="chapter-num">Chapter 4</div>
+    <h2 class="chapter-title">Your 30-Day AI Money Plan</h2>
+    <div class="chapter-accent-line"></div>
+  </div>
+  <div class="ch-illustration">
+    <img src="https://image.pollinations.ai/prompt/30%20day%20plan%20calendar%20AI%20money%20roadmap%20success%20cinematic?width=900&height=360&nologo=true&seed=404" alt="Chapter">
+  </div>
+  <div class="chapter-body">
+    
+<p>Theory is useless without action. Here's a realistic 30-day plan to generate your first €500 from AI.</p>
+
+<div class="callout blue">
+<div class="callout-icon">📋</div>
+<div class="callout-text"><strong>Prerequisite:</strong> Pick ONE income model from Chapter 2. Don't try all seven. This plan assumes you chose AI Service Arbitrage — the fastest path to cash.</div>
+</div>
+
+<h3>Week 1: Set Up & Learn</h3>
+<div class="week-plan">
+<div class="day"><span class="day-num">Day 1–2</span> Create accounts: Claude, ChatGPT, Fiverr (seller account), Canva Pro (free trial). Pick your service: copywriting, logo design, or YouTube script writing.</div>
+<div class="day"><span class="day-num">Day 3–4</span> Create 3 sample deliverables using AI. These become your portfolio. A logo, a product description, a YouTube script — whatever your service is.</div>
+<div class="day"><span class="day-num">Day 5–7</span> Set up your Fiverr gig with the samples. Price at €15–€25 for the first orders (you need reviews). Write a compelling gig description using AI.</div>
+</div>
+
+<h3>Week 2: First Orders</h3>
+<div class="week-plan">
+<div class="day"><span class="day-num">Day 8–10</span> Send 20 buyer requests on Fiverr daily. Join 3 relevant Facebook groups and LinkedIn communities. Offer your service for free to 2 people in exchange for testimonials.</div>
+<div class="day"><span class="day-num">Day 11–14</span> Your first paid order should arrive. Deliver in under 24 hours. Get a 5-star review. This is the flywheel starting.</div>
+</div>
+
+<h3>Week 3: Scale</h3>
+<div class="week-plan">
+<div class="day"><span class="day-num">Day 15–17</span> You now have 2–5 reviews. Raise your price to €35–€50. Create a "package" gig offering 3 variations. Start a simple website with Carrd.co to attract direct clients.</div>
+<div class="day"><span class="day-num">Day 18–21</span> Create templates and prompts for your service. You should now be delivering each order in 20 minutes instead of 2 hours. That's leverage.</div>
+</div>
+
+<h3>Week 4: Systemize</h3>
+<div class="week-plan">
+<div class="day"><span class="day-num">Day 22–28</span> You should have €150–€300 in revenue. Create a Make.com automation to handle your intake form → AI generation → delivery workflow. Start building a niche digital product from your best work.</div>
+<div class="day"><span class="day-num">Day 29–30</span> Review what worked. Double down on the service type getting the most orders. Set a goal: €1,000/month by day 60.</div>
+</div>
+
+<div class="stat-box">
+<div class="stat">€500</div>
+<div class="stat-label">Average revenue from following this plan for 30 days (realistic, not hype)</div>
+</div>
+
+<h3>The Most Important Rule</h3>
+<p>Do not optimize what doesn't exist yet. Most people spend week one building the "perfect" website instead of landing their first client. Revenue first. Systems second. Polish third.</p>
+
+<div class="callout gold">
+<div class="callout-icon">🚀</div>
+<div class="callout-text"><strong>Action Step:</strong> Before you close this book, open a Claude account (free at claude.ai) and write your first AI-generated service sample. The plan doesn't work until you start.</div>
+</div>
+
+  </div>
+</section>
+
+<section class="chapter" id="ch5">
+  <div class="chapter-header">
+    <div class="chapter-num">Chapter 5</div>
+    <h2 class="chapter-title">Advanced: AI + Crypto = Maximum Leverage</h2>
+    <div class="chapter-accent-line"></div>
+  </div>
+  <div class="ch-illustration">
+    <img src="https://image.pollinations.ai/prompt/AI%20crypto%20trading%20leverage%20bitcoin%20automation%20gold%20cinematic?width=900&height=360&nologo=true&seed=405" alt="Chapter">
+  </div>
+  <div class="chapter-body">
+    
+<p>For those willing to go deeper — combining AI with crypto creates opportunities that simply didn't exist five years ago.</p>
+
+<h3>On-Chain AI Agents</h3>
+<p>In 2026, autonomous AI agents that hold and spend crypto wallets are no longer science fiction. Projects like Fetch.ai, Virtuals Protocol, and ai16z are building economies of AI agents that earn, spend, and trade autonomously.</p>
+
+<p>Early participants in these ecosystems have seen extraordinary returns. But this space requires significant research and risk tolerance.</p>
+
+<h3>AI-Powered Trading Signals</h3>
+<p>Several platforms now offer AI-generated trading signals with verifiable track records. The key is to verify independently before putting real money at stake.</p>
+
+<p>If you're interested in crypto trading, start here:</p>
+<a href="https://www.mexc.com/register?inviteCode=novacrypto" class="affiliate-link">→ MEXC Exchange — Lowest fees, widest altcoin selection, AI copy-trading available</a>
+
+<h3>DeFi Yield Optimization with AI</h3>
+<p>AI protocols that automatically move funds between yield sources to maximize returns. This is real and generating meaningful yields for informed users.</p>
+
+<div class="callout red">
+<div class="callout-icon">⚠️</div>
+<div class="callout-text"><strong>Critical Warning:</strong> DeFi smart contracts have been exploited for billions of dollars. Never use protocols that haven't been audited. Never invest more than you can afford to lose completely.</div>
+</div>
+
+<h3>Building AI Tools for Crypto Traders</h3>
+<p>There's a massive, underserved market for AI tools built specifically for crypto traders: portfolio trackers, tax calculators, sentiment analyzers, whale wallet monitors. If you can code (or use AI to code for you), this is a €10,000/month opportunity.</p>
+
+<div class="chapter-summary">
+<h4>Key Takeaways from This Chapter</h4>
+<ul>
+<li>AI + crypto creates compounding advantages when approached carefully</li>
+<li>On-chain AI agents are an emerging category worth watching, not yet chasing</li>
+<li>Building tools for traders is more reliable than trading itself</li>
+<li>Risk management is non-negotiable in any crypto-adjacent activity</li>
+</ul>
+</div>
+
+  </div>
+</section>
+
+<section class="chapter" id="ch6">
+  <div class="chapter-header">
+    <div class="chapter-num">Chapter 6</div>
+    <h2 class="chapter-title">The Mindset of an AI Money Maker</h2>
+    <div class="chapter-accent-line"></div>
+  </div>
+  <div class="ch-illustration">
+    <img src="https://image.pollinations.ai/prompt/mindset%20success%20entrepreneur%20AI%20wealth%20vision%20dark%20cinematic?width=900&height=360&nologo=true&seed=406" alt="Chapter">
+  </div>
+  <div class="chapter-body">
+    
+<p>Technical skills matter less than most people think. The real differentiator is mindset.</p>
+
+<h3>Principle 1: Experiment Without Permission</h3>
+<p>Every AI income story starts with someone trying something without being asked to. Nobody gives you permission to start. You just start.</p>
+
+<h3>Principle 2: Sell Before You Build</h3>
+<p>Validate demand before creating anything. Post about your service. See if people respond. Get pre-orders. <em>Then</em> build. This eliminates 80% of wasted effort.</p>
+
+<h3>Principle 3: The Unfair Advantage Mentality</h3>
+<p>You're not competing against other AI users. You're competing against non-AI users who are doing things the slow way. That's an enormous unfair advantage — if you use it.</p>
+
+<div class="callout gold">
+<div class="callout-icon">💡</div>
+<div class="callout-text"><strong>The Mindset Shift:</strong> Stop asking "What can AI do?" and start asking "What can I now do 10x faster, cheaper, or at higher quality than before?"</div>
+</div>
+
+<h3>Principle 4: Document Everything</h3>
+<p>Your process, your prompts, your results. Documentation creates reusable assets, which become digital products, which become passive income.</p>
+
+<h3>Principle 5: Community Is Infrastructure</h3>
+<p>The people you learn with accelerate you more than any tool. Join communities of people doing what you want to do. Share what you know. Ask specific questions.</p>
+
+<h3>Your First Move</h3>
+<p>Close this book and spend 30 minutes with an AI tool. Not reading about it. Not watching videos. Using it. Ask it to help you with something real in your life or work. See what happens.</p>
+
+<p>The gap between people who will benefit from AI and people who won't isn't knowledge. It's action.</p>
+
+<div class="final-cta">
+<h3>Continue Your Journey</h3>
+<p>Get access to all NovaCrypto resources:</p>
+<a href="https://novacrypto.gumroad.com" class="cta-btn large">Explore NovaCrypto Library →</a>
+<a href="https://www.mexc.com/register?inviteCode=novacrypto" class="cta-btn secondary">Open Your Crypto Account →</a>
+</div>
+
+  </div>
+</section>
+
+
+</body>
+</html>

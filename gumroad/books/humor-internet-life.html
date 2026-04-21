@@ -1,0 +1,116 @@
+<!DOCTYPE html><html lang="en"><head><meta charset="UTF-8"><meta name="viewport" content="width=device-width,initial-scale=1.0"><title>Life on the Internet</title>
+<style>
+@import url('https://fonts.googleapis.com/css2?family=Inter:wght@300;400;500;600;700;900&family=Playfair+Display:ital,wght@0,700;0,900;1,700&display=swap');
+:root{--a:#EC4899;--bg:#08000A;--t:#E8E8F0;--m:rgba(232,232,240,0.6);--s:rgba(255,255,255,0.04);--b:rgba(255,255,255,0.08);}
+*{margin:0;padding:0;box-sizing:border-box;}
+body{font-family:'Inter',sans-serif;background:var(--bg);color:var(--t);line-height:1.8;font-size:16px;}
+.cover{width:100%;min-height:100vh;display:flex;flex-direction:column;align-items:center;justify-content:center;text-align:center;padding:80px 40px;background:radial-gradient(ellipse at 30% 20%,#EC489922,transparent 60%),radial-gradient(ellipse at 80% 80%,#EC489910,transparent 55%),var(--bg);border-bottom:1px solid var(--b);page-break-after:always;position:relative;overflow:hidden;}
+.cover::before{content:'';position:absolute;inset:0;background-image:linear-gradient(#EC489906 1px,transparent 1px),linear-gradient(90deg,#EC489906 1px,transparent 1px);background-size:40px 40px;}
+.cover *{position:relative;}
+.ctag{font-size:11px;letter-spacing:4px;font-weight:700;color:var(--a);text-transform:uppercase;margin-bottom:24px;opacity:0.8;}
+.ctitle{font-family:'Playfair Display',serif;font-size:clamp(38px,6vw,68px);font-weight:900;line-height:1.1;color:#FFF;margin-bottom:24px;text-shadow:0 4px 40px #EC489933;}
+.cdiv{width:60px;height:3px;background:linear-gradient(90deg,var(--a),transparent);margin:0 auto 24px;border-radius:2px;}
+.csub{font-size:17px;color:var(--m);max-width:600px;line-height:1.6;margin-bottom:48px;}
+.cauth{font-size:13px;letter-spacing:4px;text-transform:uppercase;color:var(--a);opacity:0.7;}
+.toc{max-width:760px;margin:0 auto;padding:80px 40px;page-break-after:always;}
+.toc h2{font-family:'Playfair Display',serif;font-size:32px;color:var(--a);margin-bottom:40px;}
+.toc ol{list-style:none;counter-reset:c;}
+.toc li{counter-increment:c;display:flex;align-items:baseline;gap:16px;padding:14px 0;border-bottom:1px solid var(--b);}
+.toc li::before{content:counter(c,decimal-leading-zero);font-size:12px;font-weight:700;color:var(--a);opacity:0.6;min-width:24px;}
+.toc a{color:var(--t);text-decoration:none;font-size:15px;font-weight:500;}
+.chap{max-width:760px;margin:0 auto;padding:80px 40px;page-break-before:always;}
+.cnum{font-size:11px;letter-spacing:4px;font-weight:700;color:var(--a);text-transform:uppercase;margin-bottom:16px;opacity:0.7;}
+.cttl{font-family:'Playfair Display',serif;font-size:clamp(26px,4vw,42px);font-weight:900;color:#FFF;line-height:1.2;margin-bottom:20px;}
+.cline{width:40px;height:3px;background:linear-gradient(90deg,var(--a),transparent);border-radius:2px;margin-bottom:48px;}
+.chap p{margin-bottom:20px;color:var(--t);font-size:16px;}
+.chap h3{font-size:20px;font-weight:700;color:#FFF;margin:36px 0 14px;}
+.chap ul,.chap ol{padding-left:24px;margin-bottom:20px;}
+.chap li{margin-bottom:8px;}
+.chap strong{color:#FFF;}
+.chap em{color:var(--a);font-style:italic;}
+.chap blockquote{border-left:3px solid var(--a);padding:16px 24px;background:var(--s);margin:24px 0;border-radius:0 8px 8px 0;font-style:italic;color:var(--m);}
+.box{background:var(--s);border:1px solid var(--b);border-radius:12px;padding:24px;margin:24px 0;}
+.box-title{font-size:11px;font-weight:700;letter-spacing:2px;color:var(--a);text-transform:uppercase;margin-bottom:12px;}
+.callout{border-radius:12px;padding:24px;margin:32px 0;display:flex;gap:20px;}
+.callout.gold{background:#EC489915;border:1px solid #EC489930;}
+.callout.blue{background:rgba(56,189,248,0.08);border:1px solid rgba(56,189,248,0.2);}
+.ci{font-size:24px;flex-shrink:0;margin-top:2px;}
+.ct{font-size:15px;line-height:1.6;}
+.callout.gold .ct{color:#FDE68A;}
+.callout.blue .ct{color:#BAE6FD;}
+.stat{text-align:center;padding:32px;background:var(--s);border:1px solid var(--b);border-radius:16px;margin:32px 0;}
+.sn{font-size:56px;font-weight:900;color:var(--a);font-family:'Playfair Display',serif;}
+.sl{color:var(--m);font-size:14px;margin-top:8px;}
+.cta-end{text-align:center;padding:48px 32px;background:var(--s);border:1px solid var(--b);border-radius:16px;margin-top:64px;}
+.cta-end h3{font-family:'Playfair Display',serif;font-size:28px;color:#FFF;margin-bottom:16px;}
+.cta-end p{color:var(--m);margin-bottom:24px;}
+.btn{display:inline-block;background:var(--a);color:#000;font-weight:700;font-size:16px;padding:16px 32px;border-radius:8px;text-decoration:none;}
+@media print{.cover{min-height:100vh;page-break-after:always;}.chap{page-break-before:always;}.toc{page-break-after:always;}}
+</style></head><body>
+<div class="cover">
+  <div class="ctag">NovaCrypto · 2026</div>
+  <h1 class="ctitle">Life on the Internet</h1>
+  <div class="cdiv"></div>
+  <p class="csub">A Comedic Guide to Surviving in the Age of Doomscrolling, FOMO & Crypto Bros</p>
+  <div class="cauth">NovaCrypto</div>
+</div>
+<div class="toc"><h2>Table of Contents</h2><ol><li><a href="#c1">The Morning Routine (Or: How I Start Every Day Wrong)</a></li><li><a href="#c2">The Social Media Olympics</a></li><li><a href="#c3">Crypto Bros: A Field Guide</a></li><li><a href="#c4">How to Actually Survive the Internet</a></li></ol></div>
+<div class="chap" id="c1"><div class="cnum">Chapter 1</div><h2 class="cttl">The Morning Routine (Or: How I Start Every Day Wrong)</h2><div class="cline"></div>
+<p>6:47 AM. Your alarm goes off. The alarm you specifically set to "ease you into the morning gently" with the sound of forest rain that your phone downloaded from a server farm burning fossil fuels in Virginia.</p>
+<p>You don't get up. Of course you don't get up. You pick up your phone.</p>
+<p>Within 90 seconds, you have learned: a celebrity you vaguely recognize has divorced someone you've never heard of, three countries are in mild geopolitical tension, someone you went to school with is on a boat, a brand is being "dragged" for something, and there are 17 opinions about all of the above, several of which are from accounts with names like "PatriotEagle2847."</p>
+<p>You have been awake for ninety seconds and you already feel mildly exhausted by the human condition. This is called <strong>a normal morning in 2026</strong>.</p>
+<div class="callout gold"><div class="ci">📱</div><div class="ct"><strong>Fun fact that is not fun:</strong> The average person checks their phone within 3 minutes of waking up. The average phone contains approximately 47 applications, each designed by teams of engineers whose sole job is to make you check it more. You are not weak. You are outnumbered.</div></div>
+<h3>The Notification Taxonomy</h3>
+<p>Not all notifications are created equal. A scientific classification:</p>
+<ul>
+<li><strong>URGENT (actually urgent):</strong> Texts from family. 2% of notifications.</li>
+<li><strong>URGENT (not urgent):</strong> "Your daily streak is at risk!" from Duolingo. 23% of notifications.</li>
+<li><strong>INFORMATIVE:</strong> Emails you signed up for and vaguely remember signing up for. 15% of notifications.</li>
+<li><strong>MYSTERIOUS:</strong> Notifications from apps you don't remember downloading. 31% of notifications.</li>
+<li><strong>HOSTILE:</strong> LinkedIn telling you that someone you've never met "viewed your profile." 29% of notifications.</li>
+</ul>
+<p>The irony is that the most important communication — a friend saying something real in a message — gets the same notification as "FLASH SALE: 40% off things you almost bought three months ago."</p></div><div class="chap" id="c2"><div class="cnum">Chapter 2</div><h2 class="cttl">The Social Media Olympics</h2><div class="cline"></div>
+<p>Every platform has its own culture, its own etiquette, and its own specific type of person who makes you question the project of civilization.</p>
+<h3>Twitter/X: The Thunderdome</h3>
+<p>Twitter is where people go to have opinions in public. All opinions. About everything. Including your opinions about having opinions. The platform's core social dynamic is: someone says something, someone else misunderstands it, seventeen accounts with egg avatars pile on, a journalist writes a piece about the pile-on, then someone writes a piece about the piece about the pile-on, and by Thursday no one remembers what the original statement was.</p>
+<p>Twitter's great innovation was making it possible to be wrong to 50,000 people simultaneously. Previously this required a newspaper.</p>
+<h3>Instagram: The Gallery of Curated Perfection</h3>
+<p>On Instagram, everyone is either on a beautiful holiday, eating photogenic food, or working out in a gym that has somehow maintained perfect lighting conditions. No one is doing laundry. No one is mildly confused about their utility bill. No one is having a Tuesday.</p>
+<blockquote>The gap between what people post and what people actually experience is approximately the same as the gap between a travel brochure and a flight delay at 2 AM.</blockquote>
+<h3>LinkedIn: Motivation Gone Wrong</h3>
+<p>LinkedIn is the social network where every life event, including "I lost my job," is framed as an opportunity. The LinkedIn person is deeply grateful for everything that has ever happened to them, including the bad things, especially the bad things, which turned out to be the greatest gift of all.</p>
+<p>A LinkedIn post about getting a coffee: <em>"Grateful to be energized this morning. Every cup is a reminder that excellence is a habit, not a destination. Excited to connect, create, and lead today. Let's WIN together. 💪 #Hustle #Growth #MondayMotivation #Coffee #Leadership"</em></p>
+<div class="callout gold"><div class="ci">😂</div><div class="ct"><strong>LinkedIn Achievement Unlocked:</strong> Wrote 400 words about drinking coffee without mentioning that you're currently struggling through a meeting about Q3 deliverables and the coffee is cold.</div></div>
+<h3>TikTok: The Attention Black Hole</h3>
+<p>TikTok's algorithm is so good at predicting what you want to watch next that it has essentially achieved a form of telepathy. You will open TikTok "for five minutes" and regain consciousness 47 minutes later having watched a man in Ohio explain how to fold fitted sheets, three different videos of dogs being surprised by their reflections, and a documentary about the cheese trade in 14th century France.</p>
+<p>You will not remember choosing to watch any of these things. The algorithm chose for you. And you enjoyed it.</p></div><div class="chap" id="c3"><div class="cnum">Chapter 3</div><h2 class="cttl">Crypto Bros: A Field Guide</h2><div class="cline"></div>
+<p>Every ecosystem has its charismatic megafauna. The internet has Crypto Bros. This chapter is a naturalist's guide to their behaviors, habitats, and communication patterns.</p>
+<h3>Species Identification</h3>
+<p><strong>The Early Adopter (Bitcoinus Supremacist):</strong> Bought Bitcoin in 2013 and tells everyone he bought Bitcoin in 2013. His profile picture is an orange ₿. He refers to all other cryptocurrencies as "shitcoins" and finds deep meaning in simple math. His bio says "Not financial advice" but everything he says is intended as financial advice. He genuinely believes the US dollar will "go to zero" but still accepts it when you buy him a coffee.</p>
+<p><strong>The NFT Enthusiast (Apius Bored Yarntus):</strong> Has a picture of a cartoon ape wearing glasses as their profile picture that they "paid" $50,000 for in 2021. Currently explains that it's an "investment" and definitely not something they wish they could undo. They are "building community." The community is currently down 97%.</p>
+<p><strong>The Altcoin Maximalist (Pumpdumpicus Perennial):</strong> Has discovered a "hidden gem" every week for three years. The gems are never hidden enough. Has a Discord server called "🚀 MOON GANG 🚀" where members share charts that point dramatically upward regardless of the actual direction of the chart.</p>
+<p><strong>The Serious Investor (Fundamentalus Legitimate):</strong> Actually understands what a blockchain is. Boring at parties. Probably fine.</p>
+<div class="stat"><div class="sn">69%</div><div class="sl">Percentage of crypto projects from the 2021 bull run now worth less than 90% of their peak value</div></div>
+<h3>The Communication Style</h3>
+<p>Crypto Bros communicate primarily in numbers, acronyms, and animal emojis. Key vocabulary:</p>
+<ul>
+<li><strong>WAGMI</strong> — We're All Gonna Make It (usually said when things are going badly)</li>
+<li><strong>NGMI</strong> — Not Gonna Make It (said about people who disagree with them)</li>
+<li><strong>GM</strong> — Good Morning, used as a greeting in crypto communities at all hours</li>
+<li><strong>Wen Lambo</strong> — A question about when their investment will appreciate enough to buy a Lamborghini</li>
+<li><strong>Number Go Up</strong> — Crypto's equivalent of "in God we trust"</li>
+</ul>
+<p>Despite the culture around it, the underlying technology is genuinely interesting and worth understanding. The NovaCrypto guides (linked below) will give you the actual signal without the noise.</p>
+<a href="https://novacrypto.gumroad.com" style="color:#EC4899;font-weight:600;text-decoration:none;">→ Get the real crypto education at NovaCrypto →</a></div><div class="chap" id="c4"><div class="cnum">Chapter 4</div><h2 class="cttl">How to Actually Survive the Internet</h2><div class="cline"></div>
+<p>After 200+ pages of mockery (well, 150 pages of this guide), it's time to offer something useful. How do you maintain your sanity, your attention, and your actual relationships while living inside a machine designed to monetize your eyeballs?</p>
+<h3>The Three Rules That Actually Help</h3>
+<p><strong>Rule 1: Consume less, create more.</strong> Scrolling is consumption. Writing, building, making things — that's creation. Creation makes you feel good after you do it. Scrolling makes you feel hollow after you do it. Recognize the difference and make more choices toward creation.</p>
+<p><strong>Rule 2: Make the easy thing the good thing.</strong> We do what's easy. If checking email is the first thing you do when you wake up, you'll keep checking email first. Put your phone in another room. Put a book on your nightstand. Make the good thing the easy thing and your behavior will change with almost no willpower required.</p>
+<p><strong>Rule 3: The "Would I be embarrassed?" filter.</strong> Before posting anything online, ask: would I be embarrassed if this context-free screenshot appeared on someone else's account? This eliminates about 40% of regrettable posts before they happen.</p>
+<div class="callout gold"><div class="ci">💡</div><div class="ct"><strong>The Deepest Truth:</strong> The internet is a tool. Exceptionally powerful, occasionally ridiculous, frequently overwhelming. It amplifies whatever you bring to it — creativity, anger, connection, isolation. What you bring is your choice, every single time you pick up the phone.</div></div>
+<h3>A Final Note</h3>
+<p>The fact that you've read a humor book about internet culture rather than doom-scrolling through it suggests you're probably going to be fine.</p>
+<p>Now go outside. Touch some actual grass. It's still out there.</p>
+<div class="cta-end"><h3>You Made It</h3><p>Thanks for reading. For the more serious stuff — crypto, business, AI — the NovaCrypto library has you covered.</p><a href="https://novacrypto.gumroad.com" class="btn">Browse NovaCrypto →</a></div></div>
+</body></html>

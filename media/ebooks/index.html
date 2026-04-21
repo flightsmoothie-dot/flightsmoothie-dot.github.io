@@ -1,0 +1,611 @@
+<!DOCTYPE html>
+<html lang="en">
+<head>
+<meta charset="UTF-8">
+<meta name="viewport" content="width=device-width,initial-scale=1">
+<title>NovaMedia eBook Library — Free Guides 2026</title>
+<style>
+:root{--gold:#F7B731;--dark:#080808;--text:#e8e8e8;--sub:#888;--card:#111;}
+*{box-sizing:border-box;margin:0;padding:0;}
+body{background:var(--dark);color:var(--text);font-family:sans-serif;line-height:1.6;}
+
+/* HEADER */
+header{background:#000;border-bottom:3px solid var(--gold);padding:24px 40px;
+  display:flex;justify-content:space-between;align-items:center;flex-wrap:wrap;gap:16px;}
+.logo{font-size:22px;font-weight:900;letter-spacing:6px;color:var(--gold);}
+.logo span{color:#fff;}
+.header-cta{background:var(--gold);color:#000;padding:10px 24px;border-radius:6px;
+  text-decoration:none;font-weight:700;font-size:13px;letter-spacing:1px;}
+
+/* HERO */
+.hero{background:linear-gradient(135deg,#000 0%,#0a0a00 50%,#000 100%);
+  padding:80px 40px;text-align:center;border-bottom:1px solid rgba(247,183,49,0.15);position:relative;overflow:hidden;}
+.hero::before{content:'';position:absolute;inset:0;
+  background:radial-gradient(ellipse 70% 50% at 50% 40%,rgba(247,183,49,0.07),transparent);}
+.hero-badge{font-size:10px;letter-spacing:5px;color:var(--gold);text-transform:uppercase;margin-bottom:20px;}
+.hero h1{font-size:clamp(28px,5vw,54px);font-weight:900;color:#fff;line-height:1.1;margin-bottom:16px;}
+.hero h1 span{color:var(--gold);}
+.hero p{font-size:17px;color:var(--sub);max-width:580px;margin:0 auto 32px;}
+.hero-stats{display:flex;gap:40px;justify-content:center;flex-wrap:wrap;margin-top:40px;}
+.hero-stat .num{font-size:36px;font-weight:900;color:var(--gold);}
+.hero-stat .lbl{font-size:12px;color:var(--sub);text-transform:uppercase;letter-spacing:2px;}
+
+/* SPONSOR MEGA BANNER */
+.mega-sponsor{background:#0a0900;border-top:1px solid rgba(247,183,49,0.15);
+  border-bottom:1px solid rgba(247,183,49,0.15);padding:24px 40px;text-align:center;}
+.mega-sponsor .ms-label{font-size:10px;letter-spacing:4px;color:var(--sub);text-transform:uppercase;margin-bottom:16px;}
+.sponsor-grid{display:flex;gap:12px;justify-content:center;flex-wrap:wrap;}
+.sp-badge{border:1px solid rgba(247,183,49,0.2);padding:10px 20px;border-radius:6px;
+  font-size:12px;color:var(--sub);min-width:130px;text-align:center;background:#0d0c00;}
+.sp-badge strong{display:block;font-size:13px;color:var(--text);margin-bottom:2px;}
+.sp-badge.cta-badge{border-color:var(--gold);color:var(--gold);}
+
+/* SECTION TITLE */
+.section-head{max-width:1100px;margin:0 auto;padding:60px 40px 24px;}
+.section-head h2{font-size:11px;letter-spacing:5px;color:var(--gold);text-transform:uppercase;margin-bottom:8px;}
+.section-head p{font-size:18px;color:#fff;font-weight:700;}
+
+/* BOOK GRID */
+.book-grid{max-width:1100px;margin:0 auto;padding:0 40px 60px;
+  display:grid;grid-template-columns:repeat(auto-fill,minmax(300px,1fr));gap:24px;}
+.book-card{background:var(--card);border-radius:12px;overflow:hidden;
+  border:1px solid rgba(255,255,255,0.06);transition:transform .2s,border-color .2s;
+  display:flex;flex-direction:column;}
+.book-card:hover{transform:translateY(-4px);border-color:rgba(247,183,49,0.3);}
+.book-cover{height:200px;display:flex;align-items:center;justify-content:center;
+  position:relative;overflow:hidden;}
+.book-body{padding:24px;flex:1;display:flex;flex-direction:column;}
+.book-tag{font-size:10px;letter-spacing:3px;text-transform:uppercase;margin-bottom:10px;font-weight:700;}
+.book-title{font-size:18px;font-weight:900;color:#fff;margin-bottom:8px;line-height:1.3;}
+.book-desc{font-size:13px;color:var(--sub);flex:1;margin-bottom:20px;}
+.book-meta{font-size:11px;color:var(--sub);margin-bottom:16px;}
+.book-btn{display:block;text-align:center;padding:12px;border-radius:6px;
+  text-decoration:none;font-weight:700;font-size:13px;letter-spacing:1px;}
+
+/* Card Themes */
+.card-crypto .book-cover{background:linear-gradient(135deg,#0a0800,#1a1000);}
+.card-crypto .book-tag{color:#F7B731;}
+.card-crypto .book-btn{background:#F7B731;color:#000;}
+.card-health .book-cover{background:linear-gradient(135deg,#020a04,#0a2010);}
+.card-health .book-tag{color:#2ECC71;}
+.card-health .book-btn{background:#2ECC71;color:#000;}
+.card-fitness .book-cover{background:linear-gradient(135deg,#0a0202,#200a0a);}
+.card-fitness .book-tag{color:#E74C3C;}
+.card-fitness .book-btn{background:#E74C3C;color:#fff;}
+.card-games .book-cover{background:linear-gradient(135deg,#08040f,#18093a);}
+.card-games .book-tag{color:#9B59B6;}
+.card-games .book-btn{background:#9B59B6;color:#fff;}
+.card-paragliding .book-cover{background:linear-gradient(135deg,#040812,#081828);}
+.card-paragliding .book-tag{color:#3498DB;}
+.card-paragliding .book-btn{background:#3498DB;color:#fff;}
+.card-kite .book-cover{background:linear-gradient(135deg,#030c0e,#051a18);}
+.card-kite .book-tag{color:#1ABC9C;}
+.card-kite .book-btn{background:#1ABC9C;color:#000;}
+.card-skydiving .book-cover{background:linear-gradient(135deg,#080808,#1a0e00);}
+.card-skydiving .book-tag{color:#F39C12;}
+.card-skydiving .book-btn{background:#F39C12;color:#000;}
+.card-dropship .book-cover{background:linear-gradient(135deg,#040a10,#081828);}
+.card-dropship .book-tag{color:#5DADE2;}
+.card-dropship .book-btn{background:#5DADE2;color:#000;}
+.card-ai .book-cover{background:linear-gradient(135deg,#04040a,#0a0818);}
+.card-ai .book-tag{color:#A569BD;}
+.card-ai .book-btn{background:#A569BD;color:#fff;}
+.card-humor .book-cover{background:linear-gradient(135deg,#0a0800,#1a0a00);}
+.card-humor .book-tag{color:#F97316;}
+.card-humor .book-btn{background:#F97316;color:#fff;}
+.card-novel .book-cover{background:linear-gradient(135deg,#080010,#100020);}
+.card-novel .book-tag{color:#7C3AED;}
+.card-novel .book-btn{background:#7C3AED;color:#fff;}
+.card-kids .book-cover{background:linear-gradient(135deg,#001008,#002018);}
+.card-kids .book-tag{color:#10B981;}
+.card-kids .book-btn{background:#10B981;color:#fff;}
+.card-viral .book-cover{background:linear-gradient(135deg,#0a0400,#1f0800);}
+.card-viral .book-tag{color:#F97316;}
+.card-viral .book-btn{background:#F97316;color:#fff;}
+
+/* ADVERTISE SECTION */
+.advertise{max-width:1100px;margin:0 auto;padding:0 40px 80px;}
+.advertise-box{background:#0a0800;border:1px solid rgba(247,183,49,0.25);border-radius:12px;padding:48px;text-align:center;}
+.advertise-box h2{font-size:28px;font-weight:900;color:#fff;margin-bottom:12px;}
+.advertise-box p{color:var(--sub);font-size:16px;max-width:580px;margin:0 auto 32px;}
+.ad-packages{display:flex;gap:20px;justify-content:center;flex-wrap:wrap;margin-bottom:32px;}
+.ad-pkg{border:1px solid rgba(247,183,49,0.2);border-radius:8px;padding:20px 24px;min-width:180px;text-align:left;}
+.ad-pkg .pkg-name{font-size:11px;letter-spacing:3px;color:var(--gold);text-transform:uppercase;margin-bottom:8px;}
+.ad-pkg .pkg-price{font-size:28px;font-weight:900;color:#fff;margin-bottom:4px;}
+.ad-pkg .pkg-desc{font-size:12px;color:var(--sub);}
+.ad-email{font-size:20px;color:var(--gold);font-weight:700;margin-top:8px;}
+
+/* NEWSLETTER */
+.newsletter{background:#050500;border-top:1px solid rgba(247,183,49,0.1);
+  border-bottom:1px solid rgba(247,183,49,0.1);padding:60px 40px;text-align:center;}
+.newsletter h2{font-size:24px;color:#fff;font-weight:900;margin-bottom:8px;}
+.newsletter p{color:var(--sub);margin-bottom:24px;}
+.nl-form{display:flex;gap:12px;justify-content:center;flex-wrap:wrap;}
+.nl-form input{padding:14px 20px;border-radius:6px;border:1px solid rgba(247,183,49,0.3);
+  background:#0a0a00;color:#fff;font-size:14px;width:280px;}
+.nl-form button{padding:14px 28px;background:var(--gold);color:#000;border:none;
+  border-radius:6px;font-weight:700;font-size:14px;cursor:pointer;}
+
+/* FOOTER */
+footer{background:#000;border-top:2px solid var(--gold);padding:40px;text-align:center;}
+footer h3{color:var(--gold);font-size:24px;letter-spacing:8px;margin-bottom:12px;}
+.footer-links{display:flex;gap:24px;justify-content:center;flex-wrap:wrap;margin-bottom:20px;}
+.footer-links a{color:var(--sub);text-decoration:none;font-size:13px;}
+.footer-links a:hover{color:var(--gold);}
+footer p{color:var(--sub);font-size:12px;max-width:600px;margin:0 auto;}
+
+@media(max-width:600px){
+  header{padding:20px;}
+  .hero{padding:50px 20px;}
+  .book-grid{padding:0 20px 40px;grid-template-columns:1fr;}
+  .advertise{padding:0 20px 40px;}
+  .ad-packages{flex-direction:column;align-items:center;}
+}
+</style>
+</head>
+<body>
+
+<header>
+  <div class="logo">NOVA<span>MEDIA</span></div>
+  <a href="#advertise" class="header-cta">Advertise With Us</a>
+</header>
+
+<!-- HERO -->
+<div class="hero">
+  <div class="hero-badge">Free eBook Library — 2026 Edition</div>
+  <h1>Expert Guides for<br><span>Every Adventure & Interest</span></h1>
+  <p>16 free, professionally written books — crypto guides, viral content strategy, humor, fiction, kids' books, business, fitness, extreme sports and more. 100% free.</p>
+  <div class="hero-stats">
+    <div class="hero-stat"><div class="num">16</div><div class="lbl">Free Books</div></div>
+    <div class="hero-stat"><div class="num">100+</div><div class="lbl">Chapters</div></div>
+    <div class="hero-stat"><div class="num">50K+</div><div class="lbl">Readers</div></div>
+    <div class="hero-stat"><div class="num">€0</div><div class="lbl">Cost to You</div></div>
+  </div>
+</div>
+
+<!-- SPONSOR MEGA BANNER -->
+<div class="mega-sponsor">
+  <div class="ms-label">Official Media Partners 2026</div>
+  <div class="sponsor-grid">
+    <div class="sp-badge"><strong>🪙 MEXC Exchange</strong>Crypto Trading</div>
+    <div class="sp-badge"><strong>🌿 AG1 Greens</strong>Daily Nutrition</div>
+    <div class="sp-badge"><strong>💪 MyProtein</strong>Sports Nutrition</div>
+    <div class="sp-badge"><strong>🎮 Razer</strong>Gaming Gear</div>
+    <div class="sp-badge"><strong>🪂 Advance Gliders</strong>Paragliding</div>
+    <div class="sp-badge"><strong>🪁 Cabrinha</strong>Kite Surfing</div>
+    <div class="sp-badge"><strong>🪂 Aerodyne</strong>Skydiving</div>
+    <div class="sp-badge cta-badge"><strong>+ Your Brand</strong>contact@novamedia.io</div>
+  </div>
+</div>
+
+<!-- BOOK GRID -->
+<div class="section-head">
+  <h2>Free Library</h2>
+  <p>All guides — read free, share freely, supported by trusted sponsors</p>
+</div>
+
+<div class="book-grid">
+
+  <!-- CRYPTO -->
+  <div class="book-card card-crypto">
+    <div class="book-cover">
+      <svg viewBox="0 0 200 140" width="160" height="110">
+        <circle cx="100" cy="70" r="50" fill="rgba(247,183,49,0.1)" stroke="rgba(247,183,49,0.4)" stroke-width="1.5"/>
+        <text x="100" y="58" text-anchor="middle" font-size="28" font-weight="900" fill="#F7B731" font-family="monospace">₿</text>
+        <polyline points="20,90 45,90 60,65 75,100 90,75 105,95 120,70 145,80 180,80"
+          stroke="#F7B731" stroke-width="2" fill="none" stroke-linecap="round"/>
+      </svg>
+    </div>
+    <div class="book-body">
+      <div class="book-tag" style="color:#F7B731;">Crypto & Finance</div>
+      <div class="book-title">Crypto for Beginners: From €0 to Your First Portfolio</div>
+      <div class="book-desc">The plain-language guide to buying, storing, and growing crypto in 2026. No jargon.</div>
+      <div class="book-meta">7 chapters · 2026 edition · Sponsored by MEXC</div>
+      <a href="crypto-beginners-guide.html" class="book-btn">Read Free →</a>
+    </div>
+  </div>
+
+  <!-- HEALTH -->
+  <div class="book-card card-health">
+    <div class="book-cover">
+      <svg viewBox="0 0 200 140" width="160" height="110">
+        <path d="M100 115 C60 85 50 55 68 44 C80 37 95 46 100 55 C105 46 120 37 132 44 C150 55 140 85 100 115Z"
+          fill="rgba(46,204,113,0.2)" stroke="#2ECC71" stroke-width="1.5"/>
+        <polyline points="20,80 45,80 58,60 72,100 85,70 98,92 110,68 125,82 155,82 170,82"
+          stroke="#2ECC71" stroke-width="2" fill="none" stroke-linecap="round"/>
+      </svg>
+    </div>
+    <div class="book-body">
+      <div class="book-tag" style="color:#2ECC71;">Health & Wellness</div>
+      <div class="book-title">Health Reset 2026: Your Plain-Language Guide to Living Better</div>
+      <div class="book-desc">Evidence-based habits, nutrition secrets, and the 30-day reboot anyone can do.</div>
+      <div class="book-meta">7 chapters · 2026 edition · Sponsored by AG1</div>
+      <a href="health-beginners-guide.html" class="book-btn">Read Free →</a>
+    </div>
+  </div>
+
+  <!-- FITNESS -->
+  <div class="book-card card-fitness">
+    <div class="book-cover">
+      <svg viewBox="0 0 200 140" width="160" height="110">
+        <rect x="30" y="62" width="140" height="16" rx="8" fill="rgba(231,76,60,0.15)" stroke="#E74C3C" stroke-width="1.5"/>
+        <rect x="22" y="50" width="26" height="40" rx="6" fill="rgba(231,76,60,0.25)" stroke="#E74C3C" stroke-width="1.5"/>
+        <rect x="152" y="50" width="26" height="40" rx="6" fill="rgba(231,76,60,0.25)" stroke="#E74C3C" stroke-width="1.5"/>
+        <rect x="14" y="56" width="12" height="28" rx="4" fill="rgba(231,76,60,0.4)" stroke="#E74C3C" stroke-width="1"/>
+        <rect x="174" y="56" width="12" height="28" rx="4" fill="rgba(231,76,60,0.4)" stroke="#E74C3C" stroke-width="1"/>
+      </svg>
+    </div>
+    <div class="book-body">
+      <div class="book-tag" style="color:#E74C3C;">Fitness & Training</div>
+      <div class="book-title">Fitness First: Build Your Best Body in 90 Days</div>
+      <div class="book-desc">The no-BS training and nutrition guide that works for real people with real lives.</div>
+      <div class="book-meta">7 chapters · 2026 edition · Sponsored by MyProtein</div>
+      <a href="fitness-beginners-guide.html" class="book-btn">Read Free →</a>
+    </div>
+  </div>
+
+  <!-- GAMES -->
+  <div class="book-card card-games">
+    <div class="book-cover">
+      <svg viewBox="0 0 200 140" width="160" height="110">
+        <rect x="40" y="40" width="120" height="70" rx="20" fill="rgba(155,89,182,0.15)" stroke="#9B59B6" stroke-width="1.5"/>
+        <rect x="68" y="63" width="8" height="24" rx="3" fill="#9B59B6" opacity="0.6"/>
+        <rect x="60" y="71" width="24" height="8" rx="3" fill="#9B59B6" opacity="0.6"/>
+        <circle cx="128" cy="67" r="5" fill="rgba(155,89,182,0.5)" stroke="#9B59B6" stroke-width="1"/>
+        <circle cx="140" cy="75" r="5" fill="rgba(155,89,182,0.5)" stroke="#9B59B6" stroke-width="1"/>
+        <circle cx="128" cy="83" r="5" fill="rgba(155,89,182,0.5)" stroke="#9B59B6" stroke-width="1"/>
+        <circle cx="116" cy="75" r="5" fill="rgba(155,89,182,0.5)" stroke="#9B59B6" stroke-width="1"/>
+        <rect x="85" y="108" width="30" height="6" rx="3" fill="rgba(155,89,182,0.4)" stroke="#9B59B6" stroke-width="1"/>
+      </svg>
+    </div>
+    <div class="book-body">
+      <div class="book-tag" style="color:#9B59B6;">Gaming & Esports</div>
+      <div class="book-title">Level Up: The Beginner's Complete Gaming Guide 2026</div>
+      <div class="book-desc">From casual player to skilled gamer. Setup, skills, esports, streaming, and career paths.</div>
+      <div class="book-meta">7 chapters · 2026 edition · Sponsored by Razer</div>
+      <a href="games-beginners-guide.html" class="book-btn">Read Free →</a>
+    </div>
+  </div>
+
+  <!-- PARAGLIDING -->
+  <div class="book-card card-paragliding">
+    <div class="book-cover">
+      <svg viewBox="0 0 200 140" width="160" height="110">
+        <!-- Sky gradient via circles -->
+        <circle cx="100" cy="30" r="60" fill="rgba(52,152,219,0.08)"/>
+        <!-- Paraglider canopy -->
+        <path d="M40 70 Q100 20 160 70" stroke="#3498DB" stroke-width="2" fill="rgba(52,152,219,0.15)"/>
+        <!-- Lines -->
+        <line x1="40" y1="70" x2="100" y2="105" stroke="#3498DB" stroke-width="1" opacity="0.6"/>
+        <line x1="160" y1="70" x2="100" y2="105" stroke="#3498DB" stroke-width="1" opacity="0.6"/>
+        <line x1="100" y1="45" x2="100" y2="105" stroke="#3498DB" stroke-width="1" opacity="0.4"/>
+        <!-- Pilot -->
+        <circle cx="100" cy="108" r="6" fill="rgba(52,152,219,0.5)" stroke="#3498DB" stroke-width="1.5"/>
+        <!-- Mountains -->
+        <path d="M0 130 L40 95 L70 115 L100 80 L130 115 L160 90 L200 130 Z"
+          fill="rgba(52,152,219,0.1)" stroke="rgba(52,152,219,0.2)" stroke-width="1"/>
+      </svg>
+    </div>
+    <div class="book-body">
+      <div class="book-tag" style="color:#3498DB;">Paragliding</div>
+      <div class="book-title">Take Flight: The Complete Paragliding Beginner's Guide</div>
+      <div class="book-desc">Training pathways, gear guides, weather reading, and the world's best flying destinations.</div>
+      <div class="book-meta">7 chapters · 2026 edition · Sponsored by Advance Gliders</div>
+      <a href="paragliding-beginners-guide.html" class="book-btn">Read Free →</a>
+    </div>
+  </div>
+
+  <!-- KITE SURFING -->
+  <div class="book-card card-kite">
+    <div class="book-cover">
+      <svg viewBox="0 0 200 140" width="160" height="110">
+        <!-- Ocean waves -->
+        <path d="M0 100 Q50 80 100 100 Q150 120 200 100 L200 140 L0 140 Z" fill="rgba(26,188,156,0.15)"/>
+        <path d="M0 110 Q50 95 100 110 Q150 125 200 110 L200 140 L0 140 Z" fill="rgba(26,188,156,0.1)"/>
+        <!-- Kite diamond -->
+        <path d="M100 15 L125 50 L100 75 L75 50 Z" fill="rgba(26,188,156,0.25)" stroke="#1ABC9C" stroke-width="1.5"/>
+        <line x1="100" y1="15" x2="100" y2="75" stroke="#1ABC9C" stroke-width="1" opacity="0.4"/>
+        <line x1="75" y1="50" x2="125" y2="50" stroke="#1ABC9C" stroke-width="1" opacity="0.4"/>
+        <!-- Lines to surfer -->
+        <line x1="100" y1="75" x2="85" y2="98" stroke="#1ABC9C" stroke-width="1" opacity="0.6"/>
+        <line x1="100" y1="75" x2="115" y2="98" stroke="#1ABC9C" stroke-width="1" opacity="0.6"/>
+        <!-- Surfer -->
+        <circle cx="100" cy="95" r="5" fill="rgba(26,188,156,0.5)" stroke="#1ABC9C" stroke-width="1.5"/>
+        <rect x="85" y="98" width="30" height="5" rx="3" fill="rgba(26,188,156,0.4)" stroke="#1ABC9C" stroke-width="1"/>
+      </svg>
+    </div>
+    <div class="book-body">
+      <div class="book-tag" style="color:#1ABC9C;">Kite Surfing</div>
+      <div class="book-title">Ride the Wind: The Complete Kite Surfing Beginner's Guide</div>
+      <div class="book-desc">Learning curve, equipment, wind reading, and the best spots to ride worldwide.</div>
+      <div class="book-meta">7 chapters · 2026 edition · Sponsored by Cabrinha</div>
+      <a href="kite-surfing-beginners-guide.html" class="book-btn">Read Free →</a>
+    </div>
+  </div>
+
+  <!-- SKYDIVING -->
+  <div class="book-card card-skydiving">
+    <div class="book-cover">
+      <svg viewBox="0 0 200 140" width="160" height="110">
+        <!-- Stars/altitude dots -->
+        <circle cx="30" cy="20" r="1.5" fill="#F39C12" opacity="0.5"/>
+        <circle cx="170" cy="15" r="1" fill="#F39C12" opacity="0.4"/>
+        <circle cx="150" cy="35" r="1.5" fill="#F39C12" opacity="0.3"/>
+        <circle cx="50" cy="40" r="1" fill="#F39C12" opacity="0.3"/>
+        <!-- Parachute canopy -->
+        <path d="M60 60 Q100 20 140 60" stroke="#F39C12" stroke-width="2" fill="rgba(243,156,18,0.15)"/>
+        <!-- Lines -->
+        <line x1="60" y1="60" x2="95" y2="100" stroke="#F39C12" stroke-width="1" opacity="0.6"/>
+        <line x1="140" y1="60" x2="105" y2="100" stroke="#F39C12" stroke-width="1" opacity="0.6"/>
+        <line x1="100" y1="40" x2="100" y2="100" stroke="#F39C12" stroke-width="1" opacity="0.3"/>
+        <!-- Skydiver -->
+        <circle cx="100" cy="103" r="6" fill="rgba(243,156,18,0.4)" stroke="#F39C12" stroke-width="1.5"/>
+        <!-- Altitude meter -->
+        <circle cx="160" cy="75" r="18" fill="rgba(243,156,18,0.08)" stroke="rgba(243,156,18,0.3)" stroke-width="1"/>
+        <text x="160" y="72" text-anchor="middle" font-size="8" fill="#F39C12" font-family="monospace">ALT</text>
+        <text x="160" y="82" text-anchor="middle" font-size="10" font-weight="900" fill="#F39C12" font-family="monospace">4000</text>
+      </svg>
+    </div>
+    <div class="book-body">
+      <div class="book-tag" style="color:#F39C12;">Skydiving</div>
+      <div class="book-title">Freefall: The Complete Skydiving Beginner's Guide</div>
+      <div class="book-desc">Tandem jumps, AFF training, gear explained, and your first year as a licensed skydiver.</div>
+      <div class="book-meta">7 chapters · 2026 edition · Sponsored by Aerodyne</div>
+      <a href="skydiving-beginners-guide.html" class="book-btn">Read Free →</a>
+    </div>
+  </div>
+
+  <!-- DROPSHIPPING -->
+  <div class="book-card card-dropship">
+    <div class="book-cover">
+      <svg viewBox="0 0 200 140" width="160" height="110">
+        <rect x="55" y="50" width="90" height="60" rx="6" fill="rgba(93,173,226,0.1)" stroke="#5DADE2" stroke-width="1.5"/>
+        <path d="M55 65 L100 40 L145 65" stroke="#5DADE2" stroke-width="1.5" fill="rgba(93,173,226,0.15)"/>
+        <rect x="80" y="80" width="40" height="30" rx="3" fill="rgba(93,173,226,0.15)" stroke="#5DADE2" stroke-width="1"/>
+        <line x1="100" y1="80" x2="100" y2="110" stroke="#5DADE2" stroke-width="1" opacity="0.4"/>
+      </svg>
+    </div>
+    <div class="book-body">
+      <div class="book-tag" style="color:#5DADE2;">E-Commerce</div>
+      <div class="book-title">Dropshipping 2026: Build a €10K/Month Store</div>
+      <div class="book-desc">The complete blueprint for launching a profitable dropshipping business in 2026.</div>
+      <div class="book-meta">7 chapters · 2026 edition · Sponsored by Shopify</div>
+      <a href="dropshipping-2026.html" class="book-btn">Read Free →</a>
+    </div>
+  </div>
+
+  <!-- AI TOOLS -->
+  <div class="book-card card-ai">
+    <div class="book-cover">
+      <svg viewBox="0 0 200 140" width="160" height="110">
+        <circle cx="100" cy="70" r="35" fill="rgba(165,105,189,0.1)" stroke="#A569BD" stroke-width="1.5"/>
+        <circle cx="100" cy="70" r="18" fill="rgba(165,105,189,0.2)" stroke="#A569BD" stroke-width="1"/>
+        <circle cx="100" cy="70" r="6" fill="rgba(165,105,189,0.6)"/>
+        <line x1="100" y1="35" x2="100" y2="20" stroke="#A569BD" stroke-width="1.5" opacity="0.6"/>
+        <line x1="100" y1="105" x2="100" y2="120" stroke="#A569BD" stroke-width="1.5" opacity="0.6"/>
+        <line x1="65" y1="70" x2="50" y2="70" stroke="#A569BD" stroke-width="1.5" opacity="0.6"/>
+        <line x1="135" y1="70" x2="150" y2="70" stroke="#A569BD" stroke-width="1.5" opacity="0.6"/>
+      </svg>
+    </div>
+    <div class="book-body">
+      <div class="book-tag" style="color:#A569BD;">AI & Automation</div>
+      <div class="book-title">AI Tools That Run Your Business While You Sleep</div>
+      <div class="book-desc">The free AI stack that replaces a full marketing team. €0 in subscriptions, unlimited output.</div>
+      <div class="book-meta">5 chapters · 2026 edition · Free distribution</div>
+      <a href="ai-tools-business.html" class="book-btn">Read Free →</a>
+    </div>
+  </div>
+
+</div>
+
+<!-- NOVACRYPTO BOOKS SECTION -->
+<div class="section-head">
+  <h2>NovaCrypto Books</h2>
+  <p>Humor, fiction, business guides, and kids' books — something for everyone</p>
+</div>
+
+<div class="book-grid">
+
+  <!-- HUMOR: ADULTING -->
+  <div class="book-card card-humor">
+    <div class="book-cover">
+      <svg viewBox="0 0 200 140" width="160" height="110">
+        <text x="100" y="80" text-anchor="middle" font-size="52" font-family="Georgia,serif">😭</text>
+        <text x="100" y="110" text-anchor="middle" font-size="11" fill="rgba(249,115,22,0.6)" font-family="sans-serif" letter-spacing="2">RECEIPTS</text>
+      </svg>
+    </div>
+    <div class="book-body">
+      <div class="book-tag" style="color:#F97316;">Humor</div>
+      <div class="book-title">Nobody Told Me Adulting Would Involve This Many Receipts</div>
+      <div class="book-desc">The survival guide for people who Googled "how to adult" and got 47 million unhelpful results.</div>
+      <div class="book-meta">6 chapters · Laugh-or-cry edition · NovaCrypto Publishing</div>
+      <a href="/books/humor-adulting.html" class="book-btn">Read Free →</a>
+    </div>
+  </div>
+
+  <!-- HUMOR: INTERNET LIFE -->
+  <div class="book-card card-humor">
+    <div class="book-cover">
+      <svg viewBox="0 0 200 140" width="160" height="110">
+        <text x="100" y="80" text-anchor="middle" font-size="52" font-family="Georgia,serif">🔁</text>
+        <text x="100" y="110" text-anchor="middle" font-size="11" fill="rgba(249,115,22,0.6)" font-family="sans-serif" letter-spacing="2">CHRONICALLY ONLINE</text>
+      </svg>
+    </div>
+    <div class="book-body">
+      <div class="book-tag" style="color:#F97316;">Humor</div>
+      <div class="book-title">I Used to Have a Personality Before the Algorithm Ate It</div>
+      <div class="book-desc">A comedy memoir for anyone who's been on the internet too long — which is everyone.</div>
+      <div class="book-meta">6 chapters · 2026 edition · NovaCrypto Publishing</div>
+      <a href="/books/humor-internet-life.html" class="book-btn">Read Free →</a>
+    </div>
+  </div>
+
+  <!-- HUMOR: CRYPTO HONEST -->
+  <div class="book-card card-humor">
+    <div class="book-cover">
+      <svg viewBox="0 0 200 140" width="160" height="110">
+        <text x="100" y="80" text-anchor="middle" font-size="52" font-family="Georgia,serif">📉</text>
+        <text x="100" y="110" text-anchor="middle" font-size="11" fill="rgba(249,115,22,0.6)" font-family="sans-serif" letter-spacing="2">WHEN MOON?</text>
+      </svg>
+    </div>
+    <div class="book-body">
+      <div class="book-tag" style="color:#F97316;">Humor / Crypto</div>
+      <div class="book-title">HODL On: The Honest Crypto Book They Won't Sell You</div>
+      <div class="book-desc">No lambos, no moon, no financial advice. Just the brutally honest truth about crypto — which is somehow funnier.</div>
+      <div class="book-meta">6 chapters · 2026 edition · NovaCrypto Publishing</div>
+      <a href="/books/humor-crypto-honest.html" class="book-btn">Read Free →</a>
+    </div>
+  </div>
+
+  <!-- GUIDE: AI MONEY -->
+  <div class="book-card card-ai">
+    <div class="book-cover">
+      <svg viewBox="0 0 200 140" width="160" height="110">
+        <text x="100" y="80" text-anchor="middle" font-size="52" font-family="Georgia,serif">🤖</text>
+        <text x="100" y="110" text-anchor="middle" font-size="11" fill="rgba(168,85,247,0.6)" font-family="sans-serif" letter-spacing="2">AI INCOME</text>
+      </svg>
+    </div>
+    <div class="book-body">
+      <div class="book-tag" style="color:#A855F7;">Business Guide</div>
+      <div class="book-title">Make Money While the AI Works: The €0 Business Stack</div>
+      <div class="book-desc">Real workflows using free AI tools to build from side income to €3,000/month — without subscriptions.</div>
+      <div class="book-meta">5 chapters · 2026 edition · NovaCrypto Publishing</div>
+      <a href="/books/guide-ai-money.html" class="book-btn">Read Free →</a>
+    </div>
+  </div>
+
+  <!-- NOVEL: CRYPTO THRILLER -->
+  <div class="book-card card-novel">
+    <div class="book-cover">
+      <svg viewBox="0 0 200 140" width="160" height="110">
+        <text x="100" y="80" text-anchor="middle" font-size="52" font-family="Georgia,serif">🕵️</text>
+        <text x="100" y="110" text-anchor="middle" font-size="11" fill="rgba(124,58,237,0.6)" font-family="sans-serif" letter-spacing="2">THRILLER</text>
+      </svg>
+    </div>
+    <div class="book-body">
+      <div class="book-tag" style="color:#7C3AED;">Fiction / Thriller</div>
+      <div class="book-title">Hash Collision: A Crypto Thriller</div>
+      <div class="book-desc">When a blockchain developer discovers a fatal flaw in the global financial system, someone will kill to keep it secret.</div>
+      <div class="book-meta">5 chapters · Fiction · NovaCrypto Publishing</div>
+      <a href="/books/novel-crypto-thriller.html" class="book-btn">Read Free →</a>
+    </div>
+  </div>
+
+  <!-- VIRAL: TOURNAMENT FORMAT -->
+  <div class="book-card card-viral">
+    <div class="book-cover">
+      <svg viewBox="0 0 200 140" width="160" height="110">
+        <!-- Bracket lines -->
+        <line x1="30" y1="35" x2="60" y2="35" stroke="#F97316" stroke-width="1.5" opacity="0.7"/>
+        <line x1="30" y1="55" x2="60" y2="55" stroke="#F97316" stroke-width="1.5" opacity="0.7"/>
+        <line x1="60" y1="35" x2="60" y2="55" stroke="#F97316" stroke-width="1.5" opacity="0.7"/>
+        <line x1="60" y1="45" x2="90" y2="45" stroke="#F97316" stroke-width="1.5" opacity="0.7"/>
+        <line x1="30" y1="75" x2="60" y2="75" stroke="#F97316" stroke-width="1.5" opacity="0.4"/>
+        <line x1="30" y1="95" x2="60" y2="95" stroke="#F97316" stroke-width="1.5" opacity="0.4"/>
+        <line x1="60" y1="75" x2="60" y2="95" stroke="#F97316" stroke-width="1.5" opacity="0.4"/>
+        <line x1="60" y1="85" x2="90" y2="85" stroke="#F97316" stroke-width="1.5" opacity="0.4"/>
+        <line x1="90" y1="45" x2="90" y2="85" stroke="#F97316" stroke-width="1.5" opacity="0.7"/>
+        <line x1="90" y1="65" x2="130" y2="65" stroke="#F97316" stroke-width="2.5"/>
+        <!-- Right side (mirrored, loser side) -->
+        <line x1="170" y1="35" x2="140" y2="35" stroke="#F97316" stroke-width="1.5" opacity="0.3"/>
+        <line x1="170" y1="55" x2="140" y2="55" stroke="#F97316" stroke-width="1.5" opacity="0.3"/>
+        <line x1="140" y1="35" x2="140" y2="55" stroke="#F97316" stroke-width="1.5" opacity="0.3"/>
+        <line x1="140" y1="45" x2="110" y2="45" stroke="#F97316" stroke-width="1.5" opacity="0.3"/>
+        <line x1="170" y1="75" x2="140" y2="75" stroke="#F97316" stroke-width="1.5" opacity="0.3"/>
+        <line x1="170" y1="95" x2="140" y2="95" stroke="#F97316" stroke-width="1.5" opacity="0.3"/>
+        <line x1="140" y1="75" x2="140" y2="95" stroke="#F97316" stroke-width="1.5" opacity="0.3"/>
+        <line x1="140" y1="85" x2="110" y2="85" stroke="#F97316" stroke-width="1.5" opacity="0.3"/>
+        <line x1="110" y1="45" x2="110" y2="85" stroke="#F97316" stroke-width="1.5" opacity="0.3"/>
+        <line x1="110" y1="65" x2="130" y2="65" stroke="#F97316" stroke-width="1.5" opacity="0.3"/>
+        <!-- Trophy -->
+        <circle cx="130" cy="65" r="14" fill="rgba(249,115,22,0.2)" stroke="#F97316" stroke-width="2"/>
+        <text x="130" y="70" text-anchor="middle" font-size="14">🏆</text>
+        <!-- VS text -->
+        <text x="100" y="118" text-anchor="middle" font-size="11" fill="rgba(249,115,22,0.6)" font-family="sans-serif" letter-spacing="3" font-weight="900">TOURNAMENT</text>
+      </svg>
+    </div>
+    <div class="book-body">
+      <div class="book-tag" style="color:#F97316;">Viral Content</div>
+      <div class="book-title">The Tournament Format: How to Go Viral in 90 Seconds</div>
+      <div class="book-desc">35 ready-to-film ideas across 7 niches, the full AI script generator prompt, and a filming guide for the bracket trend taking over TikTok and Reels.</div>
+      <div class="book-meta">6 chapters · 35 topic ideas · 2026 edition</div>
+      <a href="tournament-format-guide.html" class="book-btn">Read Free →</a>
+    </div>
+  </div>
+
+  <!-- KIDS: CRYPTO -->
+  <div class="book-card card-kids">
+    <div class="book-cover">
+      <svg viewBox="0 0 200 140" width="160" height="110">
+        <text x="100" y="80" text-anchor="middle" font-size="52" font-family="Georgia,serif">🌟</text>
+        <text x="100" y="110" text-anchor="middle" font-size="11" fill="rgba(16,185,129,0.6)" font-family="sans-serif" letter-spacing="2">KIDS EDITION</text>
+      </svg>
+    </div>
+    <div class="book-body">
+      <div class="book-tag" style="color:#10B981;">Kids · Ages 8–12</div>
+      <div class="book-title">Bitcoin for Kids: The Money Revolution Explained Simply</div>
+      <div class="book-desc">What is Bitcoin? What is a blockchain? Fun, simple, and actually accurate — for the next generation of investors.</div>
+      <div class="book-meta">5 chapters · 2026 edition · Free for schools</div>
+      <a href="/books/kids-crypto.html" class="book-btn">Read Free →</a>
+    </div>
+  </div>
+
+</div>
+
+<!-- ADVERTISE SECTION -->
+<div class="advertise" id="advertise">
+  <div class="advertise-box">
+    <h2>Advertise in Our Free eBook Library</h2>
+    <p>Reach 50,000+ monthly readers across 9 high-quality guides covering crypto, health, fitness, gaming, and extreme sports. All audiences are highly engaged and action-oriented.</p>
+    <div class="ad-packages">
+      <div class="ad-pkg">
+        <div class="pkg-name">Starter</div>
+        <div class="pkg-price">€199/mo</div>
+        <div class="pkg-desc">Logo in sponsor banner on 1 guide</div>
+      </div>
+      <div class="ad-pkg">
+        <div class="pkg-name">Growth</div>
+        <div class="pkg-price">€499/mo</div>
+        <div class="pkg-desc">Mid-chapter ad slot + sponsor banner across 3 guides</div>
+      </div>
+      <div class="ad-pkg" style="border-color:var(--gold)">
+        <div class="pkg-name" style="color:var(--gold)">Premium</div>
+        <div class="pkg-price">€999/mo</div>
+        <div class="pkg-desc">Full library placement + newsletter feature + CTA buttons</div>
+      </div>
+      <div class="ad-pkg">
+        <div class="pkg-name">Custom</div>
+        <div class="pkg-price">Let's talk</div>
+        <div class="pkg-desc">Dedicated guide sponsorship, branded chapter, exclusive niche</div>
+      </div>
+    </div>
+    <p style="color:var(--sub);font-size:14px;margin-bottom:8px;">To advertise, contact us:</p>
+    <div class="ad-email">contact@novamedia.io</div>
+  </div>
+</div>
+
+<!-- NEWSLETTER -->
+<div class="newsletter">
+  <h2>Get New Guides Delivered Free</h2>
+  <p>New eBook every month. Exclusive reader offers from our sponsors. Zero spam.</p>
+  <div class="nl-form">
+    <input type="email" placeholder="your@email.com">
+    <button>Subscribe Free</button>
+  </div>
+</div>
+
+<footer>
+  <h3>NOVA MEDIA</h3>
+  <div class="footer-links">
+    <a href="#">Home</a>
+    <a href="#">All Guides</a>
+    <a href="#advertise">Advertise</a>
+    <a href="#">Privacy Policy</a>
+    <a href="#">Affiliate Disclosure</a>
+    <a href="mailto:contact@novamedia.io">Contact</a>
+  </div>
+  <p>© 2026 NovaMedia. All guides are free to read and share. This site contains affiliate links and sponsored content. We only partner with brands we trust. Not financial, medical, or professional advice.</p>
+</footer>
+
+</body>
+</html>

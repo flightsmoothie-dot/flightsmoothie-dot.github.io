@@ -1,0 +1,698 @@
+<!DOCTYPE html>
+<html lang="en">
+<head>
+<meta charset="UTF-8">
+<meta name="viewport" content="width=device-width, initial-scale=1.0">
+<title>The Brutally Honest Guide to Crypto — NovaCrypto</title>
+<style>
+@import url('https://fonts.googleapis.com/css2?family=Inter:wght@300;400;500;600;700;900&family=Playfair+Display:wght@700;900&display=swap');
+
+:root {
+  --accent: #F7B731;
+  --bg: #080A00;
+  --text: #E8E8F0;
+  --muted: rgba(232,232,240,0.6);
+  --surface: rgba(255,255,255,0.04);
+  --border: rgba(255,255,255,0.08);
+}
+
+* { margin:0; padding:0; box-sizing:border-box; }
+
+body {
+  font-family: 'Inter', sans-serif;
+  background: var(--bg);
+  color: var(--text);
+  line-height: 1.75;
+  font-size: 16px;
+}
+
+/* Cover Page */
+.cover {
+  width: 100%;
+  min-height: 100vh;
+  display: flex;
+  flex-direction: column;
+  align-items: center;
+  justify-content: center;
+  text-align: center;
+  padding: 80px 40px;
+  background: radial-gradient(ellipse at 30% 20%, #F7B73122, transparent 60%),
+              radial-gradient(ellipse at 80% 80%, #F7B73110, transparent 55%),
+              var(--bg);
+  border-bottom: 1px solid var(--border);
+  page-break-after: always;
+  position: relative;
+  overflow: hidden;
+}
+.cover::before {
+  content: '';
+  position: absolute;
+  inset: 0;
+  background-image: linear-gradient(#F7B73106 1px, transparent 1px),
+                    linear-gradient(90deg, #F7B73106 1px, transparent 1px);
+  background-size: 40px 40px;
+}
+.cover-tag {
+  font-size: 11px;
+  letter-spacing: 4px;
+  font-weight: 700;
+  color: var(--accent);
+  text-transform: uppercase;
+  margin-bottom: 24px;
+  opacity: 0.8;
+}
+.cover-title {
+  font-family: 'Playfair Display', serif;
+  font-size: clamp(42px, 6vw, 72px);
+  font-weight: 900;
+  line-height: 1.1;
+  color: #FFFFFF;
+  margin-bottom: 24px;
+  text-shadow: 0 4px 40px #F7B73133;
+}
+.cover-divider {
+  width: 60px;
+  height: 3px;
+  background: linear-gradient(90deg, var(--accent), transparent);
+  margin: 0 auto 24px;
+  border-radius: 2px;
+}
+.cover-subtitle {
+  font-size: 18px;
+  color: var(--muted);
+  max-width: 600px;
+  line-height: 1.6;
+  margin-bottom: 48px;
+}
+.cover-author {
+  font-size: 13px;
+  letter-spacing: 4px;
+  text-transform: uppercase;
+  color: var(--accent);
+  opacity: 0.7;
+}
+
+/* Table of Contents */
+.toc {
+  max-width: 760px;
+  margin: 0 auto;
+  padding: 80px 40px;
+  page-break-after: always;
+}
+.toc h2 {
+  font-family: 'Playfair Display', serif;
+  font-size: 32px;
+  color: var(--accent);
+  margin-bottom: 40px;
+}
+.toc ol {
+  list-style: none;
+  counter-reset: toc-counter;
+}
+.toc li {
+  counter-increment: toc-counter;
+  display: flex;
+  align-items: baseline;
+  gap: 16px;
+  padding: 14px 0;
+  border-bottom: 1px solid var(--border);
+}
+.toc li::before {
+  content: counter(toc-counter, decimal-leading-zero);
+  font-size: 12px;
+  font-weight: 700;
+  color: var(--accent);
+  opacity: 0.6;
+  min-width: 24px;
+}
+.toc a {
+  color: var(--text);
+  text-decoration: none;
+  font-size: 15px;
+  font-weight: 500;
+  transition: color 0.2s;
+}
+.toc a:hover { color: var(--accent); }
+
+/* Chapters */
+.chapter {
+  max-width: 760px;
+  margin: 0 auto;
+  padding: 80px 40px;
+  page-break-before: always;
+}
+.chapter-header {
+  margin-bottom: 48px;
+}
+.chapter-num {
+  font-size: 11px;
+  letter-spacing: 4px;
+  font-weight: 700;
+  color: var(--accent);
+  text-transform: uppercase;
+  margin-bottom: 16px;
+  opacity: 0.7;
+}
+.chapter-title {
+  font-family: 'Playfair Display', serif;
+  font-size: clamp(28px, 4vw, 44px);
+  font-weight: 900;
+  color: #FFFFFF;
+  line-height: 1.2;
+  margin-bottom: 20px;
+}
+.chapter-accent-line {
+  width: 40px;
+  height: 3px;
+  background: linear-gradient(90deg, var(--accent), transparent);
+  border-radius: 2px;
+}
+.chapter-body p {
+  margin-bottom: 20px;
+  color: var(--text);
+  font-size: 16px;
+}
+.chapter-body h3 {
+  font-size: 22px;
+  font-weight: 700;
+  color: #FFFFFF;
+  margin: 40px 0 16px;
+}
+.chapter-body h4 {
+  font-size: 16px;
+  font-weight: 700;
+  color: var(--accent);
+  text-transform: uppercase;
+  letter-spacing: 2px;
+  margin: 32px 0 12px;
+}
+.chapter-body ul, .chapter-body ol {
+  padding-left: 24px;
+  margin-bottom: 20px;
+}
+.chapter-body li {
+  margin-bottom: 8px;
+  color: var(--text);
+}
+.chapter-body strong { color: #FFFFFF; }
+.chapter-body em { color: var(--accent); font-style: italic; }
+
+/* Callouts */
+.callout {
+  border-radius: 12px;
+  padding: 24px;
+  margin: 32px 0;
+  display: flex;
+  gap: 20px;
+  align-items: flex-start;
+}
+.callout.gold { background: #F7B73115; border: 1px solid #F7B73130; }
+.callout.blue { background: rgba(56,189,248,0.08); border: 1px solid rgba(56,189,248,0.2); }
+.callout.red { background: rgba(239,68,68,0.08); border: 1px solid rgba(239,68,68,0.2); }
+.callout-icon { font-size: 24px; flex-shrink: 0; margin-top: 2px; }
+.callout-text { font-size: 15px; line-height: 1.6; }
+.callout.gold .callout-text { color: #FDE68A; }
+.callout.blue .callout-text { color: #BAE6FD; }
+.callout.red .callout-text { color: #FCA5A5; }
+
+/* Stats */
+.stat-box {
+  text-align: center;
+  padding: 32px;
+  background: var(--surface);
+  border: 1px solid var(--border);
+  border-radius: 16px;
+  margin: 32px 0;
+}
+.stat {
+  font-size: 56px;
+  font-weight: 900;
+  color: var(--accent);
+  font-family: 'Playfair Display', serif;
+}
+.stat-label {
+  color: var(--muted);
+  font-size: 14px;
+  margin-top: 8px;
+}
+
+/* Tool grid */
+.tool-grid {
+  display: grid;
+  grid-template-columns: repeat(auto-fill, minmax(220px, 1fr));
+  gap: 16px;
+  margin: 24px 0;
+}
+.tool-card {
+  background: var(--surface);
+  border: 1px solid var(--border);
+  border-radius: 12px;
+  padding: 20px;
+}
+.tool-name { font-weight: 700; color: #FFFFFF; margin-bottom: 8px; }
+.tool-desc { font-size: 13px; color: var(--muted); line-height: 1.5; margin-bottom: 12px; }
+.tool-price { font-size: 12px; font-weight: 600; color: var(--accent); }
+
+/* Product CTA */
+.product-cta {
+  background: linear-gradient(135deg, #F7B73120, #F7B73105);
+  border: 1px solid #F7B73140;
+  border-radius: 12px;
+  padding: 24px;
+  margin: 32px 0;
+}
+.product-cta p { margin-bottom: 16px; color: var(--text); }
+.affiliate-link {
+  display: inline-block;
+  color: var(--accent);
+  font-weight: 600;
+  text-decoration: none;
+  font-size: 14px;
+  padding: 8px 0;
+  border-bottom: 1px solid #F7B73140;
+}
+.affiliate-link:hover { border-bottom-color: var(--accent); }
+
+/* CTA Buttons */
+.cta-btn {
+  display: inline-block;
+  background: var(--accent);
+  color: #000;
+  font-weight: 700;
+  font-size: 15px;
+  padding: 14px 28px;
+  border-radius: 8px;
+  text-decoration: none;
+  transition: opacity 0.2s;
+}
+.cta-btn:hover { opacity: 0.85; }
+.cta-btn.large { font-size: 17px; padding: 18px 36px; }
+.cta-btn.secondary {
+  background: transparent;
+  border: 1px solid var(--accent);
+  color: var(--accent);
+  margin-left: 12px;
+}
+
+/* Week plan */
+.week-plan { margin: 20px 0; }
+.day {
+  background: var(--surface);
+  border-left: 3px solid var(--accent);
+  padding: 16px 20px;
+  margin-bottom: 12px;
+  border-radius: 0 8px 8px 0;
+  font-size: 15px;
+}
+.day-num {
+  display: block;
+  font-size: 11px;
+  font-weight: 700;
+  letter-spacing: 2px;
+  color: var(--accent);
+  text-transform: uppercase;
+  margin-bottom: 6px;
+}
+
+/* Framework */
+.framework {
+  background: var(--surface);
+  border: 1px solid var(--border);
+  border-radius: 12px;
+  padding: 24px;
+  margin: 24px 0;
+}
+.framework-title {
+  font-weight: 700;
+  color: var(--accent);
+  margin-bottom: 16px;
+  font-size: 14px;
+  text-transform: uppercase;
+  letter-spacing: 2px;
+}
+.framework-item {
+  padding: 12px 0;
+  border-bottom: 1px solid var(--border);
+  font-size: 15px;
+}
+.framework-item:last-child { border-bottom: none; }
+.q-num {
+  font-weight: 900;
+  color: var(--accent);
+  margin-right: 8px;
+}
+
+/* Red flags */
+.red-flags { list-style: none; padding: 0; }
+.red-flags li {
+  padding: 10px 0;
+  border-bottom: 1px solid var(--border);
+  font-size: 15px;
+}
+
+/* Checklist */
+.checklist { margin: 20px 0; }
+.check-item {
+  padding: 12px 0;
+  border-bottom: 1px solid var(--border);
+  font-size: 15px;
+}
+
+/* Chapter summary */
+.chapter-summary {
+  background: #F7B73110;
+  border: 1px solid #F7B73125;
+  border-radius: 12px;
+  padding: 24px;
+  margin: 40px 0 0;
+}
+.chapter-summary h4 {
+  color: var(--accent);
+  font-size: 13px;
+  letter-spacing: 2px;
+  text-transform: uppercase;
+  margin-bottom: 16px;
+  margin-top: 0;
+}
+.chapter-summary ul { padding-left: 20px; }
+.chapter-summary li { font-size: 14px; color: var(--muted); margin-bottom: 6px; }
+
+/* Final CTA */
+.final-cta {
+  text-align: center;
+  padding: 48px 32px;
+  background: var(--surface);
+  border: 1px solid var(--border);
+  border-radius: 16px;
+  margin-top: 64px;
+}
+.final-cta h3 {
+  font-family: 'Playfair Display', serif;
+  font-size: 28px;
+  color: #FFFFFF;
+  margin-bottom: 16px;
+}
+.final-cta p { color: var(--muted); margin-bottom: 24px; }
+
+/* Print styles */
+@media print {
+  .cover { min-height: 100vh; page-break-after: always; }
+  .chapter { page-break-before: always; }
+  .toc { page-break-after: always; }
+  a { color: var(--accent) !important; }
+}
+
+/* Responsive */
+@media (max-width: 600px) {
+  .chapter, .toc { padding: 40px 20px; }
+  .tool-grid { grid-template-columns: 1fr; }
+  .cta-btn.secondary { margin-left: 0; margin-top: 12px; display: block; text-align: center; }
+}
+
+/* ── CHAPTER ILLUSTRATIONS ── */
+.ch-illustration{width:100%;height:260px;overflow:hidden;position:relative;border-radius:14px;margin:0 0 36px;}
+.ch-illustration img{width:100%;height:100%;object-fit:cover;filter:brightness(.82) saturate(1.12);display:block;}
+.ch-illustration::after{content:'';position:absolute;bottom:0;left:0;right:0;height:90px;background:linear-gradient(transparent,var(--dark,#080808));}
+.cover-hero-img{width:100%;max-width:700px;height:320px;overflow:hidden;border-radius:18px;margin:0 auto 44px;position:relative;}
+.cover-hero-img img{width:100%;height:100%;object-fit:cover;filter:brightness(.8) saturate(1.2);}
+.cover-hero-img::after{content:'';position:absolute;inset:0;background:linear-gradient(to bottom,transparent 35%,rgba(0,0,0,.65) 100%);}
+</style>
+</head>
+<body>
+
+<!-- Cover -->
+<div class="cover">
+  <div class="cover-tag">NovaCrypto · 2026</div>
+  <div class="cover-hero-img">
+    <img src="https://image.pollinations.ai/prompt/bitcoin%20roller%20coaster%20crash%20and%20rise%20honest%20truth%20dark%20cinematic?width=900&height=400&nologo=true&seed=410" alt="Cover">
+  </div>
+  <h1 class="cover-title">The Brutally Honest Guide to Crypto</h1>
+  <div class="cover-divider"></div>
+  <p class="cover-subtitle">No Hype. No Shilling. Just What Actually Works in 2026.</p>
+  <div class="cover-author">NovaCrypto</div>
+</div>
+
+<!-- Table of Contents -->
+<div class="toc">
+  <h2>Table of Contents</h2>
+  <ol>
+    <li><a href="#ch1">Chapter 1: The Truth They Don't Want You to Know</a></li>
+<li><a href="#ch2">Chapter 2: Bitcoin: The Only One You Need to Understand First</a></li>
+<li><a href="#ch3">Chapter 3: Altcoins: The Opportunity and the Graveyard</a></li>
+<li><a href="#ch4">Chapter 4: DeFi: What Works, What Doesn't, What to Avoid</a></li>
+<li><a href="#ch5">Chapter 5: Tax, Security & The Practical Stuff Nobody Tells You</a></li>
+
+  </ol>
+</div>
+
+<!-- Chapters -->
+
+<section class="chapter" id="ch1">
+  <div class="chapter-header">
+    <div class="chapter-num">Chapter 1</div>
+    <h2 class="chapter-title">The Truth They Don't Want You to Know</h2>
+    <div class="chapter-accent-line"></div>
+  </div>
+  <div class="ch-illustration">
+    <img src="https://image.pollinations.ai/prompt/crypto%20truth%20honesty%20bitcoin%20dark%20reality%20cinematic?width=900&height=360&nologo=true&seed=411" alt="Chapter">
+  </div>
+  <div class="chapter-body">
+    
+<p>Most crypto content is written by people who own the crypto they're writing about. That's not analysis. That's marketing.</p>
+
+<p>This guide is different. I'm going to tell you what most crypto "educators" won't: <strong>90% of crypto projects will go to zero</strong>. Most NFTs were worthless. Most DeFi protocols are Ponzis. The influencers promoting coins are paid to do it.</p>
+
+<p>And yet — the 10% that survive are creating generational wealth for people who got in early and understood what they were buying.</p>
+
+<div class="callout gold">
+<div class="callout-icon">⚖️</div>
+<div class="callout-text"><strong>The Real Truth:</strong> Crypto is a genuinely transformative technology AND a historically predatory market. Both things are true. Success requires understanding both.</div>
+</div>
+
+<h3>Who This Guide Is For</h3>
+<p>This is not for people who want to hear that Bitcoin will hit €1 million and they'll be rich by Thursday. This is for people who want to understand what's actually happening, protect their downside, and capture real upside over time.</p>
+
+<p>If you want hype, close this guide. Thousands of YouTube channels will give you hype for free.</p>
+
+<h3>What I'll Cover</h3>
+<ul>
+<li>How to actually evaluate a crypto project (not price targets — fundamentals)</li>
+<li>The exchanges worth using and the ones to avoid</li>
+<li>Tax implications most people ignore until it's too late</li>
+<li>Position sizing that lets you stay in the game long-term</li>
+<li>The red flags that precede every major rug pull</li>
+</ul>
+
+  </div>
+</section>
+
+<section class="chapter" id="ch2">
+  <div class="chapter-header">
+    <div class="chapter-num">Chapter 2</div>
+    <h2 class="chapter-title">Bitcoin: The Only One You Need to Understand First</h2>
+    <div class="chapter-accent-line"></div>
+  </div>
+  <div class="ch-illustration">
+    <img src="https://image.pollinations.ai/prompt/bitcoin%20digital%20gold%20coin%20blockchain%20dark%20cinematic?width=900&height=360&nologo=true&seed=412" alt="Chapter">
+  </div>
+  <div class="chapter-body">
+    
+<p>Before you look at any other cryptocurrency, you need to genuinely understand Bitcoin. Not the price. The protocol.</p>
+
+<h3>What Bitcoin Actually Is</h3>
+<p>Bitcoin is a decentralized ledger maintained by approximately 15,000 nodes worldwide. No single entity controls it. No government can shut it down without shutting down the internet. Transactions are irreversible. Supply is capped at 21 million coins by code — not by policy.</p>
+
+<p>That last point matters more than anything else in crypto. Unlike every fiat currency in history, Bitcoin cannot be inflated. The supply schedule is known decades in advance.</p>
+
+<div class="stat-box">
+<div class="stat">21M</div>
+<div class="stat-label">Maximum Bitcoin supply — ever. Currently 19.7M mined.</div>
+</div>
+
+<h3>The Halving Cycle</h3>
+<p>Every ~4 years, the reward for mining new Bitcoin is cut in half. This is called the halving. Every halving has historically been followed by a bull market within 12–18 months. The last halving was April 2024. We're currently in a post-halving cycle.</p>
+
+<p>This doesn't guarantee price increases. But it does reduce new supply at a time when demand from institutional investors continues to grow.</p>
+
+<h3>How to Buy Bitcoin Safely</h3>
+<p>The safest exchanges have:</p>
+<ul>
+<li>Proof of reserves (they actually hold the assets they claim)</li>
+<li>Regulated in major jurisdictions</li>
+<li>Strong security track record (no major hacks)</li>
+<li>Reasonable fees</li>
+</ul>
+
+<p>For trading altcoins alongside Bitcoin:</p>
+<a href="https://www.mexc.com/register?inviteCode=novacrypto" class="affiliate-link">→ MEXC — Widest selection, strong security record, low fees</a>
+
+<h3>Cold Storage: Non-Negotiable for Serious Holdings</h3>
+<p>If you own more than €1,000 in crypto: get a hardware wallet. Ledger and Trezor are the two most trusted brands. The phrase "not your keys, not your coins" has been proven true by FTX, Celsius, BlockFi, and dozens of other exchange collapses.</p>
+
+<div class="callout red">
+<div class="callout-icon">⚠️</div>
+<div class="callout-text"><strong>Critical Rule:</strong> Never store significant crypto on an exchange. Buy there. Move to cold storage. This one rule would have saved billions in user funds over the past five years.</div>
+</div>
+
+  </div>
+</section>
+
+<section class="chapter" id="ch3">
+  <div class="chapter-header">
+    <div class="chapter-num">Chapter 3</div>
+    <h2 class="chapter-title">Altcoins: The Opportunity and the Graveyard</h2>
+    <div class="chapter-accent-line"></div>
+  </div>
+  <div class="ch-illustration">
+    <img src="https://image.pollinations.ai/prompt/altcoins%20cryptocurrency%20graveyard%20risk%20opportunity%20dark%20cinematic?width=900&height=360&nologo=true&seed=413" alt="Chapter">
+  </div>
+  <div class="chapter-body">
+    
+<p>Bitcoin is the store of value. Ethereum is the programmable money layer. Everything else is a bet — some informed, most not.</p>
+
+<h3>Ethereum: The Other Solid Foundation</h3>
+<p>Ethereum is the infrastructure layer for decentralized finance, NFTs, and smart contracts. It's not perfect (gas fees can be high during congestion), but it has the strongest developer ecosystem by far.</p>
+
+<p>Owning ETH is effectively owning a stake in the infrastructure of the decentralized internet. That's the bull case. The bear case is that a technically superior competitor could displace it — so far this hasn't happened despite years of "Ethereum killers."</p>
+
+<h3>How to Evaluate Any Altcoin</h3>
+
+<div class="framework">
+<div class="framework-title">The 5-Question Framework</div>
+<div class="framework-item"><span class="q-num">1.</span> <strong>What problem does it solve?</strong> If you can't answer this in one sentence, that's a red flag.</div>
+<div class="framework-item"><span class="q-num">2.</span> <strong>Who is solving it?</strong> Anonymous teams with no track record are higher risk. Doxxed founders who've built and shipped products are lower risk.</div>
+<div class="framework-item"><span class="q-num">3.</span> <strong>Who uses it today?</strong> Real users, not just speculators? Check actual on-chain activity, not just price and volume.</div>
+<div class="framework-item"><span class="q-num">4.</span> <strong>What's the token unlock schedule?</strong> Many projects dump massively when team/VC tokens unlock. Check tokenomics thoroughly.</div>
+<div class="framework-item"><span class="q-num">5.</span> <strong>What's the worst case scenario?</strong> Can you emotionally and financially handle going to zero? If no, don't invest.</div>
+</div>
+
+<h3>The Red Flags Checklist</h3>
+<ul class="red-flags">
+<li>🚩 Guaranteed returns promised anywhere in the marketing</li>
+<li>🚩 Team is anonymous with no verifiable track record</li>
+<li>🚩 Influencers are paid to promote (check disclosures)</li>
+<li>🚩 No working product, only a whitepaper</li>
+<li>🚩 Token supply heavily concentrated with founders</li>
+<li>🚩 "Endorsed by" claims with no verification</li>
+<li>🚩 Telegram/Discord full of bots and pump language</li>
+<li>🚩 Contract has mint function or blacklist function</li>
+</ul>
+
+<h3>Position Sizing: The Rule That Keeps You Alive</h3>
+<p>The biggest mistake in crypto is over-allocation. The rule:</p>
+<ul>
+<li>Bitcoin/ETH: max 50–70% of your crypto portfolio</li>
+<li>Large-cap altcoins (top 20): max 20–30%</li>
+<li>Small/mid cap: max 10–20%</li>
+<li>Degens/new launches: max 5% total, max 1% per position</li>
+</ul>
+
+<p>This keeps a catastrophic loss in any one position from destroying your portfolio.</p>
+
+  </div>
+</section>
+
+<section class="chapter" id="ch4">
+  <div class="chapter-header">
+    <div class="chapter-num">Chapter 4</div>
+    <h2 class="chapter-title">DeFi: What Works, What Doesn't, What to Avoid</h2>
+    <div class="chapter-accent-line"></div>
+  </div>
+  <div class="ch-illustration">
+    <img src="https://image.pollinations.ai/prompt/DeFi%20decentralized%20finance%20blockchain%20network%20dark%20neon%20cinematic?width=900&height=360&nologo=true&seed=414" alt="Chapter">
+  </div>
+  <div class="chapter-body">
+    
+<p>Decentralized Finance promised to replace banks. Some of it has succeeded. A lot of it has blown up spectacularly.</p>
+
+<h3>What Actually Works</h3>
+
+<p><strong>Decentralized Exchanges (DEXs):</strong> Uniswap, Curve, and dYdX genuinely work. You can swap tokens without a centralized party. Lower trust required.</p>
+
+<p><strong>Lending protocols:</strong> Aave and Compound have operated without major incident for years. Borrow against your crypto, or earn interest on deposits. Actual utility.</p>
+
+<p><strong>Liquid staking:</strong> Lido lets you stake ETH without running a node. Real product, real utility, generates real yield from Ethereum's proof-of-stake.</p>
+
+<h3>What's Mostly Hype</h3>
+
+<p><strong>Yield farming with double-digit APYs:</strong> If a protocol is offering 200% APY, ask where that yield comes from. Usually it's from selling the protocol's own token — which means someone is taking a loss.</p>
+
+<p><strong>Algorithmic stablecoins:</strong> After the Terra/LUNA collapse erased €40 billion in value in 72 hours, this category should be treated with extreme caution.</p>
+
+<div class="callout red">
+<div class="callout-icon">💀</div>
+<div class="callout-text"><strong>The Brutal Truth About DeFi Yield:</strong> Sustainable yields in DeFi range from 3–8%. Anything above 15% involves either extreme risk, selling tokens, or a Ponzi structure. Usually all three.</div>
+</div>
+
+<h3>Smart Contract Risk: The Hidden Danger</h3>
+<p>Every DeFi protocol is a set of smart contracts. Smart contracts have bugs. Bugs get exploited. In 2023–2024, over $2 billion was stolen through DeFi exploits.</p>
+
+<p>Before using any DeFi protocol, check:</p>
+<ul>
+<li>Has it been audited by reputable firms (Certik, Trail of Bits, OpenZeppelin)?</li>
+<li>How long has it been running without incident?</li>
+<li>Does it have a bug bounty program?</li>
+<li>Is there insurance available (Nexus Mutual, InsurAce)?</li>
+</ul>
+
+  </div>
+</section>
+
+<section class="chapter" id="ch5">
+  <div class="chapter-header">
+    <div class="chapter-num">Chapter 5</div>
+    <h2 class="chapter-title">Tax, Security & The Practical Stuff Nobody Tells You</h2>
+    <div class="chapter-accent-line"></div>
+  </div>
+  <div class="ch-illustration">
+    <img src="https://image.pollinations.ai/prompt/crypto%20security%20tax%20vault%20protection%20dark%20cinematic?width=900&height=360&nologo=true&seed=415" alt="Chapter">
+  </div>
+  <div class="chapter-body">
+    
+<p>The exciting stuff gets all the attention. The boring stuff determines whether you actually keep your profits.</p>
+
+<h3>Crypto Tax: The Reality</h3>
+<p>In most countries, every crypto transaction is a taxable event. This includes:</p>
+<ul>
+<li>Selling crypto for fiat</li>
+<li>Trading one crypto for another</li>
+<li>Using crypto to buy goods/services</li>
+<li>Receiving crypto as income or staking rewards</li>
+</ul>
+
+<p>This means if you made 50 trades in a year, you have 50 taxable events to report. Most people discover this when they get a letter from the tax authority.</p>
+
+<div class="callout blue">
+<div class="callout-icon">📊</div>
+<div class="callout-text"><strong>Solution:</strong> Use a crypto tax tool from day one. Koinly, CoinTracker, and Accointing connect to your exchange accounts and generate automatic tax reports. €50/year is much cheaper than a €5,000 tax penalty.</div>
+</div>
+
+<h3>Security: The Non-Negotiables</h3>
+<div class="checklist">
+<div class="check-item">✅ Hardware wallet for any amount over €1,000</div>
+<div class="check-item">✅ Unique email address for crypto accounts (not your main email)</div>
+<div class="check-item">✅ 2FA via authenticator app (NOT SMS — SIM swaps are common)</div>
+<div class="check-item">✅ Seed phrase written on paper, stored in physical location (NOT digital)</div>
+<div class="check-item">✅ Different passwords for every exchange (use a password manager)</div>
+<div class="check-item">✅ Never click crypto links from Twitter/Discord/Telegram DMs</div>
+<div class="check-item">✅ Verify smart contract addresses on official sites, not search results</div>
+</div>
+
+<h3>Dollar-Cost Averaging: The Strategy That Beats Most Traders</h3>
+<p>Buying a fixed amount of Bitcoin every week or month, regardless of price. Research consistently shows this outperforms most active trading strategies over 3+ year periods.</p>
+
+<p>It's boring. It works. Most people don't do it because it's not exciting enough.</p>
+
+<div class="final-cta">
+<h3>Ready to Start Right</h3>
+<p>Open an account on a reliable exchange with proper security:</p>
+<a href="https://www.mexc.com/register?inviteCode=novacrypto" class="cta-btn large">Start on MEXC →</a>
+<p style="margin-top:1rem;font-size:0.9rem;opacity:0.7">Remember: Start small. Learn the platform. Understand what you're buying before buying it.</p>
+</div>
+
+  </div>
+</section>
+
+
+</body>
+</html>

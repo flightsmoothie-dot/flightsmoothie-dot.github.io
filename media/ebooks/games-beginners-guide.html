@@ -1,0 +1,703 @@
+<!DOCTYPE html>
+<html lang="en">
+<head>
+<meta charset="UTF-8">
+<meta name="viewport" content="width=device-width,initial-scale=1">
+<title>Gaming for Beginners: Your Complete 2026 Guide</title>
+<style>
+:root{--accent:#9B59B6;--dark:#0a0a12;--text:#e8e8e8;--sub:#888;--card:#12121e;--glow:rgba(155,89,182,0.35);}
+*{box-sizing:border-box;margin:0;padding:0;}
+body{background:var(--dark);color:var(--text);font-family:Georgia,serif;line-height:1.7;}
+
+/* ── COVER ── */
+.cover{min-height:100vh;background:linear-gradient(145deg,#050510 0%,#0d0920 40%,#110820 100%);
+  display:flex;flex-direction:column;justify-content:center;align-items:center;
+  text-align:center;padding:60px 40px;border-bottom:4px solid var(--accent);
+  position:relative;overflow:hidden;}
+.cover::before{content:'';position:absolute;inset:0;
+  background:radial-gradient(ellipse at 50% 60%,rgba(155,89,182,0.18) 0%,transparent 70%);}
+.cover-badge{font-size:11px;letter-spacing:5px;color:var(--accent);text-transform:uppercase;
+  margin-bottom:24px;font-family:sans-serif;z-index:1;}
+.cover h1{font-size:clamp(28px,5vw,56px);font-weight:900;color:#fff;line-height:1.1;
+  margin-bottom:20px;max-width:760px;z-index:1;
+  text-shadow:0 0 40px rgba(155,89,182,0.5);}
+.cover h1 span{color:var(--accent);}
+.cover .subtitle{font-size:18px;color:var(--sub);max-width:540px;margin-bottom:40px;z-index:1;}
+.cover .meta{font-size:12px;color:var(--sub);font-family:sans-serif;z-index:1;}
+.cover-hero{z-index:1;margin-bottom:36px;filter:drop-shadow(0 0 24px rgba(155,89,182,0.6));}
+
+/* ── SPONSOR BANNER ── */
+.sponsor-banner{background:#0e0e1c;border-top:1px solid rgba(155,89,182,0.2);
+  border-bottom:1px solid rgba(155,89,182,0.2);padding:20px 40px;}
+.sponsor-banner .label{font-size:10px;letter-spacing:4px;color:var(--sub);
+  text-transform:uppercase;font-family:sans-serif;text-align:center;margin-bottom:16px;}
+.sponsor-grid{display:flex;justify-content:center;align-items:center;
+  gap:32px;flex-wrap:wrap;}
+.sponsor-slot{background:var(--card);border:1px solid rgba(255,255,255,0.07);
+  border-radius:8px;padding:12px 24px;font-family:sans-serif;font-size:13px;
+  color:#ccc;text-align:center;min-width:160px;}
+.sponsor-slot strong{color:#fff;display:block;font-size:14px;margin-bottom:2px;}
+.sponsor-slot.advertise{border:1px dashed rgba(155,89,182,0.4);color:var(--sub);}
+.sponsor-slot.advertise strong{color:var(--accent);}
+
+/* ── TOC ── */
+.toc{max-width:720px;margin:0 auto;padding:60px 40px;}
+.toc h2{font-size:11px;letter-spacing:5px;color:var(--accent);text-transform:uppercase;
+  font-family:sans-serif;margin-bottom:32px;}
+.toc ol{list-style:none;counter-reset:toc;}
+.toc li{counter-increment:toc;padding:14px 0;border-bottom:1px solid rgba(255,255,255,0.05);
+  font-size:15px;display:flex;align-items:center;gap:16px;}
+.toc li::before{content:counter(toc,"0");font-size:30px;font-weight:900;color:var(--accent);
+  opacity:0.35;font-family:monospace;min-width:36px;}
+.toc a{color:var(--text);text-decoration:none;}
+.toc a:hover{color:var(--accent);}
+
+/* ── CHAPTERS ── */
+chapter{display:block;max-width:720px;margin:0 auto;padding:64px 40px;
+  border-bottom:1px solid rgba(255,255,255,0.05);}
+.ch-number{font-size:10px;letter-spacing:5px;color:var(--accent);text-transform:uppercase;
+  font-family:sans-serif;margin-bottom:12px;}
+.ch-title{font-size:clamp(22px,3vw,34px);font-weight:900;color:#fff;margin-bottom:32px;
+  line-height:1.2;}
+.ch-content p{font-size:16px;margin-bottom:18px;}
+.ch-content strong{color:var(--accent);}
+.ch-content h3{font-size:18px;color:#fff;margin:28px 0 12px;font-family:sans-serif;font-weight:700;}
+
+/* Tip box */
+.tip-box{background:linear-gradient(135deg,#130d1f,#180f24);
+  border-left:4px solid var(--accent);border-radius:0 8px 8px 0;
+  padding:20px 24px;margin:28px 0;}
+.tip-box .tip-label{font-size:10px;letter-spacing:4px;color:var(--accent);
+  text-transform:uppercase;font-family:sans-serif;margin-bottom:8px;}
+.tip-box p{font-size:15px;margin:0;color:#d0d0e0;}
+
+/* Stats row */
+.stats-row{display:flex;gap:16px;flex-wrap:wrap;margin:28px 0;}
+.stat-card{flex:1;min-width:120px;background:var(--card);border:1px solid rgba(155,89,182,0.2);
+  border-radius:10px;padding:20px 16px;text-align:center;}
+.stat-card .stat-num{font-size:28px;font-weight:900;color:var(--accent);
+  font-family:sans-serif;display:block;line-height:1;}
+.stat-card .stat-label{font-size:11px;color:var(--sub);font-family:sans-serif;
+  margin-top:6px;letter-spacing:1px;text-transform:uppercase;}
+
+/* Gear table */
+.gear-table{width:100%;border-collapse:collapse;margin:24px 0;font-family:sans-serif;font-size:14px;}
+.gear-table thead th{background:rgba(155,89,182,0.2);color:#fff;padding:12px 16px;
+  text-align:left;font-size:11px;letter-spacing:2px;text-transform:uppercase;}
+.gear-table tbody td{padding:12px 16px;border-bottom:1px solid rgba(255,255,255,0.05);color:#ccc;}
+.gear-table tbody tr:hover td{background:rgba(155,89,182,0.05);}
+.gear-table .price{color:var(--accent);font-weight:700;}
+.gear-table .rec{color:#4CAF50;font-size:12px;}
+
+/* Mid-chapter ad */
+.mid-ad{background:linear-gradient(135deg,#0d0916,#140b20);
+  border:1px solid rgba(155,89,182,0.3);border-radius:12px;
+  padding:24px 32px;margin:40px 0;display:flex;align-items:center;gap:24px;flex-wrap:wrap;}
+.mid-ad .ad-label{font-size:9px;letter-spacing:3px;color:var(--sub);
+  text-transform:uppercase;font-family:sans-serif;margin-bottom:6px;}
+.mid-ad .ad-brand{font-size:22px;font-weight:900;color:#00E5FF;font-family:sans-serif;}
+.mid-ad .ad-copy{font-size:14px;color:#bbb;font-family:sans-serif;margin-top:4px;}
+.mid-ad .ad-cta{margin-left:auto;background:var(--accent);color:#fff;
+  padding:12px 28px;border-radius:8px;font-family:sans-serif;font-size:13px;
+  font-weight:700;text-decoration:none;white-space:nowrap;}
+
+/* Bottom sponsors */
+.bottom-sponsors{max-width:720px;margin:0 auto;padding:40px;
+  border-bottom:1px solid rgba(255,255,255,0.05);}
+.bottom-sponsors h2{font-size:10px;letter-spacing:4px;color:var(--sub);
+  text-transform:uppercase;font-family:sans-serif;text-align:center;margin-bottom:28px;}
+.bottom-sponsors .sponsor-offers{display:flex;gap:20px;flex-wrap:wrap;justify-content:center;}
+.offer-card{background:var(--card);border:1px solid rgba(155,89,182,0.15);
+  border-radius:10px;padding:20px 24px;flex:1;min-width:160px;max-width:200px;text-align:center;}
+.offer-card .offer-brand{font-size:16px;font-weight:900;color:#fff;font-family:sans-serif;margin-bottom:6px;}
+.offer-card .offer-desc{font-size:12px;color:var(--sub);font-family:sans-serif;margin-bottom:12px;}
+.offer-card .offer-tag{display:inline-block;background:rgba(155,89,182,0.2);
+  color:var(--accent);font-size:11px;font-family:sans-serif;padding:4px 10px;
+  border-radius:4px;font-weight:700;}
+
+/* CTA */
+.cta-block{max-width:720px;margin:0 auto;padding:70px 40px;text-align:center;}
+.cta-block .cta-eyebrow{font-size:11px;letter-spacing:5px;color:var(--accent);
+  text-transform:uppercase;font-family:sans-serif;margin-bottom:16px;}
+.cta-block h2{font-size:clamp(24px,4vw,38px);font-weight:900;color:#fff;margin-bottom:16px;}
+.cta-block p{color:var(--sub);margin-bottom:36px;font-size:16px;max-width:480px;margin-left:auto;margin-right:auto;}
+.cta-btn{display:inline-block;background:linear-gradient(135deg,#8e44ad,#9B59B6);
+  color:#fff;text-decoration:none;padding:18px 56px;border-radius:10px;
+  font-weight:900;font-family:sans-serif;font-size:15px;letter-spacing:1px;
+  box-shadow:0 8px 32px rgba(155,89,182,0.4);transition:opacity .2s;}
+.cta-btn:hover{opacity:.85;}
+
+/* FOOTER */
+footer{background:#050510;border-top:3px solid var(--accent);padding:50px 40px;
+  text-align:center;font-family:sans-serif;}
+footer h3{color:var(--accent);font-size:22px;letter-spacing:8px;margin-bottom:10px;
+  text-shadow:0 0 20px var(--glow);}
+footer .footer-tagline{color:var(--sub);font-size:13px;margin-bottom:24px;}
+footer .footer-disclosure{color:#555;font-size:11px;max-width:600px;margin:20px auto 0;line-height:1.6;}
+
+@media(max-width:600px){
+  .stats-row{flex-direction:column;}
+  .mid-ad{flex-direction:column;}
+  .mid-ad .ad-cta{margin-left:0;}
+  .sponsor-grid{flex-direction:column;align-items:center;}
+  .bottom-sponsors .sponsor-offers{flex-direction:column;align-items:center;}
+}
+@media print{
+  .cover{page-break-after:always;}
+  chapter{page-break-before:always;}
+}
+
+/* ── CHAPTER ILLUSTRATIONS ── */
+.ch-illustration{width:100%;height:260px;overflow:hidden;position:relative;border-radius:14px;margin:0 0 36px;}
+.ch-illustration img{width:100%;height:100%;object-fit:cover;filter:brightness(.82) saturate(1.12);display:block;}
+.ch-illustration::after{content:'';position:absolute;bottom:0;left:0;right:0;height:90px;background:linear-gradient(transparent,var(--dark,#080808));}
+.cover-hero-img{width:100%;max-width:700px;height:320px;overflow:hidden;border-radius:18px;margin:0 auto 44px;position:relative;}
+.cover-hero-img img{width:100%;height:100%;object-fit:cover;filter:brightness(.8) saturate(1.2);}
+.cover-hero-img::after{content:'';position:absolute;inset:0;background:linear-gradient(to bottom,transparent 35%,rgba(0,0,0,.65) 100%);}
+</style>
+</head>
+<body>
+
+<!-- ═══════════════════════════════════════════════ COVER -->
+<div class="cover">
+  <div class="cover-badge">Nova Gaming Publishing — 2026 Edition</div>
+  <div class="cover-hero-img">
+    <img src="https://image.pollinations.ai/prompt/esports%20gaming%20arena%20neon%20lights%20competitive%20gaming%20cinematic?width=900&height=400&nologo=true&seed=310" alt="Cover">
+  </div>
+
+  <!-- SVG Game Controller Hero -->
+  <svg class="cover-hero" width="220" height="160" viewBox="0 0 220 160" fill="none" xmlns="http://www.w3.org/2000/svg" aria-label="Game controller illustration">
+    <!-- Body shadow glow -->
+    <ellipse cx="110" cy="140" rx="75" ry="12" fill="rgba(155,89,182,0.25)"/>
+    <!-- Controller body -->
+    <path d="M40 70 Q28 70 22 85 L8 128 Q4 142 18 148 Q32 154 44 140 L58 118 H162 L176 140 Q188 154 202 148 Q216 142 212 128 L198 85 Q192 70 180 70 Z" fill="#1a1030" stroke="#9B59B6" stroke-width="2.5"/>
+    <!-- Left grip detail -->
+    <path d="M40 70 Q30 72 26 80 L14 118 Q10 130 20 136 Q30 142 40 128 L55 108" fill="#150d28" stroke="#7d3fad" stroke-width="1.5"/>
+    <!-- Right grip detail -->
+    <path d="M180 70 Q190 72 194 80 L206 118 Q210 130 200 136 Q190 142 180 128 L165 108" fill="#150d28" stroke="#7d3fad" stroke-width="1.5"/>
+    <!-- Center screen/touchpad -->
+    <rect x="88" y="78" width="44" height="30" rx="6" fill="#0d0920" stroke="#9B59B6" stroke-width="1.5"/>
+    <rect x="92" y="82" width="36" height="22" rx="4" fill="#1a0d30"/>
+    <!-- Screen glow lines -->
+    <line x1="96" y1="88" x2="124" y2="88" stroke="rgba(155,89,182,0.5)" stroke-width="1"/>
+    <line x1="96" y1="93" x2="116" y2="93" stroke="rgba(155,89,182,0.3)" stroke-width="1"/>
+    <line x1="96" y1="98" x2="120" y2="98" stroke="rgba(155,89,182,0.3)" stroke-width="1"/>
+    <!-- D-Pad -->
+    <rect x="56" y="88" width="10" height="28" rx="2" fill="#2a1a40" stroke="#9B59B6" stroke-width="1.5"/>
+    <rect x="50" y="94" width="22" height="10" rx="2" fill="#2a1a40" stroke="#9B59B6" stroke-width="1.5"/>
+    <!-- D-pad center -->
+    <rect x="56" y="94" width="10" height="10" rx="1" fill="#3d2560"/>
+    <!-- ABXY Buttons -->
+    <circle cx="162" cy="88" r="5.5" fill="#e74c3c" stroke="#ff6b6b" stroke-width="1.2"/>
+    <circle cx="152" cy="97" r="5.5" fill="#2980b9" stroke="#5dade2" stroke-width="1.2"/>
+    <circle cx="172" cy="97" r="5.5" fill="#27ae60" stroke="#58d68d" stroke-width="1.2"/>
+    <circle cx="162" cy="106" r="5.5" fill="#f39c12" stroke="#f9ca24" stroke-width="1.2"/>
+    <!-- Button letters -->
+    <text x="162" y="92" text-anchor="middle" font-family="sans-serif" font-size="6" font-weight="900" fill="#fff">Y</text>
+    <text x="152" y="101" text-anchor="middle" font-family="sans-serif" font-size="6" font-weight="900" fill="#fff">X</text>
+    <text x="172" y="101" text-anchor="middle" font-family="sans-serif" font-size="6" font-weight="900" fill="#fff">B</text>
+    <text x="162" y="110" text-anchor="middle" font-family="sans-serif" font-size="6" font-weight="900" fill="#fff">A</text>
+    <!-- Left joystick -->
+    <circle cx="76" cy="118" r="11" fill="#1a0d30" stroke="#9B59B6" stroke-width="2"/>
+    <circle cx="76" cy="118" r="6" fill="#2d1a4a"/>
+    <circle cx="74" cy="116" r="2.5" fill="rgba(155,89,182,0.6)"/>
+    <!-- Right joystick -->
+    <circle cx="144" cy="118" r="11" fill="#1a0d30" stroke="#9B59B6" stroke-width="2"/>
+    <circle cx="144" cy="118" r="6" fill="#2d1a4a"/>
+    <circle cx="142" cy="116" r="2.5" fill="rgba(155,89,182,0.6)"/>
+    <!-- Shoulder triggers (top bumpers) -->
+    <path d="M50 72 Q55 60 75 60 L145 60 Q165 60 170 72" fill="none" stroke="#9B59B6" stroke-width="3" stroke-linecap="round"/>
+    <!-- Menu/Start buttons -->
+    <rect x="99" y="113" width="8" height="4" rx="2" fill="#3d2560"/>
+    <rect x="113" y="113" width="8" height="4" rx="2" fill="#3d2560"/>
+    <!-- Logo spot -->
+    <circle cx="110" cy="66" r="5" fill="#9B59B6" opacity="0.7"/>
+    <text x="110" y="70" text-anchor="middle" font-family="sans-serif" font-size="6" font-weight="900" fill="#fff">N</text>
+  </svg>
+
+  <h1>Gaming for Beginners:<br><span>Your Complete 2026 Guide</span></h1>
+  <p class="subtitle">From zero experience to confident player — build your setup, sharpen your skills, and level up your life through gaming</p>
+  <p class="meta">April 2026 · 7 Chapters · Nova Gaming Publishing · Free Distribution</p>
+</div>
+
+<!-- ═══════════════════════════════════════════════ SPONSOR BANNER -->
+<div class="sponsor-banner">
+  <div class="label">Proudly Sponsored By</div>
+  <div class="sponsor-grid">
+    <div class="sponsor-slot">
+      <strong>PlayStation / Sony</strong>
+      Official Console Partner
+    </div>
+    <div class="sponsor-slot">
+      <strong>Razer</strong>
+      Official Peripherals Partner
+    </div>
+    <div class="sponsor-slot">
+      <strong>G2A</strong>
+      Official Game Keys Partner
+    </div>
+    <div class="sponsor-slot advertise">
+      <strong>[Advertise Here]</strong>
+      contact@novamedia.io
+    </div>
+  </div>
+</div>
+
+<!-- ═══════════════════════════════════════════════ TABLE OF CONTENTS -->
+<div class="toc">
+  <h2>Table of Contents</h2>
+  <ol>
+    <li><a href="#ch1">Why Gaming Is a Legitimate Career &amp; Lifestyle in 2026</a></li>
+    <li><a href="#ch2">The 5 Genres That Define Modern Gaming</a></li>
+    <li><a href="#ch3">Building Your First Gaming Setup for €300</a></li>
+    <li><a href="#ch4">How to Get Good: The Science of Skill Development</a></li>
+    <li><a href="#ch5">Esports &amp; Streaming: Turning Play into Income</a></li>
+    <li><a href="#ch6">Gaming Health: Avoid the Injuries That End Careers</a></li>
+    <li><a href="#ch7">Your 90-Day Gaming Improvement Plan</a></li>
+  </ol>
+</div>
+
+<!-- ═══════════════════════════════════════════════ CHAPTER 1 -->
+<chapter id="ch1">
+  <div class="ch-number">Chapter 1</div>
+  <div class="ch-illustration">
+    <img src="https://image.pollinations.ai/prompt/gamer%20celebrating%20victory%20esports%20career%20neon%20lights%20cinematic?width=900&height=360&nologo=true&seed=311" alt="Chapter">
+  </div>
+  <h2 class="ch-title">Why Gaming Is a Legitimate Career &amp; Lifestyle in 2026</h2>
+  <div class="ch-content">
+
+    <p>Ten years ago, telling your parents you wanted to make a living from gaming was a punchline. Today, it is a business plan. The global gaming industry crossed <strong>$250 billion in annual revenue in 2025</strong> — larger than film and music combined — and shows no signs of slowing. Whether you want to compete professionally, build an audience on stream, work in game development, or simply use gaming as a social and mental health tool, 2026 is the best year in history to start.</p>
+
+    <div class="stats-row">
+      <div class="stat-card">
+        <span class="stat-num">3.4B</span>
+        <span class="stat-label">Active Gamers Worldwide</span>
+      </div>
+      <div class="stat-card">
+        <span class="stat-num">$250B</span>
+        <span class="stat-label">Global Industry Revenue</span>
+      </div>
+      <div class="stat-card">
+        <span class="stat-num">€120K</span>
+        <span class="stat-label">Avg. Pro Esports Salary</span>
+      </div>
+      <div class="stat-card">
+        <span class="stat-num">2M+</span>
+        <span class="stat-label">Full-Time Content Creators</span>
+      </div>
+    </div>
+
+    <p>The shift happened gradually, then all at once. Broadband internet enabled online multiplayer. YouTube proved people would watch strangers play games for hours. Twitch turned that into a live social ritual. Fortnite made gaming mainstream across generations. And AI-assisted game engines now let solo developers ship titles that rival AAA studio productions from a decade ago.</p>
+
+    <p>Today, gaming touches <strong>every corner of the economy</strong>. There are professional players, coaches, analysts, commentators, journalists, community managers, tournament organizers, sponsorship agents, game designers, sound engineers, and UI artists. The ecosystem is vast — and the barriers to entry have never been lower.</p>
+
+    <div class="tip-box">
+      <div class="tip-label">Key Insight</div>
+      <p>You do not need to become a professional to benefit from gaming. Studies in 2025 showed that regular gaming reduces stress hormones by up to 17%, improves problem-solving speed by 23%, and builds communities that rival in-person social networks for emotional support. Gaming is a legitimate lifestyle investment.</p>
+    </div>
+
+    <p>Even for casual players, the social dimension is enormous. Online gaming communities have replaced local bowling leagues and neighbourhood clubs for millions of people. Guild systems, clan houses, and in-game friendships regularly convert into real-world relationships. If you are new to gaming, you are not joining a niche subculture — you are joining the dominant global leisure activity of the 21st century.</p>
+
+    <h3>What This Guide Will Do For You</h3>
+
+    <p>This guide is built for the absolute beginner. You do not need to own any hardware yet. You do not need prior experience. What you need is curiosity and about 90 days of consistent effort. By the time you finish, you will understand every major game genre, have a capable setup within any budget, understand how skill development actually works, and have a clear path to monetisation if that is your goal.</p>
+
+    <p>Every chapter is practical. No filler, no hype — just <strong>concrete steps</strong> you can act on today. Let's begin.</p>
+
+  </div>
+</chapter>
+
+<!-- ═══════════════════════════════════════════════ CHAPTER 2 -->
+<chapter id="ch2">
+  <div class="ch-number">Chapter 2</div>
+  <div class="ch-illustration">
+    <img src="https://image.pollinations.ai/prompt/video%20game%20genres%20FPS%20RPG%20strategy%20gaming%20collage%20neon%20cinematic?width=900&height=360&nologo=true&seed=312" alt="Chapter">
+  </div>
+  <h2 class="ch-title">The 5 Genres That Define Modern Gaming</h2>
+  <div class="ch-content">
+
+    <p>One of the biggest mistakes new players make is trying to play everything. The result: shallow skills across a dozen games, no mastery in anything, and a frustrating plateau. The smarter approach is to understand the five dominant genres of 2026, identify which suits your personality and goals, and go deep in that one category first.</p>
+
+    <h3>1. Battle Royale</h3>
+    <p>Think <strong>Fortnite, PUBG, Apex Legends, Warzone</strong>. Up to 100 players drop onto a map. One person — or one squad — survives. These games blend shooting precision, movement, resource management, and decision-making under pressure. They are hugely social, endlessly watchable, and produce some of the most viral moments in gaming. Ideal for competitive-minded players who enjoy high-stakes situations.</p>
+
+    <div class="tip-box">
+      <div class="tip-label">Genre Tip</div>
+      <p>Battle Royale games are psychologically demanding because every match ends in defeat for 95% of the lobby. Beginners often quit too soon. Give yourself at least 50 games before judging your enjoyment — early survival instincts need time to rewire.</p>
+    </div>
+
+    <h3>2. MOBA (Multiplayer Online Battle Arena)</h3>
+    <p>Think <strong>League of Legends, Dota 2, Smite</strong>. Two teams of 5 fight to destroy the opponent's base across a symmetrical map. MOBAs have the steepest learning curve in gaming — but also the deepest strategic ceiling. Top-level MOBA players earn more than most lawyers. If you enjoy chess-level thinking and team coordination, this genre is your home.</p>
+
+    <h3>3. FPS (First-Person Shooter)</h3>
+    <p>Think <strong>Counter-Strike 2, Valorant, Call of Duty, Overwatch 2</strong>. You see through the eyes of your character and aim at opponents. FPS games reward hand-eye coordination, game sense, and communication. They have the largest esports ecosystem by prize pool, and the mechanical ceiling — things like flick-shot accuracy — gives dedicated practice an extremely clear payoff.</p>
+
+    <h3>4. RPG (Role-Playing Game)</h3>
+    <p>Think <strong>Elden Ring, Final Fantasy XVI, Baldur's Gate 3, Path of Exile 2</strong>. You inhabit a character that grows in power through quests, exploration, and combat. RPGs are the most narrative-rich genre and suit players who enjoy world-building, deep lore, and solo mastery. Many RPG players have no interest in competition — the joy is exploration and story. Perfectly valid.</p>
+
+    <h3>5. Sports &amp; Racing Simulators</h3>
+    <p>Think <strong>EA FC 25, Gran Turismo 8, F1 2026, NBA 2K26</strong>. These games mirror real-world sports with increasing fidelity. They attract fans of physical sports who want interactive versions of the games they love. Esports tournaments for FIFA-equivalent titles now carry prize pools exceeding €5 million annually.</p>
+
+    <div class="stats-row">
+      <div class="stat-card">
+        <span class="stat-num">#1</span>
+        <span class="stat-label">FPS by Player Count</span>
+      </div>
+      <div class="stat-card">
+        <span class="stat-num">#1</span>
+        <span class="stat-label">MOBA by Prize Money</span>
+      </div>
+      <div class="stat-card">
+        <span class="stat-num">#1</span>
+        <span class="stat-label">BR by New Player Volume</span>
+      </div>
+    </div>
+
+    <p>Choose one genre. Play it for 30 days before branching. Mastery compounds — and crossover skills develop naturally once your fundamentals are solid. Your genre is not a prison; it is a launchpad.</p>
+
+  </div>
+</chapter>
+
+<!-- ═══════════════════════════════════════════════ CHAPTER 3 -->
+<chapter id="ch3">
+  <div class="ch-number">Chapter 3</div>
+  <div class="ch-illustration">
+    <img src="https://image.pollinations.ai/prompt/gaming%20setup%20desk%20RGB%20keyboard%20monitor%20headset%20neon%20lights%20cinematic?width=900&height=360&nologo=true&seed=313" alt="Chapter">
+  </div>
+  <h2 class="ch-title">Building Your First Gaming Setup for €300</h2>
+  <div class="ch-content">
+
+    <p>The myth that gaming requires thousands of euros is one of the biggest gatekeeping lies in the hobby. You can build a genuinely capable setup for <strong>€300</strong> — and then upgrade incrementally as your skills and budget grow. Here is exactly how to spend every euro wisely.</p>
+
+    <div class="tip-box">
+      <div class="tip-label">Budget Rule</div>
+      <p>Spend money on peripherals before hardware. A €70 mechanical keyboard and €50 gaming mouse on a mid-range PC will beat a €200 gaming mouse on a weak machine every time. Input quality matters more than raw frame rate for beginners.</p>
+    </div>
+
+    <h3>Option A: Console Route (Best for Simplicity)</h3>
+    <p>A refurbished PlayStation 5 or Xbox Series X can be found for <strong>€240–€280</strong> in 2026 through certified resellers. Console gaming eliminates driver issues, hardware compatibility headaches, and requires zero technical knowledge. Games are more expensive per title, but the ecosystem — PSN, Xbox Game Pass — provides exceptional value through subscription libraries. For the non-technical beginner, console is the recommended path.</p>
+
+    <table class="gear-table">
+      <thead>
+        <tr><th>Item</th><th>Recommended Option</th><th>Est. Price</th><th>Notes</th></tr>
+      </thead>
+      <tbody>
+        <tr><td>Console</td><td>PS5 Slim (refurb)</td><td class="price">€260</td><td class="rec">★ Best Value</td></tr>
+        <tr><td>Headset</td><td>Razer BlackShark V2 X</td><td class="price">€40</td><td></td></tr>
+        <tr><td>Game Pass / PSN Extra</td><td>3-Month Sub</td><td class="price">€25</td><td class="rec">★ Best Value</td></tr>
+        <tr><td><strong>Total</strong></td><td></td><td class="price"><strong>€325</strong></td><td>Slightly over — drop headset to basic earbuds to hit €285</td></tr>
+      </tbody>
+    </table>
+
+    <h3>Option B: Budget PC Route (Best for FPS/MOBA)</h3>
+    <p>If your genre target is FPS or MOBA, PC gaming is the competitive standard. A refurbished office PC (Ryzen 5 / i5 equivalent) paired with a budget GPU will run CS2, Valorant, and League of Legends at 60–120fps on medium settings. Entirely viable for competitive play at the beginner and intermediate levels.</p>
+
+    <table class="gear-table">
+      <thead>
+        <tr><th>Item</th><th>Recommended Option</th><th>Est. Price</th><th>Notes</th></tr>
+      </thead>
+      <tbody>
+        <tr><td>Base PC</td><td>Refurb Mini-PC (Ryzen 5)</td><td class="price">€120</td><td class="rec">★ Best Value</td></tr>
+        <tr><td>GPU</td><td>RX 6600 (used)</td><td class="price">€90</td><td></td></tr>
+        <tr><td>Monitor</td><td>24" 144Hz 1080p (AOC)</td><td class="price">€95</td><td class="rec">★ Best Value</td></tr>
+        <tr><td>Mouse</td><td>Razer DeathAdder Essential</td><td class="price">€30</td><td></td></tr>
+        <tr><td>Keyboard</td><td>Redragon K552 Mech</td><td class="price">€35</td><td></td></tr>
+        <tr><td><strong>Total</strong></td><td></td><td class="price"><strong>€370</strong></td><td>Skip new monitor if you have a TV — brings to €275</td></tr>
+      </tbody>
+    </table>
+
+    <!-- MID-CHAPTER AD (Razer) -->
+    <div class="mid-ad">
+      <div>
+        <div class="ad-label">Sponsored by</div>
+        <div class="ad-brand">RAZER</div>
+        <div class="ad-copy">For the Gamer in You. Level up with Razer peripherals — trusted by 100M+ players worldwide.</div>
+      </div>
+      <a href="https://www.razer.com" class="ad-cta" target="_blank" rel="noopener">Shop Razer →</a>
+    </div>
+
+    <h3>What to Buy Last</h3>
+    <p>Do not buy a gaming chair, LED strips, or a capture card yet. These are cosmetic. Buy them after your 90-day plan (Chapter 7) when you know you are serious. The items that genuinely improve performance are: <strong>a good headset</strong> for directional audio, a <strong>high-refresh monitor</strong> for FPS games, and a <strong>quality mouse</strong> with reliable sensor tracking. Everything else is nice-to-have.</p>
+
+    <div class="tip-box">
+      <div class="tip-label">G2A Tip</div>
+      <p>Buy your game keys through G2A to save 30–70% off retail prices. Check the "Gold" seller badge for verified sellers. Use their Shield protection for additional peace of mind on higher-value purchases.</p>
+    </div>
+
+  </div>
+</chapter>
+
+<!-- ═══════════════════════════════════════════════ CHAPTER 4 -->
+<chapter id="ch4">
+  <div class="ch-number">Chapter 4</div>
+  <div class="ch-illustration">
+    <img src="https://image.pollinations.ai/prompt/focused%20gamer%20practicing%20skills%20intense%20competition%20dark%20cinematic?width=900&height=360&nologo=true&seed=314" alt="Chapter">
+  </div>
+  <h2 class="ch-title">How to Get Good: The Science of Skill Development</h2>
+  <div class="ch-content">
+
+    <p>Most gamers plateau not because they lack talent, but because they practice incorrectly. There is a massive difference between <strong>playing</strong> and <strong>practicing</strong>. Playing is passive — you load the game, enjoy yourself, and hope improvement happens. Practicing is active — you isolate a weakness, work on it deliberately, and measure the result. This chapter gives you the science-backed framework to get genuinely good, fast.</p>
+
+    <div class="stats-row">
+      <div class="stat-card">
+        <span class="stat-num">87%</span>
+        <span class="stat-label">of players never review replays</span>
+      </div>
+      <div class="stat-card">
+        <span class="stat-num">3x</span>
+        <span class="stat-label">faster improvement with active review</span>
+      </div>
+      <div class="stat-card">
+        <span class="stat-num">200h</span>
+        <span class="stat-label">to reach top 20% in most FPS games</span>
+      </div>
+    </div>
+
+    <h3>The Three Pillars of Gaming Skill</h3>
+
+    <p><strong>1. Mechanics</strong> — Physical execution. Mouse accuracy, button timing, movement control. These are trainable with isolated drills. For FPS players, aim trainers like Aim Lab (free) offer structured exercises that transfer directly to in-game performance. Spend 15–20 minutes on mechanics before each session, not during it.</p>
+
+    <p><strong>2. Game Sense</strong> — Knowledge of the game's systems, map geography, enemy AI patterns, economy rules, and meta strategies. Game sense is developed through watching high-level play (pro streams, YouTube guides) and through deliberate post-game review. Most beginners skip this pillar entirely — which is why they plateau.</p>
+
+    <p><strong>3. Mental Game</strong> — Emotional regulation under pressure, tilt management, focus stamina, and recovery from mistakes. Research from sports psychology consistently shows that emotional dysregulation costs performance more than mechanical deficits at intermediate and above levels. The player who stays calm after dying will outperform the frustrated player with better aim.</p>
+
+    <div class="tip-box">
+      <div class="tip-label">The 70/20/10 Practice Rule</div>
+      <p>Spend 70% of your gaming time in active play, 20% reviewing VODs or watching educational content about your game, and 10% in isolated skill drills (aim training, last-hit practice, etc.). This ratio, used by professional esports coaches, produces faster rank progression than raw hours alone.</p>
+    </div>
+
+    <h3>The Deliberate Review Loop</h3>
+    <p>After every session — especially after losses — ask three questions: <strong>What did I do well?</strong> What decision or mechanical error cost me the most? What is the one thing I will focus on next session? Write the answer to question three down. This single habit separates players who improve from players who grind endlessly with no progress.</p>
+
+    <h3>On Ranking Systems</h3>
+    <p>Every competitive game has a ranked ladder. Treat your current rank as neutral information, not a verdict on your worth. Rank climbs happen in steps: a long plateau followed by a sudden jump as skills consolidate. Consistent, process-focused practice always reaches the rank that represents genuine skill level — usually within 200–300 games of focused effort.</p>
+
+    <h3>Sleep and Cognitive Performance</h3>
+    <p>This is not optional advice: <strong>gaming on less than 7 hours of sleep degrades reaction time by 15% and decision accuracy by 22%</strong>, according to 2024 sports performance research. No practice session, no matter how long, compensates for sleep debt. Schedule your gaming around good sleep, not at the expense of it.</p>
+
+    <div class="tip-box">
+      <div class="tip-label">Quick Win</div>
+      <p>Change your in-game settings before your next session. Lower your graphical settings to maximise frame rate. Higher FPS = lower input lag = faster feedback loop = faster skill development. Looking prettier costs you learning speed.</p>
+    </div>
+
+  </div>
+</chapter>
+
+<!-- ═══════════════════════════════════════════════ CHAPTER 5 -->
+<chapter id="ch5">
+  <div class="ch-number">Chapter 5</div>
+  <div class="ch-illustration">
+    <img src="https://image.pollinations.ai/prompt/esports%20tournament%20streaming%20income%20twitch%20gaming%20money%20cinematic?width=900&height=360&nologo=true&seed=315" alt="Chapter">
+  </div>
+  <h2 class="ch-title">Esports &amp; Streaming: Turning Play into Income</h2>
+  <div class="ch-content">
+
+    <p>The question "can I make money gaming?" has a clear answer in 2026: yes — but the path varies enormously depending on your skills, personality, and time horizon. This chapter maps the three main income streams honestly, without hype or false promises.</p>
+
+    <div class="stats-row">
+      <div class="stat-card">
+        <span class="stat-num">€1.8B</span>
+        <span class="stat-label">Esports Prize Pool 2025</span>
+      </div>
+      <div class="stat-card">
+        <span class="stat-num">8M+</span>
+        <span class="stat-label">Active Twitch/YouTube Live Channels</span>
+      </div>
+      <div class="stat-card">
+        <span class="stat-num">€3.2K</span>
+        <span class="stat-label">Avg Monthly for Top 1% Streamers</span>
+      </div>
+    </div>
+
+    <h3>Path 1: Competitive Esports</h3>
+    <p>Professional esports is brutally competitive. The top 0.1% of players in any given title earn life-changing salaries. The top 5% earn supplementary income through regional/semi-pro leagues, team stipends, and tournament winnings. To pursue this path seriously, you need to be climbing ranked ladders consistently within 12–18 months, then seek tryouts with amateur organisations. Esports talent scouts actively watch ranked leaderboards and VOD archives — <strong>your performance is your resume</strong>.</p>
+
+    <p>If esports play doesn't pan out, the skills transfer: coaching, analyst roles, and tournament administration all pay well and have lower barriers to entry than pro play itself. Many ex-players earn more coaching than they did competing.</p>
+
+    <div class="tip-box">
+      <div class="tip-label">Reality Check</div>
+      <p>Only pursue full-time esports after reaching top 1–2% rank in your game (e.g., Diamond+ in League, Global Elite/Radiant in CS2/Valorant). Below that, treat it as supplementary income or a long-term development project — not a primary income strategy.</p>
+    </div>
+
+    <h3>Path 2: Content Creation &amp; Streaming</h3>
+    <p>Streaming and YouTube are more democratised than esports. You do not need to be the best player in the world — you need to be <strong>entertaining, consistent, and findable</strong>. The modern streaming formula that works in 2026: pick one game, stream 4–5 times per week at consistent times, clip your best moments for short-form content (TikTok, YouTube Shorts, Instagram Reels), and engage authentically with every comment in your early community.</p>
+
+    <p>Monetisation milestones on Twitch: Affiliate (50 followers, avg 3 concurrent viewers) unlocks subscriptions and bits. Partner (500 average viewers) unlocks revenue share. Most full-time streamers took 18–36 months to reach sustainable income. Treat early streaming as skill-building in personal branding — the compound returns arrive later.</p>
+
+    <h3>Path 3: Gaming-Adjacent Income</h3>
+    <p>This is the fastest path to income and the most overlooked. Gaming-adjacent income includes: writing reviews for game sites (€40–€150 per article), moderating game communities (€15–€25/hr), testing games for quality assurance studios (entry-level remote roles from €18K/yr), creating and selling in-game assets (skins, maps, mods) on Steam Workshop and other platforms, and coaching beginner players on platforms like GamerSensei (€25–€80/hr once certified).</p>
+
+    <div class="tip-box">
+      <div class="tip-label">Affiliate Income</div>
+      <p>Join the Razer Affiliate Program, G2A affiliate scheme, and PlayStation Store affiliate links from day one of your content journey. Gear reviews and setup tours are among the highest-converting gaming content formats. Even with a small audience, affiliate commissions compound meaningfully over 12 months.</p>
+    </div>
+
+    <h3>Building Your Personal Brand</h3>
+    <p>Regardless of which path you pursue, your <strong>personal brand is your most valuable asset</strong>. Start with a consistent username across all platforms. Create a simple logo. Build a Discord server early — even with 20 members, it trains you in community management. Document your journey publicly; the "beginner who improves in public" is one of the most compelling content formats in gaming and attracts an audience organically without requiring existing skill.</p>
+
+  </div>
+</chapter>
+
+<!-- ═══════════════════════════════════════════════ CHAPTER 6 -->
+<chapter id="ch6">
+  <div class="ch-number">Chapter 6</div>
+  <div class="ch-illustration">
+    <img src="https://image.pollinations.ai/prompt/gamer%20health%20posture%20ergonomic%20chair%20wellness%20dark%20cinematic?width=900&height=360&nologo=true&seed=316" alt="Chapter">
+  </div>
+  <h2 class="ch-title">Gaming Health: Avoid the Injuries That End Careers</h2>
+  <div class="ch-content">
+
+    <p>This is the chapter most beginners skip — and the one most likely to determine whether you are still gaming at peak performance in 5 years. Physical and mental health are not optional extras for serious gamers; they are foundational requirements. <strong>RSI (Repetitive Strain Injury) ended more esports careers in 2025 than talent scarcity did.</strong> Do not let this happen to you.</p>
+
+    <div class="stats-row">
+      <div class="stat-card">
+        <span class="stat-num">56%</span>
+        <span class="stat-label">of Pro Players Report Wrist Pain</span>
+      </div>
+      <div class="stat-card">
+        <span class="stat-num">4–6h</span>
+        <span class="stat-label">Recommended Max Daily Session</span>
+      </div>
+      <div class="stat-card">
+        <span class="stat-num">€0</span>
+        <span class="stat-label">Cost of Prevention Exercises</span>
+      </div>
+    </div>
+
+    <h3>Ergonomics: Your First Defense</h3>
+    <p>Your desk setup directly affects your physical health over time. The three non-negotiable ergonomic principles: <strong>monitor at eye level</strong> (prevents neck forward head posture), <strong>elbows at 90 degrees</strong> when resting on desk (prevents ulnar nerve compression), and <strong>feet flat on the floor</strong> (prevents lower back load). Most gaming chairs are marketed hard but deliver mediocre lumbar support — a €20 lumbar cushion on a regular office chair outperforms a €300 "gaming chair" for long-session posture.</p>
+
+    <div class="tip-box">
+      <div class="tip-label">Wrist Health Protocol</div>
+      <p>Before every gaming session: 2 minutes of wrist rotations, finger stretches, and forearm extension. After every session: 5 minutes of the same. This routine, used by top esports teams as standard warm-up protocol since 2023, reduces RSI incidence by over 60%. It costs nothing and takes less time than a loading screen.</p>
+    </div>
+
+    <h3>Eye Strain and Screen Fatigue</h3>
+    <p>Digital eye strain is the most common complaint among gamers of all levels. Follow the <strong>20-20-20 rule</strong>: every 20 minutes, look at something 20 feet away for 20 seconds. Enable night mode or blue light filter settings on your monitor from 7pm onwards. Keep room lighting consistent with screen brightness — playing in a pitch-dark room with a bright monitor is the fastest route to chronic eye strain.</p>
+
+    <h3>Mental Health and Gaming</h3>
+    <p>Gaming can both support and undermine mental health — and the difference often comes down to <strong>intention and balance</strong>. Used as stress relief, social connection, and a skill-building hobby, gaming is strongly net-positive for mental wellbeing. Used as avoidance of real-world problems, as a substitute for sleep, or in a context of compulsive play despite negative consequences, it becomes harmful.</p>
+
+    <p>Warning signs to watch: playing despite physical pain, skipping meals to continue playing, experiencing anger that persists after logging off, declining performance in work or school correlated with gaming sessions. None of these are character flaws — they are stress signals from your nervous system that the balance has shifted.</p>
+
+    <h3>The 60-Minute Rule</h3>
+    <p>Elite esports organisations enforced a strict <strong>60-minute active break rule</strong> in team training environments since 2024. Every 60 minutes of play must be followed by 10 minutes off-screen: stand up, walk, hydrate, and do the wrist protocol. Sessions longer than 4 hours consecutive show measurable degradation in reaction time and decision-making quality — you are grinding performance debt, not building skill.</p>
+
+    <div class="tip-box">
+      <div class="tip-label">Hydration Reminder</div>
+      <p>Keep a 750ml water bottle at your desk. Dehydration equivalent to just 1–2% of body weight demonstrably reduces cognitive performance. Gamers who are consistently well-hydrated show statistically better sustained focus scores than those who rely on energy drinks, which produce performance spikes followed by crashes.</p>
+    </div>
+
+    <h3>Exercise and Gaming Performance</h3>
+    <p>This is counterintuitive but well-documented: regular physical exercise improves gaming performance. Cardiovascular fitness increases oxygenation to the brain, improving reaction time and decision stamina. Strength training in the forearms, shoulders, and core directly reduces gaming injury risk. <strong>30 minutes of moderate exercise per day is the single highest-ROI performance investment a serious gamer can make</strong> — more so than any peripheral upgrade.</p>
+
+  </div>
+</chapter>
+
+<!-- ═══════════════════════════════════════════════ CHAPTER 7 -->
+<chapter id="ch7">
+  <div class="ch-number">Chapter 7</div>
+  <div class="ch-illustration">
+    <img src="https://image.pollinations.ai/prompt/gaming%20victory%20champion%20trophy%20level%20up%20achievement%20neon%20cinematic?width=900&height=360&nologo=true&seed=317" alt="Chapter">
+  </div>
+  <h2 class="ch-title">Your 90-Day Gaming Improvement Plan</h2>
+  <div class="ch-content">
+
+    <p>Everything in this guide converges here. A 90-day structured plan transforms the theory of the previous six chapters into measurable progress. By Day 90, you will have a setup, a genre, a rank baseline, a health routine, and — if you chose that path — the early foundations of an income strategy. This is not a casual suggestion list. It is a <strong>day-by-day operating system</strong> for your first three months.</p>
+
+    <h3>Days 1–10: Foundation</h3>
+    <p>Your only jobs in the first 10 days are to <strong>choose your platform</strong> (console or PC), <strong>choose your genre</strong> (from Chapter 2), and get your setup operational within your budget (Chapter 3). Do not play ranked yet. Play unranked or casual modes to learn the controls without pressure. Watch 2–3 beginner tutorial videos on YouTube for your specific game. Create accounts on Twitch and YouTube with your chosen brand name, even if you do not stream yet — username availability matters.</p>
+
+    <div class="tip-box">
+      <div class="tip-label">Week 1 Checklist</div>
+      <p>Platform chosen and purchased. Game installed. Tutorial videos watched (minimum 3). Username registered across platforms. Wrist warm-up routine learned and added to pre-session habit. Water bottle at desk. Ergonomics checked against the Chapter 6 guide.</p>
+    </div>
+
+    <h3>Days 11–30: Orientation</h3>
+    <p>Now you are in regular play. Target <strong>1 hour of gameplay per day minimum, 2 hours on weekends</strong>. After each session, spend 10 minutes reviewing what happened. What were your most common mistakes? Write them in a notes app. Do not try to fix all of them — focus on the single most impactful error and work on it next session. This is the deliberate review loop from Chapter 4 in action. By Day 30, you should have completed your placement matches in ranked mode and have a baseline rank.</p>
+
+    <h3>Days 31–60: Development</h3>
+    <p>Add aim training or game-specific skill drills to the start of each session (15–20 minutes). Increase your educational content consumption: subscribe to 2–3 YouTube channels dedicated to your game. Begin watching pro players stream in your genre. You will not understand everything they do yet — and that's fine. You are building a mental model of what high-level play looks like. By Day 60, rank should have moved at least one tier from placement. If it has not, the review loop is not being applied consistently enough — return to the deliberate practice framework.</p>
+
+    <div class="tip-box">
+      <div class="tip-label">Mid-Plan Benchmark</div>
+      <p>At Day 60, you should be able to name the 3 biggest weaknesses in your current gameplay, explain the core strategy of your main game mode, and describe what the rank directly above yours typically does differently. If you cannot answer all three, slow down and invest more in the 20% educational portion of your practice ratio.</p>
+    </div>
+
+    <h3>Days 61–90: Consolidation &amp; Expansion</h3>
+    <p>In the final 30 days, the goal shifts from learning to <strong>consolidating and expanding</strong>. Consolidation means drilling the skills you have developed until they are automatic — no cognitive load required. Expansion means beginning to layer on the next level of complexity: team communication, advanced mechanics, map control concepts. If streaming was in your plan, start a soft launch on Day 70: stream twice a week, announce it only to friends initially. Treat the first streams as practice runs, not public performances.</p>
+
+    <div class="stats-row">
+      <div class="stat-card">
+        <span class="stat-num">30</span>
+        <span class="stat-label">Days to Baseline</span>
+      </div>
+      <div class="stat-card">
+        <span class="stat-num">60</span>
+        <span class="stat-label">Days to First Rank Climb</span>
+      </div>
+      <div class="stat-card">
+        <span class="stat-num">90</span>
+        <span class="stat-label">Days to Competitive Confidence</span>
+      </div>
+    </div>
+
+    <h3>Day 90: Review and Relaunch</h3>
+    <p>On Day 90, spend 30 minutes doing a full retrospective. Compare your current rank to your Day 30 baseline. Review your notes from the past 90 days. Identify the improvement arc. Then set three specific goals for the next 90-day cycle. This is how professional development programs work — not as a single sprint, but as repeating cycles of learn, apply, review, and reset. You are not a beginner anymore. You are a developing player with a system — and that distinction compounds over time in ways that raw talent cannot compete with.</p>
+
+    <p>The gaming world in 2026 rewards those who approach it with <strong>intentionality, consistency, and curiosity</strong>. Every pro player, every successful streamer, every game developer started exactly where you are now. The only variable that separates them is what they chose to do with their next 90 days. You now have a complete map. Use it.</p>
+
+    <div class="tip-box">
+      <div class="tip-label">Final Reminder</div>
+      <p>Gaming is supposed to be fun. If at any point in this 90-day plan you are miserable, step back and recalibrate. The framework exists to accelerate enjoyment — not replace it. The best gamers in the world love the game first. Performance follows joy, not the other way around.</p>
+    </div>
+
+  </div>
+</chapter>
+
+<!-- ═══════════════════════════════════════════════ BOTTOM SPONSORS -->
+<div class="bottom-sponsors">
+  <h2>Partner Offers for Nova Gaming Readers</h2>
+  <div class="sponsor-offers">
+    <div class="offer-card">
+      <div class="offer-brand">PlayStation</div>
+      <div class="offer-desc">3 months PS Extra — 400+ games included</div>
+      <div class="offer-tag">€29.99 / 3mo</div>
+    </div>
+    <div class="offer-card">
+      <div class="offer-brand">Razer</div>
+      <div class="offer-desc">DeathAdder V3 — pro-grade mouse from day one</div>
+      <div class="offer-tag">10% Off With Code NOVA10</div>
+    </div>
+    <div class="offer-card">
+      <div class="offer-brand">G2A</div>
+      <div class="offer-desc">Save 30–70% on top game keys, instant delivery</div>
+      <div class="offer-tag">Free G2A Shield Trial</div>
+    </div>
+    <div class="offer-card">
+      <div class="offer-brand">[Your Brand]</div>
+      <div class="offer-desc">Premium placement for 50K+ engaged gaming readers</div>
+      <div class="offer-tag">contact@novamedia.io</div>
+    </div>
+  </div>
+</div>
+
+<!-- ═══════════════════════════════════════════════ CTA -->
+<div class="cta-block">
+  <div class="cta-eyebrow">Nova Gaming Community</div>
+  <h2>Ready to Level Up Together?</h2>
+  <p>Join 40,000+ players in the Nova Gaming Discord. Daily tips, rank-up challenges, coaching sessions, and a community that actually helps beginners improve.</p>
+  <a href="#" class="cta-btn">Join NovaGaming Community →</a>
+</div>
+
+<!-- ═══════════════════════════════════════════════ FOOTER -->
+<footer>
+  <h3>NOVA GAMING</h3>
+  <p class="footer-tagline">© 2026 Nova Gaming Publishing · All rights reserved</p>
+  <p class="footer-disclosure">
+    <strong>Affiliate Disclosure:</strong> This ebook contains affiliate links to PlayStation Store, Razer, and G2A. Nova Gaming Publishing may earn a commission when readers purchase through these links at no additional cost to the reader. All product recommendations are based on editorial merit and genuine assessment. Sponsor content is clearly labelled. This guide is provided free of charge and is intended for educational purposes only. Gaming statistics referenced are sourced from industry reports published in 2025–2026. Individual results from any gaming, career, or income path described herein will vary based on individual effort, talent, and market conditions.
+  </p>
+</footer>
+
+</body>
+</html>

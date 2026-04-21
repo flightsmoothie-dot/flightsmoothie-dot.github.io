@@ -1,0 +1,189 @@
+<!DOCTYPE html>
+<html lang="en">
+<head>
+<meta charset="UTF-8">
+<meta name="viewport" content="width=device-width, initial-scale=1.0">
+<title>Crypto for Kids — NovaCrypto</title>
+<style>
+@import url('https://fonts.googleapis.com/css2?family=Inter:wght@300;400;500;600;700;900&family=Playfair+Display:wght@700;900&display=swap');
+:root{--accent:#A78BFA;--bg:#0A0020;--text:#E8E8F0;--muted:rgba(232,232,240,0.6);--surface:rgba(255,255,255,0.04);--border:rgba(255,255,255,0.08);}
+*{margin:0;padding:0;box-sizing:border-box;}
+body{font-family:'Inter',sans-serif;background:var(--bg);color:var(--text);line-height:1.75;font-size:16px;}
+.cover{width:100%;min-height:100vh;display:flex;flex-direction:column;align-items:center;justify-content:center;text-align:center;padding:80px 40px;background:radial-gradient(ellipse at 30% 20%,#A78BFA22,transparent 60%),radial-gradient(ellipse at 80% 80%,#A78BFA10,transparent 55%),var(--bg);border-bottom:1px solid var(--border);page-break-after:always;position:relative;overflow:hidden;}
+.cover::before{content:'';position:absolute;inset:0;background-image:linear-gradient(#A78BFA06 1px,transparent 1px),linear-gradient(90deg,#A78BFA06 1px,transparent 1px);background-size:40px 40px;}
+.cover-tag{font-size:11px;letter-spacing:4px;font-weight:700;color:var(--accent);text-transform:uppercase;margin-bottom:24px;opacity:0.8;position:relative;}
+.cover-title{font-family:'Playfair Display',serif;font-size:clamp(38px,6vw,68px);font-weight:900;line-height:1.1;color:#FFFFFF;margin-bottom:24px;text-shadow:0 4px 40px #A78BFA33;position:relative;}
+.cover-divider{width:60px;height:3px;background:linear-gradient(90deg,var(--accent),transparent);margin:0 auto 24px;border-radius:2px;position:relative;}
+.cover-subtitle{font-size:17px;color:var(--muted);max-width:600px;line-height:1.6;margin-bottom:48px;position:relative;}
+.cover-author{font-size:13px;letter-spacing:4px;text-transform:uppercase;color:var(--accent);opacity:0.7;position:relative;}
+.toc{max-width:760px;margin:0 auto;padding:80px 40px;page-break-after:always;}
+.toc h2{font-family:'Playfair Display',serif;font-size:32px;color:var(--accent);margin-bottom:40px;}
+.toc ol{list-style:none;counter-reset:toc-counter;}
+.toc li{counter-increment:toc-counter;display:flex;align-items:baseline;gap:16px;padding:14px 0;border-bottom:1px solid var(--border);}
+.toc li::before{content:counter(toc-counter,decimal-leading-zero);font-size:12px;font-weight:700;color:var(--accent);opacity:0.6;min-width:24px;}
+.toc a{color:var(--text);text-decoration:none;font-size:15px;font-weight:500;}
+.chapter{max-width:760px;margin:0 auto;padding:80px 40px;page-break-before:always;}
+.ch-num{font-size:11px;letter-spacing:4px;font-weight:700;color:var(--accent);text-transform:uppercase;margin-bottom:16px;opacity:0.7;}
+.ch-title{font-family:'Playfair Display',serif;font-size:clamp(26px,4vw,42px);font-weight:900;color:#FFFFFF;line-height:1.2;margin-bottom:20px;}
+.ch-line{width:40px;height:3px;background:linear-gradient(90deg,var(--accent),transparent);border-radius:2px;margin-bottom:48px;}
+.chapter p{margin-bottom:20px;color:var(--text);font-size:16px;}
+.chapter h3{font-size:22px;font-weight:700;color:#FFFFFF;margin:40px 0 16px;}
+.chapter ul,.chapter ol{padding-left:24px;margin-bottom:20px;}
+.chapter li{margin-bottom:8px;color:var(--text);}
+.chapter strong{color:#FFFFFF;}
+.chapter em{color:var(--accent);font-style:italic;}
+.callout{border-radius:12px;padding:24px;margin:32px 0;display:flex;gap:20px;align-items:flex-start;}
+.callout.gold{background:#A78BFA15;border:1px solid #A78BFA30;}
+.callout.blue{background:rgba(56,189,248,0.08);border:1px solid rgba(56,189,248,0.2);}
+.callout.red{background:rgba(239,68,68,0.08);border:1px solid rgba(239,68,68,0.2);}
+.callout.green{background:rgba(16,185,129,0.08);border:1px solid rgba(16,185,129,0.2);}
+.callout-icon{font-size:24px;flex-shrink:0;margin-top:2px;}
+.callout-text{font-size:15px;line-height:1.6;}
+.callout.gold .callout-text{color:#FDE68A;}
+.callout.blue .callout-text{color:#BAE6FD;}
+.callout.red .callout-text{color:#FCA5A5;}
+.callout.green .callout-text{color:#6EE7B7;}
+.stat-box{text-align:center;padding:32px;background:var(--surface);border:1px solid var(--border);border-radius:16px;margin:32px 0;}
+.stat{font-size:56px;font-weight:900;color:var(--accent);font-family:'Playfair Display',serif;}
+.stat-label{color:var(--muted);font-size:14px;margin-top:8px;}
+.tip-box{background:var(--surface);border-left:3px solid var(--accent);padding:20px 24px;margin:24px 0;border-radius:0 8px 8px 0;}
+.tip-label{font-size:11px;font-weight:700;letter-spacing:2px;color:var(--accent);text-transform:uppercase;margin-bottom:8px;}
+.affiliate-link{display:inline-block;color:var(--accent);font-weight:600;text-decoration:none;font-size:14px;padding:8px 0;border-bottom:1px solid #A78BFA40;margin:12px 0;}
+.cta-btn{display:inline-block;background:var(--accent);color:#000;font-weight:700;font-size:15px;padding:14px 28px;border-radius:8px;text-decoration:none;}
+.cta-btn.lg{font-size:17px;padding:18px 36px;}
+.final-cta{text-align:center;padding:48px 32px;background:var(--surface);border:1px solid var(--border);border-radius:16px;margin-top:64px;}
+.final-cta h3{font-family:'Playfair Display',serif;font-size:28px;color:#FFFFFF;margin-bottom:16px;}
+.final-cta p{color:var(--muted);margin-bottom:24px;}
+.grid2{display:grid;grid-template-columns:1fr 1fr;gap:16px;margin:24px 0;}
+.card{background:var(--surface);border:1px solid var(--border);border-radius:12px;padding:20px;}
+.card-title{font-weight:700;color:#FFFFFF;margin-bottom:8px;font-size:15px;}
+.card-body{font-size:13px;color:var(--muted);line-height:1.5;}
+@media print{.cover{min-height:100vh;page-break-after:always;}.chapter{page-break-before:always;}.toc{page-break-after:always;}}
+@media(max-width:600px){.chapter,.toc{padding:40px 20px;}.grid2{grid-template-columns:1fr;}}
+
+/* ── CHAPTER ILLUSTRATIONS ── */
+.ch-illustration{width:100%;height:260px;overflow:hidden;position:relative;border-radius:14px;margin:0 0 36px;}
+.ch-illustration img{width:100%;height:100%;object-fit:cover;filter:brightness(.95) saturate(1.3);display:block;}
+.ch-illustration::after{content:'';position:absolute;bottom:0;left:0;right:0;height:90px;background:linear-gradient(transparent,var(--dark,#080808));}
+.cover-hero-img{width:100%;max-width:700px;height:320px;overflow:hidden;border-radius:18px;margin:0 auto 44px;position:relative;}
+.cover-hero-img img{width:100%;height:100%;object-fit:cover;filter:brightness(.95) saturate(1.3);}
+.cover-hero-img::after{content:'';position:absolute;inset:0;background:linear-gradient(to bottom,transparent 35%,rgba(0,0,0,.65) 100%);}
+</style>
+</head>
+<body>
+<div class="cover">
+  <div class="cover-tag">NovaCrypto · 2026</div>
+  <div class="cover-hero-img">
+    <img src="https://image.pollinations.ai/prompt/cartoon%20friendly%20bitcoin%20character%20kids%20learning%20colorful%20bright?width=900&height=400&nologo=true&seed=420" alt="Cover">
+  </div>
+  <h1 class="cover-title">Crypto for Kids</h1>
+  <div class="cover-divider"></div>
+  <p class="cover-subtitle">Bitcoin, Blockchain & Digital Money Explained Simply — For Ages 8 and Up</p>
+  <div class="cover-author">NovaCrypto</div>
+</div>
+<div class="toc">
+  <h2>Table of Contents</h2>
+  <ol><li><a href="#ch1">What is Money, Really?</a></li>
+<li><a href="#ch2">Bitcoin: Digital Gold for the Internet Age</a></li>
+<li><a href="#ch3">How Blockchain Works (The Fun Explanation)</a></li>
+<li><a href="#ch4">Crypto: More Than Just Bitcoin</a></li>
+<li><a href="#ch5">The Future of Money</a></li></ol>
+</div>
+<div class="chapter" id="ch1">
+  <div class="ch-num">Chapter 1</div>
+  <div class="ch-illustration">
+    <img src="https://image.pollinations.ai/prompt/cartoon%20kids%20learning%20about%20money%20coins%20piggy%20bank%20colorful%20bright?width=900&height=360&nologo=true&seed=421" alt="Chapter">
+  </div>
+  <h2 class="ch-title">What is Money, Really?</h2>
+  <div class="ch-line"></div>
+  
+<p>Before we talk about crypto, let's talk about money itself. What is it? Why do we use it?</p>
+<p>Imagine you're really good at baking cookies. Your neighbor is really good at growing strawberries. You want strawberries, they want cookies. So you trade — that's called <strong>bartering</strong>.</p>
+<p>But what if you want strawberries and your neighbor doesn't want cookies right now? You need something in between — something everyone agrees has value. That's where money comes in.</p>
+<div class="callout gold"><div class="callout-icon">🍪</div><div class="callout-text"><strong>Fun fact:</strong> Thousands of years ago, people used shells, stones, and even chocolate as money! Money is anything a group of people agrees to use for trading.</div></div>
+<h3>How Does Regular Money Work Today?</h3>
+<p>Today, most money exists as numbers on a computer screen. When your parents get paid, numbers increase in their bank account. When they pay for something, numbers decrease.</p>
+<p>A central bank (like the European Central Bank or the US Federal Reserve) decides how much money to create. They control the whole system.</p>
+<div class="tip-box"><div class="tip-label">Think about it</div>If you have €10 in your piggy bank, does that €10 have an actual piece of gold behind it? Nope! It has value because everyone agrees it has value. That's fascinating!</div>
+</div>
+<div class="chapter" id="ch2">
+  <div class="ch-num">Chapter 2</div>
+  <div class="ch-illustration">
+    <img src="https://image.pollinations.ai/prompt/cartoon%20bitcoin%20coin%20glowing%20digital%20gold%20kids%20colorful%20bright?width=900&height=360&nologo=true&seed=422" alt="Chapter">
+  </div>
+  <h2 class="ch-title">Bitcoin: Digital Gold for the Internet Age</h2>
+  <div class="ch-line"></div>
+  
+<p>Now here's where it gets really cool. What if you could create money that nobody controls? Money where the rules are written in code, not decided by governments?</p>
+<p>That's exactly what a mysterious person (or group) called <strong>Satoshi Nakamoto</strong> invented in 2009. They called it Bitcoin.</p>
+<h3>How Bitcoin is Different</h3>
+<div class="grid2">
+<div class="card"><div class="card-title">Regular Money 🏦</div><div class="card-body">• A bank controls it<br>• Can be printed anytime<br>• Your account can be frozen<br>• Exists on bank computers</div></div>
+<div class="card"><div class="card-title">Bitcoin ₿</div><div class="card-body">• Nobody controls it<br>• Only 21 million will EVER exist<br>• Nobody can freeze it<br>• Exists on thousands of computers</div></div>
+</div>
+<div class="callout gold"><div class="callout-icon">🌟</div><div class="callout-text"><strong>The Magic Number:</strong> There will only ever be 21 million Bitcoin. Ever. It's written in the code. This is why some people call it "digital gold" — like gold, you can't just make more of it whenever you want.</div></div>
+<h3>A Story About Bitcoin</h3>
+<p>Imagine you had a magic notebook that everyone in the world could see, but nobody could erase or change. When you send Bitcoin to someone, it's written in that notebook forever.</p>
+<p>This magic notebook is called the <strong>blockchain</strong>. Millions of computers around the world all keep an identical copy. If someone tried to cheat, all the other computers would notice instantly.</p>
+</div>
+<div class="chapter" id="ch3">
+  <div class="ch-num">Chapter 3</div>
+  <div class="ch-illustration">
+    <img src="https://image.pollinations.ai/prompt/cartoon%20blockchain%20chain%20blocks%20kids%20fun%20explanation%20colorful%20bright?width=900&height=360&nologo=true&seed=423" alt="Chapter">
+  </div>
+  <h2 class="ch-title">How Blockchain Works (The Fun Explanation)</h2>
+  <div class="ch-line"></div>
+  
+<p>The blockchain is Bitcoin's superpower. Let's understand it with a fun story.</p>
+<h3>The Village Record Book</h3>
+<p>Imagine a village where everyone knows everyone. When someone trades something, the whole village watches and the trade gets written in a giant book that everyone keeps a copy of.</p>
+<p>If sneaky Sam tries to write "Sam has 1000 gold coins" in his copy, everyone else's copies say something different. The village says "Nope, Sam, that's not what happened!" and Sam's fake version gets rejected.</p>
+<p>That's exactly how blockchain works — except instead of a village, it's thousands of computers around the world.</p>
+<div class="stat-box"><div class="stat">15,000+</div><div class="stat-label">Number of computers (called nodes) that verify every Bitcoin transaction</div></div>
+<h3>What is a Block?</h3>
+<p>Every 10 minutes, all the Bitcoin transactions from those 10 minutes get bundled together into a "block." This block gets added to the chain of previous blocks — that's why it's called a blockchain!</p>
+<div class="callout gold"><div class="callout-icon">🔗</div><div class="callout-text"><strong>Chain analogy:</strong> Think of each block like a page in a book. The blockchain is the whole book. You can add new pages, but you can never erase old ones.</div></div>
+<h3>Mining: How New Bitcoin is Created</h3>
+<p>Computers called "miners" compete to create new blocks. They have to solve a really hard math puzzle (computers are great at this). The winner gets to add the new block AND receives some Bitcoin as a reward. This is called "mining" — like mining gold from the ground!</p>
+</div>
+<div class="chapter" id="ch4">
+  <div class="ch-num">Chapter 4</div>
+  <div class="ch-illustration">
+    <img src="https://image.pollinations.ai/prompt/cartoon%20various%20cryptocurrency%20coins%20colorful%20fun%20kids%20bright?width=900&height=360&nologo=true&seed=424" alt="Chapter">
+  </div>
+  <h2 class="ch-title">Crypto: More Than Just Bitcoin</h2>
+  <div class="ch-line"></div>
+  
+<p>Bitcoin was the first, but it wasn't the last. Today there are thousands of different cryptocurrencies. Let's meet some of the important ones.</p>
+<h3>Ethereum: The Smart Contract Machine</h3>
+<p>Ethereum takes blockchain a step further. It can run programs called <strong>smart contracts</strong>. These are like automatic vending machines — put in the right input, and they automatically give you the right output, with no person in the middle.</p>
+<p>Imagine buying a house using a smart contract: the money goes in, the ownership transfers automatically, and nobody needs a lawyer or bank. The code handles everything!</p>
+<h3>Other Important Cryptocurrencies</h3>
+<div class="grid2">
+<div class="card"><div class="card-title">💰 Stablecoins</div><div class="card-body">Crypto that's designed to always be worth $1. Used to save money in crypto without the ups and downs. Examples: USDC, USDT</div></div>
+<div class="card"><div class="card-title">🎮 NFTs</div><div class="card-body">Digital items you can own — like a unique trading card. Your ownership is proved on the blockchain. Used in games and art.</div></div>
+<div class="card"><div class="card-title">⚠️ The Warning</div><div class="card-body">Most of the thousands of cryptos are risky. Many will lose all their value. Always ask a trusted adult before any crypto decisions!</div></div>
+<div class="card"><div class="card-title">🏆 The Big Two</div><div class="card-body">Bitcoin and Ethereum have the longest track records. They're still risky, but more established than tiny new coins.</div></div>
+</div>
+<div class="callout red"><div class="callout-icon">⚠️</div><div class="callout-text"><strong>Important for Young Readers:</strong> Crypto can be very exciting, but it's also very risky. Prices can drop 80% in months. Never invest money you can't afford to lose. Always talk to your parents or a trusted adult first!</div></div>
+</div>
+<div class="chapter" id="ch5">
+  <div class="ch-num">Chapter 5</div>
+  <div class="ch-illustration">
+    <img src="https://image.pollinations.ai/prompt/cartoon%20future%20digital%20money%20kids%20rocket%20flying%20coins%20bright%20colorful?width=900&height=360&nologo=true&seed=425" alt="Chapter">
+  </div>
+  <h2 class="ch-title">The Future of Money</h2>
+  <div class="ch-line"></div>
+  
+<p>You're growing up at an incredibly exciting time. The way money works is changing faster than at any point in history. Here's what might be coming.</p>
+<h3>Digital Currencies from Governments</h3>
+<p>Many countries are creating their own digital currencies, called CBDCs (Central Bank Digital Currencies). Unlike Bitcoin, these ARE controlled by governments. The Euro and Dollar might go fully digital in your lifetime.</p>
+<h3>Web3: Your Stuff, Your Rules</h3>
+<p>Web3 is the idea that on the internet of the future, you own your own data, your own digital items, and your own identity — no big company controls it. Blockchain makes this possible.</p>
+<h3>AI + Crypto</h3>
+<p>AI programs are starting to have their own "wallets" and earn their own crypto. Imagine an AI that earns money by helping people, saves it in a Bitcoin wallet, and spends it to improve itself. This is already happening in small ways in 2026.</p>
+<div class="callout gold"><div class="callout-icon">🚀</div><div class="callout-text"><strong>For Young Readers:</strong> The best thing you can do right now is learn. Understand how this technology works. The people who understood the internet early in 1995 had a massive advantage. Crypto and blockchain might be the same kind of opportunity for your generation.</div></div>
+<div class="final-cta"><h3>Keep Learning!</h3><p>Ask your parents or teachers questions. Read more books. The future of money is being built right now — and you could be part of building it!</p><a href="https://novacrypto.gumroad.com" class="cta-btn lg">More NovaCrypto Resources →</a></div>
+</div>
+</body>
+</html>
