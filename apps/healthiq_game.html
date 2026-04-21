@@ -263,28 +263,62 @@ body.fw{animation:fw .3s ease;}
 @keyframes up{from{opacity:0;transform:translateY(20px)}to{opacity:1;transform:translateY(0)}}
 @media(max-width:480px){.stats-row{gap:6px}.stat-box{padding:12px 14px;min-width:70px}.stat-n{font-size:22px}}
 
-/* ═══ MAGAZINE HERO ═══ */
-.hero-cinema{position:relative;width:100%;border-radius:28px;overflow:hidden;margin-bottom:28px;min-height:260px;display:flex;align-items:center;justify-content:center;}
-.hero-bg-img{position:absolute;inset:0;background-image:url('https://image.pollinations.ai/prompt/health%20wellness%20nutrition%20science%20green%20emerald%20cinematic%20magazine%20cover%20ultra%20dramatic%20neon?width=800&height=400&nologo=true&seed=20260421');background-size:cover;background-position:center;filter:brightness(.5) saturate(1.4);transform:scale(1.04);animation:heroZoom 18s ease-in-out infinite alternate;}
-@keyframes heroZoom{0%{transform:scale(1.04) translateX(0)}100%{transform:scale(1.12) translateX(-12px)}}
-.hero-overlay{position:absolute;inset:0;background:linear-gradient(160deg,rgba(5,15,10,.3) 0%,rgba(0,212,170,.08) 50%,rgba(5,15,10,.85) 100%);}
-.hf-rings{position:absolute;inset:0;display:flex;align-items:center;justify-content:center;pointer-events:none;}
-.hf-ring{position:absolute;border-radius:50%;border:1px solid rgba(0,212,170,.15);animation:pulse-ring 3.5s ease-in-out infinite;}
-.hf-ring:nth-child(1){width:180px;height:180px;animation-delay:0s;}
-.hf-ring:nth-child(2){width:260px;height:260px;animation-delay:.6s;border-color:rgba(0,212,170,.09);}
-.hf-ring:nth-child(3){width:350px;height:350px;animation-delay:1.2s;border-color:rgba(0,212,170,.05);}
-.hf-ring:nth-child(4){width:460px;height:460px;animation-delay:1.8s;border-color:rgba(0,212,170,.03);}
+/* ═══ MAGAZINE HERO — HEALTH SCENE ═══ */
+.hero-cinema{position:relative;width:100%;border-radius:28px;overflow:hidden;margin-bottom:28px;min-height:310px;display:flex;align-items:center;justify-content:center;background:#040e08;}
+
+/* Organic cell background */
+.hero-bio-bg{
+  position:absolute;inset:0;
+  background:radial-gradient(ellipse 80% 60% at 50% 40%,rgba(0,100,70,.3) 0%,transparent 70%),
+             radial-gradient(ellipse 50% 80% at 80% 80%,rgba(0,150,90,.15) 0%,transparent 60%),
+             linear-gradient(180deg,#050f0a 0%,#061a0e 50%,#040e08 100%);
+}
+
+/* ECG line across middle */
+.hero-ecg{position:absolute;left:0;right:0;top:55%;transform:translateY(-50%);pointer-events:none;overflow:hidden;height:40px;}
+.hero-ecg svg{width:200%;height:100%;animation:ecg-hero 3s linear infinite;}
+@keyframes ecg-hero{from{transform:translateX(0)}to{transform:translateX(-50%)}}
+
+/* Floating health icons at sides */
+.hq-icon{position:absolute;font-size:36px;pointer-events:none;opacity:.65;}
+.hq-heart{left:5%;top:18%;animation:hq-float 4s ease-in-out infinite;filter:drop-shadow(0 0 14px rgba(0,212,170,.7));}
+.hq-dna{left:8%;bottom:32%;font-size:30px;animation:hq-float 5.5s ease-in-out infinite;animation-delay:-2s;filter:drop-shadow(0 0 10px rgba(168,255,62,.5));}
+.hq-muscle{right:7%;top:15%;animation:hq-float 4.8s ease-in-out infinite;animation-delay:-1s;filter:drop-shadow(0 0 12px rgba(0,212,170,.6));}
+.hq-brain{right:10%;bottom:30%;font-size:32px;animation:hq-float 6s ease-in-out infinite;animation-delay:-3s;filter:drop-shadow(0 0 10px rgba(79,195,247,.5));}
+.hq-leaf{left:18%;top:10%;font-size:28px;animation:hq-float 7s ease-in-out infinite;animation-delay:-.5s;opacity:.5;}
+.hq-run{right:18%;top:62%;font-size:28px;animation:hq-float 5s ease-in-out infinite;animation-delay:-1.5s;opacity:.5;}
+@keyframes hq-float{0%,100%{transform:translateY(0) rotate(-4deg)}50%{transform:translateY(-14px) rotate(4deg)}}
+
+/* DNA helix bottom decoration */
+.hero-dna{position:absolute;bottom:0;left:0;right:0;height:50px;overflow:hidden;}
+
+/* Rings */
+.hf-rings{position:absolute;inset:0;display:flex;align-items:center;justify-content:center;pointer-events:none;top:-5%;}
+.hf-ring{position:absolute;border-radius:50%;border:1px solid rgba(0,212,170,.14);animation:pulse-ring 3.5s ease-in-out infinite;}
+.hf-ring:nth-child(1){width:160px;height:160px;animation-delay:0s;}
+.hf-ring:nth-child(2){width:240px;height:240px;animation-delay:.6s;border-color:rgba(0,212,170,.08);}
+.hf-ring:nth-child(3){width:330px;height:330px;animation-delay:1.2s;border-color:rgba(0,212,170,.05);}
+.hf-ring:nth-child(4){width:440px;height:440px;animation-delay:1.8s;border-color:rgba(0,212,170,.03);}
 @keyframes pulse-ring{0%,100%{transform:scale(1);opacity:1}50%{transform:scale(1.06);opacity:.5}}
-.hf-graphic{position:absolute;font-size:84px;animation:float-coin 4s ease-in-out infinite;filter:drop-shadow(0 0 32px rgba(0,212,170,.7));z-index:2;}
-@keyframes float-coin{0%,100%{transform:translateY(0) scale(1) rotate(-3deg)}50%{transform:translateY(-18px) scale(1.05) rotate(3deg)}}
-.hero-content{position:relative;z-index:3;text-align:center;padding:32px 24px;width:100%;}
-.hero-kicker{font-size:10px;letter-spacing:4px;text-transform:uppercase;color:#00D4AA;font-weight:700;margin-bottom:8px;text-shadow:0 0 20px rgba(0,212,170,.6);}
-.hero-title-mag{font-family:'Playfair Display',Georgia,serif;font-size:clamp(40px,10vw,72px);font-weight:900;line-height:1.05;letter-spacing:-1px;background:linear-gradient(135deg,#fff 0%,#00D4AA 45%,#A8FF3E 100%);-webkit-background-clip:text;-webkit-text-fill-color:transparent;background-clip:text;margin-bottom:4px;animation:up .6s .1s ease both;}
-.hero-title-accent{font-family:'Playfair Display',Georgia,serif;font-style:italic;font-size:clamp(18px,4vw,28px);color:rgba(0,212,170,.8);letter-spacing:1px;margin-bottom:0;animation:up .6s .2s ease both;}
-.mag-divider{display:flex;align-items:center;gap:12px;margin:16px auto 0;width:fit-content;animation:up .6s .3s ease both;}
-.mag-divider::before,.mag-divider::after{content:'';display:block;width:60px;height:1px;background:linear-gradient(90deg,transparent,rgba(0,212,170,.5));}
-.mag-divider::after{transform:scaleX(-1);}
-.mag-divider-dot{width:5px;height:5px;border-radius:50%;background:#00D4AA;box-shadow:0 0 8px #00D4AA;}
+
+/* Central graphic */
+.hf-graphic{position:absolute;font-size:80px;top:22%;animation:hq-float 4s ease-in-out infinite;filter:drop-shadow(0 0 32px rgba(0,212,170,.8));z-index:2;}
+
+/* Glow */
+.hero-glow{position:absolute;left:50%;top:36%;transform:translate(-50%,-50%);width:180px;height:180px;border-radius:50%;background:radial-gradient(circle,rgba(0,212,170,.18) 0%,transparent 70%);animation:glow-pulse 3s ease-in-out infinite;pointer-events:none;}
+@keyframes glow-pulse{0%,100%{transform:translate(-50%,-50%) scale(1)}50%{transform:translate(-50%,-50%) scale(1.3)}}
+
+/* Stat pill */
+.hero-stat-pill{position:absolute;top:12px;right:14px;display:flex;gap:7px;z-index:3;}
+.hsp{background:rgba(4,14,8,.75);border:1px solid rgba(0,212,170,.2);border-radius:8px;padding:4px 10px;font-size:10px;font-weight:700;color:#00D4AA;letter-spacing:.5px;backdrop-filter:blur(8px);}
+
+/* Title */
+.hero-content{position:absolute;bottom:12px;left:0;right:0;z-index:5;text-align:center;padding:0 24px;}
+.hero-kicker{font-size:10px;letter-spacing:4px;text-transform:uppercase;color:#00D4AA;font-weight:700;margin-bottom:6px;text-shadow:0 0 20px rgba(0,212,170,.6);}
+.hero-title-mag{font-family:'Playfair Display',Georgia,serif;font-size:clamp(36px,9vw,60px);font-weight:900;line-height:1.05;letter-spacing:-1px;background:linear-gradient(135deg,#fff 0%,#00D4AA 45%,#A8FF3E 100%);-webkit-background-clip:text;-webkit-text-fill-color:transparent;background-clip:text;margin-bottom:2px;animation:up .6s .1s ease both;}
+.hero-title-accent{font-family:'Playfair Display',Georgia,serif;font-style:italic;font-size:clamp(14px,3.5vw,22px);color:rgba(0,212,170,.8);letter-spacing:1px;animation:up .6s .2s ease both;}
+.mag-divider{display:none;}
+
 .game-title{font-family:'Playfair Display',Georgia,serif!important;font-size:clamp(42px,9vw,72px)!important;font-weight:900!important;}
 .q-text{font-family:'Playfair Display',Georgia,serif;font-size:clamp(16px,2.8vw,20px)!important;font-weight:700!important;line-height:1.5!important;}
 .stat-box{border:1px solid rgba(0,212,170,.18)!important;box-shadow:0 4px 20px rgba(0,0,0,.4),inset 0 1px 0 rgba(0,212,170,.08)!important;}
@@ -331,22 +365,45 @@ body.fw{animation:fw .3s ease;}
 
 <div class="scr on" id="scr-intro">
 
-  <!-- CINEMATIC HERO -->
+  <!-- HEALTH HERO SCENE -->
   <div class="hero-cinema">
-    <div class="hero-bg-img"></div>
-    <div class="hero-overlay"></div>
+    <div class="hero-bio-bg"></div>
+    <div class="hero-glow"></div>
+    <!-- ECG line -->
+    <div class="hero-ecg">
+      <svg viewBox="0 0 1200 40" fill="none" preserveAspectRatio="none">
+        <polyline points="0,20 100,20 120,20 132,4 142,36 152,20 172,20 272,20 294,20 306,4 316,36 326,20 346,20 446,20 468,20 480,4 490,36 500,20 520,20 620,20 642,20 654,4 664,36 674,20 694,20 794,20 816,20 828,4 838,36 848,20 868,20 968,20 990,20 1002,4 1012,36 1022,20 1042,20 1142,20 1164,20 1176,4 1186,36 1196,20 1200,20"
+          stroke="rgba(0,212,170,0.25)" stroke-width="1.5" fill="none"/>
+        <polyline points="600,20 700,20 720,20 732,4 742,36 752,20 772,20 872,20 894,20 906,4 916,36 926,20 946,20 1046,20 1068,20 1080,4 1090,36 1100,20 1120,20 1200,20"
+          stroke="rgba(168,255,62,0.12)" stroke-width="1" fill="none"/>
+      </svg>
+    </div>
+    <!-- Rings around center -->
     <div class="hf-rings">
       <div class="hf-ring"></div>
       <div class="hf-ring"></div>
       <div class="hf-ring"></div>
       <div class="hf-ring"></div>
     </div>
+    <!-- Side icons -->
+    <div class="hq-icon hq-heart">❤️</div>
+    <div class="hq-icon hq-dna">🧬</div>
+    <div class="hq-icon hq-muscle">💪</div>
+    <div class="hq-icon hq-brain">🧠</div>
+    <div class="hq-icon hq-leaf">🥗</div>
+    <div class="hq-icon hq-run">🏃</div>
+    <!-- Central graphic -->
     <div class="hf-graphic">🧬</div>
+    <!-- Stat pills -->
+    <div class="hero-stat-pill">
+      <div class="hsp">❤️ 72 BPM</div>
+      <div class="hsp">💧 Hydrate</div>
+    </div>
+    <!-- Title -->
     <div class="hero-content">
       <div class="hero-kicker">★ &nbsp;Science-Backed Questions &nbsp;★</div>
       <div class="hero-title-mag">HealthIQ</div>
       <div class="hero-title-accent">Nutrition · Fitness · Biohacking</div>
-      <div class="mag-divider"><div class="mag-divider-dot"></div></div>
     </div>
   </div>
 
