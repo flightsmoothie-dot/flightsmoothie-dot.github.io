@@ -893,10 +893,20 @@ body.fw{animation:flashW .3s ease;}
     </div>
     <div class="ach-row" id="achs"></div>
     <div class="res-btns">
-      <button class="res-btn p" onclick="startGame()">Play Again</button>
-      <button class="res-btn s" onclick="shareTwitter()" style="background:linear-gradient(135deg,#1d9bf0,#0d7cc3)">𝕏 Share</button>
+      <button class="res-btn p" onclick="startGame()">🔄 Play Again</button>
+      <button class="res-btn s" onclick="challengeFriend()" style="background:linear-gradient(135deg,#F7B731,#FF6B00);color:#000;font-weight:900">🤝 Challenge Friend</button>
+    </div>
+    <div class="res-btns" style="margin-top:8px">
+      <button class="res-btn s" onclick="shareTwitter()" style="background:linear-gradient(135deg,#1d9bf0,#0d7cc3)">𝕏 Tweet Score</button>
+      <button id="tiktok-share-btn" class="res-btn s" onclick="shareTikTok()" style="background:linear-gradient(135deg,#010101,#ff0050)">🎵 TikTok</button>
+      <button class="res-btn s" onclick="shareInstagram()" style="background:linear-gradient(135deg,#833ab4,#fd1d1d,#fcb045)">📸 Instagram</button>
       <button class="res-btn s" onclick="shareWhatsApp()" style="background:linear-gradient(135deg,#25d366,#128c3e)">💬 WhatsApp</button>
       <button class="res-btn s" onclick="copyScore()" id="copy-btn">📋 Copy</button>
+    </div>
+    <!-- Mini Leaderboard -->
+    <div style="margin:24px 0 0;padding:20px;background:rgba(16,14,30,0.95);border:1px solid rgba(247,183,49,0.2);border-radius:16px">
+      <div style="font-size:11px;text-transform:uppercase;letter-spacing:2px;color:rgba(180,180,210,.5);margin-bottom:12px">🏆 Your Best Scores</div>
+      <div id="lb-list"></div>
     </div>
     <!-- NEWSLETTER — Beehiiv embed (activate once pub ID is set) -->
     <div style="margin:20px 0 0;padding:24px 20px;background:linear-gradient(135deg,rgba(16,14,30,0.95),rgba(24,10,30,0.98));border:1px solid rgba(247,183,49,0.15);border-radius:18px;">
@@ -1413,6 +1423,8 @@ function endGame(){
 
 function showResults(){
   const pct=G._pct,tSec=G._tSec;
+  saveToLeaderboard();
+  renderLeaderboard();
   document.getElementById("best-disp").textContent=G.bestScore>0?G.bestScore+"pts":"—";
   let grade,msg,col;
   if(pct>=.9){grade="🏆 Crypto Expert";col="#F7B731";msg="Exceptional! Professional-level crypto knowledge. You're ready to trade with full confidence.";}
@@ -1484,31 +1496,81 @@ function drainToast(){
 }
 
 /* ══ SHARE ════════════════════════════════════════════════ */
+const GAME_URL="https://flightsmoothie-dot.github.io/apps/crypto_quiz_game.html";
 function _shareText(){
   const p=Math.round(G.correct/G.qs.length*100);
-  return `I scored ${G.correct}/${G.qs.length} (${p}%) on CryptoQuiz 3D 🧠 Can you beat me? Test your crypto IQ → novacrypto.io/apps/crypto_quiz_game.html #CryptoQuiz #NovaCrypto`;
+  const emoji=p>=80?"🏆":p>=60?"🧠":p>=40?"📈":"😅";
+  return `${emoji} I scored ${G.correct}/${G.qs.length} (${p}%) on CryptoQuiz — can you beat me?\n\nTest your crypto IQ for FREE 👇`;
 }
 function shareScore(){
   const t=_shareText();
-  if(navigator.share)navigator.share({text:t,url:"https://novacrypto.io/apps/crypto_quiz_game.html",title:"CryptoQuiz 3D"});
+  if(navigator.share)navigator.share({text:t,url:GAME_URL,title:"CryptoQuiz — Test Your Crypto IQ"});
   else shareTwitter();
 }
 function shareTwitter(){
-  const url=encodeURIComponent("https://novacrypto.io/apps/crypto_quiz_game.html");
-  const txt=encodeURIComponent(_shareText());
-  window.open(`https://twitter.com/intent/tweet?text=${txt}&url=${url}`,"_blank");
+  const txt=encodeURIComponent(_shareText()+"\n"+GAME_URL+" #CryptoQuiz #NovaCrypto #Bitcoin");
+  window.open(`https://twitter.com/intent/tweet?text=${txt}`,"_blank");
 }
 function shareWhatsApp(){
-  const msg=encodeURIComponent(_shareText()+" https://novacrypto.io/apps/crypto_quiz_game.html");
+  const msg=encodeURIComponent(_shareText()+"\n\n"+GAME_URL);
   window.open(`https://wa.me/?text=${msg}`,"_blank");
 }
+function shareTikTok(){
+  /* TikTok has no web intent — copy the challenge text instead */
+  const t=`${_shareText()}\n\n${GAME_URL} #CryptoQuiz #NovaCrypto #CryptoTikTok #Bitcoin`;
+  navigator.clipboard?.writeText(t).then(()=>{
+    const btn=document.getElementById("tiktok-share-btn");
+    if(btn){btn.textContent="✅ Copied for TikTok!";setTimeout(()=>{btn.textContent="🎵 TikTok Challenge";},2500);}
+    showToast("Caption copied — paste into TikTok! 🎵");
+  });
+}
+function shareInstagram(){
+  /* Instagram has no web intent — copy + open profile */
+  const t=`${_shareText()}\n\nLink in bio → NovaCrypto 🔗\n\n#CryptoQuiz #Bitcoin #CryptoEducation #NovaCrypto`;
+  navigator.clipboard?.writeText(t).then(()=>{
+    showToast("Caption copied for Instagram! 📸");
+  });
+}
 function copyScore(){
-  const t=_shareText()+" https://novacrypto.io/apps/crypto_quiz_game.html";
+  const t=_shareText()+"\n\n"+GAME_URL;
   navigator.clipboard?.writeText(t).then(()=>{
     const btn=document.getElementById("copy-btn");
     btn.textContent="✅ Copied!";
     setTimeout(()=>{btn.textContent="📋 Copy";},2000);
   });
+}
+function challengeFriend(){
+  const p=Math.round(G.correct/G.qs.length*100);
+  const t=`🤝 ${p>=70?"I just beat":"I scored "+G.correct+"/"+G.qs.length+" on"} CryptoQuiz — I dare you to do better!\n\nPlay free 👉 ${GAME_URL}\n\n#CryptoChallenge #NovaCrypto`;
+  if(navigator.share)navigator.share({text:t,url:GAME_URL,title:"CryptoQuiz Challenge"});
+  else{navigator.clipboard?.writeText(t);showToast("Challenge link copied! 🤝");}
+}
+function showToast(msg){
+  let t=document.createElement("div");
+  t.textContent=msg;
+  t.style.cssText="position:fixed;bottom:80px;left:50%;transform:translateX(-50%);background:#F7B731;color:#000;padding:10px 20px;border-radius:20px;font-weight:800;font-size:13px;z-index:9999;animation:fadeIn .3s";
+  document.body.appendChild(t);
+  setTimeout(()=>t.remove(),2500);
+}
+/* ── Mini Leaderboard (localStorage top-5 scores) ──────────── */
+function saveToLeaderboard(){
+  const scores=JSON.parse(localStorage.getItem("cq_lb")||"[]");
+  const now=new Date();
+  scores.push({score:G.score,correct:G.correct,total:G.qs.length,date:now.toLocaleDateString()});
+  scores.sort((a,b)=>b.score-a.score);
+  localStorage.setItem("cq_lb",JSON.stringify(scores.slice(0,10)));
+}
+function renderLeaderboard(){
+  const scores=JSON.parse(localStorage.getItem("cq_lb")||"[]");
+  const el=document.getElementById("lb-list");
+  if(!el)return;
+  if(!scores.length){el.innerHTML='<div style="color:var(--sub);text-align:center;padding:12px">No games yet — play to set a score!</div>';return;}
+  el.innerHTML=scores.slice(0,5).map((s,i)=>`
+    <div style="display:flex;align-items:center;gap:12px;padding:8px 0;border-bottom:1px solid rgba(255,255,255,.06)">
+      <span style="font-size:18px;min-width:28px;text-align:center">${["🥇","🥈","🥉","4️⃣","5️⃣"][i]}</span>
+      <div style="flex:1"><div style="font-weight:800;color:#fff">${s.score} pts</div>
+        <div style="font-size:11px;color:var(--sub)">${s.correct}/${s.total} correct · ${s.date}</div></div>
+    </div>`).join("");
 }
 
 /* ══ LIVE COUNTER ═════════════════════════════════════════ */
