@@ -552,106 +552,88 @@ body.fw{animation:flashW .3s ease;}
 ═══════════════════════════════════════════ */
 .hero-cinema {
   position:relative; width:100%; border-radius:28px; overflow:hidden;
-  margin-bottom:28px; min-height:310px;
-  display:flex; align-items:center; justify-content:center;
-  background:#07070F;
+  margin-bottom:28px; min-height:300px;
+  display:flex; align-items:flex-end; justify-content:center;
 }
 
-/* Dark grid background */
-.hero-grid{
+/* Background photo — bright & visible */
+.hero-bg-img{
   position:absolute;inset:0;
-  background-image:
-    linear-gradient(rgba(247,183,49,.04) 1px,transparent 1px),
-    linear-gradient(90deg,rgba(247,183,49,.04) 1px,transparent 1px);
-  background-size:40px 40px;
+  background-image:url('https://image.pollinations.ai/prompt/bitcoin%20crypto%20trading%20neon%20city%20skyline%20night%20gold%20charts%20dramatic%20cinematic%20magazine%20cover?width=900&height=400&nologo=true&seed=20260421');
+  background-size:cover;background-position:center 40%;
+  filter:brightness(.72) saturate(1.1);
+  transform:scale(1.03);
+  animation:heroZoom 20s ease-in-out infinite alternate;
+}
+@keyframes heroZoom{0%{transform:scale(1.03)}100%{transform:scale(1.09) translateX(-8px)}}
+
+/* Gradient overlay — only bottom third for title */
+.hero-overlay{
+  position:absolute;inset:0;
+  background:linear-gradient(to bottom,
+    transparent 0%,
+    transparent 40%,
+    rgba(7,7,15,.5) 65%,
+    rgba(7,7,15,.92) 100%);
 }
 
-/* Radial glow pulse behind BTC */
-.hero-glow{
-  position:absolute;left:50%;top:38%;transform:translate(-50%,-50%);
-  width:200px;height:200px;border-radius:50%;
-  background:radial-gradient(circle,rgba(247,183,49,.22) 0%,transparent 70%);
-  animation:glow-pulse 3s ease-in-out infinite;
-}
-@keyframes glow-pulse{0%,100%{transform:translate(-50%,-50%) scale(1)}50%{transform:translate(-50%,-50%) scale(1.3)}}
-
-/* Floating rings */
-.hf-rings{position:absolute;inset:0;display:flex;align-items:center;justify-content:center;pointer-events:none;top:-10%;}
-.hf-ring{position:absolute;border-radius:50%;border:1px solid rgba(247,183,49,.13);animation:pulse-ring 3.5s ease-in-out infinite;}
-.hf-ring:nth-child(1){width:160px;height:160px;animation-delay:0s;}
-.hf-ring:nth-child(2){width:240px;height:240px;animation-delay:.6s;border-color:rgba(247,183,49,.08);}
-.hf-ring:nth-child(3){width:330px;height:330px;animation-delay:1.2s;border-color:rgba(247,183,49,.05);}
-.hf-ring:nth-child(4){width:440px;height:440px;animation-delay:1.8s;border-color:rgba(247,183,49,.03);}
-@keyframes pulse-ring{0%,100%{transform:scale(1);opacity:1}50%{transform:scale(1.06);opacity:.5}}
-
-/* Floating coins at sides */
-.cq-coin{position:absolute;font-size:38px;pointer-events:none;opacity:.7;}
-.cq-coin-btc{left:6%;top:15%;animation:coin-float 5s ease-in-out infinite;filter:drop-shadow(0 0 14px rgba(247,183,49,.6));}
-.cq-coin-eth{left:12%;top:55%;font-size:32px;animation:coin-float 6s ease-in-out infinite;animation-delay:-2s;filter:drop-shadow(0 0 10px rgba(79,195,247,.5));}
-.cq-coin-sol{right:8%;top:20%;font-size:30px;animation:coin-float 4.5s ease-in-out infinite;animation-delay:-1s;filter:drop-shadow(0 0 10px rgba(153,69,255,.5));}
-.cq-coin-doge{right:14%;top:60%;font-size:28px;animation:coin-float 7s ease-in-out infinite;animation-delay:-3s;filter:drop-shadow(0 0 8px rgba(247,183,49,.4));}
+/* Floating coins — left side stack */
+.cq-coin{position:absolute;pointer-events:none;}
+.cq-coin-btc{left:4%;bottom:52px;font-size:64px;animation:coin-float 5s ease-in-out infinite;filter:drop-shadow(0 4px 20px rgba(247,183,49,.9));z-index:3;}
+.cq-coin-eth{left:6%;top:14%;font-size:36px;animation:coin-float 6s ease-in-out infinite;animation-delay:-2s;filter:drop-shadow(0 0 12px rgba(79,195,247,.7));opacity:.8;z-index:3;}
+/* Right side coins */
+.cq-coin-sol{right:5%;bottom:48px;font-size:58px;animation:coin-float 4.5s ease-in-out infinite;animation-delay:-1s;filter:drop-shadow(0 4px 18px rgba(153,69,255,.8));z-index:3;}
+.cq-coin-doge{right:8%;top:12%;font-size:34px;animation:coin-float 7s ease-in-out infinite;animation-delay:-3s;filter:drop-shadow(0 0 10px rgba(247,183,49,.6));opacity:.8;z-index:3;}
 @keyframes coin-float{0%,100%{transform:translateY(0) rotate(-5deg)}50%{transform:translateY(-16px) rotate(5deg)}}
 
-/* Candlestick chart at bottom */
+/* Candlestick chart at very bottom */
 .hero-chart{
-  position:absolute;bottom:0;left:0;right:0;height:80px;
-  display:flex;align-items:flex-end;gap:3px;padding:0 12px 0;
-  overflow:hidden;
+  position:absolute;bottom:0;left:0;right:0;height:64px;
+  display:flex;align-items:flex-end;gap:3px;padding:0 10px;
+  overflow:hidden;z-index:2;
+  background:linear-gradient(to top,rgba(7,7,15,.6) 0%,transparent 100%);
 }
-.candle{flex:1;display:flex;flex-direction:column;align-items:center;gap:0;position:relative;}
-.candle-body{width:70%;border-radius:2px;min-height:6px;}
+.candle{flex:1;display:flex;flex-direction:column;align-items:center;position:relative;}
+.candle-body{width:68%;border-radius:2px;min-height:5px;}
 .candle-wick{width:1.5px;background:rgba(255,255,255,.2);position:absolute;}
-.candle-wick-top{top:0;height:6px;}
-.candle-wick-bot{bottom:0;height:4px;}
-.candle.up .candle-body{background:rgba(0,245,160,.6);}
-.candle.dn .candle-body{background:rgba(255,64,96,.6);}
+.candle-wick-top{top:0;height:5px;}
+.candle-wick-bot{bottom:0;height:3px;}
+.candle.up .candle-body{background:rgba(0,245,160,.7);}
+.candle.dn .candle-body{background:rgba(255,64,96,.7);}
 
-/* Price ticker at top of chart */
+/* Price tickers — top right pills */
 .hero-ticker{
-  position:absolute;top:10px;right:14px;
-  display:flex;gap:10px;z-index:3;
+  position:absolute;top:12px;right:12px;
+  display:flex;gap:7px;z-index:4;flex-wrap:wrap;justify-content:flex-end;
 }
 .htick{
-  background:rgba(7,7,15,.7);border:1px solid rgba(247,183,49,.2);
+  background:rgba(7,7,15,.75);border:1px solid rgba(247,183,49,.25);
   border-radius:8px;padding:4px 10px;font-size:10px;font-weight:700;
-  color:var(--gold);letter-spacing:.5px;backdrop-filter:blur(8px);
+  color:var(--gold);letter-spacing:.5px;backdrop-filter:blur(10px);
   animation:tick-flash 2s ease-in-out infinite;
 }
-.htick-eth{color:#4FC3F7;border-color:rgba(79,195,247,.2);animation-delay:-.7s;}
-.htick-sol{color:#9945FF;border-color:rgba(153,69,255,.2);animation-delay:-1.3s;}
+.htick-eth{color:#4FC3F7;border-color:rgba(79,195,247,.25);animation-delay:-.7s;}
+.htick-sol{color:#9945FF;border-color:rgba(153,69,255,.25);animation-delay:-1.3s;}
 @keyframes tick-flash{0%,100%{opacity:1}50%{opacity:.7}}
 
-/* Moving price line overlay */
-.hero-line{
-  position:absolute;bottom:60px;left:0;right:0;height:40px;overflow:hidden;pointer-events:none;
-}
-
-/* Hero title */
+/* Title */
 .hero-content{
-  position:absolute;bottom:72px;left:0;right:0;z-index:5;text-align:center;padding:0 24px;
+  position:relative;z-index:5;text-align:center;padding:0 24px 18px;width:100%;
 }
-.hero-kicker{font-size:10px;letter-spacing:4px;text-transform:uppercase;color:var(--gold);font-weight:700;margin-bottom:6px;text-shadow:0 0 20px rgba(247,183,49,.6);}
+.hero-kicker{font-size:10px;letter-spacing:4px;text-transform:uppercase;color:#fbbf24;font-weight:700;margin-bottom:5px;text-shadow:0 1px 10px rgba(0,0,0,.8);}
 .hero-title-mag{
   font-family:'Playfair Display',Georgia,serif;
-  font-size:clamp(38px,9vw,62px);font-weight:900;line-height:1.05;letter-spacing:-1px;
+  font-size:clamp(36px,9vw,60px);font-weight:900;line-height:1.05;letter-spacing:-1px;
   background:linear-gradient(135deg,#fff 0%,var(--gold) 45%,#fff 100%);
   -webkit-background-clip:text;-webkit-text-fill-color:transparent;background-clip:text;
-  margin-bottom:3px;animation:up .6s .1s ease both;
-  text-shadow:none;
+  margin-bottom:2px;animation:up .6s .1s ease both;text-shadow:none;
 }
 .hero-title-accent{
   font-family:'Playfair Display',Georgia,serif;font-style:italic;
-  font-size:clamp(14px,3.5vw,22px);color:rgba(247,183,49,.8);letter-spacing:1px;
-  animation:up .6s .2s ease both;
+  font-size:clamp(13px,3.5vw,20px);color:rgba(255,210,100,.9);letter-spacing:1px;
+  animation:up .6s .2s ease both;text-shadow:0 1px 8px rgba(0,0,0,.7);
 }
-
-/* Floating BTC center */
-.hf-graphic{
-  position:absolute;font-size:80px;top:28%;
-  animation:float-coin 4s ease-in-out infinite;
-  filter:drop-shadow(0 0 32px rgba(247,183,49,.7));z-index:2;
-}
-@keyframes float-coin{0%,100%{transform:translateY(0) scale(1) rotate(-3deg)}50%{transform:translateY(-18px) scale(1.05) rotate(3deg)}}
+@keyframes float-coin{0%,100%{transform:translateY(0) rotate(-5deg)}50%{transform:translateY(-16px) rotate(5deg)}}
 
 /* ── MAGAZINE DIVIDER ── */
 .mag-divider {
@@ -774,24 +756,16 @@ body.fw{animation:flashW .3s ease;}
 <!-- ══ INTRO ══ -->
 <div class="scr on" id="scr-intro">
 
-  <!-- CRYPTO HERO SCENE -->
+  <!-- CRYPTO HERO — photo bg + side coins + candlesticks -->
   <div class="hero-cinema">
-    <div class="hero-grid"></div>
-    <div class="hero-glow"></div>
-    <!-- Floating rings around center -->
-    <div class="hf-rings">
-      <div class="hf-ring"></div>
-      <div class="hf-ring"></div>
-      <div class="hf-ring"></div>
-      <div class="hf-ring"></div>
-    </div>
-    <!-- Coins at corners -->
+    <div class="hero-bg-img"></div>
+    <div class="hero-overlay"></div>
+    <!-- Coins left side -->
     <div class="cq-coin cq-coin-btc">₿</div>
     <div class="cq-coin cq-coin-eth">Ξ</div>
+    <!-- Coins right side -->
     <div class="cq-coin cq-coin-sol">◎</div>
     <div class="cq-coin cq-coin-doge">Ð</div>
-    <!-- Central floating BTC -->
-    <div class="hf-graphic">₿</div>
     <!-- Live tickers top right -->
     <div class="hero-ticker">
       <div class="htick" id="ht-btc">BTC $—</div>
