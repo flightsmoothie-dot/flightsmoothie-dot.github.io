@@ -1,0 +1,206 @@
+<!DOCTYPE html>
+<html lang="en">
+<head>
+<meta charset="UTF-8">
+<meta name="viewport" content="width=device-width, initial-scale=1.0">
+<title>What is Bitcoin? (A Book for Curious Kids and Confused Adults)</title>
+<meta name="description" content="Illustrated">
+<link href="https://fonts.googleapis.com/css2?family=Nunito:wght@400;700;900&family=Inter:wght@300;400;600&display=swap" rel="stylesheet">
+<style>
+:root {
+  --accent: #FFD700;
+  --accent2: #FF8C00;
+  --dark: #0a0a0a;
+  --card: #111;
+  --border: rgba(255,255,255,0.08);
+  --text: #e8e8e8;
+  --sub: #888;
+  --max: 680px;
+  --font-h: 'Nunito', Georgia, serif;
+  --font-b: 'Inter', sans-serif;
+}
+* { box-sizing: border-box; margin: 0; padding: 0; }
+html { scroll-behavior: smooth; }
+body { background: var(--dark); color: var(--text); font-family: var(--font-b); line-height: 1.8; }
+
+/* PROGRESS */
+#pb { position:fixed;top:0;left:0;width:0%;height:3px;background:linear-gradient(90deg,var(--accent),var(--accent2));z-index:1000;transition:width .1s; }
+
+/* NAV */
+nav { position:fixed;top:3px;left:0;right:0;height:52px;z-index:999;
+  background:rgba(10,10,10,0.95);backdrop-filter:blur(12px);
+  border-bottom:1px solid var(--border);
+  display:flex;align-items:center;justify-content:space-between;padding:0 32px; }
+.brand { font-family:var(--font-h);font-size:13px;font-weight:900;
+  letter-spacing:3px;color:var(--accent);text-transform:uppercase; }
+.nav-cta { background:var(--accent);color:#000;font-size:12px;font-weight:900;
+  padding:7px 18px;border-radius:100px;text-decoration:none;letter-spacing:1px; }
+.nav-cta:hover { opacity:.85; }
+
+/* COVER */
+.cover {
+  min-height:100vh;padding:100px 40px 60px;
+  background: radial-gradient(ellipse 60% 50% at 40% 30%,#FFD70022,transparent),
+              radial-gradient(ellipse 40% 60% at 80% 70%,#FF8C0015,transparent),
+              linear-gradient(180deg,#000,#0a0500);
+  display:flex;flex-direction:column;align-items:center;justify-content:center;text-align:center;
+  border-bottom:3px solid var(--accent);
+}
+.cover-badge { display:inline-flex;align-items:center;gap:8px;
+  background:rgba(255,255,255,0.06);border:1px solid var(--border);
+  color:var(--sub);font-size:11px;font-weight:700;letter-spacing:4px;text-transform:uppercase;
+  padding:6px 18px;border-radius:100px;margin-bottom:32px; }
+.cover h1 { font-family:var(--font-h);font-size:clamp(28px,5.5vw,60px);font-weight:900;
+  color:#fff;line-height:1.08;max-width:700px;margin-bottom:20px; }
+.cover h1 em { font-style:normal;color:var(--accent); }
+.cover .sub { font-size:18px;color:var(--sub);max-width:500px;margin-bottom:40px;font-weight:300;line-height:1.6; }
+.cover-meta { display:flex;gap:32px;justify-content:center;flex-wrap:wrap;margin-bottom:48px; }
+.cover-meta span { font-size:13px;color:var(--sub);display:flex;align-items:center;gap:6px; }
+.cover-meta span strong { color:var(--text); }
+.btn-cover { display:inline-flex;align-items:center;gap:10px;
+  background:var(--accent);color:#000;font-size:15px;font-weight:900;
+  padding:16px 44px;border-radius:100px;text-decoration:none;letter-spacing:1px;
+  box-shadow:0 0 40px #FFD70044;transition:transform .2s,box-shadow .2s; }
+.btn-cover:hover { transform:translateY(-2px);box-shadow:0 8px 48px #FFD70066; }
+.scroll { margin-top:52px;color:var(--sub);font-size:11px;letter-spacing:3px;text-transform:uppercase; }
+.scroll-arrow { font-size:22px;display:block;margin-top:6px;animation:bob 2s ease-in-out infinite; }
+@keyframes bob { 0%,100%{transform:translateY(0)} 50%{transform:translateY(7px)} }
+
+/* TOC */
+.toc-wrap { background:#0d0d0d;border-top:1px solid var(--border);border-bottom:1px solid var(--border); }
+.toc-inner { max-width:var(--max);margin:0 auto;padding:64px 40px; }
+.eyebrow { font-size:11px;letter-spacing:5px;color:var(--accent);text-transform:uppercase;
+  font-weight:700;margin-bottom:28px;display:flex;align-items:center;gap:14px; }
+.eyebrow::after { content:'';flex:1;height:1px;background:var(--border); }
+.toc-list { list-style:none;padding:0; }
+.toc-list li { border-bottom:1px solid var(--border); }
+.toc-list li:last-child { border-bottom:none; }
+.toc-list a { display:flex;align-items:center;gap:18px;padding:14px 10px;
+  text-decoration:none;color:var(--text);transition:background .2s;border-radius:8px; }
+.toc-list a:hover { background:rgba(255,255,255,0.04); }
+.toc-list .num { font-size:28px;font-weight:900;color:var(--accent);
+  opacity:.25;font-family:monospace;min-width:44px;line-height:1; }
+.toc-list .t { font-size:16px;font-weight:500; }
+
+/* CHAPTER */
+.chapter { max-width:var(--max);margin:0 auto;padding:72px 40px;border-bottom:1px solid var(--border); }
+.ch-eyebrow { font-size:11px;letter-spacing:5px;color:var(--accent);text-transform:uppercase;
+  font-weight:700;margin-bottom:12px;font-family:var(--font-b); }
+.ch-title { font-family:var(--font-h);font-size:clamp(22px,3.5vw,36px);font-weight:900;
+  color:#fff;line-height:1.15;margin-bottom:36px; }
+.ch-body p { font-size:17px;color:#bbb;margin-bottom:18px;line-height:1.85; }
+.ch-body p:last-child { margin-bottom:0; }
+.ch-body strong { color:var(--text);font-weight:600; }
+
+/* FINAL CTA */
+.final-cta { max-width:var(--max);margin:0 auto;padding:72px 40px;text-align:center; }
+.final-cta h2 { font-family:var(--font-h);font-size:clamp(24px,4vw,38px);color:#fff;margin-bottom:16px; }
+.final-cta p { font-size:17px;color:var(--sub);max-width:420px;margin:0 auto 36px; }
+
+/* FOOTER */
+footer { background:#000;border-top:1px solid var(--border);padding:40px;text-align:center;
+  font-size:12px;color:var(--sub);line-height:1.9; }
+.footer-brand { font-family:var(--font-h);font-size:16px;font-weight:900;
+  letter-spacing:5px;color:var(--accent);margin-bottom:12px; }
+
+/* RESPONSIVE */
+@media(max-width:640px){
+  nav { padding:0 20px; }
+  .cover,.chapter,.toc-inner,.final-cta { padding-left:24px;padding-right:24px; }
+}
+/* PRINT */
+@media print {
+  nav,#pb { display:none; }
+  .cover { page-break-after:always;min-height:auto; }
+  .chapter { page-break-before:always; }
+  body { background:#fff;color:#111; }
+  .ch-title { color:#000; }
+  .ch-body p { color:#333; }
+}
+</style>
+</head>
+<body>
+<div id="pb"></div>
+<nav>
+  <div class="brand">NovaCrypto Books</div>
+  <a class="nav-cta" href="https://promote.mexc.co/r/UzCEsmBcLP" target="_blank">Get Free Bonus →</a>
+</nav>
+
+<section class="cover">
+  <div class="cover-badge">★ Children's Book / Educational</div>
+  <h1>What is Bitcoin? (A Book for Curious Kids and Confused Adults)</h1>
+  <p class="sub">Illustrated</p>
+  <div class="cover-meta">
+    <span>📖 <strong>5 Chapters</strong></span>
+    <span>⭐ <strong>2026 Edition</strong></span>
+    <span>€9 <strong>on Gumroad</strong></span>
+  </div>
+  <a class="btn-cover" href="#ch1">Start Reading →</a>
+  <div class="scroll">scroll to begin <span class="scroll-arrow">↓</span></div>
+</section>
+
+<section class="toc-wrap" id="toc">
+<div class="toc-inner">
+  <div class="eyebrow">Contents</div>
+  <ol class="toc-list"><li><a href="#ch1"><span class="num">01</span><span class="t">What is Money?</span></a></li><li><a href="#ch2"><span class="num">02</span><span class="t">What is Bitcoin?</span></a></li><li><a href="#ch3"><span class="num">03</span><span class="t">Why Can't Someone Just Make More Bitcoin?</span></a></li><li><a href="#ch4"><span class="num">04</span><span class="t">Is Bitcoin Safe?</span></a></li><li><a href="#ch5"><span class="num">05</span><span class="t">Can I Buy a Toy With Bitcoin?</span></a></li></ol>
+</div>
+</section>
+
+
+<section class="chapter" id="ch1">
+  <div class="ch-eyebrow">Chapter 01</div>
+  <h2 class="ch-title">What is Money?</h2>
+  <div class="ch-body"><p>**What is Money?**</p><p>Have you ever collected stickers or traded them with your friends? Maybe you have a favorite sticker book where you keep all your coolest stickers. You might have even used stickers as a kind of special ticket to get treats or rewards from your parents. But as fun as stickers are, they aren't really money. Money is something that we use to buy things we need or want, like food, toys, or a new bike. Just like how you use your stickers to get rewards, we use money to get the things we want and need. And just like how you might save your stickers in a special book, we save our money in a special place called a bank or a piggy bank.</p><p>Imagine you're playing your favorite video game, and you need coins or tokens to buy new characters or levels. In the game, those coins are like money because you can use them to get what you want. But in the real world, money is a little different. We use something called currency, like dollars or euros, to buy things. Currency is like a special kind of ticket that everyone agrees is valuable, so we can use it to buy things from anyone who accepts it. Just like how you might save up your game coins to buy a new character, we save up our money to buy the things we want or need. And just like how you might trade your stickers with friends, we can trade our money with others to get what we want.</p><p>But where does money come from? Well, a long time ago, people used to trade things they had, like food or animals, for things they needed. This was called bartering. It was like a big swap meet, where people would exchange things they had for things they wanted. But as time went on, people realized that it would be easier to have something that everyone agreed was valuable, so they could use it to buy things from anyone. That's how money was invented! And just like how you might add new stickers to your collection, countries can print more money to add to the money that's already out there. But instead of using a sticker book, countries use something called a bank to keep track of all the money.</p><p>As we learn more about money, we'll also learn about something called cryptocurrency, like Bitcoin. It's like a special kind of money that exists only on computers and phones, and it's used to buy things online. But for now, let's just focus on what money is and how we use it. The important thing to remember is that money is like a tool that helps us get the things we need and want. And just like how you might use your stickers or game coins to get what you want, we use money to achieve our goals and make our lives more fun and exciting. So, let's keep learning about money and how it works, and who knows, maybe one day you'll become a master of money and be able to buy all the things you've ever dreamed of!</p></div>
+</section>
+
+<section class="chapter" id="ch2">
+  <div class="ch-eyebrow">Chapter 02</div>
+  <h2 class="ch-title">What is Bitcoin?</h2>
+  <div class="ch-body"><p>Chapter 1: What is Bitcoin?</p><p>Imagine you have a super cool sticker collection that you've been gathering for years. You've got stickers of your favorite animals, sports teams, and even some really rare ones that you traded with your friends. Just like how you can use your stickers to show off your favorite things, Bitcoin is like a special kind of sticker that exists only on computers and phones. But instead of being a physical sticker, it's a digital token that can be sent to others over the internet. Just like how you can trade stickers with your friends, people can use Bitcoin to buy things online or trade it with others.</p><p>But how does it work? Think of Bitcoin like a digital piggy bank. Just like how you save your money in your piggy bank, people can save their Bitcoins in a special kind of computer program called a "wallet." And just like how you can use your money to buy things you want, people can use their Bitcoins to buy things online, like video games or music. The really cool thing about Bitcoin is that it's like a game, where people can earn new Bitcoins by solving really hard math problems on their computers. It's like a digital treasure hunt, where the first person to solve the problem gets to keep the new Bitcoins as a reward.</p><p>Now, you might be wondering, what makes Bitcoin special? Well, it's like a secret code that only the person who knows the code can open. When someone sends Bitcoin to someone else, it's like sending a secret message that only the person with the right code can read. This keeps the Bitcoin safe and makes sure that only the person who is supposed to get it can use it. And the best part is, Bitcoin is like a team effort. There are thousands of computers all around the world working together to make sure that the Bitcoin system is safe and fair. It's like a big game of digital tag, where everyone is working together to make sure that everything runs smoothly.</p><p>So, why is Bitcoin important? It's like a new way of thinking about money, where people can use it to buy things online without needing to use traditional money. It's also a way for people to be in control of their own money, without needing to rely on banks or other institutions. And who knows, maybe one day you'll be a part of the Bitcoin team, helping to solve the math problems and keep the system running smoothly. The world of Bitcoin is an exciting and rapidly changing place, and it's open to anyone who wants to learn and be a part of it. So, are you ready to start your Bitcoin adventure and see where it takes you?</p></div>
+</section>
+
+<section class="chapter" id="ch3">
+  <div class="ch-eyebrow">Chapter 03</div>
+  <h2 class="ch-title">Why Can't Someone Just Make More Bitcoin?</h2>
+  <div class="ch-body"><p>"Why Can't Someone Just Make More Bitcoin?"</p><p>Imagine you have a super cool sticker collection, and each sticker is one of a kind. You can't just make more of the same sticker because it's special and rare. Bitcoin is like a digital sticker, but instead of being made of paper, it's made of computer code. Just like how you can't make more of the same sticker, there's a limited number of Bitcoins that can exist. This is because the person who created Bitcoin, a mysterious person named Satoshi Nakamoto, designed it that way. He wanted to make sure that Bitcoin was special and valuable, just like your favorite sticker.</p><p>Now, let's talk about why someone can't just make more Bitcoin. Think of Bitcoin like the money in your piggy bank. If you could just make more money appear in your piggy bank whenever you wanted, it wouldn't be very valuable, would it? That's because money is only valuable if it's scarce, or hard to get. If everyone could just make more money, then it wouldn't be special or worth anything. Bitcoin works the same way. The computer code that makes Bitcoin says that there can only be 21 million Bitcoins in the whole world. That's like a big jar that can only hold 21 million cookies. Once the jar is full, no more cookies can be added.</p><p>But here's the really cool thing about Bitcoin: it's like a game where everyone has to follow the same rules. The rules say that new Bitcoins can only be made by solving super-hard math problems, kind of like a puzzle. This process is called "mining," and it's like digging for treasure. When someone solves one of these math problems, they get to add a new block of transactions to the Bitcoin ledger, which is like a big book that keeps track of all the Bitcoins in the world. As a reward for solving the problem, they get some brand new Bitcoins. It's like finding a golden ticket in your favorite game!</p><p>So, why can't someone just make more Bitcoin? It's because the rules of the game, which are written into the computer code, say that it's not allowed. The code is like a referee in a game, making sure everyone follows the rules. And that's what makes Bitcoin so special and valuable. It's like a rare sticker that you can't just make more of, a limited edition cookie that you can't just bake more of. The scarcity of Bitcoin is what makes it worth something, and that's what makes it so exciting to learn about and be a part of. Who knows, maybe one day you'll be a Bitcoin miner, solving math problems and adding new blocks to the ledger. The possibilities are endless, and it's all thanks to the magic of Bitcoin!</p></div>
+</section>
+
+<section class="chapter" id="ch4">
+  <div class="ch-eyebrow">Chapter 04</div>
+  <h2 class="ch-title">Is Bitcoin Safe?</h2>
+  <div class="ch-body"><p>"Is Bitcoin Safe?" 
+Imagine you have a super-special sticker collection that you've been working on for years. You've got rare stickers, shiny stickers, and even glow-in-the-dark stickers. You keep them all safe in a special sticker book with a lock on it, so nobody can take them or mess with your collection. Bitcoin is kind of like that sticker collection, but instead of stickers, it's a type of money that exists only on computers and phones. Just like how you keep your stickers safe, people who use Bitcoin want to keep their money safe too.</p><p>But how do they do that? Well, when you put your money in a piggy bank, you trust that it's safe inside, right? Bitcoin works in a similar way, but instead of a physical piggy bank, it uses something called a "wallet" to store your money. A Bitcoin wallet is like a super-secure, magic piggy bank that can only be opened by you, using a secret code. This code is like a special key that only you have, so even if someone else got into your wallet, they wouldn't be able to take your money without the key. It's like having a super-safe, digital treasure chest that only you can open.</p><p>Now, just like how you might play a game with your friends, like a board game or a video game, Bitcoin is like a game that lots of people play together on the internet. But instead of rolling dice or collecting points, people are sending and receiving money. And just like how you follow the rules of a game to make sure it's fair and fun, Bitcoin has its own set of rules to keep everything safe and fair. These rules are like a special set of instructions that all the players agree to follow, so everyone can trust that the game is being played fairly. This way, people can use Bitcoin to buy things they want or need, without worrying that someone will cheat or take their money.</p><p>So, is Bitcoin safe? The answer is, it can be! Just like how you take care of your sticker collection and keep your piggy bank safe, people who use Bitcoin need to be careful and follow the rules to keep their money safe. They need to use strong secret codes, keep their wallets up to date, and be careful about who they trust with their money. If they do all those things, then Bitcoin can be a safe and fun way to use money online. And who knows, maybe one day you'll be a Bitcoin expert, helping people all around the world use this new kind of money in a safe and exciting way!</p></div>
+</section>
+
+<section class="chapter" id="ch5">
+  <div class="ch-eyebrow">Chapter 05</div>
+  <h2 class="ch-title">Can I Buy a Toy With Bitcoin?</h2>
+  <div class="ch-body"><p>Chapter 3: Can I Buy a Toy With Bitcoin?</p><p>Imagine you have a super cool sticker collection, and you really want to trade one of your favorite stickers with your friend for a new toy. But, what if your friend doesn't want your sticker? That's kind of like what happens when you want to buy something with Bitcoin. Just because you have some Bitcoin, it doesn't mean everyone will accept it as payment. Bitcoin is like a special kind of money that exists only on computers and phones, and not all stores or people know about it or want to use it. But, just like how you can find a friend who loves stickers, there are some stores and websites that do accept Bitcoin, and that's really cool!</p><p>Let's think of Bitcoin like the money in your piggy bank. You can save it, use it to buy things you want, or even send it to your friends as a gift. But, just like how you need to go to a store that accepts the money in your piggy bank, you need to find a store or website that accepts Bitcoin. Some websites, like online game stores, might accept Bitcoin as payment for new games or special features. It's like using your allowance to buy a new level in your favorite game! The more people and stores that learn about and start using Bitcoin, the more places you'll be able to use it to buy the things you want.</p><p>Now, let's talk about how you can actually use Bitcoin to buy something. Imagine you're playing your favorite online game, and you want to buy a new character or a special power. If the game store accepts Bitcoin, you can use it to make your purchase. It's like using a special token or coin that only works in that game. You would send the Bitcoin from your digital "wallet" (which is like a super-safe, secret box on your computer or phone) to the game store's wallet, and then you'd get your new character or power. It's a pretty cool way to use your Bitcoin, and it's getting easier and more fun all the time!</p><p>As more and more people learn about Bitcoin, it's becoming easier to use it to buy the things you want. Who knows, maybe one day you'll be able to use Bitcoin to buy a toy or a book from your favorite store! The important thing to remember is that Bitcoin is like a new, special kind of money that's still growing and changing. It's an exciting time to learn about it, and who knows, maybe you'll become a Bitcoin expert and help shape the way people use it in the future. So, keep exploring, learning, and having fun with Bitcoin – you never know what amazing things you might discover!</p></div>
+</section>
+
+
+<section class="final-cta">
+  <h2>Want More Like This?</h2>
+  <p>Get the full NovaCrypto book catalog — crypto, humor, guides, and fiction.</p>
+  <a class="btn-cover" href="https://gumroad.com/novacrypto" target="_blank">Visit Gumroad Store →</a>
+  <p style="margin-top:20px;font-size:13px;color:var(--sub);">
+    Or join the newsletter: weekly market insights, new book releases, exclusive discounts.
+  </p>
+</section>
+
+<footer>
+  <div class="footer-brand">NOVACRYPTO BOOKS</div>
+  <p>© 2026 NovaCrypto Publishing. All rights reserved.<br>
+  Not financial advice. Affiliate disclosure: some links earn commission.<br>
+  Illustrations generated by AI (Pollinations.ai, Stable Horde).</p>
+</footer>
+
+<script>
+window.addEventListener('scroll',()=>{
+  const d=document.documentElement;
+  document.getElementById('pb').style.width=
+    (d.scrollTop/(d.scrollHeight-d.clientHeight)*100)+'%';
+});
+</script>
+</body>
+</html>

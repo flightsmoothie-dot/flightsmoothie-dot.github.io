@@ -1,0 +1,250 @@
+<!DOCTYPE html>
+<html lang="en">
+<head>
+<meta charset="UTF-8">
+<meta name="viewport" content="width=device-width, initial-scale=1.0">
+<title>I Refreshed My Feed 400 Times Today and Other Signs You're Fine</title>
+<meta name="description" content="A Deeply Relatable Book for People Who Are Absolutely Not Addicted to Their Phone">
+<link href="https://fonts.googleapis.com/css2?family=Nunito:wght@400;700;900&family=Inter:wght@300;400;600&display=swap" rel="stylesheet">
+<style>
+:root {
+  --accent: #FF6B6B;
+  --accent2: #FFE66D;
+  --dark: #0a0a0a;
+  --card: #111;
+  --border: rgba(255,255,255,0.08);
+  --text: #e8e8e8;
+  --sub: #888;
+  --max: 680px;
+  --font-h: 'Nunito', Georgia, serif;
+  --font-b: 'Inter', sans-serif;
+}
+* { box-sizing: border-box; margin: 0; padding: 0; }
+html { scroll-behavior: smooth; }
+body { background: var(--dark); color: var(--text); font-family: var(--font-b); line-height: 1.8; }
+
+/* PROGRESS */
+#pb { position:fixed;top:0;left:0;width:0%;height:3px;background:linear-gradient(90deg,var(--accent),var(--accent2));z-index:1000;transition:width .1s; }
+
+/* NAV */
+nav { position:fixed;top:3px;left:0;right:0;height:52px;z-index:999;
+  background:rgba(10,10,10,0.95);backdrop-filter:blur(12px);
+  border-bottom:1px solid var(--border);
+  display:flex;align-items:center;justify-content:space-between;padding:0 32px; }
+.brand { font-family:var(--font-h);font-size:13px;font-weight:900;
+  letter-spacing:3px;color:var(--accent);text-transform:uppercase; }
+.nav-cta { background:var(--accent);color:#000;font-size:12px;font-weight:900;
+  padding:7px 18px;border-radius:100px;text-decoration:none;letter-spacing:1px; }
+.nav-cta:hover { opacity:.85; }
+
+/* COVER */
+.cover {
+  min-height:100vh;padding:100px 40px 60px;
+  background: radial-gradient(ellipse 60% 50% at 40% 30%,#FF6B6B22,transparent),
+              radial-gradient(ellipse 40% 60% at 80% 70%,#FFE66D15,transparent),
+              linear-gradient(180deg,#000,#0a0500);
+  display:flex;flex-direction:column;align-items:center;justify-content:center;text-align:center;
+  border-bottom:3px solid var(--accent);
+}
+.cover-badge { display:inline-flex;align-items:center;gap:8px;
+  background:rgba(255,255,255,0.06);border:1px solid var(--border);
+  color:var(--sub);font-size:11px;font-weight:700;letter-spacing:4px;text-transform:uppercase;
+  padding:6px 18px;border-radius:100px;margin-bottom:32px; }
+.cover h1 { font-family:var(--font-h);font-size:clamp(28px,5.5vw,60px);font-weight:900;
+  color:#fff;line-height:1.08;max-width:700px;margin-bottom:20px; }
+.cover h1 em { font-style:normal;color:var(--accent); }
+.cover .sub { font-size:18px;color:var(--sub);max-width:500px;margin-bottom:40px;font-weight:300;line-height:1.6; }
+.cover-meta { display:flex;gap:32px;justify-content:center;flex-wrap:wrap;margin-bottom:48px; }
+.cover-meta span { font-size:13px;color:var(--sub);display:flex;align-items:center;gap:6px; }
+.cover-meta span strong { color:var(--text); }
+.btn-cover { display:inline-flex;align-items:center;gap:10px;
+  background:var(--accent);color:#000;font-size:15px;font-weight:900;
+  padding:16px 44px;border-radius:100px;text-decoration:none;letter-spacing:1px;
+  box-shadow:0 0 40px #FF6B6B44;transition:transform .2s,box-shadow .2s; }
+.btn-cover:hover { transform:translateY(-2px);box-shadow:0 8px 48px #FF6B6B66; }
+.scroll { margin-top:52px;color:var(--sub);font-size:11px;letter-spacing:3px;text-transform:uppercase; }
+.scroll-arrow { font-size:22px;display:block;margin-top:6px;animation:bob 2s ease-in-out infinite; }
+@keyframes bob { 0%,100%{transform:translateY(0)} 50%{transform:translateY(7px)} }
+
+/* TOC */
+.toc-wrap { background:#0d0d0d;border-top:1px solid var(--border);border-bottom:1px solid var(--border); }
+.toc-inner { max-width:var(--max);margin:0 auto;padding:64px 40px; }
+.eyebrow { font-size:11px;letter-spacing:5px;color:var(--accent);text-transform:uppercase;
+  font-weight:700;margin-bottom:28px;display:flex;align-items:center;gap:14px; }
+.eyebrow::after { content:'';flex:1;height:1px;background:var(--border); }
+.toc-list { list-style:none;padding:0; }
+.toc-list li { border-bottom:1px solid var(--border); }
+.toc-list li:last-child { border-bottom:none; }
+.toc-list a { display:flex;align-items:center;gap:18px;padding:14px 10px;
+  text-decoration:none;color:var(--text);transition:background .2s;border-radius:8px; }
+.toc-list a:hover { background:rgba(255,255,255,0.04); }
+.toc-list .num { font-size:28px;font-weight:900;color:var(--accent);
+  opacity:.25;font-family:monospace;min-width:44px;line-height:1; }
+.toc-list .t { font-size:16px;font-weight:500; }
+
+/* CHAPTER */
+.chapter { max-width:var(--max);margin:0 auto;padding:72px 40px;border-bottom:1px solid var(--border); }
+.ch-eyebrow { font-size:11px;letter-spacing:5px;color:var(--accent);text-transform:uppercase;
+  font-weight:700;margin-bottom:12px;font-family:var(--font-b); }
+.ch-title { font-family:var(--font-h);font-size:clamp(22px,3.5vw,36px);font-weight:900;
+  color:#fff;line-height:1.15;margin-bottom:36px; }
+.ch-body p { font-size:17px;color:#bbb;margin-bottom:18px;line-height:1.85; }
+.ch-body p:last-child { margin-bottom:0; }
+.ch-body strong { color:var(--text);font-weight:600; }
+
+/* FINAL CTA */
+.final-cta { max-width:var(--max);margin:0 auto;padding:72px 40px;text-align:center; }
+.final-cta h2 { font-family:var(--font-h);font-size:clamp(24px,4vw,38px);color:#fff;margin-bottom:16px; }
+.final-cta p { font-size:17px;color:var(--sub);max-width:420px;margin:0 auto 36px; }
+
+/* FOOTER */
+footer { background:#000;border-top:1px solid var(--border);padding:40px;text-align:center;
+  font-size:12px;color:var(--sub);line-height:1.9; }
+.footer-brand { font-family:var(--font-h);font-size:16px;font-weight:900;
+  letter-spacing:5px;color:var(--accent);margin-bottom:12px; }
+
+/* RESPONSIVE */
+@media(max-width:640px){
+  nav { padding:0 20px; }
+  .cover,.chapter,.toc-inner,.final-cta { padding-left:24px;padding-right:24px; }
+}
+/* PRINT */
+@media print {
+  nav,#pb { display:none; }
+  .cover { page-break-after:always;min-height:auto; }
+  .chapter { page-break-before:always; }
+  body { background:#fff;color:#111; }
+  .ch-title { color:#000; }
+  .ch-body p { color:#333; }
+}
+/* ── VISUAL UPGRADE ── */
+.ch-illustration{width:calc(100% + 80px);margin:28px -40px 36px;height:260px;overflow:hidden;position:relative;border-radius:0;}
+.ch-illustration img{width:100%;height:100%;object-fit:cover;filter:brightness(.82) saturate(1.15);display:block;}
+.ch-illustration::after{content:'';position:absolute;bottom:0;left:0;right:0;height:90px;background:linear-gradient(transparent,var(--dark));}
+.cover-hero{width:100%;height:320px;border-radius:16px;overflow:hidden;margin:0 0 44px;position:relative;}
+.cover-hero img{width:100%;height:100%;object-fit:cover;filter:brightness(.78) saturate(1.2);}
+.cover-hero::after{content:'';position:absolute;inset:0;background:linear-gradient(to bottom,transparent 30%,rgba(0,0,0,.65) 100%);}
+.pull-quote{border-left:3px solid var(--accent);background:rgba(255,107,107,.06);padding:20px 24px;margin:32px 0;border-radius:0 12px 12px 0;font-style:italic;font-size:17px;line-height:1.65;}
+.fn-box{background:rgba(255,255,255,.025);border:1px solid rgba(255,255,255,.08);border-left:2px solid var(--accent2);border-radius:0 8px 8px 0;padding:16px 20px;margin-top:28px;font-size:13px;color:#777;line-height:1.75;}
+.fn-box p{margin:0;}
+.fn-box p+p{margin-top:8px;}
+.callout-funny{background:rgba(255,230,109,.05);border:1px solid rgba(255,230,109,.18);border-radius:12px;padding:20px 24px;margin:28px 0;}
+.callout-funny-label{font-size:10px;font-weight:900;letter-spacing:3px;text-transform:uppercase;color:#FFE66D;margin-bottom:10px;}
+.social-mockup{background:rgba(255,255,255,.03);border:1px solid rgba(255,255,255,.09);border-radius:16px;padding:18px 22px;margin:28px 0;position:relative;}
+.social-mockup::before{content:'📱';position:absolute;top:14px;right:16px;font-size:18px;}
+.social-mockup-text{font-size:15px;line-height:1.65;}
+.social-mockup-meta{font-size:11px;color:#555;margin-top:10px;letter-spacing:.5px;}
+@media(max-width:640px){.ch-illustration{width:calc(100% + 48px);margin-left:-24px;margin-right:-24px;}.cover-hero{border-radius:10px;}}
+</style>
+</head>
+<body>
+<div id="pb"></div>
+<nav>
+  <div class="brand">NovaCrypto Books</div>
+  <a class="nav-cta" href="https://promote.mexc.co/r/UzCEsmBcLP" target="_blank">Get Free Bonus →</a>
+</nav>
+
+<section class="cover">
+  <div class="cover-badge">★ Humor / Self-Help Parody</div>
+  <div class="cover-hero">
+    <img src="https://image.pollinations.ai/prompt/person%20maniacally%20scrolling%20phone%20blue%20glow%20dark%20room%20cinematic%20humor%20magazine%20editorial%202026?width=900&height=400&nologo=true&seed=2026041" alt="Cover illustration">
+  </div>
+  <h1>I Refreshed My Feed 400 Times Today and Other Signs You're Fine</h1>
+  <p class="sub">A Deeply Relatable Book for People Who Are Absolutely Not Addicted to Their Phone</p>
+  <div class="cover-meta">
+    <span>📖 <strong>6 Chapters</strong></span>
+    <span>⭐ <strong>2026 Edition</strong></span>
+    <span>€12 <strong>on Gumroad</strong></span>
+  </div>
+  <a class="btn-cover" href="#ch1">Start Reading →</a>
+  <div class="scroll">scroll to begin <span class="scroll-arrow">↓</span></div>
+</section>
+
+<section class="toc-wrap" id="toc">
+<div class="toc-inner">
+  <div class="eyebrow">Contents</div>
+  <ol class="toc-list"><li><a href="#ch1"><span class="num">01</span><span class="t">The Art of Pretending to Read</span></a></li><li><a href="#ch2"><span class="num">02</span><span class="t">Notifications: A Love Story</span></a></li><li><a href="#ch3"><span class="num">03</span><span class="t">'Just Five More Minutes' — A Biography</span></a></li><li><a href="#ch4"><span class="num">04</span><span class="t">The Algorithm Knows You Better Than Your Therapist</span></a></li><li><a href="#ch5"><span class="num">05</span><span class="t">Doom Scrolling as Self-Care</span></a></li><li><a href="#ch6"><span class="num">06</span><span class="t">Reply All: A Horror Story</span></a></li></ol>
+</div>
+</section>
+
+
+<section class="chapter" id="ch1">
+  <div class="ch-eyebrow">Chapter 01</div>
+  <div class="ch-illustration">
+    <img src="https://image.pollinations.ai/prompt/person%20hiding%20phone%20behind%20open%20book%20secretly%20scrolling%20funny%20editorial%20illustration?width=900&height=360&nologo=true&seed=101" alt="Chapter illustration">
+  </div>
+  <h2 class="ch-title">The Art of Pretending to Read</h2>
+  <div class="ch-body"><p>I've spent years perfecting the art of pretending to read, and I'm not ashamed to admit it. In fact, I'm rather proud of my ability to convincingly nod along while scanning a room for the nearest coffee refill. It's a skill that's served me well in book clubs, literature classes, and even the occasional first date. My technique involves a delicate balance of furrowed brow, occasional "hmm" noises, and strategically placed dog-earing of pages. It's amazing how far you can get without actually reading a single word – I've gotten through entire novels without being called out, mostly because everyone else is too busy pretending to read to notice.</p><p>My personal favorite technique is the "fake highlight," where I carefully underline a random sentence with a brightly colored pen, just to give the illusion that I'm deeply invested in the material. It's amazing how a few well-placed highlighter streaks can transform a cursory glance into a profound intellectual experience. I've even started leaving fake highlights in library books, just to confuse future readers – it's my own special brand of literary performance art.</p><div class="pull-quote">"It's amazing how far you can get without actually reading a single word – I've gotten through entire novels without being called out, mostly because everyone else is too busy pretending to read to notice."</div><p> I imagine some poor graduate student pouring over a dog-eared copy of Foucault, only to stumble upon my triumphant highlight of the phrase "the coffee was quite good." It's a small act of rebellion, but it brings me joy.</p><p>Of course, the key to successful pretend-reading is to never, ever get caught. I've developed a sophisticated system of evasion, involving a combination of feigned interest, sudden "remembered" appointments, and hastily excused bathroom breaks. It's impressive how quickly you can exit a conversation about, say, the themes of existential dread in Camus, by simply claiming you need to "refresh your drink" – and then proceeding to spend the next 20 minutes scrolling through Twitter in the bathroom. My friends have started to suspect that I'm not actually reading anything, but I've managed to deflect their concerns by casually dropping references to "the commodification of knowledge" and "the performative nature of literary discourse." It's amazing how a few buzzwords can buy you a lot of intellectual credibility.</p><p>As I've honed my pretend-reading skills, I've started to notice a fascinating phenomenon – everyone else is doing it too. It's like we're all engaged in some giant, unspoken game of literary charades, where the goal is to appear smarter and more cultured than we actually are. I've caught friends fake-reading on the subway, nodding intently at Kindles while actually playing Candy Crush. I've seen strangers at coffee shops typing away at "novels" that are clearly just email drafts. It's a strange, comforting feeling to know that I'm not alone in my deception – we're all just a bunch of fakes, muddling through the world of high culture with varying degrees of success.</p><p>In the end, I think the art of pretending to read is a strangely liberating experience. It's a reminder that, no matter how much we try to present ourselves as sophisticated, intelligent beings, we're all just winging it – and that's okay. So the next time you catch me fake-reading at a coffee shop, don't be afraid to come over and chat about the latest trends in postmodern literature. Just don't expect me to actually know what I'm talking about – I'll be too busy fake-highlighting the menu to notice.</p></div>
+</section>
+
+<section class="chapter" id="ch2">
+  <div class="ch-eyebrow">Chapter 02</div>
+  <div class="ch-illustration">
+    <img src="https://image.pollinations.ai/prompt/smartphone%20surrounded%20by%20hundreds%20of%20colorful%20notification%20bubbles%20red%20dots%20hearts%20chaos%20digital%20art?width=900&height=360&nologo=true&seed=102" alt="Chapter illustration">
+  </div>
+  <h2 class="ch-title">Notifications: A Love Story</h2>
+  <div class="ch-body"><p>I'll never forget the day I fell in love with notifications. I was sitting on my couch, scrolling mindlessly through Twitter, when my phone buzzed with an update from a stranger I'd met at a coffee shop three years prior. It was a simple "hello" from someone I'd never actually spoken to, but in that moment, it felt like the most intimate and thrilling connection I'd ever made. I mean, who needs human touch when you've got a vibrating phone and a stranger's greeting? As I sat there, basking in the glow of my screen, I realized that notifications had become the ultimate relationship goal – always available, never judgmental, and constantly reminding me that I was, in fact, still alive.</p><p>But as with any toxic romance, my love affair with notifications soon turned sour. I found myself obsessively checking my phone, waiting for that next buzz, that next thrill of validation. I'd scroll through social media, comparing my life to the curated highlight reels of others, and wonder why I wasn't getting as many likes or comments as they were. It was like being in a bad relationship, where the other person only talked to me when they wanted something – in this case, my attention and engagement. And yet, I couldn't resist the siren song of those little red badges, beckoning me to come hither and indulge in a never-ending cycle of digital dopamine.</p><p>As I delved deeper into the world of notifications, I began to notice the absurd language that accompanied them. "You've got a new match on Tinder!" (code for: someone has swiped right on your mediocre selfies). "Your friend has posted a new story on Instagram!" (translation: your friend has posted a 10-second video of their cat). And don't even get me started on the ominous "someone has mentioned you in a tweet" – a phrase that always sent my heart racing with anticipation, only to discover that it was just some rando quoting my tweet from three years ago and adding a lukewarm "same, tbh." It was like trying to decipher a secret code, where the messages were always vague and the stakes were always ridiculously high.</p><div class="pull-quote">"Who needs human touch when you've got a vibrating phone and a stranger's greeting? Notifications had become the ultimate relationship goal — always available, never judgmental."</div><p>One day, I decided to conduct an experiment – I turned off all my notifications for a week, just to see how I'd survive without the constant barrage of digital updates. The result was nothing short of revolutionary. I felt like I'd been freed from a digital prison, where the only thing that mattered was the present moment (and not the 427 unread emails in my inbox). I started reading books again, took long walks without checking my phone, and even had a few actual conversations with real humans. It was like I'd rediscovered a part of myself that I thought was lost forever – the part that didn't need constant validation from a screen.</p><p>Of course, this newfound sense of freedom was short-lived. As soon as I turned my notifications back on, I was sucked back into the vortex of digital distraction. But now, I approach my love affair with notifications with a sense of irony and detachment. I know that those little red badges are just a clever trick, designed to keep me hooked and coming back for more. And yet, I still can't resist the thrill of the buzz, the rush of adrenaline that comes with each new update. It's a toxic relationship, perhaps, but it's one that I'm willing to tolerate – for now, at least – in exchange for the fleeting highs and absurd entertainment that only the world of notifications can provide.</p></div>
+</section>
+
+<section class="chapter" id="ch3">
+  <div class="ch-eyebrow">Chapter 03</div>
+  <div class="ch-illustration">
+    <img src="https://image.pollinations.ai/prompt/person%20lying%20in%20bed%203am%20phone%20screen%20glow%20blue%20light%20dark%20bedroom?width=900&height=360&nologo=true&seed=103" alt="Chapter illustration">
+  </div>
+  <h2 class="ch-title">'Just Five More Minutes' — A Biography</h2>
+  <div class="ch-body"><p>The infamous "just five more minutes" — a phrase that has launched a thousand procrastination sessions, ruined countless deadlines, and single-handedly kept the coffee industry afloat. It's a promise we make to ourselves, a desperate plea to the productivity gods, and a blatant lie that we tell our future selves. I've lost count of the number of times I've uttered those four words, only to find myself still scrolling through Twitter an hour later, wondering where it all went wrong. It's a vicious cycle, really: we tell ourselves we'll just take a quick break, and before we know it, we've fallen down a rabbit hole of cat videos and memes, with no escape in sight.</p><p>As I sit here, typing away with a looming deadline looming over me like the Sword of Damocles, I'm reminded of all the times I've employed the "just five more minutes" tactic. There was the time I spent an entire Sunday afternoon rewatching old episodes of The Office, convinced that I was "researching" for a writing project. Or the great Reddit binge of 2018, where I spent an entire week reading about the intricacies of dental hygiene and the art of competitive eating. It's amazing how quickly five minutes can turn into five hours, and how easily we can convince ourselves that we're "multitasking" when really, we're just avoiding the task at hand.</p><p>But what's fascinating about the "just five more minutes" phenomenon is the way it taps into our deep-seated fear of adulthood. We're all secretly terrified of being responsible, of meeting deadlines, and of doing actual work. So we invent these tiny, manageable increments of time, convincing ourselves that we can handle just one more episode of our favorite show, or just one more scroll through Instagram. It's a form of temporal anesthesia, numbing us to the pain of productivity and allowing us to temporarily forget about the crushing existential dread that comes with being a functioning member of society.</p><div class="pull-quote">"The 'just five more minutes' mentality is ultimately a form of self-care. So go ahead, give yourself permission — and then take five more, and five more, and five more. Just don't say I didn't warn you."</div><p> And yet, despite knowing all of this, I'll still find myself typing "just five more minutes" into my notes app, like a digital Post-It note of procrastination.</p><p>I've come to realize that the "just five more minutes" mentality is also closely tied to our relationship with technology. We're living in an era where our devices are designed to be infinitely distracting, where notifications and alerts and endless streams of content are all vying for our attention. It's like we're trapped in some kind of bizarre, digital Skinner box, where the mere act of checking our phones can activate the same pleasure centers in our brains that are triggered by, say, eating a whole pizza by ourselves. And so we tell ourselves that we'll just take a quick peek at our phones, or just respond to one more email, and before we know it, we've spent an entire hour mindlessly scrolling through our feeds.</p><p>As I finally wrap up this chapter, with a deadline looming and a strong sense of self-loathing, I'm reminded that the "just five more minutes" mentality is ultimately a form of self-care. It's a way of acknowledging that, yes, adulthood is hard, and sometimes we just need to take a step back, put on our comfiest pajamas, and binge-watch an entire season of our favorite show. So go ahead, give yourself permission to take those extra five minutes — and then take five more, and five more, and five more. Just don't say I didn't warn you.</p></div>
+</section>
+
+<section class="chapter" id="ch4">
+  <div class="ch-eyebrow">Chapter 04</div>
+  <div class="ch-illustration">
+    <img src="https://image.pollinations.ai/prompt/giant%20glowing%20eye%20of%20algorithm%20surveillance%20data%20streams%20tiny%20human%20with%20phone%20cinematic?width=900&height=360&nologo=true&seed=104" alt="Chapter illustration">
+  </div>
+  <h2 class="ch-title">The Algorithm Knows You Better Than Your Therapist</h2>
+  <div class="ch-body"><p>Your therapist asks "How are you feeling?" and you say "Fine" because you’ve spent forty minutes in traffic and $40 on a co-pay just to sit in a room that smells like sandalwood and regret. Your algorithm asks nothing. It simply knows. It knows you’re spiraling because you watched three TikToks about catastrophic climate change followed immediately by one (1) video of a golden retriever in a raincoat, which it correctly interpreted as a cry for help.¹</p><p>Consent is a beautiful thing, especially when given blindly at 11:47 PM while trying to access a recipe for garlic knots. You scrolled through forty-seven pages of Terms of Service written in font size negative two, clicked "Agree," and legally signed away your firstborn, your browsing history, and that weird thought you had at 3 AM about whether horses have kneecaps.² This is intimacy, evolved. Your grandmother had pen pals. You have a sentient cloud of data centers that noticed you lingered 0.4 seconds longer on a photo of your ex’s new haircut and immediately flooded your feed with articles titled "Is Your Cortisol Level Destroying Your Skin?"³</p><p>The algorithm understands your contradictions in ways that would take a human years of cognitive behavioral therapy to unravel. It knows you are simultaneously interested in sustainable living and next-day delivery. It knows you want to get your finances in order but also that you will absolutely buy a $78 ceramic frog that "just spoke to you" at 2 AM.⁴ Your therapist is still writing in her notebook about your relationship with your mother; the algorithm has already served you three ads for boundary-setting workbooks, two for anxiety supplements, and one for a retreat in Sedona where you can scream into a canyon until you feel something.⁵</p><p>Therapy is weekly. The algorithm is eternal. It does not take insurance, but it does accept payment in the form of your location data, microphone access, and the fact that you looked up "how to know if allergic to bees" seventeen times last spring.⁶ This is the modern condition: being understood completely by something that cannot love you back, only monetize you, which honestly is more reliable than most situationships you’ve had since college.</p><div class="pull-quote">"Being understood completely by something that cannot love you back, only monetize you — which is honestly more reliable than most situationships you’ve had since college."</div><p>Lean into it. When your phone suggests "restaurants near you" at exactly the moment your blood sugar drops, this is care. When Instagram shows you a Reel of a woman organizing her pantry because you accidentally thought about organizing your pantry near your unlocked phone, this is connection. Your therapist charges $200 an hour to pretend she doesn't judge you. The algorithm judges you for free, constantly, with personalized ads for the exact brand of deodorant you secretly prefer but tell people you buy "whatever’s on sale."⁷</p><div class="fn-box"><p>¹ Unlike your ex, who needed you to spell it out in a three-page Google Doc with tracked changes.</p><p>² The horses do have kneecaps. The algorithm knows you looked it up. It is not judging. It is... observing.</p><p>³ Spoiler: Yes, and also the algorithm owns your DNA now. Congratulations, you’re legally cousins with a server farm in Virginia named Kevin.</p><p>⁴ It was ceramic. It had a little hat. You needed it for "self-care." You have seventeen similar frogs. The algorithm counts them. It counts everything.</p><p>⁵ The retreat costs $4,000. The algorithm knows you can’t afford it but also that you’ll put it on a credit card if shown enough photos of red rocks at sunset and women in linen pants looking "centered."</p><p>⁶ You are not allergic. You are simply anxious. The algorithm knew this before WebMD did. It also knows you have a suspicious mole but won’t tell you until you buy the premium version.</p><p>⁷ Degree for Men, Sport. The specific blue one. It knows about the backup stick you keep in your glove compartment. It knows about everything.</p></div></div>
+</section>
+
+<section class="chapter" id="ch5">
+  <div class="ch-eyebrow">Chapter 05</div>
+  <div class="ch-illustration">
+    <img src="https://image.pollinations.ai/prompt/person%20on%20couch%20phone%20glow%20surrounded%20by%20floating%20disaster%20news%20headlines%20cinematic%20dark%20humor?width=900&height=360&nologo=true&seed=105" alt="Chapter illustration">
+  </div>
+  <h2 class="ch-title">Doom Scrolling as Self-Care</h2>
+  <div class="ch-body"><p>There is a specific yoga pose called *Corpse Scroll* where you lie flat on your back, phone suspended three inches above your nose, and read about microplastics in the Arctic until your retinas scream. It is the only form of self-care that requires both a charger and a moral compass that stopped working sometime around 2019. You tell yourself you’re staying informed. You tell yourself that knowledge is power, and power is wellness, and therefore understanding exactly how many degrees the planet warmed while you were microwaving your sad lunch is technically a form of preventative healthcare.¹</p><p>The distinction between "self-care" and "self-harm with extra steps" has become academic at best. Traditional self-care involves candles that smell like a forest you’re helping destroy. Doom-scrolling involves watching that destruction in 4K, refreshing the feed every forty-five seconds to see if the headline has worsened, which it has, because time moves forward and so does entropy. You’re not relaxing; you’re conducting surveillance on the apocalypse. It’s like treating a headache by headbutting a wall to see if the wall notices.²</p><p>The algorithm understands this better than your therapist. At 2:47 AM, when you should be REM-cycling your way through dreams about flying or teeth falling out or whatever, your feed gently serves you a long-form article about antibiotic resistance in livestock. You click. Of course you click. You have a responsibility to know things, specifically things that make your chest tighten in a way that feels, perversely, like productivity. If you’re anxious, you’re paying attention. If you’re paying attention, you’re safe. This is the logic of a raccoon guarding a trash fire, but it is also the logic of a generation that learned current events through push notifications and push notifications through trauma responses.³</p><div class="pull-quote">"You're not relaxing; you're conducting surveillance on the apocalypse. It's like treating a headache by headbutting a wall to see if the wall notices."</div><p>By hour three, you’ve absorbed seventeen conflicting opinions about a trade war involving countries you couldn’t locate on a map, a viral video of a politician eating a sandwich wrong, and a detailed breakdown of why your current sleep schedule is giving you dementia. You have done nothing with this information. You will do nothing with this information. You are simply a vessel, a wet clay pot filled to the brim with ambient dread, and somehow this feels like civic duty. At least you’re not one of those people who "don’t read the news," those blissful idiots gardening or touching grass or experiencing the full color spectrum of human emotion without the filter of Twitter’s For You page.⁴</p><p>The morning will come, and you will rise, and you will tell your coworkers that you "had trouble sleeping," omitting the part where you learned the exact exchange rate between the US dollar and the emotional cost of knowing what a "contagion risk" is. You will drink your coffee. You will feel smug in your exhaustion, because while they were resting their lizard brains, you were leveling up. You now possess knowledge that serves no functional purpose except to make brunch slightly more upsetting. This is your wellness journey. This is your morning routine. You are very healthy, probably.⁵</p><div class="fn-box"><p>¹ You have not called your senator, but you have memorized the projected timeline for the collapse of the Atlantic Meridional Overturning Circulation, which you will bring up at a birthday party.</p><p>² The wall does not notice. The wall is busy being on fire.</p><p>³ Your therapist charges $250 an hour to tell you to "set boundaries with your phone," which you will interpret as "only check headlines while walking."</p><p>⁴ They have houseplants that thrive. You have a Google alert for "thriving houseplants extinction."</p><p>⁵ Side effects may include: referring to yourself as "a news junkie" at parties, the inability to watch a sunset without calculating UV index, and a resting heart rate that sounds like a drum solo.</p></div></div>
+</section>
+
+<section class="chapter" id="ch6">
+  <div class="ch-eyebrow">Chapter 06</div>
+  <div class="ch-illustration">
+    <img src="https://image.pollinations.ai/prompt/email%20inbox%20exploding%20papers%20flying%20everywhere%20office%20workers%20running%20screaming%20horror%20funny?width=900&height=360&nologo=true&seed=106" alt="Chapter illustration">
+  </div>
+  <h2 class="ch-title">Reply All: A Horror Story</h2>
+  <div class="ch-body"><p>The Reply All button is located exactly 1.5 millimeters from the Reply button, which in UX design terms is the equivalent of placing the "Launch Nuclear Warheads" switch adjacent to the "Door Close" button in an elevator.\* It is the most powerful weapon in your office, and you will accidentally deploy it at 9:04 AM on a Tuesday while holding a lukewarm bagel.</p><p>\*This is not a coincidence. Studies suggest that 94% of workplace violence originates from interface designers who thought this proximity was "clean" and "minimally intrusive."</p><p>**Case Study A: The Birthday Cascade**</p><p>It begins innocently enough. Deborah in Accounting sends a company-wide memo regarding new refrigerator protocols. Mark in Logistics, who has not had his coffee, replies all: "Happy Birthday Deborah!" Deborah is not having a birthday. Mark was thinking of someone else entirely. But the algorithm has been fed. Within forty minutes, 340 employees have wished Deborah a happy birthday she isn't having. Six people have attached GIFs of anthropomorphic cupcakes. Two people have suggested group lunch outings that Deborah will have to decline because she is gluten-free, dairy-free, and also not celebrating anything.\*\*</p><p>\*\*Deborah now has a permanent birthday entry in the company Outlook calendar that cannot be deleted by mortal hands. She will receive a $25 gift card to Olive Garden annually until she dies or the company files for Chapter 11, whichever comes first.</p><p>**Case Study B: The Undead Thread**</p><p>The true horror is never the initial blast. It is the survivor who replies all three business days later with "Please remove me from this distribution list." This is the email equivalent of yelling "Why is everyone yelling?" in a crowded theater that is actively on fire. It guarantees the thread will outlive the corporation itself. By Thursday, IT sends a company-wide plea: "STOP REPLYING ALL." This message is, naturally, sent to everyone.\*\*\*</p><p>\*\*\*The IT director was later found muttering "Please remove me from this distribution list" into a room-temperature LaCroix in the emergency stairwell. He did not come back from the "meeting."</p><p>**Case Study C: The Attachment**</p><p>In 2019, a mid-level marketing manager in Ohio meant to send his therapist a document titled "Why_I_Hate_Everyone_Here_Final_Draft.docx" but instead attached it to the quarterly earnings report distributed to 12,000 stakeholders. The file contained a detailed ranking of his coworkers by "Likelihood to Survive the Purge" and a pie chart of his emotional breakdowns categorized by conference room. He was promoted to Senior Director three weeks later because leadership "appreciated his commitment to data visualization."</p><div class="pull-quote">"The Reply All button is located exactly 1.5 millimeters from the Reply button — the equivalent of placing the 'Launch Nuclear Warheads' switch adjacent to the 'Door Close' button in an elevator."</div><p>There is no defense against this phenomenon. You can enable "Undo Send," but Outlook grants you exactly three seconds of regret, which is enough time to realize you have made a terrible mistake but not enough time to stop it. The only solution is to never send emails. Communicate exclusively through interpretive dance and Slack emojis until you retire.\*\*\*\*</p><p>\*\*\*\*There is one man in your company who knows how to use BCC. He is 64 years old and keeps a Listserv from 1998 alive on a server in his garage. Everyone thinks he is a warlock. Do not make eye contact with him in the parking lot.</p></div>
+</section>
+
+
+<section class="final-cta">
+  <h2>Want More Like This?</h2>
+  <p>Get the full NovaCrypto book catalog — crypto, humor, guides, and fiction.</p>
+  <a class="btn-cover" href="https://gumroad.com/novacrypto" target="_blank">Visit Gumroad Store →</a>
+  <p style="margin-top:20px;font-size:13px;color:var(--sub);">
+    Or join the newsletter: weekly market insights, new book releases, exclusive discounts.
+  </p>
+</section>
+
+<footer>
+  <div class="footer-brand">NOVACRYPTO BOOKS</div>
+  <p>© 2026 NovaCrypto Publishing. All rights reserved.<br>
+  Not financial advice. Affiliate disclosure: some links earn commission.<br>
+  Illustrations generated by AI (Pollinations.ai, Stable Horde).</p>
+</footer>
+
+<script>
+window.addEventListener('scroll',()=>{
+  const d=document.documentElement;
+  document.getElementById('pb').style.width=
+    (d.scrollTop/(d.scrollHeight-d.clientHeight)*100)+'%';
+});
+</script>
+</body>
+</html>

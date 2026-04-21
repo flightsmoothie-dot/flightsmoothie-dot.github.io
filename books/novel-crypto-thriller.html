@@ -1,0 +1,205 @@
+<!DOCTYPE html>
+<html lang="en">
+<head>
+<meta charset="UTF-8">
+<meta name="viewport" content="width=device-width, initial-scale=1.0">
+<title>Block Zero</title>
+<meta name="description" content="A Thriller">
+<link href="https://fonts.googleapis.com/css2?family=Playfair+Display:wght@700;900&family=Inter:wght@300;400;600&display=swap" rel="stylesheet">
+<style>
+:root {
+  --accent: #111111;
+  --accent2: #F7B731;
+  --dark: #0a0a0a;
+  --card: #111;
+  --border: rgba(255,255,255,0.08);
+  --text: #e8e8e8;
+  --sub: #888;
+  --max: 680px;
+  --font-h: 'Playfair Display', Georgia, serif;
+  --font-b: 'Inter', sans-serif;
+}
+* { box-sizing: border-box; margin: 0; padding: 0; }
+html { scroll-behavior: smooth; }
+body { background: var(--dark); color: var(--text); font-family: var(--font-b); line-height: 1.8; }
+
+/* PROGRESS */
+#pb { position:fixed;top:0;left:0;width:0%;height:3px;background:linear-gradient(90deg,var(--accent),var(--accent2));z-index:1000;transition:width .1s; }
+
+/* NAV */
+nav { position:fixed;top:3px;left:0;right:0;height:52px;z-index:999;
+  background:rgba(10,10,10,0.95);backdrop-filter:blur(12px);
+  border-bottom:1px solid var(--border);
+  display:flex;align-items:center;justify-content:space-between;padding:0 32px; }
+.brand { font-family:var(--font-h);font-size:13px;font-weight:900;
+  letter-spacing:3px;color:var(--accent);text-transform:uppercase; }
+.nav-cta { background:var(--accent);color:#000;font-size:12px;font-weight:900;
+  padding:7px 18px;border-radius:100px;text-decoration:none;letter-spacing:1px; }
+.nav-cta:hover { opacity:.85; }
+
+/* COVER */
+.cover {
+  min-height:100vh;padding:100px 40px 60px;
+  background: radial-gradient(ellipse 60% 50% at 40% 30%,#11111122,transparent),
+              radial-gradient(ellipse 40% 60% at 80% 70%,#F7B73115,transparent),
+              linear-gradient(180deg,#000,#0a0500);
+  display:flex;flex-direction:column;align-items:center;justify-content:center;text-align:center;
+  border-bottom:3px solid var(--accent);
+}
+.cover-badge { display:inline-flex;align-items:center;gap:8px;
+  background:rgba(255,255,255,0.06);border:1px solid var(--border);
+  color:var(--sub);font-size:11px;font-weight:700;letter-spacing:4px;text-transform:uppercase;
+  padding:6px 18px;border-radius:100px;margin-bottom:32px; }
+.cover h1 { font-family:var(--font-h);font-size:clamp(28px,5.5vw,60px);font-weight:900;
+  color:#fff;line-height:1.08;max-width:700px;margin-bottom:20px; }
+.cover h1 em { font-style:normal;color:var(--accent); }
+.cover .sub { font-size:18px;color:var(--sub);max-width:500px;margin-bottom:40px;font-weight:300;line-height:1.6; }
+.cover-meta { display:flex;gap:32px;justify-content:center;flex-wrap:wrap;margin-bottom:48px; }
+.cover-meta span { font-size:13px;color:var(--sub);display:flex;align-items:center;gap:6px; }
+.cover-meta span strong { color:var(--text); }
+.btn-cover { display:inline-flex;align-items:center;gap:10px;
+  background:var(--accent);color:#000;font-size:15px;font-weight:900;
+  padding:16px 44px;border-radius:100px;text-decoration:none;letter-spacing:1px;
+  box-shadow:0 0 40px #11111144;transition:transform .2s,box-shadow .2s; }
+.btn-cover:hover { transform:translateY(-2px);box-shadow:0 8px 48px #11111166; }
+.scroll { margin-top:52px;color:var(--sub);font-size:11px;letter-spacing:3px;text-transform:uppercase; }
+.scroll-arrow { font-size:22px;display:block;margin-top:6px;animation:bob 2s ease-in-out infinite; }
+@keyframes bob { 0%,100%{transform:translateY(0)} 50%{transform:translateY(7px)} }
+
+/* TOC */
+.toc-wrap { background:#0d0d0d;border-top:1px solid var(--border);border-bottom:1px solid var(--border); }
+.toc-inner { max-width:var(--max);margin:0 auto;padding:64px 40px; }
+.eyebrow { font-size:11px;letter-spacing:5px;color:var(--accent);text-transform:uppercase;
+  font-weight:700;margin-bottom:28px;display:flex;align-items:center;gap:14px; }
+.eyebrow::after { content:'';flex:1;height:1px;background:var(--border); }
+.toc-list { list-style:none;padding:0; }
+.toc-list li { border-bottom:1px solid var(--border); }
+.toc-list li:last-child { border-bottom:none; }
+.toc-list a { display:flex;align-items:center;gap:18px;padding:14px 10px;
+  text-decoration:none;color:var(--text);transition:background .2s;border-radius:8px; }
+.toc-list a:hover { background:rgba(255,255,255,0.04); }
+.toc-list .num { font-size:28px;font-weight:900;color:var(--accent);
+  opacity:.25;font-family:monospace;min-width:44px;line-height:1; }
+.toc-list .t { font-size:16px;font-weight:500; }
+
+/* CHAPTER */
+.chapter { max-width:var(--max);margin:0 auto;padding:72px 40px;border-bottom:1px solid var(--border); }
+.ch-eyebrow { font-size:11px;letter-spacing:5px;color:var(--accent);text-transform:uppercase;
+  font-weight:700;margin-bottom:12px;font-family:var(--font-b); }
+.ch-title { font-family:var(--font-h);font-size:clamp(22px,3.5vw,36px);font-weight:900;
+  color:#fff;line-height:1.15;margin-bottom:36px; }
+.ch-body p { font-size:17px;color:#bbb;margin-bottom:18px;line-height:1.85; }
+.ch-body p:last-child { margin-bottom:0; }
+.ch-body strong { color:var(--text);font-weight:600; }
+
+/* FINAL CTA */
+.final-cta { max-width:var(--max);margin:0 auto;padding:72px 40px;text-align:center; }
+.final-cta h2 { font-family:var(--font-h);font-size:clamp(24px,4vw,38px);color:#fff;margin-bottom:16px; }
+.final-cta p { font-size:17px;color:var(--sub);max-width:420px;margin:0 auto 36px; }
+
+/* FOOTER */
+footer { background:#000;border-top:1px solid var(--border);padding:40px;text-align:center;
+  font-size:12px;color:var(--sub);line-height:1.9; }
+.footer-brand { font-family:var(--font-h);font-size:16px;font-weight:900;
+  letter-spacing:5px;color:var(--accent);margin-bottom:12px; }
+
+/* RESPONSIVE */
+@media(max-width:640px){
+  nav { padding:0 20px; }
+  .cover,.chapter,.toc-inner,.final-cta { padding-left:24px;padding-right:24px; }
+}
+/* PRINT */
+@media print {
+  nav,#pb { display:none; }
+  .cover { page-break-after:always;min-height:auto; }
+  .chapter { page-break-before:always; }
+  body { background:#fff;color:#111; }
+  .ch-title { color:#000; }
+  .ch-body p { color:#333; }
+}
+</style>
+</head>
+<body>
+<div id="pb"></div>
+<nav>
+  <div class="brand">NovaCrypto Books</div>
+  <a class="nav-cta" href="https://promote.mexc.co/r/UzCEsmBcLP" target="_blank">Get Free Bonus →</a>
+</nav>
+
+<section class="cover">
+  <div class="cover-badge">★ Financial Thriller / Techno-Crime</div>
+  <h1>Block Zero</h1>
+  <p class="sub">A Thriller</p>
+  <div class="cover-meta">
+    <span>📖 <strong>5 Chapters</strong></span>
+    <span>⭐ <strong>2026 Edition</strong></span>
+    <span>€9 <strong>on Gumroad</strong></span>
+  </div>
+  <a class="btn-cover" href="#ch1">Start Reading →</a>
+  <div class="scroll">scroll to begin <span class="scroll-arrow">↓</span></div>
+</section>
+
+<section class="toc-wrap" id="toc">
+<div class="toc-inner">
+  <div class="eyebrow">Contents</div>
+  <ol class="toc-list"><li><a href="#ch1"><span class="num">01</span><span class="t">The Wallet</span></a></li><li><a href="#ch2"><span class="num">02</span><span class="t">Chain of Custody</span></a></li><li><a href="#ch3"><span class="num">03</span><span class="t">Zero Confirmation</span></a></li><li><a href="#ch4"><span class="num">04</span><span class="t">The Mempool</span></a></li><li><a href="#ch5"><span class="num">05</span><span class="t">Hard Fork</span></a></li></ol>
+</div>
+</section>
+
+
+<section class="chapter" id="ch1">
+  <div class="ch-eyebrow">Chapter 01</div>
+  <h2 class="ch-title">The Wallet</h2>
+  <div class="ch-body"><p>The Wallet</p><p>Darkness crept in like a thief. Rachel huddled in the alley, phone clutched tight. The screen glowed with a single message: "Meet me at Club Onyx. Come alone." The words sent a shiver down her spine. She thought of her brother, Alex, and the cryptic warnings he'd sent before he vanished. Now, she was the only one left to unravel the mystery of his disappearance.</p><p>Rain pattered against the pavement, casting a rhythmic spell. Rachel's eyes darted towards the club's entrance, a neon-lit abyss. She took a deep breath, the chill of the night air biting her lungs. The door swung open, and a figure emerged, face obscured by shadows. Rachel's heart quickened as the figure beckoned her forward. She stepped into the unknown, the city's din fading into the background.</p><p>Inside, the club pulsed with the beat of electronic music. Strobe lights sliced through the darkness, casting an otherworldly glow. Rachel's gaze scanned the crowd, searching for a familiar face. The air was thick with the smell of smoke and sweat. She spotted a figure at the bar, hoodie pulled up, eyes fixed on her. A nod, almost imperceptible, and the figure slid a small package across the counter. Rachel's fingers closed around it, her mind racing. A wallet, worn and battered, with a single word etched into the leather: "Erebus."</p><p>The name sent a spark of recognition through her mind. Erebus, the cryptocurrency that had been Alex's obsession. The one he'd been investigating before he disappeared. Rachel's fingers trembled as she opened the wallet, revealing a tangled web of cables and a small, sleek device. A crypto hardware wallet, used to store the keys to a fortune. But whose fortune? And why had it been left for her to find? The questions swirled in her mind like a maelstrom, pulling her deeper into the darkness.</p><p>The figure at the bar vanished into the crowd, leaving Rachel alone with the wallet. She felt a presence closing in around her, the music and lights blurring into a chaotic haze. The device in her hand seemed to hum with an otherworldly energy, as if it held the key to unlocking the secrets of the crypto underworld. And Rachel knew she had to get out, before she became the next victim in a game where the stakes were higher than she could ever imagine. She turned to flee, but the door was blocked by a towering figure, eyes glinting with a sinister intent. Rachel was trapped.</p></div>
+</section>
+
+<section class="chapter" id="ch2">
+  <div class="ch-eyebrow">Chapter 02</div>
+  <h2 class="ch-title">Chain of Custody</h2>
+  <div class="ch-body"><p>Chain of Custody</p><p>Rain lashed the streets of Tokyo. Neon lights reflected off wet pavement. Detective Kenji Kuroba stood outside the crypto exchange, his eyes fixed on the entrance. A uniformed officer blocked his path. "No one in or out, Detective." Kuroba flashed his badge. The officer stepped aside.</p><p>Kuroba pushed through the doors, into a maze of screens and wires. The air reeked of burned coffee and desperation. Traders huddled around computers, their faces pale in the glow of monitors. Someone whispered, "The hack happened an hour ago." Kuroba's gut tightened. He knew the drill: contain the breach, secure the servers, and pray the hackers didn't disappear into the dark net.</p><p>Kuroba spotted the exchange's CEO, Taro Ito, pacing near the servers. Ito's eyes were wild, his suit rumpled. "What do you know?" Kuroba asked, his voice low. Ito hesitated, glancing around the room. "The hackers demanded a ransom in Bitcoin. We tried to stall, but..." He trailed off, his gaze drifting to the screens. Kuroba followed his gaze: the exchange's wallet was still draining, coins vanishing into the void.</p><p>Sweat beaded on Kuroba's forehead as he surveyed the room. Too many people, too many variables. He needed to isolate the problem, track the digital trail. His phone buzzed: an encrypted message from an unknown number. The text read: "Look closer at the exchange's own code." Kuroba's eyes locked onto Ito, who was now watching him with a mixture of fear and guilt. What was the CEO hiding?</p><p>Kuroba's gaze dropped to the floor, where a discarded cup of coffee had left a dark stain. He thought of the hackers, lurking in the shadows, waiting for their moment to strike. The rain outside seemed to intensify, drumming against the walls as Kuroba's mind racing with questions. Who was behind the hack? What did they want, besides the ransom? And how far would they go to get it? The screens around him flickered, a reminder that in the world of crypto, the line between reality and virtual reality was thin – and getting thinner by the minute.</p></div>
+</section>
+
+<section class="chapter" id="ch3">
+  <div class="ch-eyebrow">Chapter 03</div>
+  <h2 class="ch-title">Zero Confirmation</h2>
+  <div class="ch-body"><p>Zero Confirmation</p><p>Rain lashed the city streets. Neon lights reflected off wet pavement. Detective Jameson stood outside the crypto exchange, eyes fixed on the darkened windows. Something was off. The building's usual hum of activity was replaced by an eerie silence. Jameson's gut twisted with unease. He checked his watch. 3:47 AM. The exchange should be bustling with traders.</p><p>Jameson pushed open the door, his gun drawn. The air inside was thick with tension. Computers lined the walls, screens frozen on error messages. The only sound was the soft beep of a lone terminal. Jameson's partner, Rachel, waited by the reception desk, her eyes locked on the security feed. "What've we got?" Jameson asked, his voice low. Rachel's gaze didn't waver. "Multiple reports of a flash crash. Bitcoin's plummeting." Jameson's eyes scanned the room. Where was everyone?</p><p>The lights flickered, and the beep stopped. Jameson's heart rate spiked. "We need to find the sysadmin," he whispered to Rachel. She nodded, already moving towards the server room. Jameson followed, his eyes scanning the shadows. The air was heavy with the scent of burnt plastic. A faint smell of smoke clung to the walls. Jameson's mind racing, he tried to piece together the events. A flash crash, a darkened exchange, and a sysadmin who was nowhere to be found.</p><p>Rachel pushed open the server room door, and Jameson's eyes adjusted to the dim light. Row upon row of servers hummed, their lights blinking in unison. But one machine was dark, its screen shattered on the floor. Jameson's gut told him this was more than just a crash. This was a hack. A deliberate attempt to cripple the exchange. He spotted a figure slumped in the corner, a young man with a look of terror frozen on his face. Jameson's training kicked in. He approached the body, his gun still drawn.</p><p>The young man's eyes were open, staring at something on the floor. Jameson followed his gaze to a small piece of paper, a cryptic message scrawled in red ink: "Zero confirmation. The flood is coming." Jameson's mind reeled. What did it mean? He felt a presence behind him and spun around, gun raised. Rachel stood in the doorway, her face pale. "We've got a problem," she whispered. "The exchange's wallet is empty. Someone's made off with millions." Jameson's eyes locked onto the message. The flood is coming. He knew they were running out of time.</p></div>
+</section>
+
+<section class="chapter" id="ch4">
+  <div class="ch-eyebrow">Chapter 04</div>
+  <h2 class="ch-title">The Mempool</h2>
+  <div class="ch-body"><p>The Mempool</p><p>Darkness shrouded the city. Neon lights reflected off wet pavement. Rain-soaked streets were empty. Except for the figure in the black hoodie. Watching. Waiting. Across from the crypto exchange. A place where fortunes were made and lost in the blink of an eye. Where the desperate and the greedy collided.</p><p>Ava Moreno stood at the window, eyes fixed on the figure. Her gut told her something was off. The exchange's security team was on high alert. A recent string of hacks had them spooked. Ava's job was to protect the exchange's users. But she couldn't shake the feeling she was in over her head. The crypto world was a labyrinth. Unpredictable. Deadly. One misstep could be disastrous.</p><p>The air in the room was thick with tension. The sound of keyboards clacking filled the space. The exchange's team worked tirelessly to process transactions. The mempool was overflowing. Unconfirmed transactions waiting to be processed. A sitting duck for hackers. Ava's eyes locked onto the figure again. Still watching. Still waiting. Her phone buzzed. A text from an unknown number. "They're coming for you." Ava's heart rate spiked.</p><p>She spun around, scanning the room. Her team was oblivious to the threat. Focused on the task at hand. Ava knew she had to act fast. She grabbed her phone and sprinted out of the room. Down the stairs. Into the rain-soaked night. The figure in the black hoodie was gone. But Ava knew she wasn't alone. She could feel eyes on her. The city seemed to be closing in. The sound of the rain pounding the pavement was deafening. Ava's breath came in short gasps.</p><p>Ava ducked into a nearby alley. The smell of garbage and decay filled her nostrils. She pulled out her phone. Dialed a number. Waited for an answer. The voice on the other end was low and gravelly. "Ava, what's going on?" Ava didn't hesitate. "It's happening. They're making their move." The voice responded, "Get out of there. Now." Ava didn't need to be told twice. She turned to make a run for it. But it was too late. The alley was no longer empty. The figure in the black hoodie stood at the entrance. Watching. Waiting. Ava's heart stopped.</p></div>
+</section>
+
+<section class="chapter" id="ch5">
+  <div class="ch-eyebrow">Chapter 05</div>
+  <h2 class="ch-title">Hard Fork</h2>
+  <div class="ch-body"><p>Hard Fork</p><p>Rain lashed down on the city. Neon lights reflected off wet pavement. Alex Chen stood outside the crypto exchange, eyes fixed on the entrance. He checked his watch. 11:47 PM. Three minutes to go. The hard fork was about to drop. A new blockchain would split from the old, creating a duplicate. And with it, a duplicate of the entire cryptocurrency market. Chaos was coming.</p><p>Alex's phone buzzed. A text from his partner, Rachel. "Inside. Everything's set." He nodded, though she couldn't see him. The plan was to short the duplicate market, make a killing. But if they were caught... Alex's gut twisted. He lit a cigarette, feeling the nicotine hit his system. The smoke stung his eyes. He squinted, scanning the crowded street. Investors, traders, and hackers milled about, all waiting for the fork.</p><p>The air was electric. The smell of wet earth and ozone hung heavy. Alex's ears rang with the hum of the city. He flicked his cigarette into the gutter, watching as the ember died. The exchange doors slid open. A suited figure emerged, eyes locked on Alex. For a moment, they just stared. Then the man turned, disappearing into the crowd. Alex's instincts screamed warning. Something was off.</p><p>Alex pushed through the doors, into the warm glow of the exchange. The atmosphere was frenzied. Traders yelled into phones, their faces bathed in the light of screens. Rachel waited by the elevator, her eyes locked on the countdown timer. 1:47. 1:46. The numbers ticked down. Alex's heart rate spiked. This was it. The hard fork was coming. And with it, the chaos.</p><p>The lights flickered. The countdown timer froze. The room fell silent. Alex's eyes met Rachel's. A spark of fear ignited between them. The hard fork had dropped. The duplicate market was live. But something was wrong. The screens were black. The traders were frozen, unsure what to do. Alex's gut told him they were in trouble. The duplicate market wasn't behaving as predicted. It was time to get out. Before it was too late.</p></div>
+</section>
+
+
+<section class="final-cta">
+  <h2>Want More Like This?</h2>
+  <p>Get the full NovaCrypto book catalog — crypto, humor, guides, and fiction.</p>
+  <a class="btn-cover" href="https://gumroad.com/novacrypto" target="_blank">Visit Gumroad Store →</a>
+  <p style="margin-top:20px;font-size:13px;color:var(--sub);">
+    Or join the newsletter: weekly market insights, new book releases, exclusive discounts.
+  </p>
+</section>
+
+<footer>
+  <div class="footer-brand">NOVACRYPTO BOOKS</div>
+  <p>© 2026 NovaCrypto Publishing. All rights reserved.<br>
+  Not financial advice. Affiliate disclosure: some links earn commission.<br>
+  Illustrations generated by AI (Pollinations.ai, Stable Horde).</p>
+</footer>
+
+<script>
+window.addEventListener('scroll',()=>{
+  const d=document.documentElement;
+  document.getElementById('pb').style.width=
+    (d.scrollTop/(d.scrollHeight-d.clientHeight)*100)+'%';
+});
+</script>
+</body>
+</html>
