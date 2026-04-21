@@ -278,6 +278,8 @@ main{position:relative;z-index:10;min-height:100vh;padding:68px 16px 40px;displa
 .zen-om{position:absolute;top:50%;left:50%;transform:translate(-50%,-50%);font-size:44px;opacity:0;animation:om-pulse 4s ease-in-out infinite;pointer-events:none;filter:drop-shadow(0 0 20px rgba(168,85,247,0.8));}
 @keyframes om-pulse{0%,100%{opacity:0;transform:translate(-50%,-50%) scale(0.8)}50%{opacity:0.7;transform:translate(-50%,-50%) scale(1.1)}}
 </style>
+<!-- Umami Analytics — sign up free at cloud.umami.is → add website → paste Website ID below -->
+<script defer src="https://cloud.umami.is/script.js" data-website-id="REPLACE_WITH_UMAMI_WEBSITE_ID"></script>
 </head>
 <body>
 
@@ -463,6 +465,15 @@ main{position:relative;z-index:10;min-height:100vh;padding:68px 16px 40px;displa
     document.getElementById('bh-email-zen')?.addEventListener('keydown',e=>{if(e.key==='Enter')bhSubscribeZen();});
     if(localStorage.getItem('bh_subscribed')){const m=document.getElementById('bh-msg-zen');if(m){m.textContent='✅ Already subscribed — thank you!';m.style.color='#00F5A0';}}
     </script>
+    <div style="margin:16px 0;padding:20px;background:linear-gradient(135deg,rgba(168,85,247,.07),rgba(124,58,237,.04));border:1px solid rgba(168,85,247,.25);border-radius:16px;text-align:center;">
+      <div style="font-size:10px;text-transform:uppercase;letter-spacing:2px;color:rgba(168,85,247,.75);margin-bottom:8px">📚 NovaCrypto Books</div>
+      <div style="font-size:15px;font-weight:800;color:#fff;margin-bottom:4px">Nobody Warned Me</div>
+      <div style="font-size:12px;color:rgba(255,255,255,.5);margin-bottom:14px">The clear-headed guide to crypto & financial freedom. €17</div>
+      <a href="https://novacrypto.gumroad.com" target="_blank" rel="noopener"
+         style="display:inline-block;background:linear-gradient(135deg,#a855f7,#7c3aed);color:#fff;font-weight:800;font-size:13px;padding:10px 24px;border-radius:10px;text-decoration:none;">
+        Read Now →
+      </a>
+    </div>
 
     <div class="partners-section">
       <div class="partners-title">— Mindfulness Partners —</div>

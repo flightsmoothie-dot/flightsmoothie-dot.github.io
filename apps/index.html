@@ -310,37 +310,74 @@ footer{position:relative;z-index:10;text-align:center;padding:32px 24px;border-t
   </div>
 </div>
 
-<!-- FREE EBOOKS STORE -->
+<!-- LIVE BTC TICKER -->
+<div style="position:relative;z-index:10;max-width:1100px;margin:0 auto 20px;padding:0 24px;">
+  <div style="display:flex;align-items:center;gap:12px;background:rgba(247,183,49,.06);border:1px solid rgba(247,183,49,.2);border-radius:14px;padding:12px 20px;flex-wrap:wrap;">
+    <div style="display:flex;align-items:center;gap:8px;">
+      <div style="width:8px;height:8px;border-radius:50%;background:#F7B731;animation:blink 1.5s ease-in-out infinite;"></div>
+      <span style="font-size:11px;letter-spacing:2px;color:#888;text-transform:uppercase">Live Prices</span>
+    </div>
+    <div style="display:flex;gap:20px;flex-wrap:wrap;">
+      <span style="font-size:13px;font-weight:700;color:#F7B731">BTC <span id="btc-price">loading…</span> <span id="btc-chg" style="font-size:11px;"></span></span>
+      <span style="font-size:13px;font-weight:700;color:#A855F7">ETH <span id="eth-price">—</span> <span id="eth-chg" style="font-size:11px;"></span></span>
+      <span style="font-size:13px;font-weight:700;color:#00D4AA">SOL <span id="sol-price">—</span></span>
+    </div>
+    <a href="https://promote.mexc.co/r/UzCEsmBcLP" target="_blank" rel="noopener" style="margin-left:auto;font-size:11px;font-weight:800;color:#000;background:linear-gradient(135deg,#F7B731,#FF9500);padding:5px 14px;border-radius:20px;text-decoration:none;white-space:nowrap">Trade on MEXC →</a>
+  </div>
+</div>
+
+<!-- EBOOKS STORE — WITH REAL PRICES -->
 <div style="position:relative;z-index:10;max-width:1100px;margin:0 auto 64px;padding:0 24px;">
-  <div class="section-title">— Free eBooks — Download & Keep —</div>
-  <div style="display:grid;grid-template-columns:repeat(auto-fit,minmax(260px,1fr));gap:16px;">
-    <a href="https://novacrypto.gumroad.com" target="_blank" rel="noopener" style="text-decoration:none;display:flex;gap:14px;align-items:flex-start;padding:18px;background:rgba(247,183,49,.05);border:1px solid rgba(247,183,49,.18);border-radius:18px;transition:transform .2s,border-color .2s;" onmouseover="this.style.transform='translateY(-4px)';this.style.borderColor='rgba(247,183,49,.4)'" onmouseout="this.style.transform='';this.style.borderColor='rgba(247,183,49,.18)'">
-      <div style="font-size:36px;flex-shrink:0">₿</div>
-      <div><div style="font-weight:800;color:var(--gold);font-size:13px;margin-bottom:4px">Crypto for Beginners 2026</div><div style="font-size:11px;color:#94a3b8;line-height:1.5">From €0 to your first portfolio. DCA, wallets, tax. 65+ pages.</div><div style="margin-top:8px;font-size:11px;font-weight:700;color:var(--gold)">Free Download →</div></div>
+  <div class="section-title">— Guides & eBooks — Built by someone doing it —</div>
+
+  <!-- FEATURED BOOK — CRYPTO -->
+  <div style="margin-bottom:16px;">
+    <a href="https://novacrypto.gumroad.com/l/crypto-beginners-2026" target="_blank" rel="noopener" style="text-decoration:none;display:flex;gap:20px;align-items:center;padding:22px 24px;background:linear-gradient(135deg,rgba(247,183,49,.1),rgba(255,149,0,.05));border:1.5px solid rgba(247,183,49,.35);border-radius:20px;transition:transform .2s,border-color .2s;position:relative;overflow:hidden;" onmouseover="this.style.transform='translateY(-3px)';this.style.borderColor='rgba(247,183,49,.6)'" onmouseout="this.style.transform='';this.style.borderColor='rgba(247,183,49,.35)'">
+      <div style="position:absolute;top:12px;right:16px;background:linear-gradient(135deg,#F7B731,#FF9500);color:#000;font-size:10px;font-weight:900;padding:3px 10px;border-radius:20px;letter-spacing:1px">BESTSELLER</div>
+      <div style="font-size:48px;flex-shrink:0">₿</div>
+      <div style="flex:1;">
+        <div style="font-weight:900;color:var(--gold);font-size:16px;margin-bottom:6px">Crypto for Beginners 2026</div>
+        <div style="font-size:12px;color:#94a3b8;line-height:1.6;margin-bottom:10px">From €0 to your first portfolio. DCA strategies, wallet security, tax basics. 65+ pages. Written for Europeans.</div>
+        <div style="display:flex;align-items:center;gap:14px;">
+          <span style="font-size:22px;font-weight:900;color:#F7B731">€17</span>
+          <span style="font-size:11px;color:#888;text-decoration:line-through">€34</span>
+          <span style="font-size:10px;color:#00D4AA;font-weight:700;background:rgba(0,212,170,.1);padding:2px 8px;border-radius:10px">50% OFF</span>
+          <span style="margin-left:auto;font-size:12px;font-weight:800;color:#000;background:linear-gradient(135deg,#F7B731,#FF9500);padding:8px 20px;border-radius:25px">Get it →</span>
+        </div>
+      </div>
     </a>
-    <a href="https://novacrypto.gumroad.com" target="_blank" rel="noopener" style="text-decoration:none;display:flex;gap:14px;align-items:flex-start;padding:18px;background:rgba(0,212,170,.05);border:1px solid rgba(0,212,170,.18);border-radius:18px;transition:transform .2s,border-color .2s;" onmouseover="this.style.transform='translateY(-4px)';this.style.borderColor='rgba(0,212,170,.4)'" onmouseout="this.style.transform='';this.style.borderColor='rgba(0,212,170,.18)'">
+  </div>
+
+  <div style="display:grid;grid-template-columns:repeat(auto-fit,minmax(260px,1fr));gap:14px;">
+    <a href="https://novacrypto.gumroad.com/l/ai-tools-business" target="_blank" rel="noopener" style="text-decoration:none;display:flex;gap:14px;align-items:flex-start;padding:18px;background:rgba(0,212,170,.05);border:1px solid rgba(0,212,170,.18);border-radius:18px;transition:transform .2s;" onmouseover="this.style.transform='translateY(-4px)'" onmouseout="this.style.transform=''">
       <div style="font-size:36px;flex-shrink:0">🤖</div>
-      <div><div style="font-weight:800;color:var(--teal);font-size:13px;margin-bottom:4px">AI Tools That Run Your Business</div><div style="font-size:11px;color:#94a3b8;line-height:1.5">30+ free AI tools. Automate social, email, bookkeeping.</div><div style="margin-top:8px;font-size:11px;font-weight:700;color:var(--teal)">Free Download →</div></div>
+      <div style="flex:1"><div style="font-weight:800;color:var(--teal);font-size:13px;margin-bottom:4px">AI Tools That Run Your Business</div><div style="font-size:11px;color:#94a3b8;line-height:1.5;margin-bottom:8px">30+ free AI tools. Automate social, email, bookkeeping in 2026.</div><div style="display:flex;align-items:center;justify-content:space-between;"><span style="font-size:16px;font-weight:900;color:var(--teal)">€17</span><span style="font-size:11px;font-weight:700;color:#000;background:var(--teal);padding:4px 12px;border-radius:12px">Buy →</span></div></div>
     </a>
-    <a href="https://novacrypto.gumroad.com" target="_blank" rel="noopener" style="text-decoration:none;display:flex;gap:14px;align-items:flex-start;padding:18px;background:rgba(244,63,94,.05);border:1px solid rgba(244,63,94,.18);border-radius:18px;transition:transform .2s,border-color .2s;" onmouseover="this.style.transform='translateY(-4px)';this.style.borderColor='rgba(244,63,94,.4)'" onmouseout="this.style.transform='';this.style.borderColor='rgba(244,63,94,.18)'">
+    <a href="https://novacrypto.gumroad.com/l/dropshipping-method" target="_blank" rel="noopener" style="text-decoration:none;display:flex;gap:14px;align-items:flex-start;padding:18px;background:rgba(244,63,94,.05);border:1px solid rgba(244,63,94,.18);border-radius:18px;transition:transform .2s;" onmouseover="this.style.transform='translateY(-4px)'" onmouseout="this.style.transform=''">
       <div style="font-size:36px;flex-shrink:0">🛒</div>
-      <div><div style="font-weight:800;color:#f87171;font-size:13px;margin-bottom:4px">Dropshipping: €0→€2,000/Month</div><div style="font-size:11px;color:#94a3b8;line-height:1.5">TrendVault method. Shopify + TikTok ads. Real case studies.</div><div style="margin-top:8px;font-size:11px;font-weight:700;color:#f87171">Free Download →</div></div>
+      <div style="flex:1"><div style="font-weight:800;color:#f87171;font-size:13px;margin-bottom:4px">Dropshipping: €0→€2,000/Month</div><div style="font-size:11px;color:#94a3b8;line-height:1.5;margin-bottom:8px">TrendVault method. Shopify + TikTok ads. Real case studies.</div><div style="display:flex;align-items:center;justify-content:space-between;"><span style="font-size:16px;font-weight:900;color:#f87171">€17</span><span style="font-size:11px;font-weight:700;color:#fff;background:#f87171;padding:4px 12px;border-radius:12px">Buy →</span></div></div>
     </a>
-    <a href="https://novacrypto.gumroad.com" target="_blank" rel="noopener" style="text-decoration:none;display:flex;gap:14px;align-items:flex-start;padding:18px;background:rgba(56,189,248,.05);border:1px solid rgba(56,189,248,.18);border-radius:18px;transition:transform .2s,border-color .2s;" onmouseover="this.style.transform='translateY(-4px)';this.style.borderColor='rgba(56,189,248,.4)'" onmouseout="this.style.transform='';this.style.borderColor='rgba(56,189,248,.18)'">
+    <a href="https://novacrypto.gumroad.com/l/skydiving-guide" target="_blank" rel="noopener" style="text-decoration:none;display:flex;gap:14px;align-items:flex-start;padding:18px;background:rgba(56,189,248,.05);border:1px solid rgba(56,189,248,.18);border-radius:18px;transition:transform .2s;" onmouseover="this.style.transform='translateY(-4px)'" onmouseout="this.style.transform=''">
       <div style="font-size:36px;flex-shrink:0">🪂</div>
-      <div><div style="font-weight:800;color:var(--blue);font-size:13px;margin-bottom:4px">Skydiving Beginner's Guide 2026</div><div style="font-size:11px;color:#94a3b8;line-height:1.5">AFF course, gear, DZ selection. Everything before your first jump.</div><div style="margin-top:8px;font-size:11px;font-weight:700;color:var(--blue)">Free Download →</div></div>
+      <div style="flex:1"><div style="font-weight:800;color:var(--blue);font-size:13px;margin-bottom:4px">Skydiving Beginner's Guide 2026</div><div style="font-size:11px;color:#94a3b8;line-height:1.5;margin-bottom:8px">AFF course, gear, DZ selection. Everything before your first jump.</div><div style="display:flex;align-items:center;justify-content:space-between;"><span style="font-size:16px;font-weight:900;color:var(--blue)">€17</span><span style="font-size:11px;font-weight:700;color:#000;background:var(--blue);padding:4px 12px;border-radius:12px">Buy →</span></div></div>
     </a>
-    <a href="https://novacrypto.gumroad.com" target="_blank" rel="noopener" style="text-decoration:none;display:flex;gap:14px;align-items:flex-start;padding:18px;background:rgba(168,85,247,.05);border:1px solid rgba(168,85,247,.18);border-radius:18px;transition:transform .2s,border-color .2s;" onmouseover="this.style.transform='translateY(-4px)';this.style.borderColor='rgba(168,85,247,.4)'" onmouseout="this.style.transform='';this.style.borderColor='rgba(168,85,247,.18)'">
+    <a href="https://novacrypto.gumroad.com/l/health-reset" target="_blank" rel="noopener" style="text-decoration:none;display:flex;gap:14px;align-items:flex-start;padding:18px;background:rgba(168,85,247,.05);border:1px solid rgba(168,85,247,.18);border-radius:18px;transition:transform .2s;" onmouseover="this.style.transform='translateY(-4px)'" onmouseout="this.style.transform=''">
       <div style="font-size:36px;flex-shrink:0">🧘</div>
-      <div><div style="font-weight:800;color:var(--violet);font-size:13px;margin-bottom:4px">Health Reset 2026</div><div style="font-size:11px;color:#94a3b8;line-height:1.5">Plain-language guide to living better. Sleep, diet, movement.</div><div style="margin-top:8px;font-size:11px;font-weight:700;color:var(--violet)">Free Download →</div></div>
+      <div style="flex:1"><div style="font-weight:800;color:var(--violet);font-size:13px;margin-bottom:4px">Health Reset 2026</div><div style="font-size:11px;color:#94a3b8;line-height:1.5;margin-bottom:8px">Plain-language guide to living better. Sleep, diet, movement.</div><div style="display:flex;align-items:center;justify-content:space-between;"><span style="font-size:16px;font-weight:900;color:var(--violet)">€17</span><span style="font-size:11px;font-weight:700;color:#fff;background:var(--violet);padding:4px 12px;border-radius:12px">Buy →</span></div></div>
     </a>
-    <a href="https://novacrypto.gumroad.com" target="_blank" rel="noopener" style="text-decoration:none;display:flex;gap:14px;align-items:flex-start;padding:18px;background:rgba(99,235,100,.05);border:1px solid rgba(99,235,100,.18);border-radius:18px;transition:transform .2s,border-color .2s;" onmouseover="this.style.transform='translateY(-4px)';this.style.borderColor='rgba(99,235,100,.4)'" onmouseout="this.style.transform='';this.style.borderColor='rgba(99,235,100,.18)'">
+    <a href="https://novacrypto.gumroad.com/l/fitness-90-days" target="_blank" rel="noopener" style="text-decoration:none;display:flex;gap:14px;align-items:flex-start;padding:18px;background:rgba(99,235,100,.05);border:1px solid rgba(99,235,100,.18);border-radius:18px;transition:transform .2s;" onmouseover="this.style.transform='translateY(-4px)'" onmouseout="this.style.transform=''">
       <div style="font-size:36px;flex-shrink:0">💪</div>
-      <div><div style="font-weight:800;color:#86efac;font-size:13px;margin-bottom:4px">Fitness First: 90 Days</div><div style="font-size:11px;color:#94a3b8;line-height:1.5">Build your best body. Training plans, macros, progression.</div><div style="margin-top:8px;font-size:11px;font-weight:700;color:#86efac">Free Download →</div></div>
+      <div style="flex:1"><div style="font-weight:800;color:#86efac;font-size:13px;margin-bottom:4px">Fitness First: 90 Days</div><div style="font-size:11px;color:#94a3b8;line-height:1.5;margin-bottom:8px">Build your best body. Training plans, macros, progression system.</div><div style="display:flex;align-items:center;justify-content:space-between;"><span style="font-size:16px;font-weight:900;color:#86efac">€17</span><span style="font-size:11px;font-weight:700;color:#000;background:#86efac;padding:4px 12px;border-radius:12px">Buy →</span></div></div>
+    </a>
+    <!-- BUNDLE CARD -->
+    <a href="https://novacrypto.gumroad.com" target="_blank" rel="noopener" style="text-decoration:none;display:flex;gap:14px;align-items:flex-start;padding:18px;background:linear-gradient(135deg,rgba(247,183,49,.08),rgba(168,85,247,.08));border:1.5px solid rgba(247,183,49,.3);border-radius:18px;transition:transform .2s;position:relative;" onmouseover="this.style.transform='translateY(-4px)'" onmouseout="this.style.transform=''">
+      <div style="position:absolute;top:-1px;right:16px;background:#F7B731;color:#000;font-size:9px;font-weight:900;padding:3px 10px;border-radius:0 0 8px 8px;letter-spacing:1px">BEST VALUE</div>
+      <div style="font-size:36px;flex-shrink:0">📦</div>
+      <div style="flex:1"><div style="font-weight:800;color:var(--gold);font-size:13px;margin-bottom:4px">All 5 Guides Bundle</div><div style="font-size:11px;color:#94a3b8;line-height:1.5;margin-bottom:8px">Crypto + AI + Dropship + Skydive + Health. Everything.</div><div style="display:flex;align-items:center;justify-content:space-between;"><div><span style="font-size:20px;font-weight:900;color:#F7B731">€37</span><span style="font-size:10px;color:#888;text-decoration:line-through;margin-left:6px">€85</span></div><span style="font-size:11px;font-weight:700;color:#000;background:linear-gradient(135deg,#F7B731,#FF9500);padding:4px 12px;border-radius:12px">Bundle →</span></div></div>
     </a>
   </div>
   <div style="text-align:center;margin-top:20px;">
-    <a href="https://novacrypto.gumroad.com" target="_blank" rel="noopener" style="display:inline-block;padding:13px 36px;background:linear-gradient(135deg,var(--gold),#FF9500);color:#000;border-radius:50px;font-weight:900;font-size:14px;text-decoration:none;letter-spacing:.5px;transition:transform .1s;" onmouseover="this.style.transform='scale(1.04)'" onmouseout="this.style.transform=''">View All 10 Free eBooks on Gumroad →</a>
+    <a href="https://novacrypto.gumroad.com" target="_blank" rel="noopener" style="display:inline-block;padding:13px 36px;background:linear-gradient(135deg,var(--gold),#FF9500);color:#000;border-radius:50px;font-weight:900;font-size:14px;text-decoration:none;letter-spacing:.5px;transition:transform .1s;" onmouseover="this.style.transform='scale(1.04)'" onmouseout="this.style.transform=''">See All Guides on Gumroad →</a>
   </div>
 </div>
 
@@ -409,6 +446,23 @@ function updatePlayers(){
 }
 updatePlayers();
 setInterval(updatePlayers,5000);
+
+// Live crypto prices
+async function fetchPrices(){
+  try{
+    const r=await fetch("https://api.coingecko.com/api/v3/simple/price?ids=bitcoin,ethereum,solana&vs_currencies=usd&include_24hr_change=true");
+    const d=await r.json();
+    const fmt=n=>n>=1000?'$'+Math.round(n).toLocaleString():'$'+n.toFixed(2);
+    const chg=n=>{const c=n?.toFixed(2);return c>0?`<span style="color:#00D4AA">▲${c}%</span>`:`<span style="color:#F43F5E">▼${Math.abs(c)}%</span>`};
+    document.getElementById("btc-price").textContent=fmt(d.bitcoin.usd);
+    document.getElementById("btc-chg").innerHTML=chg(d.bitcoin.usd_24h_change);
+    document.getElementById("eth-price").textContent=fmt(d.ethereum.usd);
+    document.getElementById("eth-chg").innerHTML=chg(d.ethereum.usd_24h_change);
+    document.getElementById("sol-price").textContent=fmt(d.solana.usd);
+  }catch(e){document.getElementById("btc-price").textContent="—";}
+}
+fetchPrices();
+setInterval(fetchPrices,60000);
 
 // Read real click data from localStorage
 const realClicks=["cq_partner_clicks","hiq_clicks","zm_clicks"].reduce((t,k)=>{

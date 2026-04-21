@@ -263,6 +263,8 @@ body.fw{animation:fw .3s ease;}
 @keyframes up{from{opacity:0;transform:translateY(20px)}to{opacity:1;transform:translateY(0)}}
 @media(max-width:480px){.stats-row{gap:6px}.stat-box{padding:12px 14px;min-width:70px}.stat-n{font-size:22px}}
 </style>
+<!-- Umami Analytics — sign up free at cloud.umami.is → add website → paste Website ID below -->
+<script defer src="https://cloud.umami.is/script.js" data-website-id="REPLACE_WITH_UMAMI_WEBSITE_ID"></script>
 </head>
 <body>
 
@@ -422,6 +424,15 @@ body.fw{animation:fw .3s ease;}
     document.getElementById('bh-email-hiq')?.addEventListener('keydown',e=>{if(e.key==='Enter')bhSubscribeHIQ();});
     if(localStorage.getItem('bh_subscribed')){const m=document.getElementById('bh-msg-hiq');if(m){m.textContent='✅ Already subscribed — thank you!';m.style.color='#00F5A0';}}
     </script>
+    <div style="margin:16px 0;padding:20px;background:linear-gradient(135deg,rgba(247,183,49,.07),rgba(255,149,0,.04));border:1px solid rgba(247,183,49,.25);border-radius:16px;text-align:center;">
+      <div style="font-size:10px;text-transform:uppercase;letter-spacing:2px;color:rgba(247,183,49,.65);margin-bottom:8px">📚 NovaCrypto Books</div>
+      <div style="font-size:15px;font-weight:800;color:#fff;margin-bottom:4px">The AI Money Guide 2026</div>
+      <div style="font-size:12px;color:rgba(255,255,255,.5);margin-bottom:14px">Financial health matters too — build income with AI. €17</div>
+      <a href="https://novacrypto.gumroad.com" target="_blank" rel="noopener"
+         style="display:inline-block;background:linear-gradient(135deg,#F7B731,#FF9500);color:#000;font-weight:800;font-size:13px;padding:10px 24px;border-radius:10px;text-decoration:none;">
+        Get the Book →
+      </a>
+    </div>
 
     <div class="partners-section">
       <div class="partners-title">— Wellness Partners —</div>
