@@ -82,9 +82,10 @@
 
   /* Shadows — Linear multi-layer depth */
   --shadow-sm:  0 0 0 1px rgba(0,0,0,0.6), 0 0 0 1px rgba(255,255,255,0.03) inset, 0 1px 0 rgba(255,255,255,0.04) inset;
-  --shadow-md:  0 4px 12px rgba(0,0,0,0.4), 0 1px 3px rgba(0,0,0,0.3);
-  --shadow-lg:  0 16px 48px rgba(0,0,0,0.5), 0 4px 16px rgba(0,0,0,0.35);
-  --shadow-gold: 0 0 32px rgba(247,183,49,0.2), 0 4px 20px rgba(0,0,0,0.4);
+  /* CMC pattern: tight 1px + wide diffuse, brand-tinted */
+  --shadow-md:  rgba(10,6,30,0.35) 0px 1px 2px 0px, rgba(10,6,30,0.25) 0px 4px 16px 0px;
+  --shadow-lg:  rgba(10,6,30,0.5) 0px 1px 2px 0px, rgba(10,6,30,0.4) 0px 8px 40px 0px;
+  --shadow-gold: rgba(247,183,49,0.15) 0px 1px 2px 0px, rgba(247,183,49,0.1) 0px 8px 32px 0px;
 
   /* Typography — single family */
   --font: 'Inter', system-ui, -apple-system, sans-serif;
@@ -102,6 +103,8 @@ html { height:100%; }
 body {
   min-height:100%; background:var(--bg);
   color:var(--text); font-family:var(--font);
+  font-weight:500; /* CMC standard: 500 dominant weight for crispness */
+  font-size:15px; line-height:1.6;
   -webkit-font-smoothing:antialiased;
   -moz-osx-font-smoothing:grayscale;
   text-rendering:optimizeLegibility;
@@ -445,7 +448,28 @@ body.fw{animation:flashW .3s ease;}
 
 /* ── UTILS ── */
 @keyframes up{from{opacity:0;transform:translateY(20px)}to{opacity:1;transform:translateY(0)}}
-@media(max-width:480px){.stats-row{gap:6px}.stat-box{padding:12px 14px;min-width:70px}.stat-n{font-size:22px}}
+/* ── RESPONSIVE — CMC-inspired breakpoint system ── */
+@media(max-width:600px){
+  .q-text{font-size:16px;}
+  .btn-play{padding:16px 40px;font-size:15px;}
+  .res-card{padding:24px 18px;}
+  .q-card{padding:22px 18px 20px;}
+  .opt{padding:13px 14px;font-size:14px;}
+}
+@media(max-width:480px){
+  .stats-row{gap:6px}
+  .stat-box{padding:12px 14px;min-width:70px}
+  .stat-n{font-size:22px}
+  .game-title{font-size:clamp(36px,9vw,64px);}
+  .game-sub{font-size:14px;}
+  .topbar{padding:0 14px;}
+  .topbar-brand{letter-spacing:2px;}
+}
+@media(max-width:360px){
+  .stats-row{flex-wrap:wrap;justify-content:center;}
+  .opt{padding:11px 12px;font-size:13px;gap:8px;}
+  .ltr{width:26px;height:26px;font-size:11px;}
+}
 
 /* ══ TOPBAR SPONSOR PILL ════════════════════════════════════ */
 .sp-pill{
