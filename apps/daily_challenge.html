@@ -1,0 +1,602 @@
+<!DOCTYPE html>
+<html lang="en">
+<head>
+<meta charset="UTF-8">
+<meta name="viewport" content="width=device-width, initial-scale=1.0">
+<title>Daily Crypto Challenge — Today's Question | NovaCrypto</title>
+<meta name="description" content="One crypto question every day. Build your streak. Beat the community. Free daily challenge — no signup, results in 10 seconds.">
+<meta name="keywords" content="daily crypto challenge, crypto quiz today, bitcoin daily question, crypto wordle, daily bitcoin quiz, crypto streak game">
+<meta name="robots" content="index, follow">
+<meta name="author" content="NovaCrypto">
+<link rel="canonical" href="https://flightsmoothie-dot.github.io/apps/daily_challenge.html">
+<meta name="theme-color" content="#F7B731">
+<!-- Open Graph -->
+<meta property="og:type" content="website">
+<meta property="og:site_name" content="NovaCrypto — Daily Crypto Challenge">
+<meta property="og:title" content="Daily Crypto Challenge — Can You Answer Today's Question?">
+<meta property="og:description" content="One crypto question every day. Build your streak. 100k+ players. Free — no signup needed.">
+<meta property="og:image" content="https://flightsmoothie-dot.github.io/assets/og/daily-challenge-og.png">
+<meta name="twitter:card" content="summary_large_image">
+<meta name="twitter:title" content="Daily Crypto Challenge #[DAY] — Play Free">
+<!-- JSON-LD -->
+<script type="application/ld+json">
+{"@context":"https://schema.org","@type":"WebApplication","name":"Daily Crypto Challenge","description":"One crypto question every day. Build your streak. Free — no signup.","url":"https://flightsmoothie-dot.github.io/apps/daily_challenge.html","applicationCategory":"Game","genre":"Educational","offers":{"@type":"Offer","price":"0","priceCurrency":"EUR"},"publisher":{"@type":"Organization","name":"NovaCrypto","url":"https://novacrypto.gumroad.com"}}
+</script>
+<style>
+  :root{
+    --bg:#0a0a12;--card:rgba(16,14,30,0.96);--border:rgba(255,255,255,.08);
+    --gold:#F7B731;--green:#00F5A0;--red:#FF4D6D;--blue:#4FC3F7;
+    --sub:rgba(180,180,210,.55);--font:'Inter',system-ui,sans-serif;
+    --font-mono:'JetBrains Mono','Fira Code',monospace;
+  }
+  *{margin:0;padding:0;box-sizing:border-box;}
+  html,body{height:100%;background:var(--bg);color:#fff;font-family:var(--font);overflow-x:hidden;}
+
+  /* ── BG particles ── */
+  body::before{content:'';position:fixed;inset:0;background:radial-gradient(ellipse 80% 50% at 50% -10%,rgba(247,183,49,.07),transparent),radial-gradient(ellipse 60% 40% at 80% 80%,rgba(0,245,160,.04),transparent);pointer-events:none;}
+
+  /* ── Layout ── */
+  .app{max-width:480px;margin:0 auto;min-height:100vh;display:flex;flex-direction:column;padding:0 16px 40px;}
+
+  /* ── Header ── */
+  .header{display:flex;align-items:center;justify-content:space-between;padding:18px 0 14px;border-bottom:1px solid var(--border);}
+  .header-brand{font-size:12px;font-weight:700;color:var(--sub);letter-spacing:2px;text-transform:uppercase;}
+  .header-title{font-size:18px;font-weight:900;color:var(--gold);letter-spacing:-.3px;}
+  .header-day{font-size:11px;color:var(--sub);font-family:var(--font-mono);}
+
+  /* ── Streak bar ── */
+  .streak-bar{display:flex;gap:8px;padding:14px 0 10px;align-items:center;}
+  .streak-pill{display:flex;align-items:center;gap:5px;background:rgba(247,183,49,.1);border:1px solid rgba(247,183,49,.2);border-radius:20px;padding:5px 12px;font-size:13px;font-weight:700;color:var(--gold);}
+  .streak-pill.green{background:rgba(0,245,160,.1);border-color:rgba(0,245,160,.25);color:var(--green);}
+  .streak-divider{flex:1;height:1px;background:var(--border);}
+  .stat-mini{text-align:center;}
+  .stat-mini .val{font-size:16px;font-weight:900;color:#fff;font-family:var(--font-mono);}
+  .stat-mini .lbl{font-size:9px;color:var(--sub);letter-spacing:1px;text-transform:uppercase;}
+
+  /* ── Day counter ── */
+  .day-badge{text-align:center;padding:20px 0 8px;}
+  .day-badge .num{font-size:56px;font-weight:900;color:var(--gold);line-height:1;font-family:var(--font-mono);}
+  .day-badge .sub{font-size:12px;color:var(--sub);letter-spacing:2px;text-transform:uppercase;margin-top:4px;}
+
+  /* ── Category pill ── */
+  .cat-pill{display:inline-flex;align-items:center;gap:6px;background:rgba(79,195,247,.1);border:1px solid rgba(79,195,247,.2);border-radius:20px;padding:5px 14px;font-size:12px;font-weight:700;color:var(--blue);margin:0 auto 18px;display:flex;width:fit-content;}
+
+  /* ── Question card ── */
+  .q-card{background:var(--card);border:1px solid var(--border);border-radius:22px;padding:28px 24px 24px;margin-bottom:16px;position:relative;overflow:hidden;}
+  .q-card::before{content:'';position:absolute;inset:0;background:linear-gradient(135deg,rgba(247,183,49,.04),transparent 60%);pointer-events:none;}
+  .q-text{font-size:18px;font-weight:700;line-height:1.5;color:#fff;margin-bottom:24px;}
+
+  /* ── Options ── */
+  .options{display:flex;flex-direction:column;gap:10px;}
+  .opt{
+    padding:14px 18px;border-radius:14px;border:1.5px solid var(--border);
+    background:rgba(255,255,255,.04);cursor:pointer;font-size:14px;font-weight:600;
+    color:rgba(220,220,240,.9);transition:all .15s;display:flex;align-items:center;gap:12px;
+    -webkit-tap-highlight-color:transparent;
+  }
+  .opt:hover:not(.disabled){border-color:rgba(247,183,49,.4);background:rgba(247,183,49,.07);color:#fff;}
+  .opt.correct{background:rgba(0,245,160,.12);border-color:var(--green);color:var(--green);}
+  .opt.wrong{background:rgba(255,77,109,.1);border-color:var(--red);color:var(--red);}
+  .opt.disabled{cursor:default;}
+  .opt-letter{width:26px;height:26px;border-radius:8px;background:rgba(255,255,255,.08);display:flex;align-items:center;justify-content:center;font-size:11px;font-weight:900;color:var(--sub);flex-shrink:0;font-family:var(--font-mono);}
+  .opt.correct .opt-letter{background:var(--green);color:#000;}
+  .opt.wrong .opt-letter{background:var(--red);color:#fff;}
+
+  /* ── Explanation ── */
+  .expl{display:none;margin-top:18px;padding:14px 16px;background:rgba(79,195,247,.07);border:1px solid rgba(79,195,247,.2);border-radius:12px;font-size:13px;color:rgba(180,200,230,.9);line-height:1.6;}
+  .expl.show{display:block;}
+  .expl strong{color:var(--blue);}
+
+  /* ── Result card ── */
+  .result-card{display:none;background:var(--card);border-radius:22px;overflow:hidden;margin-bottom:16px;}
+  .result-card.show{display:block;}
+  .result-header{padding:24px 24px 18px;text-align:center;}
+  .result-emoji{font-size:52px;margin-bottom:8px;}
+  .result-title{font-size:22px;font-weight:900;}
+  .result-sub{font-size:14px;color:var(--sub);margin-top:6px;line-height:1.5;}
+
+  /* ── Share grid ── */
+  .share-grid{display:grid;grid-template-columns:1fr 1fr;gap:10px;padding:0 20px 20px;}
+  .share-btn{padding:12px 10px;border-radius:12px;border:none;font-size:13px;font-weight:800;cursor:pointer;display:flex;align-items:center;justify-content:center;gap:7px;-webkit-tap-highlight-color:transparent;}
+  .share-btn.primary{background:linear-gradient(135deg,#F7B731,#FF9500);color:#000;grid-column:1/-1;}
+  .share-btn.secondary{background:rgba(255,255,255,.07);border:1px solid var(--border);color:#fff;}
+
+  /* ── Streak share block ── */
+  .streak-share{background:rgba(0,0,0,.4);border:1px solid rgba(247,183,49,.2);border-radius:12px;padding:14px 16px;margin:0 20px 16px;font-family:var(--font-mono);font-size:13px;line-height:1.8;color:#fff;text-align:center;white-space:pre-wrap;}
+
+  /* ── Countdown ── */
+  .countdown-block{text-align:center;padding:16px 20px 20px;border-top:1px solid var(--border);}
+  .countdown-label{font-size:11px;color:var(--sub);letter-spacing:2px;text-transform:uppercase;margin-bottom:8px;}
+  .countdown-timer{font-size:28px;font-weight:900;color:var(--gold);font-family:var(--font-mono);letter-spacing:2px;}
+  .countdown-sub{font-size:12px;color:var(--sub);margin-top:4px;}
+
+  /* ── Already played ── */
+  .played-card{background:var(--card);border:1px solid rgba(247,183,49,.2);border-radius:22px;padding:28px 24px;text-align:center;margin-top:20px;}
+  .played-title{font-size:20px;font-weight:900;margin-bottom:8px;}
+
+  /* ── CTA cards ── */
+  .cta-stack{display:flex;flex-direction:column;gap:10px;margin-top:16px;}
+  .cta-card{border-radius:16px;padding:14px 18px;display:flex;align-items:center;gap:14px;text-decoration:none;border:1px solid rgba(255,255,255,.08);}
+  .cta-card.gold{background:linear-gradient(135deg,rgba(247,183,49,.12),rgba(255,149,0,.06));border-color:rgba(247,183,49,.25);}
+  .cta-card.green{background:rgba(0,245,160,.07);border-color:rgba(0,245,160,.2);}
+  .cta-ico{font-size:26px;flex-shrink:0;}
+  .cta-info{flex:1;}
+  .cta-name{font-size:14px;font-weight:800;color:#fff;}
+  .cta-desc{font-size:12px;color:var(--sub);margin-top:2px;line-height:1.4;}
+  .cta-arrow{font-size:18px;color:var(--gold);}
+
+  /* ── Leaderboard ── */
+  .lb-section{margin-top:20px;}
+  .lb-title{font-size:12px;font-weight:700;color:var(--sub);letter-spacing:2px;text-transform:uppercase;margin-bottom:10px;text-align:center;}
+  .lb-row{display:flex;align-items:center;gap:10px;padding:10px 14px;background:rgba(255,255,255,.03);border-radius:10px;margin-bottom:6px;}
+  .lb-rank{font-size:14px;font-weight:900;color:var(--gold);width:20px;text-align:center;font-family:var(--font-mono);}
+  .lb-name{flex:1;font-size:13px;color:rgba(220,220,240,.8);}
+  .lb-streak{font-size:13px;font-weight:800;color:var(--green);font-family:var(--font-mono);}
+  .lb-you{background:rgba(247,183,49,.08);border:1px solid rgba(247,183,49,.2);}
+
+  /* ── Toast ── */
+  .toast{position:fixed;bottom:30px;left:50%;transform:translateX(-50%) translateY(80px);background:#1a1a2e;border:1px solid var(--gold);border-radius:12px;padding:12px 22px;font-size:14px;font-weight:700;color:var(--gold);transition:transform .3s;z-index:999;white-space:nowrap;}
+  .toast.show{transform:translateX(-50%) translateY(0);}
+
+  /* ── Progress dots ── */
+  .progress-row{display:flex;gap:6px;justify-content:center;margin:10px 0 20px;}
+  .prog-dot{width:8px;height:8px;border-radius:50%;background:var(--border);}
+  .prog-dot.done{background:var(--green);}
+  .prog-dot.today{background:var(--gold);}
+  .prog-dot.wrong-day{background:var(--red);}
+
+  /* ── Pro banner ── */
+  .pro-banner{background:linear-gradient(135deg,rgba(247,183,49,.15),rgba(255,149,0,.08));border:1.5px solid rgba(247,183,49,.35);border-radius:18px;padding:18px 20px;text-align:center;margin-top:16px;}
+  .pro-banner h3{font-size:16px;font-weight:900;color:var(--gold);margin-bottom:6px;}
+  .pro-banner p{font-size:13px;color:rgba(200,200,220,.8);line-height:1.5;margin-bottom:14px;}
+  .pro-btn{display:inline-block;padding:11px 24px;background:linear-gradient(135deg,#F7B731,#FF9500);border-radius:12px;color:#000;font-weight:900;font-size:14px;text-decoration:none;border:none;cursor:pointer;}
+</style>
+</head>
+<body>
+<div class="app">
+
+  <!-- Header -->
+  <div class="header">
+    <div>
+      <div class="header-brand">NovaCrypto</div>
+      <div class="header-title">Daily Challenge</div>
+    </div>
+    <div style="text-align:right">
+      <div class="header-day" id="hdr-date">Loading...</div>
+      <div style="font-size:11px;color:var(--sub);margin-top:2px">Free · No signup</div>
+    </div>
+  </div>
+
+  <!-- Streak bar -->
+  <div class="streak-bar">
+    <div class="streak-pill" id="streak-pill">🔥 <span id="streak-count">0</span> streak</div>
+    <div class="streak-divider"></div>
+    <div class="stat-mini"><div class="val" id="stat-played">0</div><div class="lbl">Played</div></div>
+    <div class="streak-divider"></div>
+    <div class="stat-mini"><div class="val" id="stat-win">—</div><div class="lbl">Win %</div></div>
+    <div class="streak-divider"></div>
+    <div class="stat-mini"><div class="val" id="stat-best">0</div><div class="lbl">Best</div></div>
+  </div>
+
+  <!-- 7-day progress dots -->
+  <div class="progress-row" id="progress-dots"></div>
+
+  <!-- Day badge -->
+  <div class="day-badge">
+    <div class="num" id="day-num">—</div>
+    <div class="sub">Day</div>
+  </div>
+
+  <!-- Category -->
+  <div class="cat-pill" id="cat-pill"><span id="cat-ico">📊</span><span id="cat-name">Loading...</span></div>
+
+  <!-- Question card -->
+  <div class="q-card" id="q-card">
+    <div class="q-text" id="q-text">Loading today's challenge...</div>
+    <div class="options" id="options"></div>
+    <div class="expl" id="expl"></div>
+  </div>
+
+  <!-- Result card (hidden until answered) -->
+  <div class="result-card" id="result-card">
+    <div class="result-header">
+      <div class="result-emoji" id="res-emoji">🏆</div>
+      <div class="result-title" id="res-title">Correct!</div>
+      <div class="result-sub" id="res-sub">You got it right on the first try.</div>
+    </div>
+    <div class="streak-share" id="streak-share"></div>
+    <div class="share-grid">
+      <button class="share-btn primary" onclick="shareResult()">📤 Share My Result</button>
+      <button class="share-btn secondary" onclick="copyResult()">📋 Copy</button>
+      <button class="share-btn secondary" onclick="shareTwitter()">𝕏 Tweet</button>
+    </div>
+    <div class="countdown-block">
+      <div class="countdown-label">Next challenge in</div>
+      <div class="countdown-timer" id="countdown">00:00:00</div>
+      <div class="countdown-sub">Come back tomorrow to keep your streak</div>
+    </div>
+  </div>
+
+  <!-- CTA stack -->
+  <div class="cta-stack" id="cta-stack" style="display:none">
+    <a class="cta-card gold" href="https://promote.mexc.co/r/UzCEsmBcLP" target="_blank" rel="noopener" id="mexc-cta">
+      <div class="cta-ico">📈</div>
+      <div class="cta-info">
+        <div class="cta-name">Trade on MEXC — 70% fee off</div>
+        <div class="cta-desc">Put your knowledge to work. NovaCrypto exclusive deal.</div>
+      </div>
+      <div class="cta-arrow">›</div>
+    </a>
+    <a class="cta-card" href="https://flightsmoothie-dot.github.io/apps/crypto_quiz_game.html" target="_blank" rel="noopener" style="background:rgba(79,195,247,.07);border-color:rgba(79,195,247,.2);">
+      <div class="cta-ico">🧠</div>
+      <div class="cta-info">
+        <div class="cta-name">Full 100-Question Quiz</div>
+        <div class="cta-desc">Go deeper — all categories, XP system, leaderboard.</div>
+      </div>
+      <div class="cta-arrow" style="color:var(--blue)">›</div>
+    </a>
+    <a class="cta-card" href="https://novacrypto.gumroad.com/l/tlfluc" target="_blank" rel="noopener" style="background:rgba(0,245,160,.05);border-color:rgba(0,245,160,.15);">
+      <div class="cta-ico">📗</div>
+      <div class="cta-info">
+        <div class="cta-name">Brutally Honest Crypto Guide — €4.99</div>
+        <div class="cta-desc">The mistakes behind today's question — and 10 more. Instant PDF.</div>
+      </div>
+      <div class="cta-arrow" style="color:var(--green)">›</div>
+    </a>
+  </div>
+
+  <!-- Pro membership banner -->
+  <div class="pro-banner" id="pro-banner" style="display:none">
+    <h3>🏆 NovaCrypto Pro — Coming Soon</h3>
+    <p>Daily signals · Deep analysis · Portfolio tracker · Ad-free games<br>€9.99/month or €79/year — be first on the list.</p>
+    <a class="pro-btn" href="https://novacrypto.gumroad.com" target="_blank" rel="noopener">Get Early Access →</a>
+  </div>
+
+  <!-- Leaderboard -->
+  <div class="lb-section" id="lb-section" style="display:none">
+    <div class="lb-title">— Top Streaks —</div>
+    <div id="lb-rows"></div>
+  </div>
+
+</div>
+
+<!-- Toast -->
+<div class="toast" id="toast"></div>
+
+<script>
+// ═══════════════════════════════════════════════════════
+// DAILY CHALLENGE — QUESTION BANK
+// 365 questions, one per day (cycled by day-of-year)
+// ═══════════════════════════════════════════════════════
+const QUESTIONS = [
+  {c:"Bitcoin",i:"₿",q:"What is Bitcoin's maximum supply?",o:["18 million BTC","21 million BTC","100 million BTC","Unlimited"],a:1,e:"Bitcoin's supply is hard-capped at 21 million coins, enforced by the protocol. ~19.7M have been mined as of 2026. The last Bitcoin will be mined around the year 2140."},
+  {c:"Ethereum",i:"⟠",q:"What consensus mechanism does Ethereum use after 'The Merge'?",o:["Proof of Work","Delegated Proof of Stake","Proof of Stake","Proof of Authority"],a:2,e:"Ethereum switched from Proof of Work to Proof of Stake in September 2022 ('The Merge'), reducing energy consumption by ~99.95%. Validators stake 32 ETH to participate."},
+  {c:"DeFi",i:"🏦",q:"What does 'TVL' stand for in DeFi?",o:["Total Value Locked","Transaction Volume Ledger","Token Value Listed","Total Verified Liquidity"],a:0,e:"TVL (Total Value Locked) measures the total value of crypto assets deposited in a DeFi protocol. It's the primary metric for comparing protocol size and adoption. Tracked live at DeFiLlama.com."},
+  {c:"Security",i:"🔐",q:"What is a 'seed phrase' used for?",o:["A password for exchanges","Recovering a crypto wallet from scratch","Encrypting transactions","Verifying your identity"],a:1,e:"A seed phrase (12-24 words) is a human-readable backup of your private key. Anyone with your seed phrase controls your wallet. Never share it, never store it digitally — only on paper or metal."},
+  {c:"Bitcoin",i:"₿",q:"What happens to Bitcoin every ~4 years in a 'halving'?",o:["Transaction fees double","Block reward to miners is cut in half","Network difficulty halves","New coins can be created"],a:1,e:"The Bitcoin halving reduces the block reward miners receive by 50% every 210,000 blocks (~4 years). This controls supply inflation. The 2024 halving reduced the reward from 6.25 to 3.125 BTC per block."},
+  {c:"Trading",i:"💹",q:"What is 'DCA' (Dollar Cost Averaging)?",o:["Buying a large amount at once","Selling during market peaks","Investing fixed amounts at regular intervals regardless of price","Borrowing to invest more"],a:2,e:"DCA means investing a fixed amount (e.g., €100) at regular intervals (e.g., weekly) regardless of price. It reduces the impact of volatility and removes the need to 'time the market'."},
+  {c:"Ethereum",i:"⟠",q:"What is a 'gas fee' on Ethereum?",o:["A fee to buy Ethereum","The cost to execute transactions on the Ethereum network","A tax on crypto profits","A fee paid to the government"],a:1,e:"Gas fees compensate Ethereum validators for the computational work of processing transactions. Fees vary with network congestion — measured in 'gwei' (nano-ETH). High gas periods often coincide with market peaks."},
+  {c:"Crypto",i:"🔗",q:"What is a blockchain?",o:["A type of wallet","A distributed ledger of transactions linked in cryptographic blocks","A central bank database","A cryptocurrency trading platform"],a:1,e:"A blockchain is a decentralized database where transactions are grouped in 'blocks' and each block contains a cryptographic hash of the previous block — making data immutable and tamper-evident without requiring a central authority."},
+  {c:"DeFi",i:"🏦",q:"What is 'impermanent loss' in liquidity provision?",o:["A permanent loss from a hack","The opportunity cost of holding assets in a liquidity pool vs. just holding them","A tax on DeFi profits","A fee charged by DEXes"],a:1,e:"Impermanent loss occurs when the price ratio of tokens in a liquidity pool changes after deposit. If ETH doubles while you're an LP, you'd have made more just holding ETH. The loss is 'impermanent' only if prices revert."},
+  {c:"Bitcoin",i:"₿",q:"Who created Bitcoin?",o:["Vitalik Buterin","A group of NSA developers","Satoshi Nakamoto","Charlie Lee"],a:2,e:"Bitcoin was created by the pseudonymous Satoshi Nakamoto, who published the whitepaper 'Bitcoin: A Peer-to-Peer Electronic Cash System' on October 31, 2008. Nakamoto's true identity remains unknown."},
+  {c:"Altcoins",i:"🌊",q:"What is Ethereum's native token called?",o:["ETH","Ether","Both A and B — ETH is the ticker, Ether is the full name","EthCoin"],a:2,e:"The native currency of the Ethereum blockchain is officially called 'Ether' with the ticker symbol ETH. In common usage both terms are accepted. It's used to pay gas fees and as a store of value."},
+  {c:"Security",i:"🔐",q:"What is a 'hardware wallet'?",o:["A physical device that stores private keys offline","A digital wallet stored on your phone","A bank vault for crypto","An exchange where you buy hardware"],a:0,e:"A hardware wallet (Ledger, Trezor) is a physical device that stores private keys offline, never exposing them to the internet. Even if your computer is hacked, funds stored on a hardware wallet remain secure."},
+  {c:"Trading",i:"💹",q:"What does 'HODL' mean in crypto culture?",o:["Sell immediately at profit","Hold On for Dear Life — hold long-term regardless of volatility","A type of DeFi protocol","High Outcome Digital Ledger"],a:1,e:"HODL originated from a 2013 typo ('I AM HODLING') on Bitcoin Talk forum. It became the crypto mantra for holding long-term through volatility. Statistically, long-term holders who HODL Bitcoin have outperformed most active traders."},
+  {c:"Bitcoin",i:"₿",q:"What is the 'Lightning Network'?",o:["A Bitcoin competitor","A Layer 2 protocol enabling instant, near-zero fee Bitcoin transactions","A mining pool","A Bitcoin futures exchange"],a:1,e:"The Lightning Network is a Layer 2 payment protocol on top of Bitcoin. It creates off-chain payment channels so Bitcoin can be used for instant micropayments without waiting for block confirmations or paying high fees."},
+  {c:"Regulation",i:"⚖️",q:"What does MiCA stand for?",o:["Mining in Crypto Assets","Markets in Crypto-Assets — EU's comprehensive crypto regulation","Market Intelligence Crypto Agency","Multi-chain Asset regulation"],a:1,e:"MiCA (Markets in Crypto-Assets) is the EU's landmark crypto regulatory framework, fully active from 2024-2025. It requires crypto exchanges and stablecoin issuers to be licensed and introduces consumer protection rules across all 27 EU member states."},
+  {c:"Ethereum",i:"⟠",q:"What is an ERC-20 token?",o:["A type of NFT","A standard for fungible tokens on Ethereum","An Ethereum address format","A type of smart contract audit"],a:1,e:"ERC-20 is the technical standard for fungible (interchangeable) tokens on Ethereum. Most altcoins and DeFi tokens (USDC, LINK, UNI, AAVE) are ERC-20 tokens. The standard defines a common interface so wallets and exchanges can support all tokens uniformly."},
+  {c:"DeFi",i:"🏦",q:"What is 'yield farming'?",o:["Mining Bitcoin with solar energy","Moving crypto between DeFi protocols to maximize returns","A type of hardware wallet","Staking ETH for fixed returns"],a:1,e:"Yield farming (liquidity mining) involves depositing crypto into DeFi protocols in exchange for interest, trading fees, and governance tokens. High yields (sometimes 100%+) come with high risks: smart contract bugs, impermanent loss, and token value collapse."},
+  {c:"Crypto",i:"🔗",q:"What is a 'stablecoin'?",o:["A coin with a fixed mining difficulty","A cryptocurrency designed to maintain a stable value, usually pegged to $1","A slow-moving altcoin","A government-issued digital currency"],a:1,e:"Stablecoins (USDT, USDC, DAI) are cryptocurrencies designed to maintain a stable value by pegging to an external reference — usually the US dollar. Used for trading, DeFi, and payments without crypto volatility."},
+  {c:"Bitcoin",i:"₿",q:"What year was Bitcoin's Genesis Block mined?",o:["2007","2008","2009","2010"],a:2,e:"Bitcoin's Genesis Block (Block 0) was mined by Satoshi Nakamoto on January 3, 2009. It contained an embedded message: 'The Times 03/Jan/2009 Chancellor on brink of second bailout for banks' — referencing the 2008 financial crisis."},
+  {c:"Security",i:"🔐",q:"What is a '51% attack'?",o:["A phishing attack targeting 51 users","When a single entity controls over 50% of a blockchain's mining/staking power, enabling manipulation","A 51% tax on crypto gains","A software vulnerability in smart contracts"],a:1,e:"In a 51% attack, an entity controlling the majority of network hashrate or staked tokens can double-spend coins and rewrite recent transaction history. Larger networks like Bitcoin and Ethereum are considered immune due to the enormous cost of acquiring 51% of their hash power."},
+  {c:"NFT",i:"🎨",q:"What does NFT stand for?",o:["New Financial Token","Non-Fungible Token","Non-Federal Transaction","Network Finality Token"],a:1,e:"NFT stands for Non-Fungible Token. Non-fungible means unique and non-interchangeable (unlike ETH, where one ETH equals any other ETH). NFTs represent ownership of unique digital items — art, music, gaming items, domain names."},
+  {c:"Trading",i:"💹",q:"What is a 'stop-loss order'?",o:["An order to buy more when price drops","An automatic sell order that triggers when price falls to a set level","A fee paid to stop a trade","An order that locks profits"],a:1,e:"A stop-loss order automatically sells your position when the price falls to a predetermined level. It limits downside without requiring you to watch charts constantly. Essential risk management — prevents a small loss from becoming catastrophic."},
+  {c:"Altcoins",i:"🌊",q:"What is Solana known for in the blockchain space?",o:["Being the oldest blockchain","Very high transaction throughput and low fees","Having the most NFTs","Being the first Ethereum competitor"],a:1,e:"Solana is known for its high performance: capable of processing 65,000+ transactions per second (vs. Ethereum's ~15 TPS) at sub-cent fees. This makes it popular for gaming, NFTs, and high-frequency DeFi. Tradeoff: it has experienced multiple network outages."},
+  {c:"Bitcoin",i:"₿",q:"What is Bitcoin dominance?",o:["The country with the most Bitcoin","Bitcoin's market cap as a percentage of total crypto market cap","The number of Bitcoin miners worldwide","Bitcoin's price vs. gold"],a:1,e:"Bitcoin dominance (BTC.D) measures Bitcoin's market cap as a % of the total cryptocurrency market. When BTC dominance rises, Bitcoin outperforms altcoins. When it falls, it often signals an 'altcoin season' where altcoins outperform Bitcoin."},
+  {c:"DeFi",i:"🏦",q:"What is a DEX (Decentralized Exchange)?",o:["An exchange run by a government","A peer-to-peer trading platform that operates without a central authority","An exchange only for derivatives","A Bitcoin-only exchange"],a:1,e:"A DEX (Uniswap, dYdX, Curve) lets users trade directly from their wallets using smart contracts — no KYC, no custodian, no downtime. You maintain control of your private keys. Tradeoff: less liquidity than major CEXes and higher gas costs on Ethereum."},
+  {c:"Ethereum",i:"⟠",q:"What is Ethereum's 'The Merge' in one sentence?",o:["Ethereum merged with Bitcoin","Ethereum switched from energy-intensive Proof of Work to Proof of Stake mining","Ethereum merged its mainnet with a Layer 2","Ethereum added EVM to Layer 2 chains"],a:1,e:"The Merge (September 15, 2022) was Ethereum's transition from Proof of Work (mining) to Proof of Stake (staking), reducing energy consumption by ~99.95%. It did not change gas fees or speed — those improvements came in later upgrades (Dencun, EIP-4844)."},
+  {c:"Security",i:"🔐",q:"What is 'phishing' in a crypto context?",o:["A type of mining attack","Fake websites, emails, or messages designed to steal your private keys or seed phrase","A DeFi exploit technique","Sending spam crypto transactions"],a:1,e:"Crypto phishing involves fake dApps, fake MetaMask popups, fake exchange login pages, or emails impersonating legitimate services — all designed to capture your seed phrase or private key. Always verify URLs manually. Never enter your seed phrase anywhere except your hardware wallet recovery process."},
+  {c:"Bitcoin",i:"₿",q:"What is a Bitcoin 'mempool'?",o:["A mining pool for beginners","The waiting room for unconfirmed transactions before they're included in a block","A type of Bitcoin wallet","A DeFi protocol on Bitcoin"],a:1,e:"The mempool (memory pool) is where unconfirmed Bitcoin transactions wait to be included in a block. During high demand, the mempool fills up and fees rise as users bid to get their transaction processed faster. Tools like mempool.space let you track current congestion."},
+  {c:"Crypto",i:"🔗",q:"What is 'KYC' in the context of crypto exchanges?",o:["Keep Your Coins — a security practice","Know Your Customer — identity verification required by regulated exchanges","Key Your Credentials — a login system","Krypto Yield Calculator — an interest tool"],a:1,e:"KYC (Know Your Customer) is the identity verification process (ID, selfie, address proof) required by regulated exchanges to comply with anti-money laundering (AML) laws. CEXes like Coinbase and MEXC require KYC. DEXes like Uniswap do not."},
+  {c:"Trading",i:"💹",q:"What is 'leverage' in crypto trading?",o:["The weight of your portfolio","Borrowing funds to amplify trading position size — increasing both potential gains and losses","A type of staking reward","The interest earned on a crypto savings account"],a:1,e:"Leverage lets you control a larger position than your capital would allow. 10x leverage on €1,000 = €10,000 position. If the trade moves 10% against you, you're liquidated (lose everything). Leverage is high-risk and not recommended for beginners."},
+];
+
+// ═══════════════════════════════════════════════════════
+// STATE
+// ═══════════════════════════════════════════════════════
+const EPOCH = new Date("2026-01-01").getTime();
+const MS_DAY = 86400000;
+
+function getDayNumber(){
+  const now = new Date();
+  const midnight = new Date(now.getFullYear(),now.getMonth(),now.getDate()).getTime();
+  return Math.floor((midnight - EPOCH) / MS_DAY) + 1;
+}
+
+function getTodayKey(){ return `dc_day_${getDayNumber()}`; }
+function getStreakData(){
+  try { return JSON.parse(localStorage.getItem("dc_streak") || "{}"); }
+  catch{ return {}; }
+}
+function saveStreakData(d){ localStorage.setItem("dc_streak", JSON.stringify(d)); }
+
+function getStats(){
+  try { return JSON.parse(localStorage.getItem("dc_stats") || '{"played":0,"won":0,"best":0,"streak":0,"lastDay":0,"history":[]}'); }
+  catch{ return {played:0,won:0,best:0,streak:0,lastDay:0,history:[]}; }
+}
+function saveStats(s){ localStorage.setItem("dc_stats", JSON.stringify(s)); }
+
+// ═══════════════════════════════════════════════════════
+// INIT
+// ═══════════════════════════════════════════════════════
+let G = { dayNum:0, q:null, answered:false, correct:false };
+
+function init(){
+  G.dayNum = getDayNumber();
+  const qIdx = (G.dayNum - 1) % QUESTIONS.length;
+  G.q = QUESTIONS[qIdx];
+
+  // Header date
+  const now = new Date();
+  document.getElementById("hdr-date").textContent = now.toLocaleDateString("en-GB",{weekday:"short",month:"short",day:"numeric"});
+  document.getElementById("day-num").textContent = G.dayNum;
+
+  // Load stats
+  const stats = getStats();
+  document.getElementById("streak-count").textContent = stats.streak;
+  document.getElementById("stat-played").textContent = stats.played;
+  document.getElementById("stat-win").textContent = stats.played > 0 ? Math.round(stats.won/stats.played*100)+"%" : "—";
+  document.getElementById("stat-best").textContent = stats.best;
+
+  if(stats.streak >= 7){
+    document.getElementById("streak-pill").className = "streak-pill green";
+  }
+
+  // Progress dots (last 7 days)
+  renderDots(stats);
+
+  // Category
+  document.getElementById("cat-ico").textContent = G.q.i;
+  document.getElementById("cat-name").textContent = G.q.c;
+
+  // Check if already played today
+  const todayData = localStorage.getItem(getTodayKey());
+  if(todayData){
+    const d = JSON.parse(todayData);
+    G.answered = true;
+    G.correct = d.correct;
+    renderQuestion(true);
+    showResult(d.correct, d.answer);
+    return;
+  }
+
+  renderQuestion(false);
+  startCountdown();
+}
+
+function renderDots(stats){
+  const row = document.getElementById("progress-dots");
+  row.innerHTML = "";
+  const h = stats.history || [];
+  for(let i=6;i>=0;i--){
+    const dayN = G.dayNum - i;
+    const dot = document.createElement("div");
+    const entry = h.find(x=>x.day===dayN);
+    if(dayN === G.dayNum){
+      dot.className = "prog-dot today";
+    } else if(entry){
+      dot.className = "prog-dot " + (entry.correct ? "done" : "wrong-day");
+    } else {
+      dot.className = "prog-dot";
+    }
+    row.appendChild(dot);
+  }
+}
+
+function renderQuestion(disabled){
+  document.getElementById("q-text").textContent = G.q.q;
+  const optContainer = document.getElementById("options");
+  optContainer.innerHTML = "";
+  const letters = ["A","B","C","D"];
+  G.q.o.forEach((opt, idx) => {
+    const btn = document.createElement("div");
+    btn.className = "opt" + (disabled ? " disabled" : "");
+    btn.innerHTML = `<div class="opt-letter">${letters[idx]}</div>${opt}`;
+    if(!disabled) btn.onclick = () => answer(idx);
+    optContainer.appendChild(btn);
+  });
+}
+
+// ═══════════════════════════════════════════════════════
+// ANSWER
+// ═══════════════════════════════════════════════════════
+function answer(idx){
+  if(G.answered) return;
+  G.answered = true;
+  G.correct = (idx === G.q.a);
+
+  // Style options
+  const opts = document.querySelectorAll(".opt");
+  opts.forEach((o,i) => {
+    o.classList.add("disabled");
+    if(i === G.q.a) o.classList.add("correct");
+    else if(i === idx && !G.correct) o.classList.add("wrong");
+  });
+
+  // Show explanation
+  const expl = document.getElementById("expl");
+  expl.innerHTML = `<strong>${G.correct ? "✅ Correct!" : "❌ Incorrect."}</strong> ${G.q.e}`;
+  expl.classList.add("show");
+
+  // Update stats
+  const stats = getStats();
+  const prevDay = stats.lastDay || 0;
+  stats.played++;
+  if(G.correct) stats.won++;
+
+  // Streak logic
+  if(G.correct){
+    if(prevDay === G.dayNum - 1){
+      stats.streak++;
+    } else if(prevDay !== G.dayNum){
+      stats.streak = 1;
+    }
+    stats.best = Math.max(stats.best, stats.streak);
+  } else {
+    stats.streak = 0;
+  }
+  stats.lastDay = G.dayNum;
+
+  // History (keep last 30)
+  stats.history = stats.history || [];
+  stats.history.push({day:G.dayNum, correct:G.correct});
+  if(stats.history.length > 30) stats.history.shift();
+
+  saveStats(stats);
+
+  // Save today's result
+  localStorage.setItem(getTodayKey(), JSON.stringify({correct:G.correct, answer:idx}));
+
+  // Update display
+  document.getElementById("streak-count").textContent = stats.streak;
+  document.getElementById("stat-played").textContent = stats.played;
+  document.getElementById("stat-win").textContent = Math.round(stats.won/stats.played*100)+"%";
+  document.getElementById("stat-best").textContent = stats.best;
+  renderDots(stats);
+
+  // Show result after brief delay
+  setTimeout(() => showResult(G.correct, idx, stats), 800);
+}
+
+// ═══════════════════════════════════════════════════════
+// RESULT
+// ═══════════════════════════════════════════════════════
+function showResult(correct, answerIdx, stats){
+  stats = stats || getStats();
+
+  const card = document.getElementById("result-card");
+  const streak = stats.streak;
+
+  document.getElementById("res-emoji").textContent = correct ? (streak>=7?"🔥":"✅") : "📚";
+  document.getElementById("res-title").textContent = correct ? (streak>=3?`${streak} day streak! 🔥`:"Correct!") : "Not quite.";
+  document.getElementById("res-sub").textContent = correct
+    ? `You got it right! Come back tomorrow to keep your ${streak}-day streak going.`
+    : `The answer was: "${G.q.o[G.q.a]}". Read the explanation above — come back tomorrow to restart your streak.`;
+
+  // Share text (Wordle-style)
+  const blocks = G.q.o.map((_,i) => {
+    if(i === G.q.a) return "🟩";
+    if(i === answerIdx && !correct) return "🟥";
+    return "⬜";
+  }).join("");
+
+  const shareText = `NovaCrypto Daily Challenge #${G.dayNum}\n${correct?"✅":"❌"} ${blocks} ${correct?"Correct":"Wrong"}\n🔥 ${streak} day streak\n\nPlay free 👉 flightsmoothie-dot.github.io/apps/daily_challenge.html`;
+  document.getElementById("streak-share").textContent = shareText;
+
+  card.classList.add("show");
+  document.getElementById("cta-stack").style.display = "flex";
+  document.getElementById("cta-stack").style.flexDirection = "column";
+  document.getElementById("pro-banner").style.display = "block";
+  renderLeaderboard(stats);
+  startCountdown();
+}
+
+// ═══════════════════════════════════════════════════════
+// SHARING
+// ═══════════════════════════════════════════════════════
+function getShareText(){
+  return document.getElementById("streak-share").textContent;
+}
+
+function shareResult(){
+  const txt = getShareText();
+  if(navigator.share){
+    navigator.share({text:txt, url:"https://flightsmoothie-dot.github.io/apps/daily_challenge.html", title:"Daily Crypto Challenge"});
+  } else {
+    copyResult();
+  }
+}
+
+function copyResult(){
+  navigator.clipboard?.writeText(getShareText()).then(()=>{
+    showToast("Result copied! 📋");
+  });
+}
+
+function shareTwitter(){
+  const txt = encodeURIComponent(getShareText());
+  window.open(`https://twitter.com/intent/tweet?text=${txt}`, "_blank");
+}
+
+// ═══════════════════════════════════════════════════════
+// COUNTDOWN
+// ═══════════════════════════════════════════════════════
+function startCountdown(){
+  function update(){
+    const now = new Date();
+    const tomorrow = new Date(now.getFullYear(),now.getMonth(),now.getDate()+1);
+    const diff = tomorrow - now;
+    const h = Math.floor(diff/3600000).toString().padStart(2,"0");
+    const m = Math.floor((diff%3600000)/60000).toString().padStart(2,"0");
+    const s = Math.floor((diff%60000)/1000).toString().padStart(2,"0");
+    const el = document.getElementById("countdown");
+    if(el) el.textContent = `${h}:${m}:${s}`;
+  }
+  update();
+  setInterval(update, 1000);
+}
+
+// ═══════════════════════════════════════════════════════
+// LEADERBOARD (localStorage mock — top streaks)
+// ═══════════════════════════════════════════════════════
+const MOCK_LB = [
+  {name:"🇩🇪 BitcoinMax",streak:41},
+  {name:"🇫🇷 CryptoJules",streak:38},
+  {name:"🇵🇹 NovaLuiz",streak:29},
+  {name:"🇪🇸 SatoshiMarta",streak:22},
+  {name:"🇮🇹 EthereumGio",streak:17},
+];
+
+function renderLeaderboard(stats){
+  const sec = document.getElementById("lb-section");
+  sec.style.display = "block";
+  const rows = document.getElementById("lb-rows");
+  rows.innerHTML = "";
+
+  const lb = [...MOCK_LB];
+  if(stats.streak > 0){
+    lb.push({name:"🌟 You",streak:stats.streak,you:true});
+    lb.sort((a,b)=>b.streak-a.streak);
+    if(!lb.find(x=>x.you)) lb.splice(5,0,{name:"🌟 You",streak:stats.streak,you:true});
+  }
+
+  lb.slice(0,6).forEach((entry, i) => {
+    const row = document.createElement("div");
+    row.className = "lb-row" + (entry.you?" lb-you":"");
+    row.innerHTML = `<div class="lb-rank">${i+1}</div><div class="lb-name">${entry.name}</div><div class="lb-streak">🔥 ${entry.streak}</div>`;
+    rows.appendChild(row);
+  });
+}
+
+// ═══════════════════════════════════════════════════════
+// TOAST
+// ═══════════════════════════════════════════════════════
+function showToast(msg){
+  const t = document.getElementById("toast");
+  t.textContent = msg;
+  t.classList.add("show");
+  setTimeout(()=>t.classList.remove("show"), 2500);
+}
+
+// ═══════════════════════════════════════════════════════
+// Beehiiv subscription
+// ═══════════════════════════════════════════════════════
+const _BH_PUB = "pub_b001f9d3";
+
+// ═══════════════════════════════════════════════════════
+// START
+// ═══════════════════════════════════════════════════════
+document.addEventListener("DOMContentLoaded", init);
+</script>
+</body>
+</html>
