@@ -82,10 +82,25 @@
   .opt.correct .opt-letter{background:var(--green);color:#000;}
   .opt.wrong .opt-letter{background:var(--red);color:#fff;}
 
+  /* ── Hint button ── */
+  .hint-row{display:flex;align-items:center;justify-content:space-between;margin-top:12px;}
+  .hint-btn{background:rgba(247,183,49,.1);border:1px solid rgba(247,183,49,.3);border-radius:20px;color:var(--gold);font-size:12px;font-weight:700;padding:6px 14px;cursor:pointer;display:flex;align-items:center;gap:5px;-webkit-tap-highlight-color:transparent;}
+  .hint-btn:disabled{opacity:.35;cursor:default;}
+  .hint-score{font-size:12px;color:var(--sub);font-family:var(--font-mono);}
+
   /* ── Explanation ── */
   .expl{display:none;margin-top:18px;padding:14px 16px;background:rgba(79,195,247,.07);border:1px solid rgba(79,195,247,.2);border-radius:12px;font-size:13px;color:rgba(180,200,230,.9);line-height:1.6;}
   .expl.show{display:block;}
   .expl strong{color:var(--blue);}
+
+  /* ── Milestone modal ── */
+  .milestone-modal{position:fixed;inset:0;background:rgba(0,0,0,.75);display:flex;align-items:center;justify-content:center;z-index:1000;padding:20px;}
+  .milestone-inner{background:#141020;border:2px solid var(--gold);border-radius:24px;padding:32px 24px;text-align:center;max-width:340px;width:100%;animation:pop .35s cubic-bezier(.34,1.56,.64,1);}
+  @keyframes pop{from{transform:scale(.7);opacity:0}to{transform:scale(1);opacity:1}}
+  .m-emoji{font-size:64px;margin-bottom:12px;}
+  .m-title{font-size:22px;font-weight:900;color:var(--gold);margin-bottom:8px;}
+  .m-sub{font-size:14px;color:var(--sub);line-height:1.5;margin-bottom:20px;}
+  .m-close{background:linear-gradient(135deg,#F7B731,#FF9500);color:#000;border:none;border-radius:14px;padding:12px 28px;font-size:14px;font-weight:900;cursor:pointer;width:100%;}
 
   /* ── Result card ── */
   .result-card{display:none;background:var(--card);border-radius:22px;overflow:hidden;margin-bottom:16px;}
@@ -194,7 +209,21 @@
   <div class="q-card" id="q-card">
     <div class="q-text" id="q-text">Loading today's challenge...</div>
     <div class="options" id="options"></div>
+    <div class="hint-row" id="hint-row">
+      <button class="hint-btn" id="hint-btn" onclick="useHint()">💡 Use Hint <span id="hints-left">(2 left)</span></button>
+      <span class="hint-score" id="hint-score">Score: ⭐⭐⭐</span>
+    </div>
     <div class="expl" id="expl"></div>
+  </div>
+
+  <!-- Milestone modal (injected by JS) -->
+  <div class="milestone-modal" id="milestone-modal" style="display:none" onclick="closeMilestone()">
+    <div class="milestone-inner" onclick="event.stopPropagation()">
+      <div class="m-emoji" id="m-emoji">🏆</div>
+      <div class="m-title" id="m-title">Achievement!</div>
+      <div class="m-sub" id="m-sub"></div>
+      <button class="m-close" onclick="closeMilestone()">Continue →</button>
+    </div>
   </div>
 
   <!-- Result card (hidden until answered) -->
@@ -247,9 +276,9 @@
 
   <!-- Pro membership banner -->
   <div class="pro-banner" id="pro-banner" style="display:none">
-    <h3>🏆 NovaCrypto Pro — Coming Soon</h3>
-    <p>Daily signals · Deep analysis · Portfolio tracker · Ad-free games<br>€9.99/month or €79/year — be first on the list.</p>
-    <a class="pro-btn" href="https://novacrypto.gumroad.com" target="_blank" rel="noopener">Get Early Access →</a>
+    <h3>🏆 NovaCrypto Pro</h3>
+    <p>Daily on-chain signals · Full 10-book library · Ad-free games · Streak recovery<br>€9.99/month or €79/year (2 months free)</p>
+    <a class="pro-btn" href="https://flightsmoothie-dot.github.io/apps/pro_membership.html" target="_blank" rel="noopener">See What's Included →</a>
   </div>
 
   <!-- Leaderboard -->
@@ -329,12 +358,13 @@ function saveStats(s){ localStorage.setItem("dc_stats", JSON.stringify(s)); }
 // ═══════════════════════════════════════════════════════
 // INIT
 // ═══════════════════════════════════════════════════════
-let G = { dayNum:0, q:null, answered:false, correct:false };
+let G = { dayNum:0, q:null, answered:false, correct:false, hintsUsed:0 };
 
 function init(){
   G.dayNum = getDayNumber();
   const qIdx = (G.dayNum - 1) % QUESTIONS.length;
   G.q = QUESTIONS[qIdx];
+  G.hintsUsed = 0;
 
   // Header date
   const now = new Date();
@@ -393,6 +423,66 @@ function renderDots(stats){
   }
 }
 
+// ═══════════════════════════════════════════════════════
+// HINT SYSTEM
+// ═══════════════════════════════════════════════════════
+const SCORE_STARS = ["","⭐","⭐⭐","⭐⭐⭐"];
+function updateHintUI(){
+  const left = 2 - G.hintsUsed;
+  const btn = document.getElementById("hint-btn");
+  const score = document.getElementById("hint-score");
+  const leftSpan = document.getElementById("hints-left");
+  if(leftSpan) leftSpan.textContent = `(${left} left)`;
+  if(btn) btn.disabled = (left <= 0 || G.answered);
+  if(score) score.textContent = "Score: " + SCORE_STARS[3 - G.hintsUsed];
+}
+function useHint(){
+  if(G.answered || G.hintsUsed >= 2) return;
+  // Eliminate one wrong option that hasn't been eliminated yet
+  const opts = document.querySelectorAll(".opt:not(.eliminated):not(.disabled)");
+  const wrongOpts = [];
+  opts.forEach((o, i) => {
+    // figure out index from DOM position
+    const allOpts = document.querySelectorAll(".opt");
+    allOpts.forEach((ao, idx) => { if(ao === o && idx !== G.q.a) wrongOpts.push({el:ao, idx}); });
+  });
+  if(wrongOpts.length === 0) return;
+  // Pick a random wrong one to eliminate
+  const pick = wrongOpts[Math.floor(Math.random() * wrongOpts.length)];
+  pick.el.classList.add("eliminated");
+  pick.el.style.opacity = "0.25";
+  pick.el.style.pointerEvents = "none";
+  pick.el.style.textDecoration = "line-through";
+  G.hintsUsed++;
+  updateHintUI();
+  showToast("💡 One wrong answer eliminated");
+}
+
+// ═══════════════════════════════════════════════════════
+// MILESTONE CELEBRATIONS
+// ═══════════════════════════════════════════════════════
+const MILESTONES = {
+  3:   {emoji:"🔥", title:"3-Day Streak!", sub:"You're building the habit. Most players quit by day 2 — you didn't. Keep going."},
+  7:   {emoji:"🏆", title:"7-Day Streak!", sub:"One full week of daily crypto knowledge. You're in the top 15% of players."},
+  30:  {emoji:"💎", title:"30-Day Streak!", sub:"One month straight. Your crypto knowledge is compounding. You're in the top 3% of players."},
+  100: {emoji:"🦅", title:"100-Day Legend!", sub:"100 consecutive days. This is rare. You're a NovaCrypto legend. Screenshot this."},
+};
+function checkMilestone(streak){
+  if(MILESTONES[streak]){
+    const m = MILESTONES[streak];
+    setTimeout(() => showMilestone(m.emoji, m.title, m.sub), 800);
+  }
+}
+function showMilestone(emoji, title, sub){
+  document.getElementById("m-emoji").textContent = emoji;
+  document.getElementById("m-title").textContent = title;
+  document.getElementById("m-sub").textContent = sub;
+  document.getElementById("milestone-modal").style.display = "flex";
+}
+function closeMilestone(){
+  document.getElementById("milestone-modal").style.display = "none";
+}
+
 function renderQuestion(disabled){
   document.getElementById("q-text").textContent = G.q.q;
   const optContainer = document.getElementById("options");
@@ -405,6 +495,9 @@ function renderQuestion(disabled){
     if(!disabled) btn.onclick = () => answer(idx);
     optContainer.appendChild(btn);
   });
+  const hintRow = document.getElementById("hint-row");
+  if(hintRow) hintRow.style.display = disabled ? "none" : "flex";
+  if(!disabled) updateHintUI();
 }
 
 // ═══════════════════════════════════════════════════════
@@ -414,6 +507,10 @@ function answer(idx){
   if(G.answered) return;
   G.answered = true;
   G.correct = (idx === G.q.a);
+
+  // Hide hint row
+  const hintRow = document.getElementById("hint-row");
+  if(hintRow) hintRow.style.display = "none";
 
   // Style options
   const opts = document.querySelectorAll(".opt");
@@ -477,20 +574,27 @@ function showResult(correct, answerIdx, stats){
   const card = document.getElementById("result-card");
   const streak = stats.streak;
 
-  document.getElementById("res-emoji").textContent = correct ? (streak>=7?"🔥":"✅") : "📚";
-  document.getElementById("res-title").textContent = correct ? (streak>=3?`${streak} day streak! 🔥`:"Correct!") : "Not quite.";
+  // Milestone emoji: upgrade for 30+ streaks
+  const resEmoji = correct ? (streak>=30?"💎":streak>=7?"🔥":"✅") : "📚";
+  document.getElementById("res-emoji").textContent = resEmoji;
+  document.getElementById("res-title").textContent = correct
+    ? (streak>=30?`${streak} day legend! 💎`:streak>=7?`${streak} day streak! 🔥`:streak>=3?`${streak} day streak!`:"Correct!")
+    : "Not quite.";
   document.getElementById("res-sub").textContent = correct
-    ? `You got it right! Come back tomorrow to keep your ${streak}-day streak going.`
+    ? `You got it right${G.hintsUsed>0?` (with ${G.hintsUsed} hint${G.hintsUsed>1?"s":""})`:``}! Come back tomorrow to keep your ${streak}-day streak going.`
     : `The answer was: "${G.q.o[G.q.a]}". Read the explanation above — come back tomorrow to restart your streak.`;
 
-  // Share text (Wordle-style)
+  // Share text: include hint-adjusted score
+  const scoreLabel = correct ? (G.hintsUsed===0?"⭐⭐⭐":G.hintsUsed===1?"⭐⭐":"⭐") : "❌";
   const blocks = G.q.o.map((_,i) => {
     if(i === G.q.a) return "🟩";
     if(i === answerIdx && !correct) return "🟥";
     return "⬜";
   }).join("");
-
-  const shareText = `NovaCrypto Daily Challenge #${G.dayNum}\n${correct?"✅":"❌"} ${blocks} ${correct?"Correct":"Wrong"}\n🔥 ${streak} day streak\n\nPlay free 👉 flightsmoothie-dot.github.io/apps/daily_challenge.html`;
+  const streakLine = correct
+    ? `🔥 ${streak} day streak`
+    : (stats.best > 0 ? `💔 Streak ended at ${stats.best > streak ? stats.best : 1} days` : "Starting fresh tomorrow");
+  const shareText = `NovaCrypto Daily Challenge #${G.dayNum}\n${correct?"✅":"❌"} ${blocks} ${scoreLabel}\n${streakLine}\n\nflightsmoothie-dot.github.io/apps/daily_challenge.html`;
   document.getElementById("streak-share").textContent = shareText;
 
   card.classList.add("show");
@@ -499,6 +603,9 @@ function showResult(correct, answerIdx, stats){
   document.getElementById("pro-banner").style.display = "block";
   renderLeaderboard(stats);
   startCountdown();
+
+  // Check streak milestones (after short delay so result renders first)
+  if(correct) checkMilestone(streak);
 }
 
 // ═══════════════════════════════════════════════════════
