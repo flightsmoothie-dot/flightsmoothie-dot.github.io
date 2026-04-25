@@ -193,6 +193,27 @@ footer{position:relative;z-index:10;text-align:center;padding:32px 24px;border-t
   <div class="section-title">— Choose your game —</div>
   <div class="games-grid">
 
+    <!-- DAILY CHALLENGE — TOP FEATURED -->
+    <div class="gc" onclick="location.href='daily_challenge.html'" style="animation-delay:.0s;grid-column:1/-1;max-width:680px;margin:0 auto;width:100%;background:linear-gradient(135deg,rgba(247,183,49,.08),rgba(255,80,0,.06));border:2px solid rgba(247,183,49,.4);">
+      <div class="gc-hero" style="height:160px">
+        <div class="gc-bg" style="background:linear-gradient(135deg,#1a1200,#2a1800);"></div>
+        <div style="position:absolute;top:12px;left:16px;background:linear-gradient(135deg,#F7B731,#FF5000);color:#000;font-size:10px;font-weight:900;padding:4px 12px;border-radius:20px;letter-spacing:1px">🔥 DAILY CHALLENGE</div>
+        <div style="position:absolute;top:12px;right:16px;background:rgba(0,0,0,.5);color:#F7B731;font-size:10px;font-weight:900;padding:4px 10px;border-radius:20px;letter-spacing:1px" id="idx-streak-badge">🔥 0 day streak</div>
+        <div class="gc-ico" style="font-size:72px">⚡</div>
+      </div>
+      <div class="gc-body">
+        <div class="gc-cat" style="color:#F7B731">Crypto · Daily</div>
+        <h2 class="gc-title">NovaCrypto Daily Challenge</h2>
+        <p class="gc-desc">One crypto question every day. Build your streak. Share your result. Come back tomorrow — questions never repeat.</p>
+        <div class="gc-meta">
+          <span>⏱ 30 seconds</span>
+          <span>🔥 Streak tracking</span>
+          <span>📤 Shareable result</span>
+        </div>
+        <a class="gc-btn" href="daily_challenge.html" style="background:linear-gradient(135deg,#F7B731,#FF8C00);color:#000;font-weight:900;">Play Today's Challenge →</a>
+      </div>
+    </div>
+
     <!-- SKYRIDER — FEATURED FIRST -->
     <div class="gc" onclick="location.href='skywave_game.html'" style="animation-delay:.0s;grid-column:1/-1;max-width:680px;margin:0 auto;width:100%">
       <div class="gc-hero" style="height:200px">
@@ -414,7 +435,7 @@ footer{position:relative;z-index:10;text-align:center;padding:32px 24px;border-t
 </div>
 
 <footer>
-  © 2026 NovaCrypto Games · Free forever · <a href="crypto_quiz_game.html" style="color:var(--gold);text-decoration:none;">CryptoQuiz</a> · <a href="healthiq_game.html" style="color:var(--teal);text-decoration:none;">HealthIQ</a> · <a href="zenmind_game.html" style="color:var(--violet);text-decoration:none;">ZenMind</a> · <a href="skywave_game.html" style="color:var(--blue);text-decoration:none;">SkyWave</a> · <a href="../media/magazine/healthiq-magazine-001.html" style="color:#00D4A6;text-decoration:none;">HealthIQ Mag</a> · <a href="../media/magazine/zenmind-magazine-001.html" style="color:#A855F7;text-decoration:none;">ZenMind Mag</a> · <a href="../media/magazine/skywave-magazine-001.html" style="color:#38BDF8;text-decoration:none;">SkyWave Mag</a>
+  © 2026 NovaCrypto Games · Free forever · <a href="daily_challenge.html" style="color:#F7B731;text-decoration:none;font-weight:700;">⚡ Daily</a> · <a href="crypto_quiz_game.html" style="color:var(--gold);text-decoration:none;">CryptoQuiz</a> · <a href="healthiq_game.html" style="color:var(--teal);text-decoration:none;">HealthIQ</a> · <a href="zenmind_game.html" style="color:var(--violet);text-decoration:none;">ZenMind</a> · <a href="skywave_game.html" style="color:var(--blue);text-decoration:none;">SkyWave</a> · <a href="pro_membership.html" style="color:#F7B731;text-decoration:none;">Pro ✦</a> · <a href="../media/magazine/healthiq-magazine-001.html" style="color:#00D4A6;text-decoration:none;">HealthIQ Mag</a> · <a href="../media/magazine/zenmind-magazine-001.html" style="color:#A855F7;text-decoration:none;">ZenMind Mag</a> · <a href="../media/magazine/skywave-magazine-001.html" style="color:#38BDF8;text-decoration:none;">SkyWave Mag</a>
 </footer>
 
 <script>
@@ -470,6 +491,13 @@ const realClicks=["cq_partner_clicks","hiq_clicks","zm_clicks"].reduce((t,k)=>{
   return t+(d._total||0);
 },0);
 if(realClicks>0)document.getElementById("m-clicks").textContent=realClicks+" real";
+
+// Daily challenge streak badge
+(function(){
+  const streak = parseInt(localStorage.getItem("dc_streak") || localStorage.getItem("cq_streak") || "0");
+  const el = document.getElementById("idx-streak-badge");
+  if(el && streak > 0) el.textContent = "🔥 " + streak + " day streak";
+})();
 </script>
 </body>
 </html>
