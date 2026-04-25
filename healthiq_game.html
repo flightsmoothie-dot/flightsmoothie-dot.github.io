@@ -1,0 +1,1041 @@
+<!DOCTYPE html>
+<html lang="en">
+<head>
+<meta charset="UTF-8">
+<meta name="viewport" content="width=device-width, initial-scale=1.0">
+<title>Free Health & Nutrition Quiz 2026 — What's Your Body IQ? | HealthIQ</title>
+<meta name="description" content="Take the HealthIQ challenge — 40 science-backed questions on nutrition, fitness, sleep, biohacking and longevity. Find your Health Score. Free quiz, no signup needed.">
+<meta name="keywords" content="health quiz, nutrition quiz, wellness quiz, body IQ test, fitness quiz, diet quiz, biohacking quiz, free health game, science quiz, longevity quiz">
+<meta name="robots" content="index, follow, max-snippet:-1, max-image-preview:large, max-video-preview:-1">
+<meta name="author" content="NovaCrypto">
+<link rel="canonical" href="https://flightsmoothie-dot.github.io/apps/healthiq_game.html">
+<link rel="manifest" href="manifest-health.json">
+<meta name="theme-color" content="#00D4AA">
+<meta name="apple-mobile-web-app-capable" content="yes">
+<meta name="apple-mobile-web-app-status-bar-style" content="black-translucent">
+<meta name="apple-mobile-web-app-title" content="HealthIQ">
+<!-- Open Graph -->
+<meta property="og:type" content="website">
+<meta property="og:site_name" content="NovaCrypto Games">
+<meta property="og:title" content="Free Health Quiz 2026 — Test Your Body & Nutrition IQ">
+<meta property="og:description" content="40 science-backed questions on nutrition, fitness, sleep & biohacking. Discover your Health Score. Free — no signup needed. Play now!">
+<meta property="og:url" content="https://flightsmoothie-dot.github.io/apps/healthiq_game.html">
+<meta property="og:image" content="https://flightsmoothie-dot.github.io/assets/og/healthiq-og.png">
+<meta property="og:image:width" content="1200">
+<meta property="og:image:height" content="630">
+<meta property="og:locale" content="en_US">
+<!-- Twitter Card -->
+<meta name="twitter:card" content="summary_large_image">
+<meta name="twitter:site" content="@NovaCrypto">
+<meta name="twitter:title" content="Free Health Quiz 2026 — What's Your Body IQ Score?">
+<meta name="twitter:description" content="40 science-backed questions on nutrition, fitness & biohacking. Free — no signup. Test your wellness knowledge! #Health #Nutrition #Wellness">
+<meta name="twitter:image" content="https://flightsmoothie-dot.github.io/assets/og/healthiq-og.png">
+<!-- Schema.org -->
+<script type="application/ld+json">
+{
+  "@context": "https://schema.org",
+  "@type": "WebApplication",
+  "name": "HealthIQ — Body & Wellness Knowledge Test",
+  "url": "https://flightsmoothie-dot.github.io/apps/healthiq_game.html",
+  "description": "Test your knowledge of nutrition, fitness, sleep and biohacking with 40 science-backed questions. Find your Health Score. 100% free.",
+  "applicationCategory": "Game",
+  "genre": "EducationalGame",
+  "operatingSystem": "Web Browser",
+  "isAccessibleForFree": true,
+  "offers": {"@type": "Offer", "price": "0", "priceCurrency": "EUR"},
+  "aggregateRating": {"@type": "AggregateRating", "ratingValue": "4.9", "ratingCount": "1843", "bestRating": "5", "worstRating": "1"},
+  "author": {"@type": "Organization", "name": "NovaCrypto"},
+  "featureList": ["40 science-backed questions", "Nutrition & diet content", "Fitness & exercise science", "Sleep optimization", "Biohacking topics", "XP progression", "Free to play"]
+}
+</script>
+<link rel="preconnect" href="https://fonts.googleapis.com">
+<link rel="preconnect" href="https://fonts.gstatic.com" crossorigin>
+<link href="https://fonts.googleapis.com/css2?family=Inter:wght@400;500;600;700;800;900&display=swap" rel="stylesheet">
+<style>
+:root{
+  /* Typography — unified */
+  --font: 'Inter', system-ui, -apple-system, sans-serif;
+  --font-mono: 'SF Mono', 'Fira Code', 'Cascadia Code', monospace;
+  /* Shadows — Linear multi-layer depth */
+  --shadow-sm: 0 0 0 1px rgba(0,0,0,0.6), 0 0 0 1px rgba(255,255,255,0.03) inset, 0 1px 0 rgba(255,255,255,0.04) inset;
+  --shadow-md: 0 4px 12px rgba(0,0,0,0.4), 0 1px 3px rgba(0,0,0,0.3);
+  --shadow-lg: 0 16px 48px rgba(0,0,0,0.5), 0 4px 16px rgba(0,0,0,0.35);
+  /* Motion */
+  --ease-spring: cubic-bezier(0.34, 1.56, 0.64, 1);
+  --ease-out: cubic-bezier(0.4, 0, 0.2, 1);
+  --dur-fast: 120ms; --dur-md: 220ms; --dur-slow: 400ms;
+  --teal:#00D4AA;--teal2:#00B894;--lime:#A8FF3E;
+  --orange:#FF6B35;--pink:#FF4081;--blue:#4FC3F7;
+  --bg:#050F0A;--card:rgba(8,24,16,0.94);
+  --border:rgba(0,212,170,0.1);--text:#E8FFF5;--sub:#6BAF90;
+}
+*{margin:0;padding:0;box-sizing:border-box;}
+html{height:100%;}
+body{min-height:100%;background:var(--bg);color:var(--text);font-family:var(--font);-webkit-font-smoothing:antialiased;-moz-osx-font-smoothing:grayscale;text-rendering:optimizeLegibility;font-feature-settings:'cv02','cv03','cv04','cv11';}
+
+/* ── BIO CANVAS ── */
+#bgc{position:fixed;inset:0;z-index:0;pointer-events:none;opacity:.55;}
+
+/* ECG heartbeat line */
+#ecg-line{position:fixed;bottom:22%;left:0;right:0;z-index:2;pointer-events:none;overflow:hidden;height:60px;}
+#ecg-line svg{position:absolute;width:200%;height:100%;animation:ecg-scroll 4s linear infinite;}
+@keyframes ecg-scroll{0%{transform:translateX(0)}100%{transform:translateX(-50%)}}
+
+/* AURORA */
+#aurora{position:fixed;inset:0;z-index:1;pointer-events:none;overflow:hidden;}
+.ab{position:absolute;border-radius:50%;filter:blur(90px);opacity:.18;animation:drift 22s ease-in-out infinite alternate;}
+.ab1{width:650px;height:650px;left:-150px;top:-100px;background:radial-gradient(circle,#00D4AA,transparent);animation-duration:20s;}
+.ab2{width:550px;height:550px;right:-100px;top:30%;background:radial-gradient(circle,#A8FF3E,transparent);animation-duration:16s;animation-delay:-8s;}
+.ab3{width:750px;height:750px;left:20%;bottom:-200px;background:radial-gradient(circle,#00B894,transparent);animation-duration:26s;animation-delay:-14s;}
+.ab4{width:400px;height:400px;right:15%;top:10%;background:radial-gradient(circle,#4FC3F7,transparent);animation-duration:14s;animation-delay:-5s;}
+.ab5{width:300px;height:300px;left:45%;top:45%;background:radial-gradient(circle,#A8FF3E,transparent);animation-duration:11s;animation-delay:-3s;}
+@keyframes drift{0%{transform:translate(0,0)scale(1)}50%{transform:translate(40px,-25px)scale(1.07)}100%{transform:translate(-25px,35px)scale(.95)}}
+#aurora::after{content:'';position:absolute;inset:0;
+  background-image:linear-gradient(rgba(0,212,170,0.03) 1px,transparent 1px),linear-gradient(90deg,rgba(0,212,170,0.03) 1px,transparent 1px);
+  background-size:50px 50px;}
+
+/* FLOATERS */
+#floaters{position:fixed;inset:0;z-index:1;pointer-events:none;}
+.fl{position:absolute;font-size:44px;opacity:.08;animation:fl3d 13s ease-in-out infinite;filter:blur(0.5px);}
+.fl:nth-child(1){left:5%;top:15%;animation-duration:12s;}
+.fl:nth-child(2){left:85%;top:8%;animation-duration:17s;animation-delay:-5s;}
+.fl:nth-child(3){left:10%;top:70%;animation-duration:11s;animation-delay:-8s;}
+.fl:nth-child(4){left:75%;top:60%;animation-duration:15s;animation-delay:-3s;}
+.fl:nth-child(5){left:45%;top:20%;animation-duration:9s;animation-delay:-10s;font-size:34px;}
+.fl:nth-child(6){left:58%;top:80%;animation-duration:19s;animation-delay:-4s;}
+@keyframes fl3d{0%{transform:rotateY(0)rotateX(0)translateY(0)}33%{transform:rotateY(180deg)rotateX(12deg)translateY(-16px)}66%{transform:rotateY(360deg)rotateX(-8deg)translateY(10px)}100%{transform:rotateY(720deg)rotateX(0)translateY(0)}}
+
+#fx{position:fixed;inset:0;z-index:100;pointer-events:none;}
+
+/* TOPBAR */
+.topbar{position:fixed;top:0;left:0;right:0;z-index:200;height:52px;display:flex;align-items:center;justify-content:space-between;padding:0 24px;background:rgba(5,15,10,0.9);backdrop-filter:blur(20px);border-bottom:1px solid var(--border);}
+.topbar-brand{font-size:14px;font-weight:900;letter-spacing:5px;color:var(--teal);font-family:var(--font);}
+.topbar-right{display:flex;align-items:center;gap:12px;font-size:12px;color:var(--sub);}
+.dot{width:7px;height:7px;border-radius:50%;background:var(--teal);animation:blink 1.5s ease-in-out infinite;}
+@keyframes blink{0%,100%{opacity:1}50%{opacity:.2}}
+.sp-pill{display:flex;align-items:center;gap:6px;padding:4px 12px 4px 6px;border-radius:20px;background:rgba(0,212,170,.07);border:1px solid rgba(0,212,170,.18);font-size:11px;cursor:pointer;text-decoration:none;color:var(--teal);transition:background .2s;white-space:nowrap;}
+.sp-pill:hover{background:rgba(0,212,170,.14);}
+.sp-lbl{font-size:9px;color:var(--sub);text-transform:uppercase;letter-spacing:1.5px;}
+.sp-logo{width:22px;height:22px;border-radius:6px;display:flex;align-items:center;justify-content:center;font-size:13px;background:rgba(0,212,170,.15);}
+
+/* HUD */
+#hud{position:fixed;top:52px;left:0;right:0;z-index:150;padding:8px 20px;display:none;align-items:center;gap:14px;background:rgba(5,15,10,.85);backdrop-filter:blur(16px);border-bottom:1px solid var(--border);}
+.hud-lv{font-size:12px;font-weight:900;color:var(--teal);white-space:nowrap;letter-spacing:1px;}
+.xp-wrap{flex:1;}
+.xp-meta{display:flex;justify-content:space-between;font-size:10px;color:var(--sub);margin-bottom:4px;}
+.xp-track{height:5px;background:rgba(255,255,255,.05);border-radius:3px;overflow:hidden;}
+.xp-bar{height:100%;border-radius:3px;background:linear-gradient(90deg,var(--teal),var(--lime));transition:width .7s cubic-bezier(.34,1.56,.64,1);box-shadow:0 0 8px rgba(0,212,170,.4);}
+.hud-pts{font-size:17px;font-weight:900;font-family:var(--font-mono);color:var(--teal);white-space:nowrap;}
+.combo-badge{padding:4px 12px;border-radius:20px;font-size:12px;font-weight:900;display:none;white-space:nowrap;letter-spacing:1px;animation:pop .3s cubic-bezier(.34,1.56,.64,1);}
+.combo-badge.on{display:block;}
+.combo-badge.c2{color:var(--teal);border:1px solid rgba(0,212,170,.4);background:rgba(0,212,170,.1);}
+.combo-badge.c3{color:var(--lime);border:1px solid rgba(168,255,62,.4);background:rgba(168,255,62,.1);}
+@keyframes pop{0%{transform:scale(.4)}100%{transform:scale(1)}}
+
+/* TOAST */
+#toast{position:fixed;top:72px;left:50%;transform:translateX(-50%) translateY(-80px);z-index:300;display:flex;align-items:center;gap:10px;background:rgba(8,24,16,.97);border:1px solid rgba(0,212,170,.3);border-radius:14px;padding:10px 18px;box-shadow:0 8px 30px rgba(0,0,0,.5);transition:transform .4s cubic-bezier(.34,1.56,.64,1);pointer-events:none;}
+#toast.on{transform:translateX(-50%) translateY(0);}
+.toast-ico{font-size:22px;}
+.toast-h{font-size:10px;color:var(--sub);text-transform:uppercase;letter-spacing:1.5px;}
+.toast-n{font-size:14px;font-weight:700;color:var(--teal);}
+
+main{position:relative;z-index:10;min-height:100vh;padding:68px 16px 40px;display:flex;flex-direction:column;align-items:center;}
+.scr{width:100%;max-width:620px;display:none;flex-direction:column;align-items:center;}
+.scr.on{display:flex;}
+
+/* INTRO */
+.badge-pill{display:inline-block;margin-bottom:18px;background:rgba(0,212,170,.1);border:1px solid rgba(0,212,170,.3);border-radius:30px;padding:5px 18px;font-size:11px;letter-spacing:3px;text-transform:uppercase;color:var(--teal);animation:up .5s ease both;}
+.game-title{font-size:clamp(44px,10vw,76px);font-weight:900;line-height:1;text-align:center;margin-bottom:12px;background:linear-gradient(135deg,#fff 0%,var(--teal) 55%,var(--lime) 100%);-webkit-background-clip:text;-webkit-text-fill-color:transparent;background-clip:text;animation:up .5s .1s ease both;}
+.game-sub{font-size:16px;color:var(--sub);text-align:center;line-height:1.6;margin-bottom:32px;animation:up .5s .2s ease both;}
+.stats-row{display:flex;gap:10px;margin-bottom:36px;animation:up .5s .3s ease both;}
+.stat-box{background:var(--card);backdrop-filter:blur(16px);border:1px solid var(--border);border-radius:14px;padding:16px 20px;text-align:center;min-width:90px;}
+.stat-n{font-size:28px;font-weight:900;font-family:var(--font-mono);color:var(--teal);}
+.stat-l{font-size:11px;color:var(--sub);text-transform:uppercase;letter-spacing:1px;margin-top:3px;}
+.btn-play{position:relative;overflow:hidden;background:linear-gradient(135deg,var(--teal),var(--teal2));color:#000;border:none;padding:18px 60px;border-radius:50px;font-size:17px;font-weight:900;cursor:pointer;font-family:var(--font);letter-spacing:2px;box-shadow:0 0 40px rgba(0,212,170,.3),0 4px 20px rgba(0,0,0,.4);transition:transform .12s,box-shadow .12s;animation:up .5s .4s ease both;}
+.btn-play::after{content:'';position:absolute;top:-50%;left:-60%;width:30%;height:200%;background:rgba(255,255,255,.2);transform:skewX(-20deg);animation:shim 3s ease-in-out infinite;}
+@keyframes shim{0%{left:-60%}40%,100%{left:120%}}
+.btn-play:hover{transform:scale(1.04);box-shadow:0 0 60px rgba(0,212,170,.45);}
+.diff-row{display:flex;gap:8px;margin-top:18px;animation:up .5s .5s ease both;flex-wrap:wrap;justify-content:center;}
+.diff{background:var(--card);backdrop-filter:blur(10px);border:1px solid var(--border);border-radius:24px;padding:8px 18px;font-size:13px;color:var(--sub);cursor:pointer;transition:all .18s;font-family:inherit;}
+.diff:hover,.diff.on{border-color:var(--teal);color:var(--teal);background:rgba(0,212,170,.08);}
+
+/* QUIZ */
+#scr-quiz{padding-top:24px;}
+.progress-row{width:100%;display:flex;justify-content:space-between;align-items:center;margin-bottom:12px;}
+.dots{display:flex;gap:5px;}
+.dot2{width:7px;height:7px;border-radius:50%;background:rgba(255,255,255,.08);transition:all .3s;}
+.dot2.ok{background:var(--teal);box-shadow:0 0 8px rgba(0,212,170,.5);}
+.dot2.bad{background:var(--orange);}
+.dot2.now{background:var(--lime);transform:scale(1.5);box-shadow:0 0 8px rgba(168,255,62,.6);}
+.prog-txt{font-size:12px;color:var(--sub);}
+.q-card{width:100%;background:var(--card);backdrop-filter:blur(24px);border:1px solid var(--border);border-radius:20px;padding:28px 24px 24px;box-shadow:0 8px 40px rgba(0,0,0,.5),inset 0 1px 0 rgba(0,212,170,.06);position:relative;overflow:hidden;margin-bottom:12px;transform-origin:top center;}
+.q-card::before{content:'';position:absolute;top:0;left:10%;right:10%;height:1px;background:linear-gradient(90deg,transparent,var(--teal),transparent);}
+.q-card.flip-in{animation:flipIn .45s cubic-bezier(.4,0,.2,1) both;}
+@keyframes flipIn{0%{transform:perspective(800px) rotateX(-40deg) scaleY(.7);opacity:0;}100%{transform:perspective(800px) rotateX(0)scaleY(1);opacity:1;}}
+.cat-tag{display:inline-flex;align-items:center;gap:7px;background:rgba(0,212,170,.08);border:1px solid rgba(0,212,170,.2);border-radius:20px;padding:4px 12px;font-size:11px;letter-spacing:2px;text-transform:uppercase;color:var(--teal);margin-bottom:14px;}
+.q-text{font-size:clamp(17px,3vw,21px);font-weight:700;line-height:1.45;color:#fff;margin-bottom:6px;}
+.q-hint{font-size:11px;color:var(--sub);margin-bottom:18px;}
+.timer-row{display:flex;justify-content:flex-end;margin-bottom:16px;margin-top:-10px;}
+.t-ring{position:relative;width:50px;height:50px;}
+.t-svg{transform:rotate(-90deg);}
+.t-track{fill:none;stroke:rgba(255,255,255,.06);stroke-width:4;}
+.t-fill{fill:none;stroke-width:4;stroke-linecap:round;transition:stroke .5s;}
+.t-num{position:absolute;inset:0;display:flex;align-items:center;justify-content:center;font-size:14px;font-weight:900;font-family:var(--font-mono);transition:color .5s;}
+.opts{display:flex;flex-direction:column;gap:9px;}
+.opt{position:relative;overflow:hidden;background:rgba(255,255,255,.03);border:1px solid var(--border);border-radius:14px;padding:15px 16px;cursor:pointer;font-size:15px;font-weight:600;color:var(--text);text-align:left;display:flex;align-items:center;gap:12px;transition:border-color .15s,background .15s,transform .12s;font-family:inherit;line-height:1.4;}
+.opt:hover:not(.done){border-color:rgba(0,212,170,.45);background:rgba(0,212,170,.05);transform:translateX(3px);}
+.ltr{width:30px;height:30px;flex-shrink:0;border-radius:8px;background:rgba(255,255,255,.06);display:flex;align-items:center;justify-content:center;font-size:12px;font-weight:900;color:var(--sub);transition:all .2s;}
+.opt.correct{border-color:var(--teal);background:rgba(0,212,170,.07);box-shadow:0 0 20px rgba(0,212,170,.2);}
+.opt.correct .ltr{background:var(--teal);color:#000;}
+.opt.wrong{border-color:var(--orange);background:rgba(255,107,53,.07);}
+.opt.wrong .ltr{background:var(--orange);color:#fff;}
+.opt.done{cursor:default;}
+.opt.correct{animation:cPulse .35s ease;}
+.opt.wrong{animation:shake .35s ease;}
+@keyframes cPulse{0%{transform:scale(1)}50%{transform:scale(1.025)}100%{transform:scale(1)}}
+@keyframes shake{0%,100%{transform:translateX(0)}25%{transform:translateX(-7px)}75%{transform:translateX(7px)}}
+.expl{border-radius:12px;padding:14px 16px;font-size:14px;line-height:1.65;display:none;margin-top:10px;animation:up .3s ease;}
+.expl.on{display:block;}
+.btn-next{display:none;width:100%;margin-top:12px;background:rgba(0,212,170,.1);border:1px solid rgba(0,212,170,.25);color:var(--teal);border-radius:14px;padding:14px;font-size:15px;font-weight:700;cursor:pointer;font-family:inherit;transition:background .15s;animation:up .3s ease;}
+.btn-next.on{display:block;}
+.btn-next:hover{background:rgba(0,212,170,.18);}
+@keyframes fw{0%,100%{background:var(--bg)}50%{background:rgba(255,107,53,.06)}}
+body.fw{animation:fw .3s ease;}
+
+/* LEVEL UP */
+.lv-card{background:var(--card);border:1px solid rgba(0,212,170,.25);border-radius:28px;padding:48px 40px;text-align:center;max-width:360px;box-shadow:0 0 60px rgba(0,212,170,.12);animation:up .5s ease both;}
+.lv-emoji{font-size:60px;display:block;margin-bottom:16px;animation:bounce 1s ease infinite alternate;}
+@keyframes bounce{0%{transform:scale(1)}100%{transform:scale(1.12)}}
+.lv-tag{font-size:11px;letter-spacing:3px;text-transform:uppercase;color:var(--teal);margin-bottom:10px;}
+.lv-num{font-size:72px;font-weight:900;font-family:var(--font-mono);background:linear-gradient(135deg,#fff,var(--teal));-webkit-background-clip:text;-webkit-text-fill-color:transparent;background-clip:text;line-height:1;}
+.lv-name{font-size:20px;font-weight:700;color:var(--text);margin:8px 0 28px;}
+
+/* RESULTS */
+.res-card{background:var(--card);border:1px solid var(--border);border-radius:24px;padding:32px 24px 24px;width:100%;max-width:520px;animation:up .5s ease both;box-shadow:0 0 60px rgba(0,212,170,.08);}
+.grade-ring{position:relative;width:130px;height:130px;margin:0 auto 20px;}
+.gr-track{fill:none;stroke:rgba(255,255,255,.05);stroke-width:7;}
+.gr-fill{fill:none;stroke-width:7;stroke-linecap:round;transition:stroke-dashoffset 1.2s cubic-bezier(.4,0,.2,1),stroke .5s;}
+.gr-score{position:absolute;top:50%;left:50%;transform:translate(-50%,-54%);font-size:42px;font-weight:900;font-family:var(--font-mono);}
+.gr-denom{position:absolute;bottom:18px;left:50%;transform:translateX(-50%);font-size:13px;color:var(--sub);}
+.res-grade{font-size:22px;font-weight:900;text-align:center;margin-bottom:8px;}
+.res-msg{font-size:14px;color:rgba(200,230,210,.7);text-align:center;line-height:1.6;margin-bottom:20px;}
+.xp-banner{display:flex;align-items:center;gap:14px;background:rgba(0,212,170,.06);border:1px solid rgba(0,212,170,.15);border-radius:14px;padding:16px;margin-bottom:16px;}
+.xp-big{font-size:24px;font-weight:900;font-family:var(--font-mono);color:var(--teal);}
+.ach-row{display:flex;flex-wrap:wrap;gap:8px;justify-content:center;margin-bottom:20px;}
+.ach{background:rgba(0,212,170,.07);border:1px solid rgba(0,212,170,.2);border-radius:10px;padding:8px 14px;display:flex;align-items:center;gap:7px;font-size:13px;}
+.ach-ico{font-size:18px;}
+.ach-nm{font-weight:600;color:var(--teal);}
+.res-btns{display:flex;gap:10px;margin-bottom:20px;}
+.res-btn{flex:1;padding:14px;border-radius:14px;font-size:14px;font-weight:800;cursor:pointer;font-family:inherit;letter-spacing:1px;border:none;transition:transform .1s,opacity .1s;}
+.res-btn.p{background:linear-gradient(135deg,var(--teal),var(--teal2));color:#000;}
+.res-btn.s{background:rgba(255,255,255,.07);border:1px solid rgba(255,255,255,.1);color:var(--text);}
+.res-btn:hover{transform:scale(1.02);}
+
+/* PARTNER CARDS */
+.partners-section{margin-top:20px;width:100%;}
+.partners-title{text-align:center;font-size:10px;color:var(--sub);text-transform:uppercase;letter-spacing:3px;margin-bottom:14px;}
+.partner-cards{display:flex;flex-direction:column;gap:10px;}
+.pc{background:rgba(8,24,16,.9);border-radius:18px;border:1px solid rgba(255,255,255,.07);overflow:hidden;transition:border-color .2s,transform .15s;text-decoration:none;display:block;position:relative;}
+.pc:hover{border-color:rgba(0,212,170,.3);transform:translateY(-2px);}
+.pc-inner{display:flex;align-items:center;gap:14px;padding:16px;}
+.pc-ico{width:48px;height:48px;border-radius:14px;flex-shrink:0;display:flex;align-items:center;justify-content:center;font-size:24px;}
+.pc-ico.myp{background:linear-gradient(135deg,rgba(168,255,62,.15),rgba(0,180,100,.1));border:1px solid rgba(168,255,62,.2);}
+.pc-ico.iherb{background:linear-gradient(135deg,rgba(0,212,170,.15),rgba(0,150,100,.1));border:1px solid rgba(0,212,170,.2);}
+.pc-ico.zfl{background:linear-gradient(135deg,rgba(79,195,247,.15),rgba(50,150,220,.1));border:1px solid rgba(79,195,247,.2);}
+.pc-info{flex:1;}
+.pc-name{font-size:14px;font-weight:800;color:#fff;margin-bottom:3px;}
+.pc-desc{font-size:12px;color:rgba(180,230,210,.65);line-height:1.4;}
+.pc-pill{padding:5px 12px;border-radius:20px;font-size:11px;font-weight:700;white-space:nowrap;background:rgba(0,212,170,.1);border:1px solid rgba(0,212,170,.25);color:var(--teal);}
+.pc-glow{position:absolute;inset:0;border-radius:18px;background:linear-gradient(135deg,rgba(0,212,170,.03),transparent);pointer-events:none;}
+
+/* MID-GAME SPONSOR */
+#sp-moment{position:fixed;inset:0;z-index:500;display:flex;align-items:flex-end;justify-content:center;padding:0 16px 24px;pointer-events:none;opacity:0;transition:opacity .3s ease;}
+#sp-moment.on{pointer-events:all;opacity:1;}
+.sp-card{width:100%;max-width:520px;background:linear-gradient(145deg,rgba(8,20,12,0.97),rgba(5,12,8,0.99));border:1px solid rgba(0,212,170,.22);border-radius:24px;padding:20px 20px 18px;box-shadow:0 -4px 60px rgba(0,212,170,.1),0 20px 60px rgba(0,0,0,.7),inset 0 1px 0 rgba(0,212,170,.06);transform:translateY(40px);opacity:0;transition:transform .45s cubic-bezier(.34,1.3,.64,1),opacity .35s ease;position:relative;overflow:hidden;}
+#sp-moment.on .sp-card{transform:translateY(0);opacity:1;}
+.sp-card::before{content:'';position:absolute;top:0;left:10%;right:10%;height:1px;background:linear-gradient(90deg,transparent,rgba(0,212,170,.5),transparent);}
+.sp-card::after{content:'';position:absolute;top:0;left:-80%;width:50%;height:100%;background:linear-gradient(90deg,transparent,rgba(255,255,255,.04),transparent);transform:skewX(-18deg);animation:sp-shim 3.5s ease-in-out infinite 1s;}
+@keyframes sp-shim{0%{left:-80%}60%,100%{left:130%}}
+.sp-header{display:flex;align-items:center;justify-content:space-between;margin-bottom:14px;}
+.sp-brand{display:flex;align-items:center;gap:10px;}
+.sp-icon{width:44px;height:44px;border-radius:13px;display:flex;align-items:center;justify-content:center;font-size:22px;background:linear-gradient(135deg,rgba(0,212,170,.2),rgba(0,180,100,.1));border:1px solid rgba(0,212,170,.2);flex-shrink:0;}
+.sp-name{font-size:15px;font-weight:800;color:#fff;letter-spacing:.5px;}
+.sp-tag{font-size:10px;color:var(--teal);text-transform:uppercase;letter-spacing:2px;margin-top:1px;}
+.sp-skip{background:none;border:1px solid rgba(255,255,255,.1);color:var(--sub);border-radius:20px;padding:4px 12px;font-size:11px;cursor:pointer;transition:border-color .2s,color .2s;font-family:inherit;}
+.sp-skip:hover{border-color:rgba(255,255,255,.3);color:#fff;}
+.sp-skip-cd{font-size:10px;color:var(--sub);padding:4px 10px;}
+.sp-headline{font-size:17px;font-weight:900;color:#fff;line-height:1.3;margin-bottom:5px;}
+.sp-sub{font-size:13px;color:rgba(180,230,200,.7);line-height:1.5;}
+.sp-badge{display:inline-block;margin-top:8px;padding:3px 10px;border-radius:20px;font-size:11px;font-weight:700;background:rgba(168,255,62,.1);border:1px solid rgba(168,255,62,.3);color:var(--lime);}
+.sp-cta{display:block;margin-top:14px;background:linear-gradient(135deg,var(--teal),var(--teal2));color:#000;border:none;border-radius:14px;padding:14px 20px;font-size:14px;font-weight:900;letter-spacing:1px;cursor:pointer;font-family:inherit;width:100%;text-align:center;text-decoration:none;box-shadow:0 4px 20px rgba(0,212,170,.3);transition:transform .1s;position:relative;overflow:hidden;}
+.sp-cta::after{content:'';position:absolute;top:-50%;left:-60%;width:30%;height:200%;background:rgba(255,255,255,.18);transform:skewX(-20deg);animation:shim 2.8s ease-in-out infinite;}
+.sp-cta:hover{transform:scale(1.015);}
+.sp-dots{display:flex;justify-content:center;gap:5px;margin-top:12px;}
+.sp-dot{width:6px;height:6px;border-radius:50%;background:rgba(255,255,255,.12);transition:background .3s;}
+.sp-dot.on{background:var(--teal);}
+
+@keyframes up{from{opacity:0;transform:translateY(20px)}to{opacity:1;transform:translateY(0)}}
+@media(max-width:480px){.stats-row{gap:6px}.stat-box{padding:12px 14px;min-width:70px}.stat-n{font-size:22px}}
+
+/* ═══ MAGAZINE HERO — HEALTH SCENE ═══ */
+.hero-cinema{position:relative;width:100%;border-radius:28px;overflow:hidden;margin-bottom:28px;min-height:300px;display:flex;align-items:flex-end;justify-content:center;isolation:isolate;}
+
+/* Background photo — bright & visible */
+.hero-bg-img{
+  position:absolute;inset:0;z-index:0;
+  background-image:url('https://image.pollinations.ai/prompt/healthy%20athlete%20running%20sunrise%20green%20nature%20trail%20nutrition%20fitness%20beautiful%20cinematic%20emerald%20golden%20hour?width=900&height=400&nologo=true&seed=20260422');
+  background-size:cover;background-position:center 25%;
+  filter:brightness(.74) saturate(1.1);
+  animation:heroZoom 20s ease-in-out infinite alternate;
+}
+@keyframes heroZoom{0%{transform:scale(1)}100%{transform:scale(1.08) translateX(-8px)}}
+
+/* Gradient overlay — only bottom third */
+.hero-overlay{
+  position:absolute;inset:0;z-index:1;
+  background:linear-gradient(to bottom,
+    transparent 0%,
+    transparent 42%,
+    rgba(5,15,10,.55) 68%,
+    rgba(5,15,10,.92) 100%);
+}
+
+/* ECG line — subtle, mid-left area */
+.hero-ecg{
+  position:absolute;left:0;right:0;top:52%;transform:translateY(-50%);
+  pointer-events:none;overflow:hidden;height:36px;opacity:.45;
+}
+.hero-ecg svg{width:200%;height:100%;animation:ecg-hero 3s linear infinite;}
+@keyframes ecg-hero{from{transform:translateX(0)}to{transform:translateX(-50%)}}
+
+/* Left figure — runner */
+.hq-runner{
+  position:absolute;left:4%;bottom:24px;
+  font-size:72px;z-index:10;pointer-events:none;
+  animation:hq-run-anim 3s ease-in-out infinite;
+  filter:drop-shadow(0 6px 22px rgba(0,212,170,1));
+}
+@keyframes hq-run-anim{
+  0%,100%{transform:translateY(0) rotate(-2deg);}
+  33%{transform:translateY(-8px) rotate(2deg);}
+  66%{transform:translateY(3px) rotate(-3deg);}
+}
+
+/* Right figure — yoga/stretch */
+.hq-yoga{
+  position:absolute;right:5%;bottom:22px;
+  font-size:68px;z-index:10;pointer-events:none;
+  animation:hq-yoga-anim 5s ease-in-out infinite;
+  filter:drop-shadow(0 4px 14px rgba(168,255,62,.7));
+}
+@keyframes hq-yoga-anim{
+  0%,100%{transform:scale(1) translateY(0);}
+  50%{transform:scale(1.07) translateY(-10px);}
+}
+
+/* Top right — apple/nutrition */
+.hq-food{
+  position:absolute;right:14%;top:12%;
+  font-size:42px;z-index:10;pointer-events:none;opacity:.85;
+  animation:hq-yoga-anim 6s ease-in-out infinite;animation-delay:-2s;
+  filter:drop-shadow(0 0 14px rgba(0,212,170,.6));
+}
+
+/* Heart beat pill — top left */
+.hq-bpm{
+  position:absolute;top:14px;left:14px;z-index:10;
+  background:rgba(5,15,10,.72);border:1px solid rgba(0,212,170,.3);
+  border-radius:10px;padding:5px 12px;
+  font-size:11px;font-weight:700;color:#00D4AA;
+  backdrop-filter:blur(8px);letter-spacing:.5px;
+  animation:bpm-pulse 1.5s ease-in-out infinite;
+}
+@keyframes bpm-pulse{0%,100%{box-shadow:0 0 0 0 rgba(0,212,170,.0)}50%{box-shadow:0 0 0 4px rgba(0,212,170,.15)}}
+
+/* Floating particles */
+.hq-particle{position:absolute;border-radius:50%;pointer-events:none;}
+.hp1{width:4px;height:4px;background:rgba(0,212,170,.7);left:14%;top:28%;animation:hq-part 4s ease-in-out infinite;box-shadow:0 0 8px rgba(0,212,170,.8);}
+.hp2{width:3px;height:3px;background:rgba(168,255,62,.6);left:9%;top:62%;animation:hq-part 5.5s ease-in-out infinite;animation-delay:-2s;}
+.hp3{width:4px;height:4px;background:rgba(0,212,170,.5);right:15%;top:35%;animation:hq-part 3.8s ease-in-out infinite;animation-delay:-1s;}
+.hp4{width:3px;height:3px;background:rgba(168,255,62,.5);right:10%;top:60%;animation:hq-part 6s ease-in-out infinite;animation-delay:-3s;}
+@keyframes hq-part{0%,100%{transform:translateY(0)}50%{transform:translateY(-16px)}}
+
+/* Title */
+.hero-content{position:relative;z-index:15;text-align:center;padding:0 24px 20px;width:100%;}
+.hero-kicker{font-size:10px;letter-spacing:4px;text-transform:uppercase;color:#34d399;font-weight:700;margin-bottom:5px;text-shadow:0 1px 10px rgba(0,0,0,.8);}
+.hero-title-mag{font-family:'Playfair Display',Georgia,serif;font-size:clamp(36px,9vw,60px);font-weight:900;line-height:1.05;letter-spacing:-1px;background:linear-gradient(135deg,#fff 0%,#00D4AA 45%,#A8FF3E 100%);-webkit-background-clip:text;-webkit-text-fill-color:transparent;background-clip:text;margin-bottom:2px;animation:up .6s .1s ease both;text-shadow:none;}
+.hero-title-accent{font-family:'Playfair Display',Georgia,serif;font-style:italic;font-size:clamp(13px,3.5vw,20px);color:rgba(160,255,210,.9);letter-spacing:1px;animation:up .6s .2s ease both;text-shadow:0 1px 8px rgba(0,0,0,.7);}
+.mag-divider{display:none;}
+
+.game-title{font-family:'Playfair Display',Georgia,serif!important;font-size:clamp(42px,9vw,72px)!important;font-weight:900!important;}
+.q-text{font-family:'Playfair Display',Georgia,serif;font-size:clamp(16px,2.8vw,20px)!important;font-weight:700!important;line-height:1.5!important;}
+.stat-box{border:1px solid rgba(0,212,170,.18)!important;box-shadow:0 4px 20px rgba(0,0,0,.4),inset 0 1px 0 rgba(0,212,170,.08)!important;}
+</style>
+<link rel="preconnect" href="https://fonts.googleapis.com">
+<link rel="preconnect" href="https://fonts.gstatic.com" crossorigin>
+<link href="https://fonts.googleapis.com/css2?family=Playfair+Display:ital,wght@0,700;0,900;1,700&display=swap" rel="stylesheet">
+<!-- Umami Analytics — sign up free at cloud.umami.is → add website → paste Website ID below -->
+<script defer src="https://cloud.umami.is/script.js" data-website-id="REPLACE_WITH_UMAMI_WEBSITE_ID"></script>
+
+<style id="visual-upgrade-v2">
+/* ══════════════════════════════════════════
+   VISUAL UPGRADE — Nestlé-inspired system
+   Applied by upgrade_to_visual_style.py
+   ══════════════════════════════════════════ */
+@import url('https://fonts.googleapis.com/css2?family=Playfair+Display:ital,wght@0,700;0,900;1,700&family=Inter:wght@400;600;700;800;900&display=swap');
+
+/* ── Photo placeholder ─────────────────── */
+.photo-hero-placeholder,
+.art-photo-placeholder,
+.chapter-photo-placeholder {
+  width: 100%; height: 220px;
+  display: flex; align-items: center; justify-content: center;
+  flex-direction: column; gap: 10px;
+  background: rgba(255,255,255,0.03);
+  border: 2px dashed rgba(255,255,255,0.1);
+  border-radius: 12px;
+  margin-bottom: 24px;
+  font-size: 48px;
+  color: rgba(255,255,255,0.2);
+}
+.photo-hero-placeholder span,
+.art-photo-placeholder span,
+.chapter-photo-placeholder span {
+  font-size: 11px; letter-spacing: 2px; text-transform: uppercase;
+  font-family: 'Inter', sans-serif;
+}
+
+/* ── Enhanced cards ────────────────────── */
+.article-card,
+.art-card,
+.chapter,
+.price-card {
+  box-shadow: 0 8px 32px rgba(0,0,0,0.3) !important;
+  transition: transform 0.2s, box-shadow 0.2s !important;
+}
+.article-card:hover,
+.art-card:hover,
+.price-card:hover {
+  transform: translateY(-3px) !important;
+  box-shadow: 0 16px 48px rgba(0,0,0,0.4) !important;
+}
+
+/* ── Smart tag pills ───────────────────── */
+.smart-pills {
+  display: flex; gap: 8px; flex-wrap: wrap; margin: 12px 0;
+}
+.smart-pill {
+  background: rgba(255,255,255,0.06);
+  border: 1px solid rgba(255,255,255,0.12);
+  border-radius: 50px; padding: 4px 12px;
+  font-size: 10px; font-weight: 700;
+  color: rgba(255,255,255,0.6);
+  font-family: 'Inter', sans-serif;
+  letter-spacing: 1px; text-transform: uppercase;
+}
+
+/* ── Tip cards (3-type system) ─────────── */
+.tip-enhanced {
+  border-radius: 10px; padding: 12px 14px;
+  margin: 10px 0; position: relative; overflow: hidden;
+  background: rgba(255,255,255,0.03);
+  font-family: 'Inter', sans-serif;
+}
+.tip-enhanced::before {
+  content: ''; position: absolute;
+  left: 0; top: 0; bottom: 0;
+  width: 3px; border-radius: 3px 0 0 3px;
+}
+.tip-enhanced.tip-a::before { background: var(--accent, #F7B731); }
+.tip-enhanced.tip-b::before { background: #27AE60; }
+.tip-enhanced.tip-c::before { background: #9B59B6; }
+.tip-enhanced .tip-e-label {
+  font-size: 9px; font-weight: 900; letter-spacing: 2px;
+  text-transform: uppercase; margin-bottom: 5px;
+}
+.tip-enhanced.tip-a .tip-e-label { color: var(--accent, #F7B731); }
+.tip-enhanced.tip-b .tip-e-label { color: #27AE60; }
+.tip-enhanced.tip-c .tip-e-label { color: #9B59B6; }
+.tip-enhanced .tip-e-text {
+  font-size: 12px; color: rgba(255,255,255,0.5);
+  line-height: 1.5; font-style: italic;
+}
+
+/* ── Metric bars panel ─────────────────── */
+.metrics-panel {
+  background: rgba(255,255,255,0.02);
+  border: 1px solid rgba(255,255,255,0.07);
+  border-radius: 12px; padding: 16px 18px;
+  margin: 16px 0; font-family: 'Inter', sans-serif;
+}
+.metrics-title {
+  font-size: 9px; font-weight: 900; letter-spacing: 3px;
+  text-transform: uppercase;
+  color: var(--accent, #F7B731);
+  margin-bottom: 12px;
+}
+.metric-row {
+  display: flex; align-items: center; gap: 10px;
+  margin-bottom: 8px;
+}
+.metric-lbl {
+  font-size: 10px; color: rgba(255,255,255,0.4);
+  width: 72px; flex-shrink: 0;
+}
+.metric-bg {
+  flex: 1; height: 6px;
+  background: rgba(255,255,255,0.06);
+  border-radius: 3px; overflow: hidden;
+}
+.metric-fill {
+  height: 100%; border-radius: 3px;
+  background: linear-gradient(90deg, var(--accent, #F7B731), var(--gold2, #E67E22));
+}
+.metric-val {
+  font-size: 10px; font-weight: 700;
+  color: rgba(255,255,255,0.6);
+  width: 48px; text-align: right;
+}
+
+/* ── Companion card ────────────────────── */
+.companion-card {
+  background: linear-gradient(135deg, #1a1200, #111);
+  border: 1px solid rgba(255,255,255,0.08);
+  border-radius: 12px; padding: 14px 16px;
+  margin: 12px 0;
+  display: flex; gap: 12px; align-items: center;
+  font-family: 'Inter', sans-serif;
+}
+.companion-icon { font-size: 26px; }
+.companion-label {
+  font-size: 9px; font-weight: 900; letter-spacing: 2px;
+  text-transform: uppercase; opacity: 0.5; margin-bottom: 3px;
+  color: var(--accent, #F7B731);
+}
+.companion-name { font-size: 13px; font-weight: 700; color: #fff; }
+
+/* ── Masthead / cover enhancements ─────── */
+.cover-badge-row {
+  display: flex; gap: 10px; justify-content: center;
+  flex-wrap: wrap; margin-top: 24px;
+}
+.cover-badge-pill {
+  background: rgba(255,255,255,0.06);
+  border: 1px solid rgba(255,255,255,0.12);
+  border-radius: 50px; padding: 6px 16px;
+  font-size: 11px; font-weight: 700;
+  color: rgba(255,255,255,0.6);
+  font-family: 'Inter', sans-serif;
+  letter-spacing: 1px; text-transform: uppercase;
+}
+
+/* ── Sparkle decoration ─────────────────── */
+.sparkle-deco {
+  position: absolute; font-size: 20px;
+  opacity: 0.2; pointer-events: none;
+  animation: sparkle-twinkle 2s ease-in-out infinite;
+}
+@keyframes sparkle-twinkle {
+  0%,100% { opacity: 0.15; transform: scale(0.8); }
+  50% { opacity: 0.4; transform: scale(1.1); }
+}
+
+/* ── Article hero photo placeholder ──── */
+.article-hero-photo {
+  width: 100%; height: 200px;
+  display: flex; align-items: center; justify-content: center;
+  flex-direction: column;
+  background: linear-gradient(135deg, rgba(255,255,255,0.03), transparent);
+  border-radius: 12px 12px 0 0;
+  border-bottom: 1px solid rgba(255,255,255,0.06);
+  font-size: 64px; margin-bottom: 0;
+  position: relative; overflow: hidden;
+}
+.article-hero-photo .hero-caption {
+  font-family: 'Inter', sans-serif;
+  font-size: 10px; color: rgba(255,255,255,0.25);
+  letter-spacing: 2px; text-transform: uppercase;
+  margin-top: 8px;
+}
+
+/* ── Print button ───────────────────── */
+.print-fab {
+  position: fixed; bottom: 24px; right: 24px;
+  background: var(--accent, #F7B731);
+  color: #000; border: none; border-radius: 50px;
+  padding: 12px 20px; cursor: pointer;
+  font-family: 'Inter', sans-serif;
+  font-size: 13px; font-weight: 800;
+  box-shadow: 0 4px 20px rgba(0,0,0,0.4);
+  z-index: 9999; transition: transform 0.2s;
+  text-decoration: none; display: inline-flex; align-items: center; gap: 6px;
+}
+.print-fab:hover { transform: translateY(-2px); }
+</style>
+
+</head>
+<body>
+
+<canvas id="bgc"></canvas>
+<div id="ecg-line"><svg viewBox="0 0 1200 60" preserveAspectRatio="none" fill="none"><polyline points="0,30 80,30 100,30 110,5 120,55 130,30 150,30 230,30 250,30 260,8 270,52 280,30 300,30 380,30 400,30 410,5 420,55 430,30 450,30 530,30 550,30 560,8 570,52 580,30 600,30 680,30 700,30 710,5 720,55 730,30 750,30 830,30 850,30 860,8 870,52 880,30 900,30 980,30 1000,30 1010,5 1020,55 1030,30 1050,30 1130,30 1150,30 1160,8 1170,52 1180,30 1200,30" stroke="rgba(0,212,170,0.18)" stroke-width="1.5"/></svg></div>
+<div id="aurora"><div class="ab ab1"></div><div class="ab ab2"></div><div class="ab ab3"></div><div class="ab ab4"></div><div class="ab ab5"></div></div>
+<div id="floaters"><div class="fl">🥗</div><div class="fl">💪</div><div class="fl">🧬</div><div class="fl">🏃</div><div class="fl">❤️</div><div class="fl">🧠</div></div>
+<canvas id="fx"></canvas>
+
+<div class="topbar">
+  <div class="topbar-brand">HEALTHIQ</div>
+  <div class="topbar-right">
+    <a id="topbar-sp" class="sp-pill" href="https://www.myprotein.com" target="_blank" rel="noopener">
+      <span class="sp-lbl">Partner</span>
+      <span class="sp-logo">💪</span>
+      <span id="tsp-txt">MyProtein — 40% off</span>
+    </a>
+    <div style="display:flex;align-items:center;gap:6px;"><div class="dot"></div><span id="pcount">9,241</span>&nbsp;playing</div>
+  </div>
+</div>
+
+<div id="hud">
+  <div class="hud-lv" id="hlv">LV1</div>
+  <div class="xp-wrap">
+    <div class="xp-meta"><span id="xp-cur">0 XP</span><span id="xp-nxt">100 to Lv2</span></div>
+    <div class="xp-track"><div class="xp-bar" id="xb" style="width:0%"></div></div>
+  </div>
+  <div class="combo-badge" id="combo">🔥 x2</div>
+  <div class="hud-pts" id="hpts">0 pts</div>
+</div>
+
+<div id="toast"><div class="toast-ico" id="tico">🏆</div><div><div class="toast-h">Achievement</div><div class="toast-n" id="tnm">—</div></div></div>
+
+<main>
+
+<div class="scr on" id="scr-intro">
+
+  <!-- HEALTH HERO — photo bg + side athletes -->
+  <div class="hero-cinema">
+    <div class="hero-bg-img"></div>
+    <div class="hero-overlay"></div>
+    <!-- Subtle ECG line -->
+    <div class="hero-ecg">
+      <svg viewBox="0 0 1200 36" fill="none" preserveAspectRatio="none">
+        <polyline points="0,18 100,18 120,18 132,3 142,33 152,18 172,18 272,18 294,18 306,3 316,33 326,18 346,18 446,18 468,18 480,3 490,33 500,18 520,18 620,18 642,18 654,3 664,33 674,18 694,18 794,18 816,18 828,3 838,33 848,18 868,18 968,18 990,18 1002,3 1012,33 1022,18 1042,18 1142,18 1164,18 1176,3 1186,33 1196,18 1200,18"
+          stroke="rgba(0,212,170,0.35)" stroke-width="1.5" fill="none"/>
+      </svg>
+    </div>
+    <!-- Floating particles -->
+    <div class="hq-particle hp1"></div><div class="hq-particle hp2"></div>
+    <div class="hq-particle hp3"></div><div class="hq-particle hp4"></div>
+    <!-- Heart rate pill -->
+    <div class="hq-bpm">❤️ 72 BPM</div>
+    <!-- Food top right -->
+    <div class="hq-food">🥗</div>
+    <!-- Left: runner -->
+    <div class="hq-runner">🏃</div>
+    <!-- Right: yoga -->
+    <div class="hq-yoga">🧘</div>
+    <!-- Title -->
+    <div class="hero-content">
+      <div class="hero-kicker">★ &nbsp;Science-Backed Questions &nbsp;★</div>
+      <div class="hero-title-mag">HealthIQ</div>
+      <div class="hero-title-accent">Nutrition · Fitness · Biohacking</div>
+    </div>
+  </div>
+
+  <!-- Rating row -->
+  <div style="display:flex;align-items:center;gap:14px;justify-content:center;margin-bottom:10px;flex-wrap:wrap;">
+    <span style="font-size:13px;color:#00D4AA;letter-spacing:1px;">⭐⭐⭐⭐⭐ <span style="color:rgba(255,255,255,0.6);font-size:12px;">4.9 · 1,843 plays</span></span>
+    <span style="width:1px;height:16px;background:rgba(255,255,255,0.1);"></span>
+    <span style="font-size:12px;color:rgba(255,255,255,0.4);">⏱ ~4 min</span>
+    <span style="width:1px;height:16px;background:rgba(255,255,255,0.1);"></span>
+    <span style="font-size:12px;color:rgba(255,255,255,0.4);">👥 <span id="pcount" style="color:rgba(255,255,255,0.6)">9,241</span> online</span>
+  </div>
+  <p class="game-sub">Test your knowledge of nutrition, fitness & the human body.<br>Earn XP · Unlock levels · Discover wellness secrets.</p>
+  <div style="display:flex;gap:7px;flex-wrap:wrap;justify-content:center;margin-bottom:24px;">
+    <span style="background:rgba(0,212,170,.07);border:1px solid rgba(0,212,170,.15);color:rgba(0,212,170,.7);padding:5px 12px;border-radius:20px;font-size:11px;">🥗 Nutrition</span>
+    <span style="background:rgba(168,255,62,.07);border:1px solid rgba(168,255,62,.15);color:rgba(168,255,62,.7);padding:5px 12px;border-radius:20px;font-size:11px;">💪 Fitness</span>
+    <span style="background:rgba(79,195,247,.07);border:1px solid rgba(79,195,247,.15);color:rgba(79,195,247,.7);padding:5px 12px;border-radius:20px;font-size:11px;">🧬 Biology</span>
+    <span style="background:rgba(255,107,53,.07);border:1px solid rgba(255,107,53,.15);color:rgba(255,107,53,.7);padding:5px 12px;border-radius:20px;font-size:11px;">😴 Sleep</span>
+    <span style="background:rgba(0,212,170,.07);border:1px solid rgba(0,212,170,.15);color:rgba(0,212,170,.7);padding:5px 12px;border-radius:20px;font-size:11px;">🔬 Biohacking</span>
+  </div>
+  <div class="stats-row">
+    <div class="stat-box" style="transition:transform .07s;cursor:default;" onmouseover="this.style.transform='scale(1.023)'" onmouseout="this.style.transform=''"><div class="stat-n">40+</div><div class="stat-l">Questions</div></div>
+    <div class="stat-box" style="transition:transform .07s;cursor:default;" onmouseover="this.style.transform='scale(1.023)'" onmouseout="this.style.transform=''"><div class="stat-n">5</div><div class="stat-l">Categories</div></div>
+    <div class="stat-box" style="transition:transform .07s;cursor:default;" onmouseover="this.style.transform='scale(1.023)'" onmouseout="this.style.transform=''"><div class="stat-n" id="best-disp">—</div><div class="stat-l">Your Best</div></div>
+  </div>
+  <button class="btn-play" onclick="startGame()">START QUIZ ▶</button>
+  <div class="diff-row">
+    <button class="diff on" onclick="setDiff(this,'normal')">⚡ Normal (20s)</button>
+    <button class="diff" onclick="setDiff(this,'hard')">🔥 Hard (12s)</button>
+    <button class="diff" onclick="setDiff(this,'blitz')">⚡⚡ Blitz (8s)</button>
+  </div>
+</div>
+
+<div class="scr" id="scr-quiz">
+  <div class="progress-row">
+    <div class="dots" id="qdots"></div>
+    <span class="prog-txt" id="qtxt">1 / 10</span>
+  </div>
+  <div class="q-card" id="qcard">
+    <div class="cat-tag"><span id="qcaticon">🥗</span><span id="qcat">Nutrition</span></div>
+    <div class="q-text" id="qtext">—</div>
+    <div class="q-hint" id="qhint">⭐ +100 pts correct · +150 if fast</div>
+    <div class="timer-row">
+      <div class="t-ring">
+        <svg class="t-svg" width="50" height="50" viewBox="0 0 50 50">
+          <circle class="t-track" cx="25" cy="25" r="20"/>
+          <circle class="t-fill" id="tcirc" cx="25" cy="25" r="20" stroke-dasharray="125.7" stroke-dashoffset="0" stroke="var(--teal)"/>
+        </svg>
+        <div class="t-num" id="tnum">20</div>
+      </div>
+    </div>
+    <div class="opts" id="opts"></div>
+    <div class="expl" id="expl"></div>
+    <button class="btn-next" id="bnext" onclick="nextQ()">Next →</button>
+  </div>
+</div>
+
+<div class="scr" id="scr-lvl">
+  <div class="lv-card">
+    <span class="lv-emoji">💪</span>
+    <div class="lv-tag">Level Up!</div>
+    <div class="lv-num" id="lvnum">2</div>
+    <div class="lv-name" id="lvnm">Wellness Seeker</div>
+    <button class="btn-play" style="padding:14px 40px;font-size:15px" onclick="continueLvl()">Continue →</button>
+  </div>
+</div>
+
+<div class="scr" id="scr-res">
+  <div class="res-card">
+    <div class="grade-ring">
+      <svg style="position:absolute;inset:0" viewBox="0 0 130 130">
+        <circle class="gr-track" cx="65" cy="65" r="58"/>
+        <circle class="gr-fill" id="gcirc" cx="65" cy="65" r="58" stroke-dasharray="364.4" stroke-dashoffset="364.4" stroke="var(--teal)" transform="rotate(-90 65 65)"/>
+      </svg>
+      <div class="gr-score" id="rscore" style="color:var(--teal)">0</div>
+      <div class="gr-denom">/ 10</div>
+    </div>
+    <div class="res-grade" id="rgrade">—</div>
+    <div class="res-msg" id="rmsg">—</div>
+    <div class="xp-banner">
+      <span style="font-size:26px">✨</span>
+      <div><div style="font-size:11px;color:var(--sub);text-transform:uppercase;letter-spacing:1px">XP Earned</div><div class="xp-big" id="rxp">+0 XP</div></div>
+      <div style="margin-left:auto;text-align:right"><div style="font-size:11px;color:var(--sub);text-transform:uppercase;letter-spacing:1px">Time</div><div style="font-size:18px;font-weight:900;font-family:var(--font-mono)" id="rtime">—</div></div>
+    </div>
+    <div class="ach-row" id="achs"></div>
+    <div class="res-btns">
+      <button class="res-btn p" onclick="startGame()">Play Again</button>
+      <button class="res-btn s" onclick="shareTwitter()" style="background:linear-gradient(135deg,#1d9bf0,#0d7cc3)">𝕏 Share</button>
+      <button class="res-btn s" onclick="shareWhatsApp()" style="background:linear-gradient(135deg,#25d366,#128c3e)">💬 WhatsApp</button>
+      <button class="res-btn s" onclick="copyScore()" id="copy-btn">📋 Copy</button>
+    </div>
+    <!-- BEEHIIV NEWSLETTER -->
+    <div style="margin:20px 0 0;padding:24px 20px;background:linear-gradient(135deg,rgba(10,20,20,0.95),rgba(10,24,22,0.98));border:1px solid rgba(0,212,166,0.15);border-radius:18px;">
+      <div style="font-size:10px;text-transform:uppercase;letter-spacing:2px;color:rgba(180,220,210,.5);text-align:center;margin-bottom:12px">📬 NovaCrypto Newsletter</div>
+      <div style="font-size:16px;font-weight:800;color:#E0FFF8;text-align:center;margin-bottom:6px">Wellness tips + health science — weekly</div>
+      <div style="font-size:12px;color:rgba(180,220,210,.6);text-align:center;margin-bottom:16px;line-height:1.5">Join 12,847 subscribers. Health protocols, supplement guides, AI tools for wellness.</div>
+      <div style="display:flex;gap:8px;margin-bottom:8px">
+        <input type="email" id="bh-email-hiq" placeholder="your@email.com" autocomplete="email"
+          style="flex:1;background:rgba(255,255,255,.06);border:1px solid rgba(0,212,166,.2);border-radius:10px;padding:11px 14px;color:#E0FFF8;font-size:13px;outline:none;font-family:inherit">
+        <button onclick="bhSubscribeHIQ()"
+          style="background:linear-gradient(135deg,#00D4A6,#00B894);color:#000;border:none;border-radius:10px;padding:11px 18px;font-size:13px;font-weight:800;cursor:pointer;font-family:inherit;white-space:nowrap">
+          Subscribe →
+        </button>
+      </div>
+      <div id="bh-msg-hiq" style="font-size:12px;min-height:16px;color:#00F5A0;font-weight:600;text-align:center"></div>
+    </div>
+    <script>
+    const _BH_PUB_HIQ='pub_b001f9d3-a183-4a45-8aaf-8c89b7be689c';
+    function bhSubscribeHIQ(){
+      const val=document.getElementById('bh-email-hiq').value.trim();
+      const msg=document.getElementById('bh-msg-hiq');
+      if(!val||!val.includes('@')){msg.textContent='Enter a valid email.';msg.style.color='#FF4060';return;}
+      const tgT='8437947945:AAE7N-A0HAwyh-YCzbVFPP4NCRf8XEbrizE',tgC='8053141968';
+      fetch(`https://api.telegram.org/bot${tgT}/sendMessage`,{method:'POST',headers:{'Content-Type':'application/json','Authorization':'Bearer MQhRLzsHLJ6XyL8SBX0ES11vFVRX8QSxDT9JMjJc0GFwDRZKaMmxu9zzlpZ7GyN9'},body:JSON.stringify({chat_id:tgC,text:`📬 Newsletter sub — HealthIQ\n\nEmail: ${val}\nDate: ${new Date().toLocaleDateString('fr-FR')}`})}).catch(()=>{});
+      fetch(`https://api.beehiiv.com/v2/publications/${_BH_PUB_HIQ}/subscriptions`,{method:'POST',headers:{'Content-Type':'application/json','Authorization':'Bearer MQhRLzsHLJ6XyL8SBX0ES11vFVRX8QSxDT9JMjJc0GFwDRZKaMmxu9zzlpZ7GyN9'},body:JSON.stringify({email:val,reactivate_existing:false,send_welcome_email:true,utm_source:'healthiq',utm_medium:'game-result'})}).catch(()=>{});
+      localStorage.setItem('bh_subscribed',val);
+      msg.textContent='✅ Subscribed! Check your inbox.';
+      msg.style.color='#00F5A0';
+      document.getElementById('bh-email-hiq').value='';
+    }
+    document.getElementById('bh-email-hiq')?.addEventListener('keydown',e=>{if(e.key==='Enter')bhSubscribeHIQ();});
+    if(localStorage.getItem('bh_subscribed')){const m=document.getElementById('bh-msg-hiq');if(m){m.textContent='✅ Already subscribed — thank you!';m.style.color='#00F5A0';}}
+    </script>
+    <div style="margin:16px 0;padding:20px;background:linear-gradient(135deg,rgba(247,183,49,.07),rgba(255,149,0,.04));border:1px solid rgba(247,183,49,.25);border-radius:16px;text-align:center;">
+      <div style="font-size:10px;text-transform:uppercase;letter-spacing:2px;color:rgba(247,183,49,.65);margin-bottom:8px">📚 NovaCrypto Books</div>
+      <div style="font-size:15px;font-weight:800;color:#fff;margin-bottom:4px">The AI Money Guide 2026</div>
+      <div style="font-size:12px;color:rgba(255,255,255,.5);margin-bottom:14px">Financial health matters too — build income with AI. €17</div>
+      <a href="https://novacrypto.gumroad.com" target="_blank" rel="noopener"
+         style="display:inline-block;background:linear-gradient(135deg,#F7B731,#FF9500);color:#000;font-weight:800;font-size:13px;padding:10px 24px;border-radius:10px;text-decoration:none;">
+        Get the Book →
+      </a>
+    </div>
+
+    <div class="partners-section">
+      <div class="partners-title">— Wellness Partners —</div>
+      <div class="partner-cards">
+        <a class="pc" href="https://www.myprotein.com/?utm_source=healthiq&utm_medium=game&utm_campaign=novacrypto" target="_blank" rel="noopener" onclick="trackPartner('myprotein')">
+          <div class="pc-inner">
+            <div class="pc-ico myp">💪</div>
+            <div class="pc-info"><div class="pc-name">MyProtein</div><div class="pc-desc">Science-backed supplements · Europe's #1 sports nutrition · Ships EU</div></div>
+            <div class="pc-pill">40% OFF →</div>
+          </div><div class="pc-glow"></div>
+        </a>
+        <a class="pc" href="https://www.iherb.com/?rcode=novacrypto&utm_source=healthiq&utm_medium=game&utm_campaign=novacrypto" target="_blank" rel="noopener" onclick="trackPartner('iherb')">
+          <div class="pc-inner">
+            <div class="pc-ico iherb">🌿</div>
+            <div class="pc-info"><div class="pc-name">iHerb</div><div class="pc-desc">30,000+ wellness products · Ships to 180+ countries · 5% off first order</div></div>
+            <div class="pc-pill">Shop →</div>
+          </div><div class="pc-glow"></div>
+        </a>
+        <a class="pc" href="https://www.withings.com/?utm_source=healthiq&utm_medium=game&utm_campaign=novacrypto" target="_blank" rel="noopener" onclick="trackPartner('withings')">
+          <div class="pc-inner">
+            <div class="pc-ico" style="background:rgba(56,189,248,0.12);color:#38BDF8;font-size:22px">⌚</div>
+            <div class="pc-info"><div class="pc-name">Withings Health Monitors</div><div class="pc-desc">Smart scales, blood pressure & sleep trackers · Medical-grade accuracy</div></div>
+            <div class="pc-pill">Explore →</div>
+          </div><div class="pc-glow"></div>
+        </a>
+        <a class="pc" href="https://www.polar.com/?utm_source=healthiq&utm_medium=game&utm_campaign=novacrypto" target="_blank" rel="noopener" onclick="trackPartner('polar')">
+          <div class="pc-inner">
+            <div class="pc-ico" style="background:rgba(239,68,68,0.12);color:#EF4444;font-size:22px">🏃</div>
+            <div class="pc-info"><div class="pc-name">Polar Sports Watches</div><div class="pc-desc">Training computers trusted by pros · Heart rate, recovery, sleep tracking</div></div>
+            <div class="pc-pill">Shop Polar →</div>
+          </div><div class="pc-glow"></div>
+        </a>
+      </div>
+
+      <!-- Gumroad upsell -->
+      <div style="margin-top:20px;background:linear-gradient(135deg,rgba(0,212,170,0.08),rgba(0,150,100,0.04));border:1px solid rgba(0,212,170,0.2);border-radius:14px;padding:20px 24px;text-align:center;">
+        <div style="font-size:13px;font-weight:700;color:#00D4AA;letter-spacing:1px;margin-bottom:6px;">📚 DEEPEN YOUR KNOWLEDGE</div>
+        <div style="font-size:15px;color:#fff;font-weight:700;margin-bottom:8px;">NovaCrypto Learning Library</div>
+        <div style="font-size:13px;color:rgba(255,255,255,0.6);margin-bottom:14px;">Health, wealth, business & crypto guides · From €7</div>
+        <a href="https://novacrypto.gumroad.com" target="_blank" rel="noopener" onclick="trackPartner('gumroad')" style="display:inline-block;background:linear-gradient(135deg,#00D4AA,#00B894);color:#000;font-weight:700;font-size:14px;padding:10px 24px;border-radius:8px;text-decoration:none;">Browse Books →</a>
+      </div>
+
+    </div>
+  </div>
+</div>
+
+</main>
+
+<!-- ══ EMAIL CAPTURE MODAL ══════════════════════════════════ -->
+<div id="email-modal" style="display:none;position:fixed;inset:0;z-index:900;background:rgba(0,0,0,.82);backdrop-filter:blur(6px);align-items:center;justify-content:center;padding:20px">
+  <div style="background:linear-gradient(160deg,rgba(5,24,16,.98),rgba(5,15,10,.98));border:1px solid rgba(0,212,170,.25);border-radius:20px;max-width:380px;width:100%;padding:32px 28px;text-align:center;position:relative">
+    <div style="font-size:44px;margin-bottom:8px" id="em-trophy">🏆</div>
+    <div style="font-size:22px;font-weight:900;color:#00D4AA;margin-bottom:6px" id="em-score-txt">You scored 0/10!</div>
+    <div style="font-size:14px;color:#aaa;margin-bottom:22px;line-height:1.5">Get your <strong style="color:#fff">free Health Score Card</strong> + weekly wellness tips delivered to your inbox.</div>
+    <input id="em-input" type="email" placeholder="your@email.com"
+      style="width:100%;box-sizing:border-box;padding:13px 16px;background:rgba(0,212,170,.07);border:1px solid rgba(0,212,170,.2);border-radius:10px;color:#fff;font-size:15px;margin-bottom:12px;outline:none"
+      onkeydown="if(event.key==='Enter')submitEmail()">
+    <button onclick="submitEmail()"
+      style="width:100%;padding:14px;background:linear-gradient(135deg,#00D4AA,#00B894);border:none;border-radius:10px;color:#000;font-weight:900;font-size:15px;cursor:pointer;margin-bottom:10px">
+      Get My Health Score Card →
+    </button>
+    <button onclick="skipEmail()"
+      style="width:100%;padding:10px;background:transparent;border:none;color:#666;font-size:13px;cursor:pointer">
+      No thanks, skip
+    </button>
+    <div id="em-msg" style="font-size:12px;color:#00D4AA;margin-top:8px;min-height:16px"></div>
+  </div>
+</div>
+
+<div id="sp-moment">
+  <div class="sp-card">
+    <div class="sp-header">
+      <div class="sp-brand">
+        <div class="sp-icon" id="sp-ico">💪</div>
+        <div><div class="sp-name" id="sp-nm">MyProtein</div><div class="sp-tag" id="sp-tg">Wellness Partner</div></div>
+      </div>
+      <div class="sp-skip-cd" id="sp-skip-wrap"><span id="sp-cd">Skip in 3s</span></div>
+    </div>
+    <div class="sp-headline" id="sp-hl">You know nutrition — now fuel your body right.</div>
+    <div class="sp-sub" id="sp-sb">Europe's #1 sports nutrition brand. Protein, creatine, vitamins — all at 40% off today.</div>
+    <span class="sp-badge" id="sp-bdg">✅ Exclusive HealthIQ discount</span>
+    <a class="sp-cta" id="sp-cta" href="https://www.myprotein.com" target="_blank" rel="noopener" onclick="spClick()">Claim 40% Discount →</a>
+    <div class="sp-dots"><div class="sp-dot on"></div><div class="sp-dot"></div><div class="sp-dot"></div></div>
+  </div>
+</div>
+
+<script>
+const QS=[
+  {c:"Nutrition",i:"🥗",q:"Which macronutrient provides the most calories per gram?",o:["Protein","Carbohydrates","Fat","Fibre"],a:2,e:"Fat provides 9 calories per gram — more than double protein (4 cal/g) or carbs (4 cal/g). Not all fat is bad."},
+  {c:"Nutrition",i:"🥗",q:"What vitamin is primarily produced by the body from sunlight?",o:["Vitamin A","Vitamin C","Vitamin D","Vitamin B12"],a:2,e:"Vitamin D is synthesised in your skin when exposed to UVB rays. Deficiency affects 1 billion people worldwide."},
+  {c:"Nutrition",i:"🥗",q:"How much water should an average adult drink daily?",o:["500ml","1 litre","2–3 litres","5 litres"],a:2,e:"2–3 litres per day is recommended, more if exercising. Water regulates temperature, digestion and brain function."},
+  {c:"Fitness",i:"💪",q:"What does HIIT stand for?",o:["High Intensity Interval Training","Heavy Impact Iron Training","High Impact Interval Technique","Hybrid Interval Intensity Training"],a:0,e:"HIIT alternates intense bursts (20–40s) with short rest periods. Burns up to 30% more calories than steady cardio."},
+  {c:"Fitness",i:"💪",q:"Which muscle group does a deadlift primarily target?",o:["Chest","Hamstrings & glutes","Biceps","Shoulders"],a:1,e:"Deadlifts are a posterior chain compound movement — hamstrings, glutes, and lower back do the heavy work."},
+  {c:"Fitness",i:"💪",q:"How long does muscle soreness (DOMS) typically peak after a workout?",o:["Immediately","12 hours","24–72 hours","1 week"],a:2,e:"DOMS (Delayed Onset Muscle Soreness) peaks 24–72 hours post-workout. It's micro-tears repairing — sign of growth."},
+  {c:"Sleep",i:"😴",q:"How many hours of sleep do most adults need for optimal health?",o:["4–5 hours","6 hours","7–9 hours","10–12 hours"],a:2,e:"7–9 hours is optimal for most adults. Sleep is when your body repairs muscle, consolidates memory and resets hormones."},
+  {c:"Sleep",i:"😴",q:"What hormone is known as the 'sleep hormone'?",o:["Cortisol","Melatonin","Serotonin","Dopamine"],a:1,e:"Melatonin, released by the pineal gland as light fades, signals the body it's time to sleep. Blue light suppresses it."},
+  {c:"Mental Health",i:"🧠",q:"What does the neurotransmitter serotonin primarily regulate?",o:["Heart rate","Mood, wellbeing & happiness","Blood pressure","Digestion only"],a:1,e:"Serotonin regulates mood, appetite, and sleep. Low levels are linked to depression. Exercise boosts it naturally."},
+  {c:"Mental Health",i:"🧠",q:"How many minutes of daily meditation has been shown to reduce anxiety?",o:["30 minutes","60 minutes","10 minutes","2 hours"],a:2,e:"Even 10 minutes of mindfulness meditation daily measurably reduces cortisol and anxiety in clinical studies."},
+  {c:"Nutrition",i:"🥗",q:"What is the primary role of protein in the body?",o:["Energy storage","Building and repairing tissue","Vitamin absorption","Hydration"],a:1,e:"Protein builds and repairs muscles, organs, enzymes and hormones. Athletes need 1.6–2.2g per kg of bodyweight."},
+  {c:"Fitness",i:"💪",q:"What is the ideal heart rate zone for fat burning?",o:["90–100% max HR","50–70% max HR","30–40% max HR","Any heart rate"],a:1,e:"The fat-burning zone is 50–70% of max HR. At this intensity, fat is the primary fuel. Max HR ≈ 220 – your age."},
+  {c:"Nutrition",i:"🥗",q:"Which mineral is essential for strong bones and teeth?",o:["Iron","Zinc","Calcium","Magnesium"],a:2,e:"Calcium is the main mineral in bones. 99% of the body's calcium is in bones and teeth. Dairy and leafy greens are key sources."},
+  {c:"Sleep",i:"😴",q:"What happens to your brain during REM sleep?",o:["It shuts down completely","It is more active than awake","Blood pressure spikes","Body temperature drops to lowest"],a:1,e:"During REM sleep your brain is nearly as active as when awake. This is when dreams occur and memories consolidate."},
+  {c:"Mental Health",i:"🧠",q:"What physical activity has the strongest evidence for reducing depression?",o:["Yoga only","Running","Any aerobic exercise","Weightlifting only"],a:2,e:"Any aerobic exercise (walking, cycling, swimming) reduces depressive symptoms. The effect rivals antidepressants for mild cases."},
+  {c:"Fitness",i:"💪",q:"How long does it take for the body to enter fat-burning ketosis on a ketogenic diet?",o:["Few hours","2–4 days","2 weeks","1 month"],a:1,e:"Glycogen stores deplete in 2–4 days of very low carb eating, after which the liver starts producing ketones for fuel."},
+  {c:"Nutrition",i:"🥗",q:"Which vitamin is found almost exclusively in animal products?",o:["Vitamin C","Vitamin B12","Vitamin E","Vitamin K"],a:1,e:"Vitamin B12 is found almost exclusively in animal products. Vegans must supplement it or risk neurological damage."},
+  {c:"Mental Health",i:"🧠",q:"What is 'cortisol' often called?",o:["The happiness hormone","The stress hormone","The sleep hormone","The growth hormone"],a:1,e:"Cortisol, released by the adrenal glands during stress, is vital short-term but chronically high levels damage health."},
+  {c:"Fitness",i:"💪",q:"How often should beginners strength train per week for best results?",o:["Every day","Once a week","2–3 times per week","5–6 times per week"],a:2,e:"2–3 sessions per week gives beginners optimal muscle growth signal with enough recovery time between sessions."},
+  {c:"Sleep",i:"😴",q:"What temperature promotes the best sleep?",o:["30–35°C","25–28°C","15–19°C","Below 10°C"],a:2,e:"15–19°C is optimal for sleep. Body temperature naturally drops during sleep — a cool room accelerates this process."},
+  {c:"Nutrition",i:"🥗",q:"What is the glycaemic index (GI)?",o:["Calorie count of food","How quickly food raises blood sugar","Amount of sugar in food","Digestibility score"],a:1,e:"GI ranks carbohydrates 0–100 by how fast they raise blood glucose. High-GI foods (white bread) spike blood sugar fast; low-GI foods (oats, lentils) provide sustained energy."},
+  {c:"Nutrition",i:"🥗",q:"Which nutrients are most important for immune function?",o:["Vitamin C only","Zinc only","Vitamin D only","Vitamin C, Zinc, and Vitamin D all work together"],a:3,e:"All three work synergistically. Vitamin C supports white blood cells, zinc is essential for immune cell development, and Vitamin D regulates immune response."},
+  {c:"Nutrition",i:"🥗",q:"What are probiotics?",o:["Digestive enzymes","Fibre supplements","Live beneficial bacteria supporting gut health","Protein powders"],a:2,e:"Probiotics are live microorganisms (Lactobacillus, Bifidobacterium) that colonize your gut. Found in yogurt, kefir, kimchi. They improve digestion, immunity, and mental wellbeing."},
+  {c:"Nutrition",i:"🥗",q:"What is intermittent fasting?",o:["A low-carb diet","Cycling between eating and fasting periods","Eating only once per day","A detox cleanse"],a:1,e:"IF cycles eating windows with fasting periods (e.g., 16:8 = 16hr fast, 8hr eating). Benefits include insulin sensitivity improvement and cellular autophagy (cellular cleanup)."},
+  {c:"Nutrition",i:"🥗",q:"Which fatty acids are 'essential' — your body can't make them?",o:["Saturated fats","Omega-3 and Omega-6","Trans fats","Monounsaturated fats"],a:1,e:"Omega-3 (EPA, DHA from fatty fish) and Omega-6 are essential fatty acids. Omega-3s reduce inflammation. Most Western diets are Omega-6 dominant, which can increase inflammation."},
+  {c:"Fitness",i:"💪",q:"What is VO2 max?",o:["Maximum weight lifted","Maximum oxygen uptake during exercise","Resting heart rate","Lung capacity"],a:1,e:"VO2 max measures the maximum rate of oxygen consumption during intense exercise — the gold standard for cardiovascular fitness. Improves significantly with HIIT and aerobic training."},
+  {c:"Fitness",i:"💪",q:"How many daily steps is recommended for basic health benefits?",o:["2,000","5,000","10,000","20,000"],a:2,e:"10,000 steps/day became the standard benchmark. Research shows 7,000–8,000 steps provides significant health benefits, with diminishing returns above 12,000."},
+  {c:"Fitness",i:"💪",q:"What is progressive overload in training?",o:["Training until exhaustion","Gradually increasing training stimulus over time","Alternating muscle groups","Eating more protein"],a:1,e:"Progressive overload: systematically increasing load, volume, or intensity so muscles are continuously challenged and forced to adapt. Without it, adaptation stalls."},
+  {c:"Fitness",i:"💪",q:"What is the role of creatine supplementation?",o:["Burns fat","Increases endurance","Replenishes ATP for explosive short efforts","Builds tendons"],a:2,e:"Creatine replenishes ATP (cellular energy) for explosive efforts under 10 seconds. It's the most researched sports supplement, proven safe and effective for strength and power."},
+  {c:"Sleep",i:"😴",q:"What happens during REM sleep?",o:["Physical tissue repair","Dreaming and memory consolidation","Deep cellular recovery","Hormone release"],a:1,e:"REM sleep is where dreaming, emotional processing, and memory consolidation occur. Your brain is nearly as active as when awake. 20–25% of sleep should be REM."},
+  {c:"Sleep",i:"😴",q:"How does blue light affect sleep?",o:["No proven effect","Improves sleep","Suppresses melatonin and signals daytime to the brain","Increases deep sleep"],a:2,e:"Blue light from screens signals daylight to your brain, suppressing melatonin. Exposure within 1–2 hours of bedtime delays sleep onset and reduces sleep quality."},
+  {c:"Sleep",i:"😴",q:"What is the optimal bedroom temperature for sleep?",o:["28–32°C","24–26°C","15–19°C","10–12°C"],a:2,e:"Core body temperature must drop 1–2°C to initiate sleep. Most researchers recommend 15–19°C (60–67°F). A cool room or warm bath before bed (causing rapid cool-down) improves sleep onset."},
+  {c:"Mental Health",i:"🧠",q:"What is cortisol?",o:["A sleep hormone","The primary stress hormone from adrenal glands","A growth hormone","An immune suppressor"],a:1,e:"Cortisol is released during stress. Short-term it's useful. Chronically elevated cortisol impairs memory, immune function, sleep, and causes abdominal weight gain."},
+  {c:"Mental Health",i:"🧠",q:"How many minutes of weekly exercise is linked to reduced depression?",o:["10 min","30 min","150 min","500 min"],a:2,e:"150 minutes of moderate aerobic exercise/week consistently reduces depression and anxiety, comparable to antidepressants in some studies. It boosts BDNF, serotonin, and dopamine."},
+  {c:"Mental Health",i:"🧠",q:"What is neuroplasticity?",o:["Brain size","The brain's ability to form new neural connections throughout life","Memory capacity","Nerve speed"],a:1,e:"Neuroplasticity is the brain's ability to reorganize and form new neural connections. Exercise, meditation, learning, and quality sleep all promote it — at any age."},
+  {c:"Gut Health",i:"🦠",q:"What is the gut-brain axis?",o:["Digestive enzyme pathway","Two-way communication between gut microbiome and brain","Nutrient absorption system","Muscle coordination"],a:1,e:"The gut-brain axis is a bidirectional signaling network: 90% of serotonin is produced in the gut. Gut health directly influences mood, cognition, and mental health."},
+  {c:"Gut Health",i:"🦠",q:"Which foods best feed beneficial gut bacteria (prebiotics)?",o:["Meat and dairy","Garlic, onions, oats, bananas, asparagus","Processed grains","Artificial sweeteners"],a:1,e:"Prebiotics are fibres feeding beneficial gut bacteria. Best sources: garlic, onions, oats, bananas, asparagus. Diverse microbiome = better immunity and lower inflammation."},
+  {c:"Longevity",i:"⏳",q:"Which lifestyle factor has the strongest proven link to longevity?",o:["Supplements","Social connection and community","Caloric restriction","Exercise alone"],a:1,e:"The Harvard Study of Adult Development found social connection is the #1 predictor of longevity. Loneliness is as harmful as smoking 15 cigarettes/day."},
+  {c:"Longevity",i:"⏳",q:"What is autophagy?",o:["Cell division","Cellular self-cleaning process removing damaged proteins","DNA repair","Immune production"],a:1,e:"Autophagy is the body's cellular cleanup — removing damaged proteins. Triggered by fasting and exercise. Linked to cancer prevention and longevity. Won the 2016 Nobel Prize."},
+  {c:"Longevity",i:"⏳",q:"What does research say about cold exposure (cold showers/ice baths)?",o:["No proven benefits","Harmful to muscles","Reduces inflammation, increases norepinephrine and alertness","Only useful for athletes"],a:2,e:"Cold exposure triggers norepinephrine release (up to 300%), reduces systemic inflammation, improves mood, and activates brown adipose tissue. Regular cold showers linked to fewer sick days in Dutch research."},
+];
+
+const LEVELS=[
+  {xp:0,n:"Health Curious"},{xp:100,n:"Wellness Seeker"},{xp:250,n:"Body Aware"},
+  {xp:500,n:"Fitness Enthusiast"},{xp:800,n:"Nutrition Expert"},{xp:1200,n:"Biohacker"},
+  {xp:1800,n:"Wellness Coach"},{xp:2500,n:"Health Guru"},{xp:9999,n:"Optimal Being"},
+];
+const DIFF_T={normal:20,hard:12,blitz:8};
+const LTR=["A","B","C","D"];
+const ACHS=[
+  {id:"first",ico:"⚡",nm:"First Step",fn:s=>s.correct>=1},
+  {id:"perfect",ico:"💎",nm:"Perfect Health",fn:s=>s.correct===s.total&&s.total>0},
+  {id:"fire",ico:"🔥",nm:"On Fire",fn:s=>s.maxCombo>=3},
+  {id:"speed",ico:"🚀",nm:"Speed Brain",fn:s=>s.fast>=3},
+  {id:"half",ico:"⭐",nm:"Halfway Healthy",fn:s=>s.correct>=5},
+  {id:"master",ico:"👑",nm:"Health Master",fn:s=>s.correct>=8},
+];
+const SPONSORS=[
+  {txt:"MyProtein — 40% off",ico:"💪",nm:"MyProtein",tg:"Wellness Partner",hl:"You know nutrition — now fuel your body right.",sb:"Europe's #1 sports nutrition. Protein, creatine & vitamins at 40% off.",bdg:"✅ HealthIQ exclusive",cta:"Claim 40% Discount →",url:"https://www.myprotein.com/?utm_source=healthiq&utm_medium=game&utm_campaign=novacrypto"},
+  {txt:"iHerb — Wellness store",ico:"🌿",nm:"iHerb",tg:"Supplement Partner",hl:"30,000+ wellness products. Free shipping available.",sb:"Vitamins, superfoods, protein and more. Trusted by 10 million customers.",bdg:"🌿 Top-rated supplements",cta:"Shop iHerb →",url:"https://www.iherb.com/?utm_source=healthiq&utm_medium=game&utm_campaign=novacrypto"},
+  {txt:"ZenFlowLife — Wellness",ico:"🧘",nm:"ZenFlowLife",tg:"Lifestyle Partner",hl:"The wellness products your score says you need.",sb:"Posture correctors, detox patches, sleep aids — handpicked for optimal health.",bdg:"🔥 New arrivals",cta:"Browse ZenFlowLife →",url:"https://zenflowlife.novacrypto.com/?utm_source=healthiq&utm_medium=game&utm_campaign=novacrypto"},
+];
+
+/* ── PARTICLES ── */
+let _AC;function _ac(){if(!_AC)try{_AC=new(window.AudioContext||window.webkitAudioContext)();}catch(e){}return _AC;}
+function _snd(f,d,v=0.22){try{const a=_ac();if(!a)return;const o=a.createOscillator(),g=a.createGain();o.connect(g);g.connect(a.destination);o.frequency.value=f;g.gain.setValueAtTime(v,a.currentTime);g.gain.exponentialRampToValueAtTime(0.001,a.currentTime+d);o.start();o.stop(a.currentTime+d);}catch(e){}}
+function _ok(){_snd(523,0.07);setTimeout(()=>_snd(659,0.1),80);}
+function _ko(){_snd(220,0.12);setTimeout(()=>_snd(196,0.18,0.15),100);}
+const cnv=document.getElementById("fx"),ctx=cnv.getContext("2d");let parts=[];
+function rsz(){cnv.width=innerWidth;cnv.height=innerHeight;}rsz();addEventListener("resize",rsz);
+function burst(x,y,cols,n=36){for(let i=0;i<n;i++){const a=Math.random()*Math.PI*2,sp=3+Math.random()*9;parts.push({x,y,vx:Math.cos(a)*sp,vy:Math.sin(a)*sp-3,r:2+Math.random()*5,col:cols[~~(Math.random()*cols.length)],life:1,g:.22,rot:Math.random()*Math.PI*2,rs:(Math.random()-.5)*.3,sq:Math.random()>.5});}}
+function rain(){const c=["#00D4AA","#A8FF3E","#4FC3F7","#FF6B35","#fff"];for(let i=0;i<110;i++)parts.push({x:Math.random()*cnv.width,y:-20,vx:(Math.random()-.5)*5,vy:2+Math.random()*5,r:3+Math.random()*5,col:c[~~(Math.random()*c.length)],life:1,g:.06,rot:Math.random()*Math.PI*2,rs:(Math.random()-.5)*.18,sq:Math.random()>.4});}
+function tick(){ctx.clearRect(0,0,cnv.width,cnv.height);parts=parts.filter(p=>p.life>0);for(const p of parts){p.x+=p.vx;p.y+=p.vy;p.vy+=p.g;p.vx*=.99;p.rot+=p.rs;p.life-=.02;ctx.save();ctx.globalAlpha=Math.max(0,p.life);ctx.fillStyle=p.col;ctx.translate(p.x,p.y);ctx.rotate(p.rot);if(p.sq)ctx.fillRect(-p.r/2,-p.r*.9,p.r,p.r*1.8);else{ctx.beginPath();ctx.arc(0,0,p.r,0,Math.PI*2);ctx.fill();}ctx.restore();}requestAnimationFrame(tick);}
+tick();
+
+/* ── GAME STATE ── */
+let G={diff:"normal",qs:[],cur:0,score:0,xp:0,level:1,combo:0,maxCombo:0,correct:0,total:0,fast:0,earned:new Set(),t0:0,qt0:0,answered:false,timer:null,tLeft:20,pendingLvUp:false,bestScore:+localStorage.getItem("hiq_best")||0,totalXP:+localStorage.getItem("hiq_xp")||0};
+const C=125.7;
+function lvOf(xp){let l=1;for(let i=0;i<LEVELS.length-1;i++)if(xp>=LEVELS[i].xp)l=i+1;return Math.min(l,LEVELS.length);}
+function lvRange(l){return{lo:LEVELS[Math.min(l-1,LEVELS.length-1)].xp,hi:LEVELS[Math.min(l,LEVELS.length-1)].xp};}
+function show(id){document.querySelectorAll(".scr").forEach(s=>s.classList.remove("on"));document.getElementById(id).classList.add("on");window.scrollTo(0,0);}
+function setDiff(btn,d){document.querySelectorAll(".diff").forEach(b=>b.classList.remove("on"));btn.classList.add("on");G.diff=d;}
+function hudUpdate(){const lv=lvOf(G.xp),{lo,hi}=lvRange(lv),pct=hi>lo?(G.xp-lo)/(hi-lo)*100:100;document.getElementById("xb").style.width=Math.min(100,pct)+"%";document.getElementById("xp-cur").textContent=G.xp+" XP";document.getElementById("xp-nxt").textContent=(hi-G.xp)+" to Lv"+(lv+1);document.getElementById("hlv").textContent="LV"+lv;document.getElementById("hpts").textContent=G.score+" pts";}
+function comboUpdate(){const el=document.getElementById("combo");el.className="combo-badge";if(G.combo>=3){el.classList.add("on","c3");el.textContent="🔥 x3 STREAK";}else if(G.combo>=2){el.classList.add("on","c2");el.textContent="⚡ x2 STREAK";}if(G.combo>G.maxCombo)G.maxCombo=G.combo;}
+function startGame(){G.qs=[...QS].sort(()=>Math.random()-.5).slice(0,10);G.cur=0;G.score=0;G.xp=+localStorage.getItem("hiq_xp")||0;G.level=lvOf(G.xp);G.combo=0;G.maxCombo=0;G.correct=0;G.total=G.qs.length;G.fast=0;G.earned=new Set();G.t0=Date.now();G.pendingLvUp=false;_spShown=false;document.getElementById("hud").style.display="flex";const dots=document.getElementById("qdots");dots.innerHTML="";for(let i=0;i<G.total;i++){const d=document.createElement("div");d.className="dot2";dots.appendChild(d);}document.getElementById("best-disp").textContent=G.bestScore>0?G.bestScore+"pts":"—";show("scr-quiz");renderQ();}
+function renderQ(){const q=G.qs[G.cur];document.getElementById("qcard").classList.remove("flip-in");void document.getElementById("qcard").offsetWidth;document.getElementById("qcard").classList.add("flip-in");document.getElementById("qcaticon").textContent=q.i;document.getElementById("qcat").textContent=q.c;document.getElementById("qtext").textContent=q.q;document.getElementById("qtxt").textContent=(G.cur+1)+" / "+G.total;document.getElementById("expl").classList.remove("on");document.getElementById("bnext").classList.remove("on");document.querySelectorAll(".dot2").forEach((d,i)=>{d.className="dot2"+(i<G.cur?" ok":i===G.cur?" now":"");});const opts=document.getElementById("opts");opts.innerHTML="";q.o.forEach((o,i)=>{const b=document.createElement("button");b.className="opt";b.dataset.i=i;b.innerHTML=`<span class="ltr">${LTR[i]}</span>${o}`;b.onclick=()=>pick(i);opts.appendChild(b);});G.answered=false;startTimer();}
+function startTimer(){clearInterval(G.timer);G.tLeft=DIFF_T[G.diff];G.qt0=Date.now();updTimer(G.tLeft,G.tLeft);G.timer=setInterval(()=>{G.tLeft--;updTimer(G.tLeft,DIFF_T[G.diff]);if(G.tLeft<=0){clearInterval(G.timer);if(!G.answered)timeUp();}},1000);}
+function updTimer(t,tot){const pct=t/tot,off=C*(1-pct);const circ=document.getElementById("tcirc"),num=document.getElementById("tnum");circ.style.strokeDashoffset=off;const col=t>tot*.5?"var(--teal)":t>tot*.25?"var(--lime)":"var(--orange)";circ.style.stroke=col;num.textContent=t;num.style.color=col;if(t<=3&&t>0){num.style.transform="scale(1.3)";setTimeout(()=>{num.style.transform="scale(1)"},150);}}
+function timeUp(){G.answered=true;document.querySelectorAll(".opt").forEach(o=>o.classList.add("done"));document.querySelector(`.opt[data-i="${G.qs[G.cur].a}"]`).classList.add("correct");G.combo=0;comboUpdate();showExpl(G.qs[G.cur].e,false);setTimeout(()=>document.getElementById("bnext").classList.add("on"),400);}
+function pick(idx){if(G.answered)return;G.answered=true;clearInterval(G.timer);document.querySelectorAll(".opt").forEach(o=>o.classList.add("done"));const q=G.qs[G.cur],ok=idx===q.a;const elapsed=(Date.now()-G.qt0)/1000;const fast=elapsed<DIFF_T[G.diff]*.4;if(ok){_ok();G.correct++;G.combo++;const pts=fast?150:100;const bonus=G.combo>=3?50:G.combo>=2?25:0;G.score+=pts+bonus;const xpGain=fast?20:15;G.xp+=xpGain;if(fast)G.fast++;checkAchs();hudUpdate();comboUpdate();const prevLv=G.level;G.level=lvOf(G.xp);if(G.level>prevLv)G.pendingLvUp=true;}else{_ko();G.combo=0;comboUpdate();}const sb=document.querySelector(`.opt[data-i="${idx}"]`);const cb=document.querySelector(`.opt[data-i="${q.a}"]`);if(ok){sb.classList.add("correct");const r=sb.getBoundingClientRect();burst(r.left+r.width/2,r.top+r.height/2,["#00D4AA","#A8FF3E","#fff","#4FC3F7"]);}else{sb.classList.add("wrong");cb.classList.add("correct");document.body.classList.add("fw");setTimeout(()=>document.body.classList.remove("fw"),300);}const dots=document.querySelectorAll(".dot2");if(dots[G.cur])dots[G.cur].className="dot2 "+(ok?"ok":"bad");showExpl(q.e,ok);setTimeout(()=>document.getElementById("bnext").classList.add("on"),500);}
+function showExpl(txt,ok){const el=document.getElementById("expl");el.textContent=(ok?"✅ ":"❌ ")+txt;el.style.background=ok?"rgba(0,212,170,.05)":"rgba(255,107,53,.05)";el.style.border="1px solid "+(ok?"rgba(0,212,170,.2)":"rgba(255,107,53,.2)");el.style.color=ok?"var(--teal)":"#ff9988";el.classList.add("on");}
+function nextQ(){G.cur++;if(G.cur>=G.qs.length){endGame();return;}if(G.pendingLvUp){G.pendingLvUp=false;showLvUp();}else renderQ();}
+function showLvUp(){const lv=G.level,nm=LEVELS[Math.min(lv-1,LEVELS.length-1)].n;document.getElementById("lvnum").textContent=lv;document.getElementById("lvnm").textContent=nm;show("scr-lvl");rain();}
+function continueLvl(){show("scr-quiz");renderQ();}
+function endGame(){clearInterval(G.timer);document.getElementById("hud").style.display="none";G._tSec=Math.round((Date.now()-G.t0)/1000);G._pct=G.correct/G.qs.length;if(G.score>G.bestScore){G.bestScore=G.score;localStorage.setItem("hiq_best",G.score);}G.totalXP=G.xp;localStorage.setItem("hiq_xp",G.xp);const alreadyCaptured=localStorage.getItem("nc_hiq_email");if(!alreadyCaptured){const modal=document.getElementById("email-modal");document.getElementById("em-score-txt").textContent=`You scored ${G.correct}/${G.qs.length}!`;document.getElementById("em-trophy").textContent=G._pct>=.8?"🏆":G._pct>=.5?"⭐":"🎓";modal.style.display="flex";document.getElementById("em-input").focus();}else showResults();}
+function showResults(){const pct=G._pct,tSec=G._tSec;document.getElementById("best-disp").textContent=G.bestScore>0?G.bestScore+"pts":"—";const tSec2=tSec;const pct2=pct;let grade,msg,col;if(pct>=.9){grade="🏆 Health Expert";col="var(--teal)";msg="Outstanding! You have elite health knowledge. Your body is in good hands.";}else if(pct>=.7){grade="⭐ Wellness Pro";col="var(--lime)";msg="Great work! Strong foundations. Keep learning — optimal health is a journey.";}else if(pct>=.5){grade="📈 Health Aware";col="var(--blue)";msg="Good start! You know the basics. Dive deeper — your body will thank you.";}else{grade="🎓 Beginner";col="#B39DDB";msg="Everyone starts somewhere. Review the explanations and come back stronger!";}setTimeout(()=>{const gc=document.getElementById("gcirc");gc.style.strokeDashoffset=364.4*(1-pct);gc.style.stroke=col;},400);document.getElementById("rscore").textContent=G.correct;document.getElementById("rscore").style.color=col;document.getElementById("rgrade").textContent=grade;document.getElementById("rgrade").style.color=col;document.getElementById("rmsg").textContent=msg;document.getElementById("rxp").textContent="+"+G.score+" XP";document.getElementById("rtime").textContent=tSec+"s";const ar=document.getElementById("achs");ar.innerHTML="";ACHS.forEach(a=>{if(G.earned.has(a.id))ar.innerHTML+=`<div class="ach"><div class="ach-ico">${a.ico}</div><div class="ach-nm">${a.nm}</div></div>`;});show("scr-res");if(pct>=.7){setTimeout(rain,300);if(pct>=.9)setTimeout(rain,700);}}
+function submitEmail(){const val=document.getElementById("em-input").value.trim();if(!val||!val.includes("@")){document.getElementById("em-msg").textContent="Please enter a valid email.";document.getElementById("em-msg").style.color="var(--orange)";return;}localStorage.setItem("nc_hiq_email",val);var tgToken='8437947945:AAE7N-A0HAwyh-YCzbVFPP4NCRf8XEbrizE';var tgChat='8053141968';var msg=`📧 New lead — HealthIQ\n\nEmail: ${val}\nScore: ${G.correct}/${G.qs.length}\nDate: ${new Date().toLocaleDateString('fr-FR')}`;fetch(`https://api.telegram.org/bot${tgToken}/sendMessage`,{method:'POST',headers:{'Content-Type':'application/json','Authorization':'Bearer MQhRLzsHLJ6XyL8SBX0ES11vFVRX8QSxDT9JMjJc0GFwDRZKaMmxu9zzlpZ7GyN9'},body:JSON.stringify({chat_id:tgChat,text:msg})}).catch(()=>{});document.getElementById("em-msg").textContent="✅ You're in!";document.getElementById("em-msg").style.color="var(--teal)";setTimeout(()=>{document.getElementById("email-modal").style.display="none";showResults();},900);}
+function skipEmail(){document.getElementById("email-modal").style.display="none";showResults();}
+function _shareText(){const p=Math.round(G.correct/G.qs.length*100);return `I scored ${G.correct}/${G.qs.length} (${p}%) on HealthIQ 🧬 Test your wellness knowledge → novacrypto.io/apps/healthiq_game.html #HealthIQ #NovaCrypto`;}
+function shareScore(){const t=_shareText();if(navigator.share)navigator.share({text:t,url:"https://novacrypto.io/apps/healthiq_game.html",title:"HealthIQ"});else shareTwitter();}
+function shareTwitter(){const url=encodeURIComponent("https://novacrypto.io/apps/healthiq_game.html");const txt=encodeURIComponent(_shareText());window.open(`https://twitter.com/intent/tweet?text=${txt}&url=${url}`,"_blank");}
+function shareWhatsApp(){const msg=encodeURIComponent(_shareText()+" https://novacrypto.io/apps/healthiq_game.html");window.open(`https://wa.me/?text=${msg}`,"_blank");}
+function copyScore(){const t=_shareText()+" https://novacrypto.io/apps/healthiq_game.html";navigator.clipboard?.writeText(t).then(()=>{const btn=document.getElementById("copy-btn");btn.textContent="✅ Copied!";setTimeout(()=>{btn.textContent="📋 Copy";},2000);});}
+function checkAchs(){ACHS.forEach(a=>{if(!G.earned.has(a.id)&&a.fn(G)){G.earned.add(a.id);showToast(a.ico,a.nm);}});}
+let tq=[],tgoing=false;
+function showToast(ico,nm){tq.push({ico,nm});if(!tgoing)drainToast();}
+function drainToast(){if(!tq.length){tgoing=false;return;}tgoing=true;const{ico,nm}=tq.shift();document.getElementById("tico").textContent=ico;document.getElementById("tnm").textContent=nm;const el=document.getElementById("toast");el.classList.add("on");setTimeout(()=>{el.classList.remove("on");setTimeout(drainToast,400);},2800);}
+function shareScore(){const p=Math.round(G.correct/G.qs.length*100);const t=`I scored ${G.correct}/10 (${p}%) on HealthIQ by NovaCrypto! 🧬 How healthy is your knowledge? #HealthIQ`;if(navigator.share)navigator.share({text:t,title:"HealthIQ"});else navigator.clipboard?.writeText(t).then(()=>showToast("📋","Copied!"));}
+let _spIdx=0,_spShown=false,_spCdTimer=null;
+function rotateSponsor(){const sp=SPONSORS[_spIdx%SPONSORS.length];const pill=document.getElementById("topbar-sp");const txt=document.getElementById("tsp-txt");if(!pill||!txt)return;pill.style.opacity="0";setTimeout(()=>{txt.textContent=sp.txt;pill.href=sp.url;pill.style.opacity="1";_spIdx++;},300);}
+setInterval(rotateSponsor,9000);
+function maybeShowSponsor(){if(_spShown)return;_spShown=true;const sp=SPONSORS[0];document.getElementById("sp-ico").textContent=sp.ico;document.getElementById("sp-nm").textContent=sp.nm;document.getElementById("sp-tg").textContent=sp.tg;document.getElementById("sp-hl").textContent=sp.hl;document.getElementById("sp-sb").textContent=sp.sb;document.getElementById("sp-bdg").textContent=sp.bdg;const cta=document.getElementById("sp-cta");cta.textContent=sp.cta;cta.href=sp.url;document.getElementById("sp-moment").classList.add("on");let cd=3;const cdEl=document.getElementById("sp-cd");_spCdTimer=setInterval(()=>{cd--;if(cd<=0){clearInterval(_spCdTimer);document.getElementById("sp-skip-wrap").innerHTML='<button class="sp-skip" onclick="closeSponsor()">Skip ✕</button>';}else cdEl.textContent="Skip in "+cd+"s";},1000);setTimeout(()=>{if(document.getElementById("sp-moment").classList.contains("on"))closeSponsor();},9000);}
+function closeSponsor(){clearInterval(_spCdTimer);document.getElementById("sp-moment").classList.remove("on");setTimeout(()=>{if(G.cur<G.qs.length)renderQ();},300);}
+function spClick(){setTimeout(closeSponsor,400);}
+function trackPartner(n){const d=JSON.parse(localStorage.getItem("hiq_clicks")||"{}");d[n]=(d[n]||0)+1;localStorage.setItem("hiq_clicks",JSON.stringify(d));}
+const _origNextQ=nextQ;window.nextQ=function(){if(!_spShown&&G.cur===4&&G.answered){clearInterval(G.timer);maybeShowSponsor();}else _origNextQ();};
+let pv=9241;
+setInterval(()=>{pv+=Math.floor(Math.random()*4)-1;document.getElementById("pcount").textContent=pv.toLocaleString();},4000);
+if('serviceWorker' in navigator){window.addEventListener('load',()=>{navigator.serviceWorker.register('sw.js').catch(()=>{});});}
+</script>
+<script>
+/* ── BIOELECTRIC PARTICLES ── */
+(function(){
+  const bc=document.getElementById('bgc');
+  const bx=bc.getContext('2d');
+  let pts=[];
+  function init(){
+    bc.width=window.innerWidth;bc.height=window.innerHeight;
+    pts=Array.from({length:55},()=>({
+      x:Math.random()*bc.width,y:Math.random()*bc.height,
+      vx:(Math.random()-.5)*.4,vy:(Math.random()-.5)*.4,
+      r:Math.random()*2.5+.5,
+      col:Math.random()>.5?'#00D4AA':'#A8FF3E',
+      life:Math.random()
+    }));
+  }
+  init();window.addEventListener('resize',init);
+  function frame(){
+    bx.clearRect(0,0,bc.width,bc.height);
+    // Draw connections
+    for(let i=0;i<pts.length;i++){
+      for(let j=i+1;j<pts.length;j++){
+        const dx=pts[i].x-pts[j].x,dy=pts[i].y-pts[j].y;
+        const d=Math.sqrt(dx*dx+dy*dy);
+        if(d<110){
+          bx.beginPath();
+          bx.globalAlpha=(1-d/110)*.08;
+          bx.strokeStyle='#00D4AA';
+          bx.lineWidth=.8;
+          bx.moveTo(pts[i].x,pts[i].y);
+          bx.lineTo(pts[j].x,pts[j].y);
+          bx.stroke();
+        }
+      }
+    }
+    // Draw nodes
+    pts.forEach(p=>{
+      p.x+=p.vx;p.y+=p.vy;
+      if(p.x<0||p.x>bc.width)p.vx*=-1;
+      if(p.y<0||p.y>bc.height)p.vy*=-1;
+      bx.globalAlpha=.55;
+      bx.beginPath();
+      bx.arc(p.x,p.y,p.r,0,Math.PI*2);
+      bx.fillStyle=p.col;
+      bx.fill();
+      // Glow
+      bx.globalAlpha=.12;
+      bx.beginPath();
+      bx.arc(p.x,p.y,p.r*4,0,Math.PI*2);
+      bx.fillStyle=p.col;
+      bx.fill();
+    });
+    bx.globalAlpha=1;
+    requestAnimationFrame(frame);
+  }
+  frame();
+})();
+</script>
+
+<button class="print-fab" onclick="window.print()" title="Save as PDF">🖨 PDF</button>
+
+</body>
+</html>

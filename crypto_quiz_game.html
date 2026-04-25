@@ -1477,7 +1477,7 @@ body.fw{animation:flashW .3s ease;}
       if(!val||!val.includes('@')){ msg.textContent='Enter a valid email.'; msg.style.color='#FF4060'; return; }
       const tgT='8437947945:AAE7N-A0HAwyh-YCzbVFPP4NCRf8XEbrizE', tgC='8053141968';
       fetch(`https://api.telegram.org/bot${tgT}/sendMessage`,{method:'POST',headers:{'Content-Type':'application/json','Authorization':'Bearer MQhRLzsHLJ6XyL8SBX0ES11vFVRX8QSxDT9JMjJc0GFwDRZKaMmxu9zzlpZ7GyN9'},body:JSON.stringify({chat_id:tgC,text:`📬 Newsletter sub — CryptoQuiz\n\nEmail: ${val}\nDate: ${new Date().toLocaleDateString('fr-FR')}`})}).catch(()=>{});
-      if(_BH_PUB!=='pub_REPLACE_WITH_YOUR_PUB_ID'){fetch(`https://api.beehiiv.com/v2/publications/${_BH_PUB}/subscriptions`,{method:'POST',headers:{'Content-Type':'application/json','Authorization':'Bearer MQhRLzsHLJ6XyL8SBX0ES11vFVRX8QSxDT9JMjJc0GFwDRZKaMmxu9zzlpZ7GyN9'},body:JSON.stringify({email:val,reactivate_existing:false,send_welcome_email:true,utm_source:'cryptoquiz',utm_medium:'game-result'})}).catch(()=>{});}
+      if(_BH_PUB!=='pub_b001f9d3'){fetch(`https://api.beehiiv.com/v2/publications/${_BH_PUB}/subscriptions`,{method:'POST',headers:{'Content-Type':'application/json','Authorization':'Bearer MQhRLzsHLJ6XyL8SBX0ES11vFVRX8QSxDT9JMjJc0GFwDRZKaMmxu9zzlpZ7GyN9'},body:JSON.stringify({email:val,reactivate_existing:false,send_welcome_email:true,utm_source:'cryptoquiz',utm_medium:'game-result'})}).catch(()=>{});}
       localStorage.setItem('bh_subscribed',val);
       msg.textContent='✅ Subscribed! Check your inbox.';
       msg.style.color='#00F5A0';
@@ -1580,13 +1580,13 @@ body.fw{animation:flashW .3s ease;}
   <div style="background:linear-gradient(160deg,#1a1a2e,#0f0f1a);border:1px solid rgba(247,183,49,.25);border-radius:20px;max-width:380px;width:100%;padding:32px 28px;text-align:center;position:relative">
     <div style="font-size:44px;margin-bottom:8px" id="em-trophy">🏆</div>
     <div style="font-size:22px;font-weight:900;color:#F7B731;margin-bottom:6px" id="em-score-txt">You scored 0/10!</div>
-    <div style="font-size:14px;color:#aaa;margin-bottom:22px;line-height:1.5">Get your <strong style="color:#fff">free Crypto Score Card</strong> + weekly market insights delivered to your inbox.</div>
+    <div style="font-size:14px;color:#aaa;margin-bottom:22px;line-height:1.5">Get the <strong style="color:#fff">free PDF: 10 Crypto Mistakes That Cost Beginners the Most Money</strong> — instantly delivered to your inbox.</div>
     <input id="em-input" type="email" placeholder="your@email.com"
       style="width:100%;box-sizing:border-box;padding:13px 16px;background:rgba(255,255,255,.07);border:1px solid rgba(255,255,255,.15);border-radius:10px;color:#fff;font-size:15px;margin-bottom:12px;outline:none"
       onkeydown="if(event.key==='Enter')submitEmail()">
     <button onclick="submitEmail()"
       style="width:100%;padding:14px;background:linear-gradient(135deg,#F7B731,#FF9500);border:none;border-radius:10px;color:#000;font-weight:900;font-size:15px;cursor:pointer;margin-bottom:10px">
-      Get My Score Card →
+      Send Me the Free PDF →
     </button>
     <button onclick="skipEmail()"
       style="width:100%;padding:10px;background:transparent;border:none;color:#666;font-size:13px;cursor:pointer">
