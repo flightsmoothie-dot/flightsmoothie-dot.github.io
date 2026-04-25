@@ -140,14 +140,32 @@
   .cta-desc{font-size:12px;color:var(--sub);margin-top:2px;line-height:1.4;}
   .cta-arrow{font-size:18px;color:var(--gold);}
 
-  /* ── Leaderboard ── */
+  /* ── Leaderboard / Weekly League ── */
   .lb-section{margin-top:20px;}
   .lb-title{font-size:12px;font-weight:700;color:var(--sub);letter-spacing:2px;text-transform:uppercase;margin-bottom:10px;text-align:center;}
+  .lb-league-badge{display:inline-flex;align-items:center;gap:6px;background:rgba(247,183,49,.12);border:1px solid rgba(247,183,49,.3);border-radius:20px;padding:4px 12px;font-size:11px;font-weight:800;color:var(--gold);letter-spacing:1px;margin-bottom:10px;}
   .lb-row{display:flex;align-items:center;gap:10px;padding:10px 14px;background:rgba(255,255,255,.03);border-radius:10px;margin-bottom:6px;}
   .lb-rank{font-size:14px;font-weight:900;color:var(--gold);width:20px;text-align:center;font-family:var(--font-mono);}
   .lb-name{flex:1;font-size:13px;color:rgba(220,220,240,.8);}
   .lb-streak{font-size:13px;font-weight:800;color:var(--green);font-family:var(--font-mono);}
   .lb-you{background:rgba(247,183,49,.08);border:1px solid rgba(247,183,49,.2);}
+  .lb-divider{height:1px;background:var(--border);margin:4px 0 8px;border:none;}
+
+  /* ── Reward Pack ── */
+  .reward-pack{margin:0 0 16px;cursor:pointer;}
+  .pack-sealed{background:linear-gradient(135deg,rgba(100,60,200,.18),rgba(247,183,49,.08));border:1.5px solid rgba(180,100,255,.35);border-radius:18px;padding:16px 20px;text-align:center;transition:transform .15s,box-shadow .15s;}
+  .pack-sealed:hover{transform:translateY(-2px);box-shadow:0 8px 28px rgba(180,100,255,.2);}
+  .pack-title{font-size:13px;font-weight:900;color:#C084FC;letter-spacing:1px;text-transform:uppercase;margin-bottom:4px;}
+  .pack-sub{font-size:12px;color:var(--sub);}
+  .pack-open{display:none;background:var(--card);border:1.5px solid rgba(180,100,255,.4);border-radius:18px;padding:18px 20px;animation:pop .35s cubic-bezier(.34,1.56,.64,1);}
+  .pack-reward-row{display:flex;align-items:flex-start;gap:12px;padding:10px 0;}
+  .pack-reward-ico{font-size:24px;flex-shrink:0;margin-top:2px;}
+  .pack-reward-body{flex:1;}
+  .pack-reward-label{font-size:11px;font-weight:700;color:var(--sub);letter-spacing:1.5px;text-transform:uppercase;}
+  .pack-reward-text{font-size:14px;font-weight:700;color:#fff;margin-top:3px;line-height:1.5;}
+  .pack-reward-text.alpha{color:#C084FC;}
+  .pack-reward-text.voucher{color:var(--gold);}
+  .pack-divider{height:1px;background:var(--border);margin:2px 0;}
 
   /* ── Toast ── */
   .toast{position:fixed;bottom:30px;left:50%;transform:translateX(-50%) translateY(80px);background:#1a1a2e;border:1px solid var(--gold);border-radius:12px;padding:12px 22px;font-size:14px;font-weight:700;color:var(--gold);transition:transform .3s;z-index:999;white-space:nowrap;}
@@ -246,6 +264,16 @@
     </div>
   </div>
 
+  <!-- Daily Reward Pack -->
+  <div class="reward-pack" id="reward-pack" style="display:none" onclick="openPack()">
+    <div class="pack-sealed" id="pack-sealed">
+      <div style="font-size:32px;margin-bottom:6px;">🎁</div>
+      <div class="pack-title">Daily Knowledge Pack</div>
+      <div class="pack-sub">Tap to open your reward</div>
+    </div>
+    <div class="pack-open" id="pack-open"></div>
+  </div>
+
   <!-- CTA stack -->
   <div class="cta-stack" id="cta-stack" style="display:none">
     <a class="cta-card gold" href="https://promote.mexc.co/r/UzCEsmBcLP" target="_blank" rel="noopener" id="mexc-cta">
@@ -283,7 +311,7 @@
 
   <!-- Leaderboard -->
   <div class="lb-section" id="lb-section" style="display:none">
-    <div class="lb-title">— Top Streaks —</div>
+    <div class="lb-title">— Weekly League —</div>
     <div id="lb-rows"></div>
   </div>
 
@@ -598,6 +626,8 @@ function showResult(correct, answerIdx, stats){
   document.getElementById("streak-share").textContent = shareText;
 
   card.classList.add("show");
+  // Show reward pack (sealed, tap to open)
+  document.getElementById("reward-pack").style.display = "block";
   document.getElementById("cta-stack").style.display = "flex";
   document.getElementById("cta-stack").style.flexDirection = "column";
   document.getElementById("pro-banner").style.display = "block";
@@ -656,13 +686,33 @@ function startCountdown(){
 // ═══════════════════════════════════════════════════════
 // LEADERBOARD (localStorage mock — top streaks)
 // ═══════════════════════════════════════════════════════
-const MOCK_LB = [
-  {name:"🇩🇪 BitcoinMax",streak:41},
-  {name:"🇫🇷 CryptoJules",streak:38},
-  {name:"🇵🇹 NovaLuiz",streak:29},
-  {name:"🇪🇸 SatoshiMarta",streak:22},
-  {name:"🇮🇹 EthereumGio",streak:17},
-];
+// ═══════════════════════════════════════════════════════
+// WEEKLY LEAGUE LEADERBOARD
+// ═══════════════════════════════════════════════════════
+const LEAGUE_TIERS = ["🥉 Bronze","🥈 Silver","🥇 Gold","💎 Diamond","👑 Legend"];
+// Each week has a different cohort seed — mock players vary by week
+function getWeekNum(){ return Math.floor((Date.now() - new Date("2026-01-05").getTime()) / (7*86400000)); }
+function getLeagueTier(streak){
+  if(streak >= 30) return 4;
+  if(streak >= 14) return 3;
+  if(streak >= 7) return 2;
+  if(streak >= 3) return 1;
+  return 0;
+}
+function getWeeklyMockPlayers(weekNum, userStreak){
+  // Seed varies each week so leaderboard feels live
+  const seed = weekNum % 7;
+  const pools = [
+    [{name:"🇩🇪 BitcoinMax",s:8},{name:"🇫🇷 CryptoMarie",s:6},{name:"🇵🇹 NovaLuiz",s:5},{name:"🇪🇸 SatoshiPedro",s:4},{name:"🇮🇹 EthGio",s:3},{name:"🇳🇱 DeFiDaan",s:3}],
+    [{name:"🇬🇧 ChainCarla",s:11},{name:"🇩🇪 HODLMax",s:9},{name:"🇫🇷 NovaMarta",s:7},{name:"🇸🇪 BTCFrej",s:5},{name:"🇦🇹 StakingKarl",s:4},{name:"🇧🇪 CoinYves",s:2}],
+    [{name:"🇵🇱 SatoshiPiotr",s:14},{name:"🇨🇭 LedgerLena",s:12},{name:"🇩🇰 AltcoinAnja",s:9},{name:"🇳🇴 DCAOlaf",s:7},{name:"🇫🇮 CryptoMatti",s:5},{name:"🇸🇰 BlockJan",s:3}],
+    [{name:"🇮🇪 DegenDermot",s:9},{name:"🇵🇹 NovaBruno",s:8},{name:"🇬🇷 EthDimitri",s:6},{name:"🇭🇷 BTCIvana",s:5},{name:"🇷🇴 ChainRadu",s:4},{name:"🇧🇬 LunaGeo",s:2}],
+    [{name:"🇩🇪 StakingHelga",s:18},{name:"🇫🇷 CryptoJacques",s:15},{name:"🇮🇹 NovaLuca",s:12},{name:"🇪🇸 BTCIrene",s:9},{name:"🇳🇱 DeFiKees",s:7},{name:"🇦🇹 SeedSigrid",s:5}],
+    [{name:"🇬🇧 LedgerTom",s:7},{name:"🇸🇪 HODLBjörn",s:6},{name:"🇩🇰 AltFreja",s:5},{name:"🇵🇱 HashMichal",s:4},{name:"🇨🇭 StakeZuri",s:3},{name:"🇫🇮 MempoolMikko",s:2}],
+    [{name:"🇩🇪 ChainKlaus",s:22},{name:"🇫🇷 NovaSophie",s:18},{name:"🇵🇹 BTCMiguel",s:14},{name:"🇮🇹 EthFederico",s:11},{name:"🇪🇸 DCAConchita",s:8},{name:"🇬🇷 CoinMaria",s:6}],
+  ];
+  return pools[seed].map(p => ({name:p.name, streak: p.s, you:false}));
+}
 
 function renderLeaderboard(stats){
   const sec = document.getElementById("lb-section");
@@ -670,19 +720,139 @@ function renderLeaderboard(stats){
   const rows = document.getElementById("lb-rows");
   rows.innerHTML = "";
 
-  const lb = [...MOCK_LB];
-  if(stats.streak > 0){
-    lb.push({name:"🌟 You",streak:stats.streak,you:true});
+  const weekNum = getWeekNum();
+  const tierIdx = getLeagueTier(stats.streak);
+  const tierName = LEAGUE_TIERS[tierIdx];
+
+  // League badge header
+  const badge = document.createElement("div");
+  badge.style.textAlign = "center";
+  badge.innerHTML = `<div class="lb-league-badge">${tierName} League · Week ${weekNum % 52 + 1}</div>`;
+  rows.appendChild(badge);
+
+  const lb = getWeeklyMockPlayers(weekNum, stats.streak);
+  if(stats.streak > 0 || stats.played > 0){
+    lb.push({name:"⭐ You", streak: stats.streak, you:true});
     lb.sort((a,b)=>b.streak-a.streak);
-    if(!lb.find(x=>x.you)) lb.splice(5,0,{name:"🌟 You",streak:stats.streak,you:true});
   }
 
-  lb.slice(0,6).forEach((entry, i) => {
+  // Top 5 advance label
+  const advLabel = document.createElement("div");
+  advLabel.style.cssText = "font-size:10px;color:rgba(0,245,160,.6);text-align:right;margin-bottom:4px;letter-spacing:.5px;";
+  advLabel.textContent = "↑ Top 5 advance next week";
+  rows.appendChild(advLabel);
+
+  lb.slice(0,7).forEach((entry, i) => {
+    const rankIco = i===0?"🥇":i===1?"🥈":i===2?"🥉":`${i+1}`;
     const row = document.createElement("div");
     row.className = "lb-row" + (entry.you?" lb-you":"");
-    row.innerHTML = `<div class="lb-rank">${i+1}</div><div class="lb-name">${entry.name}</div><div class="lb-streak">🔥 ${entry.streak}</div>`;
+    // Relegation zone marker
+    if(i === 5){
+      const div = document.createElement("hr");
+      div.className = "lb-divider";
+      rows.appendChild(div);
+      const relLabel = document.createElement("div");
+      relLabel.style.cssText = "font-size:10px;color:rgba(255,77,109,.5);text-align:right;margin-bottom:4px;";
+      relLabel.textContent = "↓ Bottom 2 relegated";
+      rows.appendChild(relLabel);
+    }
+    row.innerHTML = `<div class="lb-rank">${rankIco}</div><div class="lb-name">${entry.name}</div><div class="lb-streak">🔥 ${entry.streak}d</div>`;
     rows.appendChild(row);
   });
+
+  const note = document.createElement("div");
+  note.style.cssText = "font-size:10px;color:var(--sub);text-align:center;margin-top:8px;";
+  note.textContent = "Resets every Monday · Build your streak to advance";
+  rows.appendChild(note);
+}
+
+// ═══════════════════════════════════════════════════════
+// VARIABLE REWARD PACK
+// ═══════════════════════════════════════════════════════
+const ALPHA_INSIGHTS = [
+  "Bitcoin's 200-week moving average has never been broken on a weekly close. When price is above it, history says hold. When it's below — historically, that's where the best long-term buys are.",
+  "Exchange reserves are falling while long-term holder supply is rising. On-chain data shows accumulation — not distribution. Smart money is not selling here.",
+  "The MVRV Z-Score measures whether Bitcoin is over or undervalued relative to its 'fair value.' Values above 7 historically signal cycle tops. Values near 0 or negative signal cycle bottoms.",
+  "Ethereum's EIP-4844 (Dencun upgrade) reduced L2 transaction costs by 90%+. This is the upgrade that makes Ethereum competitive with Solana for everyday transactions — most retail still doesn't know this.",
+  "The Fear & Greed Index is contrarian by design. Extreme Fear (below 20) has historically been where long-term returns are made. Extreme Greed (above 80) is where most retail buyers enter — right before corrections.",
+  "Stablecoin market cap is a leading indicator. When USDC/USDT supply expands rapidly, capital is staging to buy. When it contracts, capital is leaving crypto. Track it weekly at defillama.com.",
+  "Bitcoin's hash rate just hit an all-time high. This means miners are more committed than ever — a strong signal that professional miners are bullish on long-term price. Hash rate leads price, not the other way around.",
+  "The Altcoin Season Index measures whether the top 50 altcoins are outperforming Bitcoin. Above 75 = altseason. Below 25 = Bitcoin dominance. Knowing which phase you're in determines your allocation strategy.",
+  "Liquid staking derivatives (LSDs) like Lido and Rocket Pool now hold more than 30% of all staked ETH. This concentration is both a growth signal and a systemic risk — the key governance risk to watch for Ethereum.",
+  "On-chain data shows Bitcoin's 'realized cap' — the value of all BTC at the price they last moved — is near all-time highs. This means most holders are in profit, a historically bullish but volatility-warning indicator.",
+];
+
+function rollRewardPack(correct){
+  const roll = Math.random();
+  if(roll < 0.05){
+    // 5%: membership voucher
+    return {type:"voucher", ico:"🎟️", label:"Pro Membership Voucher", text:"You unlocked a 50% discount on NovaCrypto Pro. Use code CHAIN50 at checkout. Valid 48h."};
+  } else if(roll < 0.30){
+    // 25%: alpha insight
+    const insight = ALPHA_INSIGHTS[G.dayNum % ALPHA_INSIGHTS.length];
+    return {type:"alpha", ico:"🔮", label:"Alpha Insight (Pro Preview)", text: insight};
+  } else {
+    // 70%: XP bonus
+    const xp = correct ? (15 + Math.floor(Math.random()*10)) : (5 + Math.floor(Math.random()*5));
+    return {type:"xp", ico:"⚡", label:"XP Bonus", text:`+${xp} XP added to your score`};
+  }
+}
+
+function openPack(){
+  const sealed = document.getElementById("pack-sealed");
+  const open = document.getElementById("pack-open");
+  if(open.children.length > 0) return; // already opened
+
+  sealed.style.display = "none";
+  const reward = rollRewardPack(G.correct);
+
+  // Always include XP base reward
+  const baseXp = G.correct ? 10 : 3;
+  let html = `
+    <div class="pack-title" style="margin-bottom:12px">🎁 Pack Opened!</div>
+    <div class="pack-reward-row">
+      <div class="pack-reward-ico">⚡</div>
+      <div class="pack-reward-body">
+        <div class="pack-reward-label">Daily XP</div>
+        <div class="pack-reward-text">+${baseXp} XP earned today</div>
+      </div>
+    </div>`;
+
+  if(reward.type !== "xp"){
+    html += `<div class="pack-divider"></div>
+    <div class="pack-reward-row">
+      <div class="pack-reward-ico">${reward.ico}</div>
+      <div class="pack-reward-body">
+        <div class="pack-reward-label">${reward.label}</div>
+        <div class="pack-reward-text ${reward.type}">${reward.text}</div>
+      </div>
+    </div>`;
+  } else {
+    html += `<div class="pack-divider"></div>
+    <div class="pack-reward-row">
+      <div class="pack-reward-ico">${reward.ico}</div>
+      <div class="pack-reward-body">
+        <div class="pack-reward-label">${reward.label}</div>
+        <div class="pack-reward-text">${reward.text}</div>
+      </div>
+    </div>`;
+  }
+
+  // Pro unlock teaser if alpha or voucher
+  if(reward.type === "alpha"){
+    html += `<div style="margin-top:10px;padding:8px 10px;background:rgba(192,132,252,.07);border:1px solid rgba(192,132,252,.2);border-radius:10px;font-size:11px;color:rgba(192,132,252,.8);">Pro members get Alpha Insights daily. <a href="pro_membership.html" style="color:#C084FC;font-weight:700;">See Pro →</a></div>`;
+  }
+  if(reward.type === "voucher"){
+    html += `<div style="margin-top:10px;padding:8px 10px;background:rgba(247,183,49,.07);border:1px solid rgba(247,183,49,.25);border-radius:10px;font-size:11px;color:rgba(247,183,49,.9);">Code: <strong>CHAIN50</strong> · Valid 48 hours · <a href="pro_membership.html" style="color:#F7B731;font-weight:700;">Claim →</a></div>`;
+  }
+
+  open.innerHTML = html;
+  open.style.display = "block";
+
+  // Update XP in localStorage
+  const xpKey = "dc_total_xp";
+  const currentXP = parseInt(localStorage.getItem(xpKey)||"0");
+  localStorage.setItem(xpKey, currentXP + baseXp + (reward.type==="xp"?parseInt(reward.text):0));
 }
 
 // ═══════════════════════════════════════════════════════
