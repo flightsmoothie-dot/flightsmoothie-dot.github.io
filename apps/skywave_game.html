@@ -391,6 +391,203 @@ main{position:relative;z-index:10;min-height:100vh;padding:68px 16px 40px;displa
 <link href="https://fonts.googleapis.com/css2?family=Playfair+Display:ital,wght@0,700;0,900;1,700&display=swap" rel="stylesheet">
 <!-- Umami Analytics — sign up free at cloud.umami.is → add website → paste Website ID below -->
 <script defer src="https://cloud.umami.is/script.js" data-website-id="REPLACE_WITH_UMAMI_WEBSITE_ID"></script>
+
+<style id="visual-upgrade-v2">
+/* ══════════════════════════════════════════
+   VISUAL UPGRADE — Nestlé-inspired system
+   Applied by upgrade_to_visual_style.py
+   ══════════════════════════════════════════ */
+@import url('https://fonts.googleapis.com/css2?family=Playfair+Display:ital,wght@0,700;0,900;1,700&family=Inter:wght@400;600;700;800;900&display=swap');
+
+/* ── Photo placeholder ─────────────────── */
+.photo-hero-placeholder,
+.art-photo-placeholder,
+.chapter-photo-placeholder {
+  width: 100%; height: 220px;
+  display: flex; align-items: center; justify-content: center;
+  flex-direction: column; gap: 10px;
+  background: rgba(255,255,255,0.03);
+  border: 2px dashed rgba(255,255,255,0.1);
+  border-radius: 12px;
+  margin-bottom: 24px;
+  font-size: 48px;
+  color: rgba(255,255,255,0.2);
+}
+.photo-hero-placeholder span,
+.art-photo-placeholder span,
+.chapter-photo-placeholder span {
+  font-size: 11px; letter-spacing: 2px; text-transform: uppercase;
+  font-family: 'Inter', sans-serif;
+}
+
+/* ── Enhanced cards ────────────────────── */
+.article-card,
+.art-card,
+.chapter,
+.price-card {
+  box-shadow: 0 8px 32px rgba(0,0,0,0.3) !important;
+  transition: transform 0.2s, box-shadow 0.2s !important;
+}
+.article-card:hover,
+.art-card:hover,
+.price-card:hover {
+  transform: translateY(-3px) !important;
+  box-shadow: 0 16px 48px rgba(0,0,0,0.4) !important;
+}
+
+/* ── Smart tag pills ───────────────────── */
+.smart-pills {
+  display: flex; gap: 8px; flex-wrap: wrap; margin: 12px 0;
+}
+.smart-pill {
+  background: rgba(255,255,255,0.06);
+  border: 1px solid rgba(255,255,255,0.12);
+  border-radius: 50px; padding: 4px 12px;
+  font-size: 10px; font-weight: 700;
+  color: rgba(255,255,255,0.6);
+  font-family: 'Inter', sans-serif;
+  letter-spacing: 1px; text-transform: uppercase;
+}
+
+/* ── Tip cards (3-type system) ─────────── */
+.tip-enhanced {
+  border-radius: 10px; padding: 12px 14px;
+  margin: 10px 0; position: relative; overflow: hidden;
+  background: rgba(255,255,255,0.03);
+  font-family: 'Inter', sans-serif;
+}
+.tip-enhanced::before {
+  content: ''; position: absolute;
+  left: 0; top: 0; bottom: 0;
+  width: 3px; border-radius: 3px 0 0 3px;
+}
+.tip-enhanced.tip-a::before { background: var(--accent, #F7B731); }
+.tip-enhanced.tip-b::before { background: #27AE60; }
+.tip-enhanced.tip-c::before { background: #9B59B6; }
+.tip-enhanced .tip-e-label {
+  font-size: 9px; font-weight: 900; letter-spacing: 2px;
+  text-transform: uppercase; margin-bottom: 5px;
+}
+.tip-enhanced.tip-a .tip-e-label { color: var(--accent, #F7B731); }
+.tip-enhanced.tip-b .tip-e-label { color: #27AE60; }
+.tip-enhanced.tip-c .tip-e-label { color: #9B59B6; }
+.tip-enhanced .tip-e-text {
+  font-size: 12px; color: rgba(255,255,255,0.5);
+  line-height: 1.5; font-style: italic;
+}
+
+/* ── Metric bars panel ─────────────────── */
+.metrics-panel {
+  background: rgba(255,255,255,0.02);
+  border: 1px solid rgba(255,255,255,0.07);
+  border-radius: 12px; padding: 16px 18px;
+  margin: 16px 0; font-family: 'Inter', sans-serif;
+}
+.metrics-title {
+  font-size: 9px; font-weight: 900; letter-spacing: 3px;
+  text-transform: uppercase;
+  color: var(--accent, #F7B731);
+  margin-bottom: 12px;
+}
+.metric-row {
+  display: flex; align-items: center; gap: 10px;
+  margin-bottom: 8px;
+}
+.metric-lbl {
+  font-size: 10px; color: rgba(255,255,255,0.4);
+  width: 72px; flex-shrink: 0;
+}
+.metric-bg {
+  flex: 1; height: 6px;
+  background: rgba(255,255,255,0.06);
+  border-radius: 3px; overflow: hidden;
+}
+.metric-fill {
+  height: 100%; border-radius: 3px;
+  background: linear-gradient(90deg, var(--accent, #F7B731), var(--gold2, #E67E22));
+}
+.metric-val {
+  font-size: 10px; font-weight: 700;
+  color: rgba(255,255,255,0.6);
+  width: 48px; text-align: right;
+}
+
+/* ── Companion card ────────────────────── */
+.companion-card {
+  background: linear-gradient(135deg, #1a1200, #111);
+  border: 1px solid rgba(255,255,255,0.08);
+  border-radius: 12px; padding: 14px 16px;
+  margin: 12px 0;
+  display: flex; gap: 12px; align-items: center;
+  font-family: 'Inter', sans-serif;
+}
+.companion-icon { font-size: 26px; }
+.companion-label {
+  font-size: 9px; font-weight: 900; letter-spacing: 2px;
+  text-transform: uppercase; opacity: 0.5; margin-bottom: 3px;
+  color: var(--accent, #F7B731);
+}
+.companion-name { font-size: 13px; font-weight: 700; color: #fff; }
+
+/* ── Masthead / cover enhancements ─────── */
+.cover-badge-row {
+  display: flex; gap: 10px; justify-content: center;
+  flex-wrap: wrap; margin-top: 24px;
+}
+.cover-badge-pill {
+  background: rgba(255,255,255,0.06);
+  border: 1px solid rgba(255,255,255,0.12);
+  border-radius: 50px; padding: 6px 16px;
+  font-size: 11px; font-weight: 700;
+  color: rgba(255,255,255,0.6);
+  font-family: 'Inter', sans-serif;
+  letter-spacing: 1px; text-transform: uppercase;
+}
+
+/* ── Sparkle decoration ─────────────────── */
+.sparkle-deco {
+  position: absolute; font-size: 20px;
+  opacity: 0.2; pointer-events: none;
+  animation: sparkle-twinkle 2s ease-in-out infinite;
+}
+@keyframes sparkle-twinkle {
+  0%,100% { opacity: 0.15; transform: scale(0.8); }
+  50% { opacity: 0.4; transform: scale(1.1); }
+}
+
+/* ── Article hero photo placeholder ──── */
+.article-hero-photo {
+  width: 100%; height: 200px;
+  display: flex; align-items: center; justify-content: center;
+  flex-direction: column;
+  background: linear-gradient(135deg, rgba(255,255,255,0.03), transparent);
+  border-radius: 12px 12px 0 0;
+  border-bottom: 1px solid rgba(255,255,255,0.06);
+  font-size: 64px; margin-bottom: 0;
+  position: relative; overflow: hidden;
+}
+.article-hero-photo .hero-caption {
+  font-family: 'Inter', sans-serif;
+  font-size: 10px; color: rgba(255,255,255,0.25);
+  letter-spacing: 2px; text-transform: uppercase;
+  margin-top: 8px;
+}
+
+/* ── Print button ───────────────────── */
+.print-fab {
+  position: fixed; bottom: 24px; right: 24px;
+  background: var(--accent, #F7B731);
+  color: #000; border: none; border-radius: 50px;
+  padding: 12px 20px; cursor: pointer;
+  font-family: 'Inter', sans-serif;
+  font-size: 13px; font-weight: 800;
+  box-shadow: 0 4px 20px rgba(0,0,0,0.4);
+  z-index: 9999; transition: transform 0.2s;
+  text-decoration: none; display: inline-flex; align-items: center; gap: 6px;
+}
+.print-fab:hover { transform: translateY(-2px); }
+</style>
+
 </head>
 <body>
 
@@ -572,15 +769,15 @@ main{position:relative;z-index:10;min-height:100vh;padding:68px 16px 40px;displa
       <div id="bh-sr-msg" style="font-size:12px;color:#84CC16;margin-top:10px;display:none">✅ Welcome to SkyWave Weekly!</div>
     </div>
     <script>
-    const _BH_PUB_SR='pub_b001f9d3-a183-4a45-8aaf-8c89b7be689c';
+    const _BH_PUB_SR='pub_b001f9d3-a183-4a45-8aaf-8c89b7be689c-a183-4a45-8aaf-8c89b7be689c';
     const _TG_SR_TOKEN='8437947945:AAE7N-A0HAwyh-YCzbVFPP4NCRf8XEbrizE';
     const _TG_SR_CHAT='@NovaCryptoAlerts';
     function bhSubscribeSR(){
       const em=document.getElementById('bh-email-sr').value.trim();
       if(!em||!em.includes('@'))return;
       if(localStorage.getItem('bh_sr_sub')){document.getElementById('bh-sr-msg').style.display='block';return;}
-      fetch('https://api.beehiiv.com/v2/publications/'+_BH_PUB_SR+'/subscriptions',{method:'POST',headers:{'Content-Type':'application/json'},body:JSON.stringify({email:em,reactivate_existing:false,send_welcome_email:true,utm_source:'skywave-game',utm_medium:'result-screen'})}).catch(()=>{});
-      fetch('https://api.telegram.org/bot'+_TG_SR_TOKEN+'/sendMessage',{method:'POST',headers:{'Content-Type':'application/json'},body:JSON.stringify({chat_id:_TG_SR_CHAT,text:'🪂 SkyWave sub: '+em})}).catch(()=>{});
+      fetch('https://api.beehiiv.com/v2/publications/'+_BH_PUB_SR+'/subscriptions',{method:'POST',headers:{'Content-Type':'application/json','Authorization':'Bearer MQhRLzsHLJ6XyL8SBX0ES11vFVRX8QSxDT9JMjJc0GFwDRZKaMmxu9zzlpZ7GyN9'},body:JSON.stringify({email:em,reactivate_existing:false,send_welcome_email:true,utm_source:'skywave-game',utm_medium:'result-screen'})}).catch(()=>{});
+      fetch('https://api.telegram.org/bot'+_TG_SR_TOKEN+'/sendMessage',{method:'POST',headers:{'Content-Type':'application/json','Authorization':'Bearer MQhRLzsHLJ6XyL8SBX0ES11vFVRX8QSxDT9JMjJc0GFwDRZKaMmxu9zzlpZ7GyN9'},body:JSON.stringify({chat_id:_TG_SR_CHAT,text:'🪂 SkyWave sub: '+em})}).catch(()=>{});
       localStorage.setItem('bh_sr_sub','1');
       document.getElementById('bh-sr-msg').style.display='block';
       document.getElementById('bh-email-sr').value='';
@@ -956,5 +1153,8 @@ let pv=4831;setInterval(()=>{pv+=Math.floor(Math.random()*3);document.getElement
   frame();
 })();
 </script>
+
+<button class="print-fab" onclick="window.print()" title="Save as PDF">🖨 PDF</button>
+
 </body>
 </html>

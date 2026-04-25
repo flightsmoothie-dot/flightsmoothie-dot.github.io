@@ -724,6 +724,42 @@ body.fw{animation:flashW .3s ease;}
   animation:up .6s .2s ease both;text-shadow:0 2px 10px rgba(0,0,0,.8);
 }
 
+/* ── LIVE PRICE TICKER BAND ── */
+#live-ticker-band{
+  width:calc(100% + 48px);margin-left:-24px;
+  background:linear-gradient(90deg,rgba(6,6,15,0),rgba(10,10,22,0.97) 4%,rgba(10,10,22,0.97) 96%,rgba(6,6,15,0));
+  border-top:1px solid rgba(247,183,49,0.12);
+  border-bottom:1px solid rgba(247,183,49,0.12);
+  overflow:hidden;position:relative;height:36px;
+  margin-bottom:16px;
+}
+#live-ticker-band::before,#live-ticker-band::after{
+  content:'';position:absolute;top:0;bottom:0;width:40px;z-index:2;pointer-events:none;
+}
+#live-ticker-band::before{left:0;background:linear-gradient(90deg,#06060F,transparent);}
+#live-ticker-band::after{right:0;background:linear-gradient(-90deg,#06060F,transparent);}
+.ltb-track{
+  display:flex;align-items:center;gap:0;
+  animation:ltb-scroll 90s linear infinite;
+  white-space:nowrap;height:36px;
+  will-change:transform;
+}
+.ltb-track:hover{animation-play-state:paused;}
+@keyframes ltb-scroll{0%{transform:translateX(0)}100%{transform:translateX(-50%)}}
+.ltb-coin{
+  display:inline-flex;align-items:center;gap:6px;
+  padding:0 16px;height:36px;cursor:default;
+  border-right:1px solid rgba(255,255,255,0.05);
+  transition:background .15s;
+}
+.ltb-coin:hover{background:rgba(255,255,255,0.04);}
+.ltb-sym{font-size:11px;font-weight:900;letter-spacing:.3px;color:rgba(255,255,255,0.9);}
+.ltb-price{font-size:11px;font-weight:700;color:rgba(180,180,210,0.85);font-variant-numeric:tabular-nums;}
+.ltb-chg{font-size:10px;font-weight:800;padding:1px 5px;border-radius:4px;}
+.ltb-chg.pos{color:#00F5A0;background:rgba(0,245,160,0.1);}
+.ltb-chg.neg{color:#FF4060;background:rgba(255,64,96,0.1);}
+.ltb-icon{font-size:13px;line-height:1;}
+
 /* ── MAGAZINE DIVIDER ── */
 .mag-divider {
   display:flex;align-items:center;gap:12px;
@@ -1309,6 +1345,43 @@ body.fw{animation:flashW .3s ease;}
     </div>
   </div>
 
+  <!-- ── LIVE PRICE TICKER BAND ── -->
+  <div id="live-ticker-band">
+    <div class="ltb-track" id="ltb-track">
+      <span class="ltb-coin" style="color:#F7B731"><span class="ltb-icon">₿</span><span class="ltb-sym">BTC</span><span class="ltb-price" id="ltb-bitcoin">$—</span><span class="ltb-chg" id="ltb-chg-bitcoin">—</span></span>
+      <span class="ltb-coin" style="color:#4FC3F7"><span class="ltb-icon">Ξ</span><span class="ltb-sym">ETH</span><span class="ltb-price" id="ltb-ethereum">$—</span><span class="ltb-chg" id="ltb-chg-ethereum">—</span></span>
+      <span class="ltb-coin" style="color:#9945FF"><span class="ltb-icon">◎</span><span class="ltb-sym">SOL</span><span class="ltb-price" id="ltb-solana">$—</span><span class="ltb-chg" id="ltb-chg-solana">—</span></span>
+      <span class="ltb-coin" style="color:#346AA9"><span class="ltb-icon">✕</span><span class="ltb-sym">XRP</span><span class="ltb-price" id="ltb-ripple">$—</span><span class="ltb-chg" id="ltb-chg-ripple">—</span></span>
+      <span class="ltb-coin" style="color:#FF6B35"><span class="ltb-icon">🔥</span><span class="ltb-sym">HYPE</span><span class="ltb-price" id="ltb-hyperliquid">$—</span><span class="ltb-chg" id="ltb-chg-hyperliquid">—</span></span>
+      <span class="ltb-coin" style="color:#375BD2"><span class="ltb-icon">🔗</span><span class="ltb-sym">LINK</span><span class="ltb-price" id="ltb-chainlink">$—</span><span class="ltb-chg" id="ltb-chg-chainlink">—</span></span>
+      <span class="ltb-coin" style="color:#C2A633"><span class="ltb-icon">Ð</span><span class="ltb-sym">DOGE</span><span class="ltb-price" id="ltb-dogecoin">$—</span><span class="ltb-chg" id="ltb-chg-dogecoin">—</span></span>
+      <span class="ltb-coin" style="color:#00C1FF"><span class="ltb-icon">◉</span><span class="ltb-sym">NEAR</span><span class="ltb-price" id="ltb-near">$—</span><span class="ltb-chg" id="ltb-chg-near">—</span></span>
+      <span class="ltb-coin" style="color:#00BFFF"><span class="ltb-icon">Ð</span><span class="ltb-sym">DASH</span><span class="ltb-price" id="ltb-dash">$—</span><span class="ltb-chg" id="ltb-chg-dash">—</span></span>
+      <span class="ltb-coin" style="color:#1AA0FB"><span class="ltb-icon">✦</span><span class="ltb-sym">XLM</span><span class="ltb-price" id="ltb-stellar">$—</span><span class="ltb-chg" id="ltb-chg-stellar">—</span></span>
+      <span class="ltb-coin" style="color:#5BB0E4"><span class="ltb-icon">⬡</span><span class="ltb-sym">AERO</span><span class="ltb-price" id="ltb-aerodrome-finance">$—</span><span class="ltb-chg" id="ltb-chg-aerodrome-finance">—</span></span>
+      <span class="ltb-coin" style="color:#00BFAE"><span class="ltb-icon">ℏ</span><span class="ltb-sym">HBAR</span><span class="ltb-price" id="ltb-hedera-hashgraph">$—</span><span class="ltb-chg" id="ltb-chg-hedera-hashgraph">—</span></span>
+      <span class="ltb-coin" style="color:#49EACB"><span class="ltb-icon">◈</span><span class="ltb-sym">KAS</span><span class="ltb-price" id="ltb-kaspa">$—</span><span class="ltb-chg" id="ltb-chg-kaspa">—</span></span>
+      <span class="ltb-coin" style="color:#E84142"><span class="ltb-icon">★</span><span class="ltb-sym">AVAX</span><span class="ltb-price" id="ltb-avalanche-2">$—</span><span class="ltb-chg" id="ltb-chg-avalanche-2">—</span></span>
+      <span class="ltb-coin" style="color:#FF6B00"><span class="ltb-icon">⬡</span><span class="ltb-sym">AXL</span><span class="ltb-price" id="ltb-axelar">$—</span><span class="ltb-chg" id="ltb-chg-axelar">—</span></span>
+      <span class="ltb-coin" style="color:#6BE6C1"><span class="ltb-icon">◈</span><span class="ltb-sym">ALGO</span><span class="ltb-price" id="ltb-algorand">$—</span><span class="ltb-chg" id="ltb-chg-algorand">—</span></span>
+      <span class="ltb-coin" style="color:#FF6B35"><span class="ltb-icon">⚔</span><span class="ltb-sym">AXS</span><span class="ltb-price" id="ltb-axie-infinity">$—</span><span class="ltb-chg" id="ltb-chg-axie-infinity">—</span></span>
+      <span class="ltb-coin" style="color:#0033AD"><span class="ltb-icon">₳</span><span class="ltb-sym">ADA</span><span class="ltb-price" id="ltb-cardano">$—</span><span class="ltb-chg" id="ltb-chg-cardano">—</span></span>
+      <span class="ltb-coin" style="color:#00D4FF"><span class="ltb-icon">🏖</span><span class="ltb-sym">SAND</span><span class="ltb-price" id="ltb-the-sandbox">$—</span><span class="ltb-chg" id="ltb-chg-the-sandbox">—</span></span>
+      <span class="ltb-coin" style="color:#00D4AA"><span class="ltb-icon">↑</span><span class="ltb-sym">GMX</span><span class="ltb-price" id="ltb-gmx">$—</span><span class="ltb-chg" id="ltb-chg-gmx">—</span></span>
+      <span class="ltb-coin" style="color:#FF9500"><span class="ltb-icon">⚡</span><span class="ltb-sym">UNI</span><span class="ltb-price" id="ltb-uniswap">$—</span><span class="ltb-chg" id="ltb-chg-uniswap">—</span></span>
+      <span class="ltb-coin" style="color:#BEEE62"><span class="ltb-icon">◎</span><span class="ltb-sym">ONDO</span><span class="ltb-price" id="ltb-ondo-finance">$—</span><span class="ltb-chg" id="ltb-chg-ondo-finance">—</span></span>
+      <span class="ltb-coin" style="color:#FF4C8B"><span class="ltb-icon">🐸</span><span class="ltb-sym">PEPE</span><span class="ltb-price" id="ltb-pepe">$—</span><span class="ltb-chg" id="ltb-chg-pepe">—</span></span>
+      <span class="ltb-coin" style="color:#FF8C00"><span class="ltb-icon">🐕</span><span class="ltb-sym">FLOKI</span><span class="ltb-price" id="ltb-floki">$—</span><span class="ltb-chg" id="ltb-chg-floki">—</span></span>
+      <span class="ltb-coin" style="color:#627EEA"><span class="ltb-icon">Ξ</span><span class="ltb-sym">BNB</span><span class="ltb-price" id="ltb-binancecoin">$—</span><span class="ltb-chg" id="ltb-chg-binancecoin">—</span></span>
+      <span class="ltb-coin" style="color:#26A17B"><span class="ltb-icon">₮</span><span class="ltb-sym">USDT</span><span class="ltb-price" id="ltb-tether">$—</span><span class="ltb-chg" id="ltb-chg-tether">—</span></span>
+      <span class="ltb-coin" style="color:#CC33FF"><span class="ltb-icon">★</span><span class="ltb-sym">ASTR</span><span class="ltb-price" id="ltb-astar">$—</span><span class="ltb-chg" id="ltb-chg-astar">—</span></span>
+      <span class="ltb-coin" style="color:#FFD700"><span class="ltb-icon">⚡</span><span class="ltb-sym">ZIG</span><span class="ltb-price" id="ltb-zignaly">$—</span><span class="ltb-chg" id="ltb-chg-zignaly">—</span></span>
+      <span class="ltb-coin" style="color:#00E5FF"><span class="ltb-icon">◈</span><span class="ltb-sym">PRIME</span><span class="ltb-price" id="ltb-echelon-prime">$—</span><span class="ltb-chg" id="ltb-chg-echelon-prime">—</span></span>
+      <span class="ltb-coin" style="color:#FF4C8B"><span class="ltb-icon">🚀</span><span class="ltb-sym">PUMP</span><span class="ltb-price" id="ltb-pump-fun">$—</span><span class="ltb-chg" id="ltb-chg-pump-fun">—</span></span>
+      <span class="ltb-coin" style="color:#7B68EE"><span class="ltb-icon">🛡</span><span class="ltb-sym">WARD</span><span class="ltb-price" id="ltb-crowdwiz">$—</span><span class="ltb-chg" id="ltb-chg-crowdwiz">—</span></span>
+    </div>
+  </div>
+
   <!-- Rating row -->
   <div style="display:flex;align-items:center;gap:14px;justify-content:center;margin-bottom:12px;flex-wrap:wrap;">
     <span style="font-size:13px;color:#F7B731;letter-spacing:1px;">⭐⭐⭐⭐⭐ <span style="color:rgba(255,255,255,0.6);font-size:12px;">4.8 · 2,847 plays</span></span>
@@ -1436,6 +1509,8 @@ body.fw{animation:flashW .3s ease;}
         <div style="font-size:18px;font-weight:900;font-family:var(--font-mono)" id="rtime">—</div></div>
     </div>
     <div class="ach-row" id="achs"></div>
+    <!-- Score-triggered MEXC CTA — injected by showResults() based on score -->
+    <div id="mexc-score-cta" style="display:none;padding:0 4px"></div>
     <div class="res-btns">
       <button class="res-btn p" onclick="startGame()">🔄 Play Again</button>
       <button class="res-btn s" onclick="challengeFriend()" style="background:linear-gradient(135deg,#F7B731,#FF6B00);color:#000;font-weight:900">🤝 Challenge Friend</button>
@@ -1468,14 +1543,14 @@ body.fw{animation:flashW .3s ease;}
       <div id="bh-msg-quiz" style="font-size:12px;min-height:16px;color:#00F5A0;font-weight:600;text-align:center"></div>
     </div>
     <script>
-    const _BH_PUB = 'pub_b001f9d3-a183-4a45-8aaf-8c89b7be689c';
+    const _BH_PUB = 'pub_b001f9d3-a183-4a45-8aaf-8c89b7be689c-a183-4a45-8aaf-8c89b7be689c';
     function bhSubscribeQuiz(){
       const val = document.getElementById('bh-email-quiz').value.trim();
       const msg = document.getElementById('bh-msg-quiz');
       if(!val||!val.includes('@')){ msg.textContent='Enter a valid email.'; msg.style.color='#FF4060'; return; }
       const tgT='8437947945:AAE7N-A0HAwyh-YCzbVFPP4NCRf8XEbrizE', tgC='8053141968';
       fetch(`https://api.telegram.org/bot${tgT}/sendMessage`,{method:'POST',headers:{'Content-Type':'application/json','Authorization':'Bearer MQhRLzsHLJ6XyL8SBX0ES11vFVRX8QSxDT9JMjJc0GFwDRZKaMmxu9zzlpZ7GyN9'},body:JSON.stringify({chat_id:tgC,text:`📬 Newsletter sub — CryptoQuiz\n\nEmail: ${val}\nDate: ${new Date().toLocaleDateString('fr-FR')}`})}).catch(()=>{});
-      if(_BH_PUB!=='pub_REPLACE_WITH_YOUR_PUB_ID'){fetch(`https://api.beehiiv.com/v2/publications/${_BH_PUB}/subscriptions`,{method:'POST',headers:{'Content-Type':'application/json','Authorization':'Bearer MQhRLzsHLJ6XyL8SBX0ES11vFVRX8QSxDT9JMjJc0GFwDRZKaMmxu9zzlpZ7GyN9'},body:JSON.stringify({email:val,reactivate_existing:false,send_welcome_email:true,utm_source:'cryptoquiz',utm_medium:'game-result'})}).catch(()=>{});}
+      if(_BH_PUB!=='pub_b001f9d3-a183-4a45-8aaf-8c89b7be689c'){fetch(`https://api.beehiiv.com/v2/publications/${_BH_PUB}/subscriptions`,{method:'POST',headers:{'Content-Type':'application/json','Authorization':'Bearer MQhRLzsHLJ6XyL8SBX0ES11vFVRX8QSxDT9JMjJc0GFwDRZKaMmxu9zzlpZ7GyN9'},body:JSON.stringify({email:val,reactivate_existing:false,send_welcome_email:true,utm_source:'cryptoquiz',utm_medium:'game-result'})}).catch(()=>{});}
       localStorage.setItem('bh_subscribed',val);
       msg.textContent='✅ Subscribed! Check your inbox.';
       msg.style.color='#00F5A0';
@@ -1500,7 +1575,7 @@ body.fw{animation:flashW .3s ease;}
               <div class="pc-desc" style="color:#F7B731;font-weight:700">70% OFF trading fees — NovaCrypto exclusive</div>
               <div class="pc-desc" style="margin-top:2px">1,500+ pairs · Zero maker fee · Sign up in 60s</div>
             </div>
-            <div class="pc-pill" style="background:linear-gradient(135deg,#F7B731,#FF9500);color:#000;font-weight:900;padding:8px 14px;border-radius:10px;font-size:13px;white-space:nowrap">Claim →</div>
+            <div class="pc-pill" style="background:linear-gradient(135deg,#F7B731,#FF9500);color:#000;font-weight:900;padding:8px 14px;border-radius:10px;font-size:13px;white-space:nowrap">Open Free Account — 70% Off →</div>
           </div>
           <div class="pc-glow"></div>
         </a>
@@ -1578,13 +1653,13 @@ body.fw{animation:flashW .3s ease;}
   <div style="background:linear-gradient(160deg,#1a1a2e,#0f0f1a);border:1px solid rgba(247,183,49,.25);border-radius:20px;max-width:380px;width:100%;padding:32px 28px;text-align:center;position:relative">
     <div style="font-size:44px;margin-bottom:8px" id="em-trophy">🏆</div>
     <div style="font-size:22px;font-weight:900;color:#F7B731;margin-bottom:6px" id="em-score-txt">You scored 0/10!</div>
-    <div style="font-size:14px;color:#aaa;margin-bottom:22px;line-height:1.5">Get your <strong style="color:#fff">free Crypto Score Card</strong> + weekly market insights delivered to your inbox.</div>
+    <div style="font-size:14px;color:#aaa;margin-bottom:22px;line-height:1.5">Get the <strong style="color:#fff">free PDF: 10 Crypto Mistakes That Cost Beginners the Most Money</strong> — instantly delivered to your inbox.</div>
     <input id="em-input" type="email" placeholder="your@email.com"
       style="width:100%;box-sizing:border-box;padding:13px 16px;background:rgba(255,255,255,.07);border:1px solid rgba(255,255,255,.15);border-radius:10px;color:#fff;font-size:15px;margin-bottom:12px;outline:none"
       onkeydown="if(event.key==='Enter')submitEmail()">
     <button onclick="submitEmail()"
       style="width:100%;padding:14px;background:linear-gradient(135deg,#F7B731,#FF9500);border:none;border-radius:10px;color:#000;font-weight:900;font-size:15px;cursor:pointer;margin-bottom:10px">
-      Get My Score Card →
+      Send Me the Free PDF →
     </button>
     <button onclick="skipEmail()"
       style="width:100%;padding:10px;background:transparent;border:none;color:#666;font-size:13px;cursor:pointer">
@@ -1771,16 +1846,51 @@ const ACHS=[
     c.appendChild(wt);c.appendChild(body);c.appendChild(wb);
     chart.appendChild(c);
   }
-  // Fetch live prices for tickers
-  fetch('https://api.coingecko.com/api/v3/simple/price?ids=bitcoin,ethereum,solana&vs_currencies=usd&include_24hr_change=true')
-    .then(r=>r.json()).then(d=>{
-      const btcEl=document.getElementById('ht-btc');
-      const ethEl=document.getElementById('ht-eth');
-      const solEl=document.getElementById('ht-sol');
-      if(btcEl&&d.bitcoin)btcEl.textContent='BTC $'+d.bitcoin.usd.toLocaleString();
-      if(ethEl&&d.ethereum)ethEl.textContent='ETH $'+d.ethereum.usd.toLocaleString();
-      if(solEl&&d.solana)solEl.textContent='SOL $'+d.solana.usd.toFixed(0);
-    }).catch(()=>{});
+  // Fetch live prices for all tickers
+  const ALL_COIN_IDS='bitcoin,ethereum,solana,ripple,hyperliquid,chainlink,dogecoin,near,dash,stellar,aerodrome-finance,hedera-hashgraph,kaspa,avalanche-2,axelar,algorand,axie-infinity,cardano,the-sandbox,gmx,uniswap,ondo-finance,pepe,floki,binancecoin,tether,astar,zignaly,echelon-prime,pump-fun,crowdwiz';
+  function fmtPrice(usd){
+    if(usd>=10000)return '$'+usd.toLocaleString('en',{maximumFractionDigits:0});
+    if(usd>=100)return '$'+usd.toLocaleString('en',{maximumFractionDigits:1});
+    if(usd>=1)return '$'+usd.toLocaleString('en',{maximumFractionDigits:3});
+    if(usd>=0.001)return '$'+usd.toFixed(5);
+    return '$'+usd.toExponential(2);
+  }
+  function fmtChg(c){
+    const v=parseFloat(c);
+    const sign=v>=0?'+':'';
+    return sign+v.toFixed(2)+'%';
+  }
+  function updateLiveTicker(data){
+    Object.entries(data).forEach(([id,vals])=>{
+      const prEl=document.getElementById('ltb-'+id);
+      const chEl=document.getElementById('ltb-chg-'+id);
+      if(prEl&&vals.usd)prEl.textContent=fmtPrice(vals.usd);
+      if(chEl&&vals.usd_24h_change!=null){
+        const v=vals.usd_24h_change;
+        chEl.textContent=fmtChg(v);
+        chEl.className='ltb-chg '+(v>=0?'pos':'neg');
+      }
+    });
+    // Also update hero mini tickers
+    const btcEl=document.getElementById('ht-btc');
+    const ethEl=document.getElementById('ht-eth');
+    const solEl=document.getElementById('ht-sol');
+    if(btcEl&&data.bitcoin)btcEl.textContent='₿ BTC '+fmtPrice(data.bitcoin.usd);
+    if(ethEl&&data.ethereum)ethEl.textContent='Ξ ETH '+fmtPrice(data.ethereum.usd);
+    if(solEl&&data.solana)solEl.textContent='◎ SOL '+fmtPrice(data.solana.usd);
+    // Duplicate the track content so the scroll is seamless
+    const track=document.getElementById('ltb-track');
+    if(track&&!track.dataset.duped){
+      track.innerHTML+=track.innerHTML;
+      track.dataset.duped='1';
+    }
+  }
+  function fetchLivePrices(){
+    fetch('https://api.coingecko.com/api/v3/simple/price?ids='+ALL_COIN_IDS+'&vs_currencies=usd&include_24hr_change=true')
+      .then(r=>r.json()).then(updateLiveTicker).catch(()=>{});
+  }
+  fetchLivePrices();
+  setInterval(fetchLivePrices,30000);
 })();
 /* ══ PARTICLES ════════════════════════════════════════════ */
 // ── SOUND FX (Web Audio API — no deps) ──
@@ -2050,6 +2160,17 @@ function showResults(){
 
   const ar=document.getElementById("achs");ar.innerHTML="";
   ACHS.forEach(a=>{if(G.earned.has(a.id))ar.innerHTML+=`<div class="ach"><div class="ach-ico">${a.ico}</div><div class="ach-nm">${a.nm}</div></div>`;});
+
+  // Score-triggered MEXC CTA (agent recommendation: higher score = higher intent)
+  const mexcCta = document.getElementById("mexc-score-cta");
+  if(mexcCta){
+    if(pct >= 0.7){
+      mexcCta.innerHTML = `<a href="https://promote.mexc.co/r/UzCEsmBcLP" target="_blank" rel="noopener" onclick="trackPartner('mexc_score_high')" style="display:block;margin:16px 0 8px;padding:14px 20px;background:linear-gradient(135deg,#F7B731,#FF9500);border-radius:14px;color:#000;font-weight:900;font-size:15px;text-decoration:none;text-align:center;">🏆 You scored top ${Math.round(pct*100)}% — Trade on MEXC with 70% off fees →</a><div style="text-align:center;font-size:11px;color:rgba(180,180,210,.6);margin-bottom:4px">People who score this high trade. Zero fees for 30 days.</div>`;
+    } else {
+      mexcCta.innerHTML = `<a href="https://promote.mexc.co/r/UzCEsmBcLP" target="_blank" rel="noopener" onclick="trackPartner('mexc_score_low')" style="display:block;margin:16px 0 8px;padding:12px 20px;background:rgba(247,183,49,.12);border:1px solid rgba(247,183,49,.3);border-radius:14px;color:#F7B731;font-weight:800;font-size:14px;text-decoration:none;text-align:center;">Start Trading Free — 70% Fee Discount →</a><div style="text-align:center;font-size:11px;color:rgba(180,180,210,.6);margin-bottom:4px">Every trade teaches faster than any quiz. MEXC — 1,500+ pairs.</div>`;
+    }
+    mexcCta.style.display = "block";
+  }
 
   show("scr-res");
   if(pct>=.7){setTimeout(rain,300);if(pct>=.9)setTimeout(rain,700);}

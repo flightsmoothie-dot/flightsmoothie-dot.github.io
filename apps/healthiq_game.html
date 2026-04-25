@@ -376,6 +376,203 @@ body.fw{animation:fw .3s ease;}
 <link href="https://fonts.googleapis.com/css2?family=Playfair+Display:ital,wght@0,700;0,900;1,700&display=swap" rel="stylesheet">
 <!-- Umami Analytics — sign up free at cloud.umami.is → add website → paste Website ID below -->
 <script defer src="https://cloud.umami.is/script.js" data-website-id="REPLACE_WITH_UMAMI_WEBSITE_ID"></script>
+
+<style id="visual-upgrade-v2">
+/* ══════════════════════════════════════════
+   VISUAL UPGRADE — Nestlé-inspired system
+   Applied by upgrade_to_visual_style.py
+   ══════════════════════════════════════════ */
+@import url('https://fonts.googleapis.com/css2?family=Playfair+Display:ital,wght@0,700;0,900;1,700&family=Inter:wght@400;600;700;800;900&display=swap');
+
+/* ── Photo placeholder ─────────────────── */
+.photo-hero-placeholder,
+.art-photo-placeholder,
+.chapter-photo-placeholder {
+  width: 100%; height: 220px;
+  display: flex; align-items: center; justify-content: center;
+  flex-direction: column; gap: 10px;
+  background: rgba(255,255,255,0.03);
+  border: 2px dashed rgba(255,255,255,0.1);
+  border-radius: 12px;
+  margin-bottom: 24px;
+  font-size: 48px;
+  color: rgba(255,255,255,0.2);
+}
+.photo-hero-placeholder span,
+.art-photo-placeholder span,
+.chapter-photo-placeholder span {
+  font-size: 11px; letter-spacing: 2px; text-transform: uppercase;
+  font-family: 'Inter', sans-serif;
+}
+
+/* ── Enhanced cards ────────────────────── */
+.article-card,
+.art-card,
+.chapter,
+.price-card {
+  box-shadow: 0 8px 32px rgba(0,0,0,0.3) !important;
+  transition: transform 0.2s, box-shadow 0.2s !important;
+}
+.article-card:hover,
+.art-card:hover,
+.price-card:hover {
+  transform: translateY(-3px) !important;
+  box-shadow: 0 16px 48px rgba(0,0,0,0.4) !important;
+}
+
+/* ── Smart tag pills ───────────────────── */
+.smart-pills {
+  display: flex; gap: 8px; flex-wrap: wrap; margin: 12px 0;
+}
+.smart-pill {
+  background: rgba(255,255,255,0.06);
+  border: 1px solid rgba(255,255,255,0.12);
+  border-radius: 50px; padding: 4px 12px;
+  font-size: 10px; font-weight: 700;
+  color: rgba(255,255,255,0.6);
+  font-family: 'Inter', sans-serif;
+  letter-spacing: 1px; text-transform: uppercase;
+}
+
+/* ── Tip cards (3-type system) ─────────── */
+.tip-enhanced {
+  border-radius: 10px; padding: 12px 14px;
+  margin: 10px 0; position: relative; overflow: hidden;
+  background: rgba(255,255,255,0.03);
+  font-family: 'Inter', sans-serif;
+}
+.tip-enhanced::before {
+  content: ''; position: absolute;
+  left: 0; top: 0; bottom: 0;
+  width: 3px; border-radius: 3px 0 0 3px;
+}
+.tip-enhanced.tip-a::before { background: var(--accent, #F7B731); }
+.tip-enhanced.tip-b::before { background: #27AE60; }
+.tip-enhanced.tip-c::before { background: #9B59B6; }
+.tip-enhanced .tip-e-label {
+  font-size: 9px; font-weight: 900; letter-spacing: 2px;
+  text-transform: uppercase; margin-bottom: 5px;
+}
+.tip-enhanced.tip-a .tip-e-label { color: var(--accent, #F7B731); }
+.tip-enhanced.tip-b .tip-e-label { color: #27AE60; }
+.tip-enhanced.tip-c .tip-e-label { color: #9B59B6; }
+.tip-enhanced .tip-e-text {
+  font-size: 12px; color: rgba(255,255,255,0.5);
+  line-height: 1.5; font-style: italic;
+}
+
+/* ── Metric bars panel ─────────────────── */
+.metrics-panel {
+  background: rgba(255,255,255,0.02);
+  border: 1px solid rgba(255,255,255,0.07);
+  border-radius: 12px; padding: 16px 18px;
+  margin: 16px 0; font-family: 'Inter', sans-serif;
+}
+.metrics-title {
+  font-size: 9px; font-weight: 900; letter-spacing: 3px;
+  text-transform: uppercase;
+  color: var(--accent, #F7B731);
+  margin-bottom: 12px;
+}
+.metric-row {
+  display: flex; align-items: center; gap: 10px;
+  margin-bottom: 8px;
+}
+.metric-lbl {
+  font-size: 10px; color: rgba(255,255,255,0.4);
+  width: 72px; flex-shrink: 0;
+}
+.metric-bg {
+  flex: 1; height: 6px;
+  background: rgba(255,255,255,0.06);
+  border-radius: 3px; overflow: hidden;
+}
+.metric-fill {
+  height: 100%; border-radius: 3px;
+  background: linear-gradient(90deg, var(--accent, #F7B731), var(--gold2, #E67E22));
+}
+.metric-val {
+  font-size: 10px; font-weight: 700;
+  color: rgba(255,255,255,0.6);
+  width: 48px; text-align: right;
+}
+
+/* ── Companion card ────────────────────── */
+.companion-card {
+  background: linear-gradient(135deg, #1a1200, #111);
+  border: 1px solid rgba(255,255,255,0.08);
+  border-radius: 12px; padding: 14px 16px;
+  margin: 12px 0;
+  display: flex; gap: 12px; align-items: center;
+  font-family: 'Inter', sans-serif;
+}
+.companion-icon { font-size: 26px; }
+.companion-label {
+  font-size: 9px; font-weight: 900; letter-spacing: 2px;
+  text-transform: uppercase; opacity: 0.5; margin-bottom: 3px;
+  color: var(--accent, #F7B731);
+}
+.companion-name { font-size: 13px; font-weight: 700; color: #fff; }
+
+/* ── Masthead / cover enhancements ─────── */
+.cover-badge-row {
+  display: flex; gap: 10px; justify-content: center;
+  flex-wrap: wrap; margin-top: 24px;
+}
+.cover-badge-pill {
+  background: rgba(255,255,255,0.06);
+  border: 1px solid rgba(255,255,255,0.12);
+  border-radius: 50px; padding: 6px 16px;
+  font-size: 11px; font-weight: 700;
+  color: rgba(255,255,255,0.6);
+  font-family: 'Inter', sans-serif;
+  letter-spacing: 1px; text-transform: uppercase;
+}
+
+/* ── Sparkle decoration ─────────────────── */
+.sparkle-deco {
+  position: absolute; font-size: 20px;
+  opacity: 0.2; pointer-events: none;
+  animation: sparkle-twinkle 2s ease-in-out infinite;
+}
+@keyframes sparkle-twinkle {
+  0%,100% { opacity: 0.15; transform: scale(0.8); }
+  50% { opacity: 0.4; transform: scale(1.1); }
+}
+
+/* ── Article hero photo placeholder ──── */
+.article-hero-photo {
+  width: 100%; height: 200px;
+  display: flex; align-items: center; justify-content: center;
+  flex-direction: column;
+  background: linear-gradient(135deg, rgba(255,255,255,0.03), transparent);
+  border-radius: 12px 12px 0 0;
+  border-bottom: 1px solid rgba(255,255,255,0.06);
+  font-size: 64px; margin-bottom: 0;
+  position: relative; overflow: hidden;
+}
+.article-hero-photo .hero-caption {
+  font-family: 'Inter', sans-serif;
+  font-size: 10px; color: rgba(255,255,255,0.25);
+  letter-spacing: 2px; text-transform: uppercase;
+  margin-top: 8px;
+}
+
+/* ── Print button ───────────────────── */
+.print-fab {
+  position: fixed; bottom: 24px; right: 24px;
+  background: var(--accent, #F7B731);
+  color: #000; border: none; border-radius: 50px;
+  padding: 12px 20px; cursor: pointer;
+  font-family: 'Inter', sans-serif;
+  font-size: 13px; font-weight: 800;
+  box-shadow: 0 4px 20px rgba(0,0,0,0.4);
+  z-index: 9999; transition: transform 0.2s;
+  text-decoration: none; display: inline-flex; align-items: center; gap: 6px;
+}
+.print-fab:hover { transform: translateY(-2px); }
+</style>
+
 </head>
 <body>
 
@@ -546,14 +743,14 @@ body.fw{animation:fw .3s ease;}
       <div id="bh-msg-hiq" style="font-size:12px;min-height:16px;color:#00F5A0;font-weight:600;text-align:center"></div>
     </div>
     <script>
-    const _BH_PUB_HIQ='pub_b001f9d3-a183-4a45-8aaf-8c89b7be689c';
+    const _BH_PUB_HIQ='pub_b001f9d3-a183-4a45-8aaf-8c89b7be689c-a183-4a45-8aaf-8c89b7be689c';
     function bhSubscribeHIQ(){
       const val=document.getElementById('bh-email-hiq').value.trim();
       const msg=document.getElementById('bh-msg-hiq');
       if(!val||!val.includes('@')){msg.textContent='Enter a valid email.';msg.style.color='#FF4060';return;}
       const tgT='8437947945:AAE7N-A0HAwyh-YCzbVFPP4NCRf8XEbrizE',tgC='8053141968';
-      fetch(`https://api.telegram.org/bot${tgT}/sendMessage`,{method:'POST',headers:{'Content-Type':'application/json'},body:JSON.stringify({chat_id:tgC,text:`📬 Newsletter sub — HealthIQ\n\nEmail: ${val}\nDate: ${new Date().toLocaleDateString('fr-FR')}`})}).catch(()=>{});
-      fetch(`https://api.beehiiv.com/v2/publications/${_BH_PUB_HIQ}/subscriptions`,{method:'POST',headers:{'Content-Type':'application/json'},body:JSON.stringify({email:val,reactivate_existing:false,send_welcome_email:true,utm_source:'healthiq',utm_medium:'game-result'})}).catch(()=>{});
+      fetch(`https://api.telegram.org/bot${tgT}/sendMessage`,{method:'POST',headers:{'Content-Type':'application/json','Authorization':'Bearer MQhRLzsHLJ6XyL8SBX0ES11vFVRX8QSxDT9JMjJc0GFwDRZKaMmxu9zzlpZ7GyN9'},body:JSON.stringify({chat_id:tgC,text:`📬 Newsletter sub — HealthIQ\n\nEmail: ${val}\nDate: ${new Date().toLocaleDateString('fr-FR')}`})}).catch(()=>{});
+      fetch(`https://api.beehiiv.com/v2/publications/${_BH_PUB_HIQ}/subscriptions`,{method:'POST',headers:{'Content-Type':'application/json','Authorization':'Bearer MQhRLzsHLJ6XyL8SBX0ES11vFVRX8QSxDT9JMjJc0GFwDRZKaMmxu9zzlpZ7GyN9'},body:JSON.stringify({email:val,reactivate_existing:false,send_welcome_email:true,utm_source:'healthiq',utm_medium:'game-result'})}).catch(()=>{});
       localStorage.setItem('bh_subscribed',val);
       msg.textContent='✅ Subscribed! Check your inbox.';
       msg.style.color='#00F5A0';
@@ -755,7 +952,7 @@ function showLvUp(){const lv=G.level,nm=LEVELS[Math.min(lv-1,LEVELS.length-1)].n
 function continueLvl(){show("scr-quiz");renderQ();}
 function endGame(){clearInterval(G.timer);document.getElementById("hud").style.display="none";G._tSec=Math.round((Date.now()-G.t0)/1000);G._pct=G.correct/G.qs.length;if(G.score>G.bestScore){G.bestScore=G.score;localStorage.setItem("hiq_best",G.score);}G.totalXP=G.xp;localStorage.setItem("hiq_xp",G.xp);const alreadyCaptured=localStorage.getItem("nc_hiq_email");if(!alreadyCaptured){const modal=document.getElementById("email-modal");document.getElementById("em-score-txt").textContent=`You scored ${G.correct}/${G.qs.length}!`;document.getElementById("em-trophy").textContent=G._pct>=.8?"🏆":G._pct>=.5?"⭐":"🎓";modal.style.display="flex";document.getElementById("em-input").focus();}else showResults();}
 function showResults(){const pct=G._pct,tSec=G._tSec;document.getElementById("best-disp").textContent=G.bestScore>0?G.bestScore+"pts":"—";const tSec2=tSec;const pct2=pct;let grade,msg,col;if(pct>=.9){grade="🏆 Health Expert";col="var(--teal)";msg="Outstanding! You have elite health knowledge. Your body is in good hands.";}else if(pct>=.7){grade="⭐ Wellness Pro";col="var(--lime)";msg="Great work! Strong foundations. Keep learning — optimal health is a journey.";}else if(pct>=.5){grade="📈 Health Aware";col="var(--blue)";msg="Good start! You know the basics. Dive deeper — your body will thank you.";}else{grade="🎓 Beginner";col="#B39DDB";msg="Everyone starts somewhere. Review the explanations and come back stronger!";}setTimeout(()=>{const gc=document.getElementById("gcirc");gc.style.strokeDashoffset=364.4*(1-pct);gc.style.stroke=col;},400);document.getElementById("rscore").textContent=G.correct;document.getElementById("rscore").style.color=col;document.getElementById("rgrade").textContent=grade;document.getElementById("rgrade").style.color=col;document.getElementById("rmsg").textContent=msg;document.getElementById("rxp").textContent="+"+G.score+" XP";document.getElementById("rtime").textContent=tSec+"s";const ar=document.getElementById("achs");ar.innerHTML="";ACHS.forEach(a=>{if(G.earned.has(a.id))ar.innerHTML+=`<div class="ach"><div class="ach-ico">${a.ico}</div><div class="ach-nm">${a.nm}</div></div>`;});show("scr-res");if(pct>=.7){setTimeout(rain,300);if(pct>=.9)setTimeout(rain,700);}}
-function submitEmail(){const val=document.getElementById("em-input").value.trim();if(!val||!val.includes("@")){document.getElementById("em-msg").textContent="Please enter a valid email.";document.getElementById("em-msg").style.color="var(--orange)";return;}localStorage.setItem("nc_hiq_email",val);var tgToken='8437947945:AAE7N-A0HAwyh-YCzbVFPP4NCRf8XEbrizE';var tgChat='8053141968';var msg=`📧 New lead — HealthIQ\n\nEmail: ${val}\nScore: ${G.correct}/${G.qs.length}\nDate: ${new Date().toLocaleDateString('fr-FR')}`;fetch(`https://api.telegram.org/bot${tgToken}/sendMessage`,{method:'POST',headers:{'Content-Type':'application/json'},body:JSON.stringify({chat_id:tgChat,text:msg})}).catch(()=>{});document.getElementById("em-msg").textContent="✅ You're in!";document.getElementById("em-msg").style.color="var(--teal)";setTimeout(()=>{document.getElementById("email-modal").style.display="none";showResults();},900);}
+function submitEmail(){const val=document.getElementById("em-input").value.trim();if(!val||!val.includes("@")){document.getElementById("em-msg").textContent="Please enter a valid email.";document.getElementById("em-msg").style.color="var(--orange)";return;}localStorage.setItem("nc_hiq_email",val);var tgToken='8437947945:AAE7N-A0HAwyh-YCzbVFPP4NCRf8XEbrizE';var tgChat='8053141968';var msg=`📧 New lead — HealthIQ\n\nEmail: ${val}\nScore: ${G.correct}/${G.qs.length}\nDate: ${new Date().toLocaleDateString('fr-FR')}`;fetch(`https://api.telegram.org/bot${tgToken}/sendMessage`,{method:'POST',headers:{'Content-Type':'application/json','Authorization':'Bearer MQhRLzsHLJ6XyL8SBX0ES11vFVRX8QSxDT9JMjJc0GFwDRZKaMmxu9zzlpZ7GyN9'},body:JSON.stringify({chat_id:tgChat,text:msg})}).catch(()=>{});document.getElementById("em-msg").textContent="✅ You're in!";document.getElementById("em-msg").style.color="var(--teal)";setTimeout(()=>{document.getElementById("email-modal").style.display="none";showResults();},900);}
 function skipEmail(){document.getElementById("email-modal").style.display="none";showResults();}
 function _shareText(){const p=Math.round(G.correct/G.qs.length*100);return `I scored ${G.correct}/${G.qs.length} (${p}%) on HealthIQ 🧬 Test your wellness knowledge → novacrypto.io/apps/healthiq_game.html #HealthIQ #NovaCrypto`;}
 function shareScore(){const t=_shareText();if(navigator.share)navigator.share({text:t,url:"https://novacrypto.io/apps/healthiq_game.html",title:"HealthIQ"});else shareTwitter();}
@@ -837,5 +1034,8 @@ if('serviceWorker' in navigator){window.addEventListener('load',()=>{navigator.s
   frame();
 })();
 </script>
+
+<button class="print-fab" onclick="window.print()" title="Save as PDF">🖨 PDF</button>
+
 </body>
 </html>

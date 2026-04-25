@@ -261,6 +261,205 @@ main{position:relative;z-index:10;min-height:100vh;padding:68px 16px 40px;displa
 .sp-dot{width:6px;height:6px;border-radius:50%;background:rgba(255,255,255,.12);transition:background .3s;}
 .sp-dot.on{background:var(--sky);}
 </style>
+<!-- Umami Analytics — sign up free at cloud.umami.is → add website → paste Website ID below -->
+<script defer src="https://cloud.umami.is/script.js" data-website-id="REPLACE_WITH_UMAMI_WEBSITE_ID"></script>
+
+<style id="visual-upgrade-v2">
+/* ══════════════════════════════════════════
+   VISUAL UPGRADE — Nestlé-inspired system
+   Applied by upgrade_to_visual_style.py
+   ══════════════════════════════════════════ */
+@import url('https://fonts.googleapis.com/css2?family=Playfair+Display:ital,wght@0,700;0,900;1,700&family=Inter:wght@400;600;700;800;900&display=swap');
+
+/* ── Photo placeholder ─────────────────── */
+.photo-hero-placeholder,
+.art-photo-placeholder,
+.chapter-photo-placeholder {
+  width: 100%; height: 220px;
+  display: flex; align-items: center; justify-content: center;
+  flex-direction: column; gap: 10px;
+  background: rgba(255,255,255,0.03);
+  border: 2px dashed rgba(255,255,255,0.1);
+  border-radius: 12px;
+  margin-bottom: 24px;
+  font-size: 48px;
+  color: rgba(255,255,255,0.2);
+}
+.photo-hero-placeholder span,
+.art-photo-placeholder span,
+.chapter-photo-placeholder span {
+  font-size: 11px; letter-spacing: 2px; text-transform: uppercase;
+  font-family: 'Inter', sans-serif;
+}
+
+/* ── Enhanced cards ────────────────────── */
+.article-card,
+.art-card,
+.chapter,
+.price-card {
+  box-shadow: 0 8px 32px rgba(0,0,0,0.3) !important;
+  transition: transform 0.2s, box-shadow 0.2s !important;
+}
+.article-card:hover,
+.art-card:hover,
+.price-card:hover {
+  transform: translateY(-3px) !important;
+  box-shadow: 0 16px 48px rgba(0,0,0,0.4) !important;
+}
+
+/* ── Smart tag pills ───────────────────── */
+.smart-pills {
+  display: flex; gap: 8px; flex-wrap: wrap; margin: 12px 0;
+}
+.smart-pill {
+  background: rgba(255,255,255,0.06);
+  border: 1px solid rgba(255,255,255,0.12);
+  border-radius: 50px; padding: 4px 12px;
+  font-size: 10px; font-weight: 700;
+  color: rgba(255,255,255,0.6);
+  font-family: 'Inter', sans-serif;
+  letter-spacing: 1px; text-transform: uppercase;
+}
+
+/* ── Tip cards (3-type system) ─────────── */
+.tip-enhanced {
+  border-radius: 10px; padding: 12px 14px;
+  margin: 10px 0; position: relative; overflow: hidden;
+  background: rgba(255,255,255,0.03);
+  font-family: 'Inter', sans-serif;
+}
+.tip-enhanced::before {
+  content: ''; position: absolute;
+  left: 0; top: 0; bottom: 0;
+  width: 3px; border-radius: 3px 0 0 3px;
+}
+.tip-enhanced.tip-a::before { background: var(--accent, #F7B731); }
+.tip-enhanced.tip-b::before { background: #27AE60; }
+.tip-enhanced.tip-c::before { background: #9B59B6; }
+.tip-enhanced .tip-e-label {
+  font-size: 9px; font-weight: 900; letter-spacing: 2px;
+  text-transform: uppercase; margin-bottom: 5px;
+}
+.tip-enhanced.tip-a .tip-e-label { color: var(--accent, #F7B731); }
+.tip-enhanced.tip-b .tip-e-label { color: #27AE60; }
+.tip-enhanced.tip-c .tip-e-label { color: #9B59B6; }
+.tip-enhanced .tip-e-text {
+  font-size: 12px; color: rgba(255,255,255,0.5);
+  line-height: 1.5; font-style: italic;
+}
+
+/* ── Metric bars panel ─────────────────── */
+.metrics-panel {
+  background: rgba(255,255,255,0.02);
+  border: 1px solid rgba(255,255,255,0.07);
+  border-radius: 12px; padding: 16px 18px;
+  margin: 16px 0; font-family: 'Inter', sans-serif;
+}
+.metrics-title {
+  font-size: 9px; font-weight: 900; letter-spacing: 3px;
+  text-transform: uppercase;
+  color: var(--accent, #F7B731);
+  margin-bottom: 12px;
+}
+.metric-row {
+  display: flex; align-items: center; gap: 10px;
+  margin-bottom: 8px;
+}
+.metric-lbl {
+  font-size: 10px; color: rgba(255,255,255,0.4);
+  width: 72px; flex-shrink: 0;
+}
+.metric-bg {
+  flex: 1; height: 6px;
+  background: rgba(255,255,255,0.06);
+  border-radius: 3px; overflow: hidden;
+}
+.metric-fill {
+  height: 100%; border-radius: 3px;
+  background: linear-gradient(90deg, var(--accent, #F7B731), var(--gold2, #E67E22));
+}
+.metric-val {
+  font-size: 10px; font-weight: 700;
+  color: rgba(255,255,255,0.6);
+  width: 48px; text-align: right;
+}
+
+/* ── Companion card ────────────────────── */
+.companion-card {
+  background: linear-gradient(135deg, #1a1200, #111);
+  border: 1px solid rgba(255,255,255,0.08);
+  border-radius: 12px; padding: 14px 16px;
+  margin: 12px 0;
+  display: flex; gap: 12px; align-items: center;
+  font-family: 'Inter', sans-serif;
+}
+.companion-icon { font-size: 26px; }
+.companion-label {
+  font-size: 9px; font-weight: 900; letter-spacing: 2px;
+  text-transform: uppercase; opacity: 0.5; margin-bottom: 3px;
+  color: var(--accent, #F7B731);
+}
+.companion-name { font-size: 13px; font-weight: 700; color: #fff; }
+
+/* ── Masthead / cover enhancements ─────── */
+.cover-badge-row {
+  display: flex; gap: 10px; justify-content: center;
+  flex-wrap: wrap; margin-top: 24px;
+}
+.cover-badge-pill {
+  background: rgba(255,255,255,0.06);
+  border: 1px solid rgba(255,255,255,0.12);
+  border-radius: 50px; padding: 6px 16px;
+  font-size: 11px; font-weight: 700;
+  color: rgba(255,255,255,0.6);
+  font-family: 'Inter', sans-serif;
+  letter-spacing: 1px; text-transform: uppercase;
+}
+
+/* ── Sparkle decoration ─────────────────── */
+.sparkle-deco {
+  position: absolute; font-size: 20px;
+  opacity: 0.2; pointer-events: none;
+  animation: sparkle-twinkle 2s ease-in-out infinite;
+}
+@keyframes sparkle-twinkle {
+  0%,100% { opacity: 0.15; transform: scale(0.8); }
+  50% { opacity: 0.4; transform: scale(1.1); }
+}
+
+/* ── Article hero photo placeholder ──── */
+.article-hero-photo {
+  width: 100%; height: 200px;
+  display: flex; align-items: center; justify-content: center;
+  flex-direction: column;
+  background: linear-gradient(135deg, rgba(255,255,255,0.03), transparent);
+  border-radius: 12px 12px 0 0;
+  border-bottom: 1px solid rgba(255,255,255,0.06);
+  font-size: 64px; margin-bottom: 0;
+  position: relative; overflow: hidden;
+}
+.article-hero-photo .hero-caption {
+  font-family: 'Inter', sans-serif;
+  font-size: 10px; color: rgba(255,255,255,0.25);
+  letter-spacing: 2px; text-transform: uppercase;
+  margin-top: 8px;
+}
+
+/* ── Print button ───────────────────── */
+.print-fab {
+  position: fixed; bottom: 24px; right: 24px;
+  background: var(--accent, #F7B731);
+  color: #000; border: none; border-radius: 50px;
+  padding: 12px 20px; cursor: pointer;
+  font-family: 'Inter', sans-serif;
+  font-size: 13px; font-weight: 800;
+  box-shadow: 0 4px 20px rgba(0,0,0,0.4);
+  z-index: 9999; transition: transform 0.2s;
+  text-decoration: none; display: inline-flex; align-items: center; gap: 6px;
+}
+.print-fab:hover { transform: translateY(-2px); }
+</style>
+
 </head>
 <body>
 
@@ -400,36 +599,45 @@ main{position:relative;z-index:10;min-height:100vh;padding:68px 16px 40px;displa
       <div id="bh-sr-msg" style="font-size:12px;color:#84CC16;margin-top:10px;display:none">✅ Welcome to SkyRider Weekly!</div>
     </div>
     <script>
-    const _BH_PUB_SR='pub_b001f9d3-a183-4a45-8aaf-8c89b7be689c';
+    const _BH_PUB_SR='pub_b001f9d3-a183-4a45-8aaf-8c89b7be689c-a183-4a45-8aaf-8c89b7be689c';
     const _TG_SR_TOKEN='8437947945:AAE7N-A0HAwyh-YCzbVFPP4NCRf8XEbrizE';
     const _TG_SR_CHAT='@NovaCryptoAlerts';
     function bhSubscribeSR(){
       const em=document.getElementById('bh-email-sr').value.trim();
       if(!em||!em.includes('@'))return;
       if(localStorage.getItem('bh_sr_sub')){document.getElementById('bh-sr-msg').style.display='block';return;}
-      fetch('https://api.beehiiv.com/v2/publications/'+_BH_PUB_SR+'/subscriptions',{method:'POST',headers:{'Content-Type':'application/json'},body:JSON.stringify({email:em,reactivate_existing:false,send_welcome_email:true,utm_source:'skyrider-game',utm_medium:'result-screen'})}).catch(()=>{});
-      fetch('https://api.telegram.org/bot'+_TG_SR_TOKEN+'/sendMessage',{method:'POST',headers:{'Content-Type':'application/json'},body:JSON.stringify({chat_id:_TG_SR_CHAT,text:'🪂 SkyRider sub: '+em})}).catch(()=>{});
+      fetch('https://api.beehiiv.com/v2/publications/'+_BH_PUB_SR+'/subscriptions',{method:'POST',headers:{'Content-Type':'application/json','Authorization':'Bearer MQhRLzsHLJ6XyL8SBX0ES11vFVRX8QSxDT9JMjJc0GFwDRZKaMmxu9zzlpZ7GyN9'},body:JSON.stringify({email:em,reactivate_existing:false,send_welcome_email:true,utm_source:'skyrider-game',utm_medium:'result-screen'})}).catch(()=>{});
+      fetch('https://api.telegram.org/bot'+_TG_SR_TOKEN+'/sendMessage',{method:'POST',headers:{'Content-Type':'application/json','Authorization':'Bearer MQhRLzsHLJ6XyL8SBX0ES11vFVRX8QSxDT9JMjJc0GFwDRZKaMmxu9zzlpZ7GyN9'},body:JSON.stringify({chat_id:_TG_SR_CHAT,text:'🪂 SkyRider sub: '+em})}).catch(()=>{});
       localStorage.setItem('bh_sr_sub','1');
       document.getElementById('bh-sr-msg').style.display='block';
       document.getElementById('bh-email-sr').value='';
     }
     </script>
+    <div style="margin:16px 0;padding:20px;background:linear-gradient(135deg,rgba(247,183,49,.07),rgba(255,149,0,.04));border:1px solid rgba(247,183,49,.25);border-radius:16px;text-align:center;">
+      <div style="font-size:10px;text-transform:uppercase;letter-spacing:2px;color:rgba(247,183,49,.65);margin-bottom:8px">📚 NovaCrypto Books</div>
+      <div style="font-size:15px;font-weight:800;color:#fff;margin-bottom:4px">The AI Money Guide 2026</div>
+      <div style="font-size:12px;color:rgba(255,255,255,.5);margin-bottom:14px">Build real income with AI — fund your next jump. €17</div>
+      <a href="https://novacrypto.gumroad.com" target="_blank" rel="noopener"
+         style="display:inline-block;background:linear-gradient(135deg,#F7B731,#FF9500);color:#000;font-weight:800;font-size:13px;padding:10px 24px;border-radius:10px;text-decoration:none;">
+        Get the Book →
+      </a>
+    </div>
     <div class="partners-section">
       <div class="partners-title">— Gear Partners —</div>
       <div class="partner-cards">
         <a class="pc" href="https://www.ozone-wings.com/?utm_source=skyrider&utm_medium=game&utm_campaign=novacrypto" target="_blank" rel="noopener" onclick="trackPartner('ozone')">
           <div class="pc-inner"><div class="pc-ico ozone">🪂</div><div class="pc-info"><div class="pc-name">Ozone Paragliders & Kites</div><div class="pc-desc">World's leading paragliding & kite brand. EN-A to competition wings. Ships worldwide.</div></div><div class="pc-pill">Shop Ozone →</div></div><div class="pc-glow"></div>
         </a>
-        <a class="pc" href="https://www.awin1.com/cread.php?awinmid=6220&awinaffid=AWIN_ID&ued=https%3A%2F%2Fwww.blue-tomato.com%2Fen-fr%2Fsports%2Fkitesurf%2F%3Futm_source%3Dskyrider%26utm_medium%3Dgame%26utm_campaign%3Dnovacrypto" target="_blank" rel="noopener" onclick="trackPartner('bluetomato')">
+        <a class="pc" href="https://www.blue-tomato.com" target="_blank" rel="noopener" onclick="trackPartner('bluetomato')">
           <div class="pc-inner"><div class="pc-ico kite">🪁</div><div class="pc-info"><div class="pc-name">Blue Tomato — Kite & Surf</div><div class="pc-desc">Europe's #1 board sports retailer. Kites, boards, harnesses & accessories.</div></div><div class="pc-pill">Shop Now →</div></div><div class="pc-glow"></div>
         </a>
-        <a class="pc" href="https://www.awin1.com/cread.php?awinmid=1854&awinaffid=AWIN_ID&ued=https%3A%2F%2Fwww.decathlon.com%2Fcollections%2Fparagliding%3Futm_source%3Dskyrider%26utm_medium%3Dgame%26utm_campaign%3Dnovacrypto" target="_blank" rel="noopener" onclick="trackPartner('decathlon')">
+        <a class="pc" href="https://www.decathlon.com" target="_blank" rel="noopener" onclick="trackPartner('decathlon')">
           <div class="pc-inner"><div class="pc-ico gear">🏔️</div><div class="pc-info"><div class="pc-name">Decathlon — Outdoor Gear</div><div class="pc-desc">Best value paragliding & kite gear. Sirocco wings from €1,200. Beginner-friendly.</div></div><div class="pc-pill">View Gear →</div></div><div class="pc-glow"></div>
         </a>
-        <a class="pc" href="https://www.ikokiteboarding.com/find-a-school?utm_source=skyrider&utm_medium=game&utm_campaign=novacrypto" target="_blank" rel="noopener" onclick="trackPartner('kiteschool')">
-          <div class="pc-inner"><div class="pc-ico school">🌊</div><div class="pc-info"><div class="pc-name">IKO — Find a Kite School</div><div class="pc-desc">Official IKO certified kite instructors worldwide. Find your nearest school and book today.</div></div><div class="pc-pill">Book Lessons →</div></div><div class="pc-glow"></div>
+        <a class="pc" href="https://www.kitesurf.school" target="_blank" rel="noopener" onclick="trackPartner('kiteschool')">
+          <div class="pc-inner"><div class="pc-ico school">🌊</div><div class="pc-info"><div class="pc-name">IKO Kitesurf Schools</div><div class="pc-desc">Find certified kite instructors near you. Beginner to advanced. Book lessons today.</div></div><div class="pc-pill">Book Lessons →</div></div><div class="pc-glow"></div>
         </a>
-        <a class="pc" href="https://www.getyourguide.com/s/?q=skydiving+paragliding&partner_id=GYG_PARTNER_ID&utm_source=skyrider&utm_medium=game&utm_campaign=novacrypto" target="_blank" rel="noopener" onclick="trackPartner('getyourguide')">
+        <a class="pc" href="https://www.getyourguide.com/s/?q=skydiving+paragliding&utm_source=skyrider&utm_medium=game&utm_campaign=novacrypto" target="_blank" rel="noopener" onclick="trackPartner('getyourguide')">
           <div class="pc-inner"><div class="pc-ico jump" style="background:linear-gradient(135deg,#ff6b35,#f7c59f)">🎫</div><div class="pc-info"><div class="pc-name">GetYourGuide — Book a Jump</div><div class="pc-desc">Thousands of tandem jumps & paragliding experiences worldwide. Instant booking. Free cancellation.</div></div><div class="pc-pill">Book Now →</div></div><div class="pc-glow"></div>
         </a>
       </div>
@@ -498,9 +706,9 @@ const ACHS=[
 ];
 const SPONSORS=[
   {txt:"Ozone — Official Partner",ico:"🪂",nm:"Ozone Paragliders",tg:"Official SkyRider Partner",hl:"Your knowledge is ready. Is your gear?",sb:"World's most trusted paragliders and kites. EN-A to competition level. Ships to 80+ countries.",bdg:"✅ Official SkyRider partner",cta:"Browse Ozone Gear →",url:"https://www.ozone-wings.com/?utm_source=skyrider&utm_medium=popup&utm_campaign=novacrypto"},
-  {txt:"Blue Tomato — Kite & Surf",ico:"🪁",nm:"Blue Tomato",tg:"Gear Partner",hl:"Europe's #1 board sports store.",sb:"Kites, boards, harnesses, wetsuits. Free shipping over €75. 30-day returns.",bdg:"🛒 30,000+ products",cta:"Shop Blue Tomato →",url:"https://www.awin1.com/cread.php?awinmid=6220&awinaffid=AWIN_ID&ued=https%3A%2F%2Fwww.blue-tomato.com%2Fen-fr%2Fsports%2Fkitesurf%2F%3Futm_source%3Dskyrider%26utm_medium%3Dgame%26utm_campaign%3Dnovacrypto"},
-  {txt:"Decathlon — Beginner gear",ico:"🏔️",nm:"Decathlon Outdoor",tg:"Beginner Partner",hl:"Start your journey without breaking the bank.",sb:"Complete paragliding & kite sets from €299. Sirocco EN-A from €1,200. Best value guaranteed.",bdg:"💶 Best beginner prices",cta:"View Decathlon Gear →",url:"https://www.awin1.com/cread.php?awinmid=1854&awinaffid=AWIN_ID&ued=https%3A%2F%2Fwww.decathlon.com%2Fcollections%2Fparagliding%3Futm_source%3Dskyrider%26utm_medium%3Dgame%26utm_campaign%3Dnovacrypto"},
-  {txt:"GetYourGuide — Book AFF",ico:"🎫",nm:"GetYourGuide Skydiving",tg:"Booking Partner",hl:"Book your first jump. 8% commission per booking.",sb:"Thousands of skydiving & paragliding experiences worldwide. Instant booking. Free cancellation.",bdg:"🎫 Instant booking",cta:"Book a Jump →",url:"https://www.getyourguide.com/s/?q=skydiving+paragliding&partner_id=GYG_PARTNER_ID&utm_source=skyrider&utm_medium=game&utm_campaign=novacrypto"},
+  {txt:"Blue Tomato — Kite & Surf",ico:"🪁",nm:"Blue Tomato",tg:"Gear Partner",hl:"Europe's #1 board sports store.",sb:"Kites, boards, harnesses, wetsuits. Free shipping over €75. 30-day returns.",bdg:"🛒 30,000+ products",cta:"Shop Blue Tomato →",url:"https://www.blue-tomato.com/?utm_source=skyrider&utm_medium=game&utm_campaign=novacrypto"},
+  {txt:"Decathlon — Beginner gear",ico:"🏔️",nm:"Decathlon Outdoor",tg:"Beginner Partner",hl:"Start your journey without breaking the bank.",sb:"Complete paragliding & kite sets from €299. Sirocco EN-A from €1,200. Best value guaranteed.",bdg:"💶 Best beginner prices",cta:"View Decathlon Gear →",url:"https://www.decathlon.com/?utm_source=skyrider&utm_medium=game&utm_campaign=novacrypto"},
+  {txt:"GetYourGuide — Book AFF",ico:"🎫",nm:"GetYourGuide Skydiving",tg:"Booking Partner",hl:"Book your first jump. 8% commission per booking.",sb:"Thousands of skydiving & paragliding experiences worldwide. Instant booking. Free cancellation.",bdg:"🎫 Instant booking",cta:"Book a Jump →",url:"https://www.getyourguide.com/s/?q=skydiving&utm_source=skyrider&utm_medium=game&utm_campaign=novacrypto"},
   {txt:"Skydive Empuriabrava — Jump",ico:"✈️",nm:"Skydive Empuriabrava",tg:"Skydiving Partner",hl:"Europe's largest dropzone. Your first jump awaits.",sb:"Located in Costa Brava, Spain. AFF courses, tandem jumps, tunnel adjacent. Best weather in Europe.",bdg:"🪂 Largest DZ in Europe",cta:"Book Your AFF →",url:"https://www.skydiveempuriabrava.com/?utm_source=skyrider&utm_medium=game&utm_campaign=novacrypto"},
   {txt:"iFly — Indoor Skydiving",ico:"💨",nm:"iFly Indoor Skydiving",tg:"Wind Tunnel Partner",hl:"Learn to fly before you jump.",sb:"80+ wind tunnel locations worldwide. 1h tunnel = 20 skydives of body skill. Perfect for AFF preparation.",bdg:"💨 80+ locations worldwide",cta:"Find a Tunnel →",url:"https://www.ifly.com/?utm_source=skyrider&utm_medium=game&utm_campaign=novacrypto"},
 ];
@@ -591,5 +799,8 @@ let pv=4831;setInterval(()=>{pv+=Math.floor(Math.random()*3);document.getElement
   frame();
 })();
 </script>
+
+<button class="print-fab" onclick="window.print()" title="Save as PDF">🖨 PDF</button>
+
 </body>
 </html>
