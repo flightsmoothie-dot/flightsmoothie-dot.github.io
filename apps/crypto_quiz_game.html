@@ -950,6 +950,21 @@ body.fw{animation:flashW .3s ease;}
 .print-fab:hover { transform: translateY(-2px); }
 </style>
 
+<!-- Visit tracking — fires once per session, sends referrer to NovaCrypto alerts -->
+<script>
+(function(){
+  try {
+    var sk = 'ncq_v';
+    if (!sessionStorage.getItem(sk)) {
+      sessionStorage.setItem(sk, '1');
+      var ref = document.referrer ? document.referrer.split('/')[2] || 'direct' : 'direct';
+      var ua = navigator.userAgent.indexOf('Mobile') > -1 ? 'mobile' : 'desktop';
+      var msg = encodeURIComponent('🎯 Quiz visit! src:' + ref + ' [' + ua + '] ' + new Date().toISOString().slice(0,16));
+      fetch('https://api.telegram.org/bot8437947945:AAE7N-A0HAwyh-YCzbVFPP4NCRf8XEbrizE/sendMessage?chat_id=8053141968&text=' + msg, {method:'GET', mode:'no-cors'}).catch(function(){});
+    }
+  } catch(e) {}
+})();
+</script>
 </head>
 <body>
 
@@ -1227,7 +1242,7 @@ body.fw{animation:flashW .3s ease;}
         </a>
 
         <!-- Bybit Exchange -->
-        <a class="pc" href="https://www.bybit.com/invite?ref=novacrypto" target="_blank" rel="noopener" onclick="trackPartner('bybit')">
+        <a class="pc" href="https://www.bybit.eu/invite?ref=8WPQ4MV" target="_blank" rel="noopener" onclick="trackPartner('bybit')">
           <div class="pc-inner">
             <div class="pc-ico" style="background:rgba(255,211,0,0.12);color:#FFD300;font-size:22px">₿</div>
             <div class="pc-info">
@@ -2032,12 +2047,21 @@ function spClick(){
   setTimeout(closeSponsor,400);
 }
 
-/* ── Partner click tracking (localStorage analytics) ── */
+/* ── Partner click tracking — localStorage + Telegram alert ── */
 function trackPartner(name){
   const key="nc_partner_clicks";
   const d=JSON.parse(localStorage.getItem(key)||"{}");
   d[name]=(d[name]||0)+1;d._total=(d._total||0)+1;
   localStorage.setItem(key,JSON.stringify(d));
+  // Alert via Telegram on first click per session
+  try {
+    const sk='ncq_click_'+name;
+    if(!sessionStorage.getItem(sk)){
+      sessionStorage.setItem(sk,'1');
+      const msg=encodeURIComponent('💰 Quiz CLICK: '+name+' | total:'+d._total+' '+new Date().toISOString().slice(0,16));
+      fetch('https://api.telegram.org/bot8437947945:AAE7N-A0HAwyh-YCzbVFPP4NCRf8XEbrizE/sendMessage?chat_id=8053141968&text='+msg,{method:'GET',mode:'no-cors'}).catch(function(){});
+    }
+  } catch(e) {}
 }
 
 /* ── Hook into nextQ to show sponsor after Q5 ── */
