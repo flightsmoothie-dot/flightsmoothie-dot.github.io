@@ -1,0 +1,127 @@
+<?xml version="1.0" encoding="UTF-8"?>
+<urlset xmlns="http://www.sitemaps.org/schemas/sitemap/0.9"
+        xmlns:image="http://www.google.com/schemas/sitemap-image/1.1">
+
+  <!-- Games Hub -->
+  <url>
+    <loc>https://flightsmoothie-dot.github.io/apps/</loc>
+    <lastmod>2026-04-20</lastmod>
+    <changefreq>weekly</changefreq>
+    <priority>1.0</priority>
+    <image:image>
+      <image:loc>https://flightsmoothie-dot.github.io/assets/og/novacrypto-hub-og.png</image:loc>
+      <image:title>NovaCrypto Games — Free Quiz Games Hub</image:title>
+    </image:image>
+  </url>
+
+  <!-- CryptoQuiz -->
+  <url>
+    <loc>https://flightsmoothie-dot.github.io/apps/crypto_quiz_game.html</loc>
+    <lastmod>2026-04-20</lastmod>
+    <changefreq>weekly</changefreq>
+    <priority>0.9</priority>
+    <image:image>
+      <image:loc>https://flightsmoothie-dot.github.io/assets/og/cryptoquiz-og.png</image:loc>
+      <image:title>CryptoQuiz — Free Bitcoin & DeFi Knowledge Test</image:title>
+    </image:image>
+  </url>
+
+  <!-- HealthIQ -->
+  <url>
+    <loc>https://flightsmoothie-dot.github.io/apps/healthiq_game.html</loc>
+    <lastmod>2026-04-20</lastmod>
+    <changefreq>weekly</changefreq>
+    <priority>0.9</priority>
+    <image:image>
+      <image:loc>https://flightsmoothie-dot.github.io/assets/og/healthiq-og.png</image:loc>
+      <image:title>HealthIQ — Free Health & Nutrition Quiz</image:title>
+    </image:image>
+  </url>
+
+  <!-- ZenMind -->
+  <url>
+    <loc>https://flightsmoothie-dot.github.io/apps/zenmind_game.html</loc>
+    <lastmod>2026-04-20</lastmod>
+    <changefreq>weekly</changefreq>
+    <priority>0.9</priority>
+    <image:image>
+      <image:loc>https://flightsmoothie-dot.github.io/assets/og/zenmind-og.png</image:loc>
+      <image:title>ZenMind — Free Mindfulness & Meditation Quiz</image:title>
+    </image:image>
+  </url>
+
+  <!-- SkyRider -->
+  <url>
+    <loc>https://flightsmoothie-dot.github.io/apps/skyrider_game.html</loc>
+    <lastmod>2026-04-20</lastmod>
+    <changefreq>weekly</changefreq>
+    <priority>0.9</priority>
+    <image:image>
+      <image:loc>https://flightsmoothie-dot.github.io/assets/og/skyrider-og.png</image:loc>
+      <image:title>SkyRider — Free Extreme Sports Quiz</image:title>
+    </image:image>
+  </url>
+
+  <!-- Magazines -->
+  <url>
+    <loc>https://flightsmoothie-dot.github.io/media/magazine/healthiq-magazine-001.html</loc>
+    <lastmod>2026-04-20</lastmod>
+    <changefreq>monthly</changefreq>
+    <priority>0.8</priority>
+  </url>
+
+  <url>
+    <loc>https://flightsmoothie-dot.github.io/media/magazine/zenmind-magazine-001.html</loc>
+    <lastmod>2026-04-20</lastmod>
+    <changefreq>monthly</changefreq>
+    <priority>0.8</priority>
+  </url>
+
+  <url>
+    <loc>https://flightsmoothie-dot.github.io/media/magazine/skyrider-magazine-001.html</loc>
+    <lastmod>2026-04-20</lastmod>
+    <changefreq>monthly</changefreq>
+    <priority>0.8</priority>
+  </url>
+
+  <!-- SkyWave (renamed from SkyRider) -->
+  <url>
+    <loc>https://flightsmoothie-dot.github.io/apps/skywave_game.html</loc>
+    <lastmod>2026-04-25</lastmod>
+    <changefreq>weekly</changefreq>
+    <priority>0.9</priority>
+  </url>
+
+  <!-- Gumroad Products (indexed via canonical links) -->
+  <url>
+    <loc>https://novacrypto.gumroad.com/l/tlfluc</loc>
+    <lastmod>2026-04-25</lastmod>
+    <changefreq>monthly</changefreq>
+    <priority>0.85</priority>
+  </url>
+  <url>
+    <loc>https://novacrypto.gumroad.com/l/dyymu</loc>
+    <lastmod>2026-04-25</lastmod>
+    <changefreq>monthly</changefreq>
+    <priority>0.85</priority>
+  </url>
+  <url>
+    <loc>https://novacrypto.gumroad.com/l/rxyrri</loc>
+    <lastmod>2026-04-25</lastmod>
+    <changefreq>monthly</changefreq>
+    <priority>0.8</priority>
+  </url>
+  <url>
+    <loc>https://novacrypto.gumroad.com/l/qeqngy</loc>
+    <lastmod>2026-04-25</lastmod>
+    <changefreq>monthly</changefreq>
+    <priority>0.8</priority>
+  </url>
+  <url>
+    <loc>https://novacrypto.gumroad.com/l/oqlqd</loc>
+    <lastmod>2026-04-25</lastmod>
+    <changefreq>monthly</changefreq>
+    <priority>0.9</priority>
+  </url>
+
+</urlset>
